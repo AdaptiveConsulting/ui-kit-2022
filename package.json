@@ -47,7 +47,7 @@
     "vite": "^3.1.0"
   },
   "lint-staged": {
-    "*.{jsx,js,ts,tsx}": "npm run lint:fix",
-    "*.{js,jsx,ts,tsx,css,md,json}": "npm run lint:format"
+    "*.{jsx,js,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,css,md,json}": "prettier --cache --write"
   }
 }
