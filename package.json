@@ -27,9 +27,10 @@
     "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.10.6"
+    
   },
   "peerDependencies": {
+    "@mui/icons-material": "^5.10.6",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.6",
@@ -37,6 +38,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@mui/icons-material": "^5.10.6",
     "@mui/types": "^7.2.0",
     "@babel/core": "^7.19.1",
     "@emotion/react": "^11.10.4",
