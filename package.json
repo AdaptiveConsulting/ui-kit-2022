@@ -12,7 +12,8 @@
     "lint": "npm run lint:format && npm run lint:fix ",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook"
+    "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@mui/icons-material": "^5.10.6"
@@ -50,10 +51,16 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-simple-import-sort": "^8.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
+  },
+  "lint-staged": {
+    "*.{jsx,js,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,css,md,json}": "prettier --cache --write"
   }
 }
