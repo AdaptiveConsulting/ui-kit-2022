@@ -1,5 +1,5 @@
 # UI kit 2022 for Adaptive
 
-## Setup
+## Project Setup
 ### Enable pre-commit check
 - Run the command `npm run prepare`
