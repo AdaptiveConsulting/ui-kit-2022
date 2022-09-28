@@ -14,8 +14,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.10.6",
-    "@mui/types": "^7.2.0"
+    "@mui/icons-material": "^5.10.6"
   },
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
@@ -25,6 +24,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@mui/types": "^7.2.0",
     "@babel/core": "^7.19.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
