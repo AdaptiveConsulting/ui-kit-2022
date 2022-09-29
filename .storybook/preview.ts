@@ -1,3 +1,5 @@
+import { themes } from '@storybook/theming';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -22,5 +24,11 @@ export const parameters = {
         value: '#FFFFFF',
       },
     ],
+  },
+  darkMode: {
+    // Override the default dark theme
+    dark: { ...themes.dark, appBg: '#323232' },
+    // Override the default light theme
+    light: { ...themes.normal, appBg: '#FFFFFF' },
   },
 };
