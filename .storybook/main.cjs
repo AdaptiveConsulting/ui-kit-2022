@@ -18,4 +18,8 @@ module.exports = {
   features: {
     storyStoreV7: true,
   },
+  async viteFinal(config, { configType }) {
+    config.base = process.env.BASE_PATH || config.base;
+    return config;
+  }
 };

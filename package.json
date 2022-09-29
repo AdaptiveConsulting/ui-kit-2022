@@ -3,22 +3,48 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/ui-kit-2022.umd.cjs",
+  "module": "./dist/ui-kit-2022.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ui-kit-2022.js",
+      "require": "./dist/ui-kit-2022.umd.cjs"
+    }
+  },
+  "typings": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "dev": "npm run check-types && vite build --watch",
+    "build": "vite build && npm run build-types",
+    "preview": "npm run storybook",
+    "check-types": "tsc --noEmit",
+    "build-types": "tsc --declaration --emitDeclarationOnly",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
     "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint": "npm run lint:format && npm run lint:fix ",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
+    "prepare": "husky install"
   },
   "dependencies": {
+    
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.6",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@mui/icons-material": "^5.10.6",
+    "@mui/types": "^7.2.0",
     "@babel/core": "^7.19.1",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.6",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
@@ -31,6 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",
+    "babel-loader": "^8.2.5",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -38,9 +65,16 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-simple-import-sort": "^8.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "babel-loader": "^8.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
+  },
+  "lint-staged": {
+    "*.{jsx,js,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,css,md,json}": "prettier --cache --write"
   }
 }
