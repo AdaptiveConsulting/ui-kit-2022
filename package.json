@@ -14,7 +14,7 @@
       "require": "./dist/ui-kit-2022.umd.cjs"
     }
   },
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "npm run check-types && vite build --watch",
     "build": "vite build && npm run build-types",
