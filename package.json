@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/ui-kit-2022.umd.cjs",
   "module": "./dist/ui-kit-2022.js",
   "exports": {
@@ -26,9 +28,6 @@
     "build-storybook": "build-storybook",
     "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
     "prepare": "husky install"
-  },
-  "dependencies": {
-    
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.6",
