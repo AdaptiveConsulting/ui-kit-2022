@@ -30,9 +30,9 @@ const Template: ComponentStory<typeof TypeCard> = (args) => {
   return <TypeCard {...args} />;
 };
 
-export const Basic = Template.bind({});
+export const TypeCardStory = Template.bind({});
 
-Basic.args = {
+TypeCardStory.args = {
   title: 'REGULAR',
   letter: 'Aa',
   fontFamily: 'Roboto',
