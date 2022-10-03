@@ -1,6 +1,5 @@
 {
   "name": "ui-kit-2022",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "files": [
@@ -76,5 +75,9 @@
   "lint-staged": {
     "*.{jsx,js,ts,tsx}": "eslint --fix",
     "*.{js,jsx,ts,tsx,css,md,json}": "prettier --cache --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chuck-adaptive/ui-kit-2022.git"
   }
 }
