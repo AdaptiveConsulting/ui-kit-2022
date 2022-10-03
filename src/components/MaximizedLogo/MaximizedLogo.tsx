@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
 import LogoIcon from '../LogoIcon/LogoIcon';
 import LogoText from '../LogoText/LogoText';
@@ -12,6 +12,12 @@ interface Props {
   gap?: number;
 }
 
+const Container = styled.div((props: { gap: number }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: `${props.gap}px`,
+}));
+
 const MaximizedLogoIcon: React.FC<Props> = ({
   textHeight = 32,
   iconHeight = 56,
@@ -20,16 +26,10 @@ const MaximizedLogoIcon: React.FC<Props> = ({
   gap = 8,
   color = '#323232',
 }) => (
-  <div
-    className={css`
-      display: flex;
-      align-items: center;
-      gap: ${gap}px;
-    `}
-  >
+  <Container gap={gap}>
     <LogoIcon height={iconHeight} width={iconWidth} color={color} />
     <LogoText height={textHeight} width={textWidth} color={color} />
-  </div>
+  </Container>
 );
 
 export default MaximizedLogoIcon;
