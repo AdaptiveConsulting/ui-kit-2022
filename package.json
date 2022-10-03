@@ -29,10 +29,8 @@
     "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
     "prepare": "husky install"
   },
-  "dependencies": {
-    "@emotion/css": "^11.10.0"
-  },
   "peerDependencies": {
+    "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -42,6 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
+    "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
