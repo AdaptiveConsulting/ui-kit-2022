@@ -16,7 +16,7 @@ jobs:
 
       - name: Build Storybook
         run: |
-          npm install
+          npm ci
           npm run build-gh-pages
 
       - name: Build Pages Artifact
