@@ -4,11 +4,7 @@ interface Props {
   width?: number;
 }
 
-const MaximizedLogoIcon: React.FC<Props> = ({
-  height = 32,
-  width = 97,
-  color = '#323232',
-}) => (
+const LogoText: React.FC<Props> = ({ height = 32, width = 97, color = '#323232' }) => (
   <svg
     width={width}
     height={height}
@@ -31,4 +27,4 @@ const MaximizedLogoIcon: React.FC<Props> = ({
   </svg>
 );
 
-export default MaximizedLogoIcon;
+export default LogoText;
