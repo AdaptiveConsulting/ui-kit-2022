@@ -1,10 +1,8 @@
-import { Box, Card, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 
 const LETTERS = 'AaBbCcDDEEFFGgHHIiJjKKLLMmNNOoPPQqRRSsTtUuVvWwXxYyZz';
 const NUMBERS = '0123456789';
-
-type FontName = 'roboto' | 'merriweather';
 
 function capitablize(s: string) {
   const lower = s.toLowerCase();
