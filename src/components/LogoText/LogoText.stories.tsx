@@ -14,5 +14,4 @@ export const Text = Template.bind({});
 Text.args = {
   height: 32,
   width: 97,
-  color: '#323232',
 };

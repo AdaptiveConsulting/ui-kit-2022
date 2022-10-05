@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useTheme } from '@mui/material/styles';
 
 import LogoIcon from '../LogoIcon/LogoIcon';
 import LogoText from '../LogoText/LogoText';
@@ -24,7 +25,7 @@ const MaximizedLogoIcon: React.FC<Props> = ({
   textWidth = 97,
   iconWidth = 55,
   gap = 8,
-  color = '#323232',
+  color = useTheme().palette.mode === 'dark' ? '#fff' : '#323232',
 }) => (
   <Container gap={gap}>
     <LogoIcon height={iconHeight} width={iconWidth} color={color} />

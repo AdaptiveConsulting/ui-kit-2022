@@ -14,5 +14,4 @@ export const Logo = Template.bind({});
 Logo.args = {
   height: 56,
   width: 55,
-  color: '#323232',
 };

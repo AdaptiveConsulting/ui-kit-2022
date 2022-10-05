@@ -1,10 +1,16 @@
+import { useTheme } from '@mui/material/styles';
+
 interface Props {
   color?: string;
   height?: number;
   width?: number;
 }
 
-const LogoText: React.FC<Props> = ({ height = 32, width = 97, color = '#323232' }) => (
+const LogoText: React.FC<Props> = ({
+  height = 32,
+  width = 97,
+  color = useTheme().palette.mode === 'dark' ? '#fff' : '#323232',
+}) => (
   <svg
     width={width}
     height={height}
