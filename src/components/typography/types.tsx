@@ -1,6 +1,7 @@
 import { Divider, Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
+import FontMerriweatherExamples from './font-merriweather-examples';
 import FontRobotoExamples from './font-roboto-examples';
 import TextSample from './text-sample';
 import TypeCard from './type-card';
@@ -24,6 +25,11 @@ const TYPE_CARD_LIGHT_ITALIC_PROPS = {
   title: 'LIGHT ITALIC',
   fontWeight: '300',
   fontStyle: 'italic',
+};
+
+const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
+  ...TYPE_CARD_REGULAR_PROPS,
+  fontFamily: 'Merriweather',
 };
 
 export default function Types() {
@@ -63,22 +69,16 @@ export default function Types() {
         sx={{ marginLeft: '1rem', marginTop: '2rem', marginBottom: '3rem' }}
       >
         <Grid item xs={5}>
-          <TextSample fontName="roboto" />
+          <TextSample fontName="merriweather" />
         </Grid>
         <Grid item xs={2}>
-          <TypeCard {...TYPE_CARD_REGULAR_PROPS} />
-        </Grid>
-        <Grid item xs={2}>
-          <TypeCard {...TYPE_CARD_MEDIUM_PROPS} />
-        </Grid>
-        <Grid item xs={2}>
-          <TypeCard {...TYPE_CARD_LIGHT_ITALIC_PROPS} />
+          <TypeCard {...TYPE_CARD_REGULAR_MERRIWEATHER_PROPS} />
         </Grid>
         <Grid item xs={12}>
           <Typography sx={{ color: '#FFFFFF' }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
-          <FontRobotoExamples />
+          <FontMerriweatherExamples />
         </Grid>
       </Grid>
     </Grid>

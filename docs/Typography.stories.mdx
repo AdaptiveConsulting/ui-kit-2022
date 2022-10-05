@@ -1,8 +1,10 @@
-import { Meta } from '@storybook/addon-docs';
+<!-- Checkbox.stories.mdx -->
 
-<Meta title="Docs / Typography" />
+import { Meta, Story } from '@storybook/addon-docs';
+import Types from '../src/components/typography';
 
-# UI Kit
+<Meta title="Docs/Typography" component={Types} />
 
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `.stories.tsx` files to learn how they work.
+<Story name="Typography types">
+  <Types />
+</Story>
