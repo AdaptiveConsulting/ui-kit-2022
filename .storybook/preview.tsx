@@ -49,9 +49,6 @@ export const globalTypes = {
 
 export const decorators = [
   (Story, context) => {
-    console.log('Context: ', context);
-    console.log('Theme: ', context.globals.theme);
-
     const StoryContainer = styled.div(() => ({
       margin: 0,
       padding: '1rem',
