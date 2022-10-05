@@ -13,6 +13,7 @@ module.exports = {
     'storybook-dark-mode',
     '@storybook/addon-a11y',
   ],
+  staticDirs: ['./assets'],
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-vite',
