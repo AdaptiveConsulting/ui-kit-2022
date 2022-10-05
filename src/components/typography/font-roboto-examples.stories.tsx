@@ -11,5 +11,3 @@ export default {
 const Template = (args) => <FontRobotoExamples {...args} />;
 
 export const FontRobotoExamplesStory = Template.bind({});
-
-// FontRobotoExamplesStory.args = {};
