@@ -1,4 +1,7 @@
-module.exports = {
+import svgr from 'vite-plugin-svgr';
+import template from '../templates/svgr.template';
+
+export default {
   stories: [
     '../docs/Home.stories.mdx',
     '../docs/**/*.stories.mdx',
@@ -20,9 +23,18 @@ module.exports = {
   },
   features: {
     storyStoreV7: true,
+    babelModeV7: true,
   },
   async viteFinal(config, { configType }) {
     config.base = process.env.BASE_PATH || config.base;
+    config.plugins = [
+      ...config.plugins,
+      svgr({
+        svgrOptions: {
+          template,
+        },
+      }),
+    ];
     return config;
   },
 };
