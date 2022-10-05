@@ -12,7 +12,7 @@ export default {
       control: { type: 'radio' },
     },
     fontFamily: {
-      options: ['Roboto', 'MERRIWEATHER'],
+      options: ['Roboto', 'Merriweather'],
       control: { type: 'radio' },
     },
     fontWeight: {

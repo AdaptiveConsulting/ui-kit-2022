@@ -11,7 +11,7 @@ function capitablize(s: string) {
 
 export default function TextSample({ fontName }: { fontName: string }) {
   return (
-    <Box sx={{ width: '362px', bgcolor: '#383838' }}>
+    <Box sx={{ width: '362px', bgcolor: '#323232' }}>
       <Typography
         variant="h3"
         sx={{ color: '#FFFFFF', fontSize: '24px', marginBottom: '10px' }}

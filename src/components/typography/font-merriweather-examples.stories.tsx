@@ -11,5 +11,3 @@ export default {
 const Template = (args) => <FontMerriweatherExamples {...args} />;
 
 export const FontMerriWeatherExamplesStory = Template.bind({});
-
-// FontMerriWeatherExamplesStory.args = {};
