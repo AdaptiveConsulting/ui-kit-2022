@@ -5,6 +5,11 @@ import styled from '@emotion/styled';
 
 import { light, dark } from '../src/theme/index';
 
+const themeDefaults = {
+  brandTitle: 'Adaptive UI Kit 2022',
+  brandUrl: 'https://weareadaptive.com/',
+};
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -28,9 +33,21 @@ export const parameters = {
   },
   darkMode: {
     // Override the default dark theme
-    dark: { ...themes.dark, appBg: '#323232', appContentBg: '#383838' },
+    dark: {
+      ...themes.dark,
+      ...themeDefaults,
+      appBg: '#323232',
+      appContentBg: '#383838',
+      brandImage: 'brand-logo.light.svg',
+    },
     // Override the default light theme
-    light: { ...themes.normal, appBg: '#FFFFFF', appContentBg: '#F9F9F9' },
+    light: {
+      ...themes.normal,
+      ...themeDefaults,
+      appBg: '#FFFFFF',
+      appContentBg: '#F9F9F9',
+      brandImage: 'brand-logo.dark.svg',
+    },
   },
 };
 
