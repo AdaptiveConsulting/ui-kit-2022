@@ -12,6 +12,7 @@ module.exports = {
     '@storybook/addon-interactions',
     'storybook-dark-mode',
   ],
+  staticDirs: ['./assets'],
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-vite',
