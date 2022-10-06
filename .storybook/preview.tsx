@@ -15,24 +15,12 @@ const themeDefaults = {
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  layout: 'fullscreen',
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
-  backgrounds: {
-    default: 'light',
-    values: [
-      {
-        name: 'dark',
-        value: '#383838',
-      },
-      {
-        name: 'light',
-        value: '#F9F9F9',
-      },
-    ],
   },
   darkMode: {
     // Override the default dark theme
@@ -55,7 +43,10 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story, context) => {
+  (Story) => {
+    const isDarkMode = useDarkMode();
+    const theme = isDarkMode ? dark : light;
+
     const StoryContainer = styled.div(() => ({
       margin: 0,
       padding: '1rem',
@@ -66,7 +57,7 @@ export const decorators = [
 
     return (
       <>
-        <ThemeProvider theme={useDarkMode() ? dark : light}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <StoryContainer>
             <Story />
