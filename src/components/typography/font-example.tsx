@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 
 export interface ExampleProps {
-  title: string;
+  title: fontOption;
   content: string;
 }
 
@@ -13,7 +13,7 @@ interface FontWeightAndStyle {
 
 type fontOption = 'Light Italic' | 'Medium' | 'Regular';
 
-function getFontWeightAndFontStyle(s: string): FontWeightAndStyle {
+function getFontWeightAndFontStyle(s: fontOption): FontWeightAndStyle {
   if (s === 'Light Italic') {
     return { fontWeight: '300', fontStyle: 'italic' };
   } else if (s === 'Medium') {

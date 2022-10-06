@@ -1,11 +1,6 @@
 import { Card, CardContent, styled, Typography } from '@mui/material';
 import * as React from 'react';
 
-const TitleTypo = styled(Typography)`
-  font-size: 12px;
-  color: #bbbbbb;
-`;
-
 interface Props {
   title: string;
   letter: string;
@@ -26,7 +21,7 @@ export default function TypeCard(props: Props) {
   return (
     <StyledCard fontFamily={props.fontFamily}>
       <CardContent>
-        <TitleTypo>{props.title}</TitleTypo>
+        <Typography sx={{ fontSize: '12px', color: '#BBBBBB' }}>{props.title}</Typography>
         <Typography
           component="div"
           sx={{
