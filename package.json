@@ -28,19 +28,19 @@
     "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "@fontsource/merriweather": "^4.5.14",
+    "@fontsource/roboto": "^4.5.8"
+  },
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@fontsource/merriweather": "^4.5.14",
-    "@fontsource/roboto": "^4.5.8"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@fontsource/merriweather": "^4.5.14",
-    "@fontsource/roboto": "^4.5.8",
     "@babel/core": "^7.19.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
