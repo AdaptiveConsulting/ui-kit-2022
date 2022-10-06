@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import styled from '@emotion/styled';
 
 import { light, dark } from '../src/theme/index';
+import { useDarkMode } from 'storybook-dark-mode';
 
 const themeDefaults = {
   brandTitle: 'Adaptive UI Kit 2022',
@@ -51,19 +52,6 @@ export const parameters = {
   },
 };
 
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'circlehollow',
-      items: ['light', 'dark'],
-      showName: true,
-    },
-  },
-};
-
 export const decorators = [
   (Story, context) => {
     const StoryContainer = styled.div(() => ({
@@ -71,12 +59,12 @@ export const decorators = [
       padding: '1rem',
       width: '100%',
       height: '100%',
-      backgroundColor: `${context.globals.theme === 'light' ? '#F9F9F9' : '#383838'}`,
+      backgroundColor: `${useDarkMode() ? '#383838' : '#F9F9F9'}`,
     }));
 
     return (
       <>
-        <ThemeProvider theme={context.globals.theme === 'light' ? light : dark}>
+        <ThemeProvider theme={useDarkMode() ? dark : light}>
           <CssBaseline />
           <StoryContainer>
             <Story />
