@@ -16,7 +16,7 @@ export default function TypographyTop({ title }: TypographyTopProps) {
         justifyContent: 'flex-start',
       }}
     >
-      <Typography sx={{ color: '#FFFFFF', marginLeft: '2rem' }}>{title}</Typography>
+      <Typography sx={{ color: '#FFFFFF', marginLeft: '1rem' }}>{title}</Typography>
     </Box>
   );
 }
