@@ -25,7 +25,7 @@ function getFontWeightAndFontStyle(s: fontOption): FontWeightAndStyle {
 
 export default function FontExample({ title, content }: ExampleProps) {
   return (
-    <Box sx={{ bgcolor: '#323232', height: '60px', width: '300px' }}>
+    <Box sx={{ bgcolor: '#323232', height: '60px' }}>
       <Typography
         sx={{ fontSize: '20px', color: '#F2F2F2', ...getFontWeightAndFontStyle(title) }}
       >

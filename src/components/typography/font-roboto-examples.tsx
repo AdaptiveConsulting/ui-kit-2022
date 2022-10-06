@@ -5,29 +5,29 @@ import FontExample from './font-example';
 
 export default function FontRobotoExamples() {
   return (
-    <Grid container sx={{ width: '800px', bgcolor: '#323232' }} rowGap={2}>
-      <Grid item xs={1.7}>
+    <Grid container sx={{ bgcolor: '#323232' }} rowGap={2}>
+      <Grid item lg={1} xs={2}>
         <p style={{ color: '#F2F2F2', fontSize: '20px' }}>11px</p>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item lg={4} xs={5}>
         <FontExample title={'Light Italic'} content={'Miscellaneous {ex: time stamps}'} />
       </Grid>
-      <Grid item xs={5}>
+      <Grid item lg={7} xs={5}>
         <FontExample title={'Medium'} content={'Chips'} />
       </Grid>
-      <Grid item xs={1.7}>
+      <Grid item lg={1} xs={2}>
         <p style={{ color: '#F2F2F2', fontSize: '20px' }}>12px</p>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item lg={4} xs={5}>
         <FontExample title={'Regular'} content={'Statistic values | table inputs'} />
       </Grid>
-      <Grid item xs={5}>
+      <Grid item lg={7} xs={5}>
         <FontExample title={'Medium'} content={'Statistic titles'} />
       </Grid>
-      <Grid item xs={1.7}>
+      <Grid item lg={1} xs={2}>
         <p style={{ color: '#F2F2F2', fontSize: '20px' }}>16px</p>
       </Grid>
-      <Grid item xs={10}>
+      <Grid item lg={11} xs={10}>
         <FontExample title={'Regular'} content={'Dropdown results'} />
       </Grid>
     </Grid>

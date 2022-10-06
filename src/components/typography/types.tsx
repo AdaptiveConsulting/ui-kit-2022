@@ -34,27 +34,28 @@ const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
 
 export default function Types() {
   return (
-    <Grid container sx={{ bgcolor: '#323232', width: '60vw', height: '100%' }}>
+    <Grid container sx={{ bgcolor: '#323232', height: '100%' }}>
       <Grid item xs={12}>
         <TypographyTop title={'TYPES'} />
       </Grid>
       <Grid
         container
         sx={{ marginLeft: '1rem', marginTop: '2rem', marginBottom: '5rem' }}
+        rowGap={1}
       >
-        <Grid item xs={5}>
+        <Grid item md={5} xs={12}>
           <TextSample fontName="roboto" />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item md={2} sm={4} xs={12}>
           <TypeCard {...TYPE_CARD_REGULAR_PROPS} />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item md={2} sm={4} xs={12}>
           <TypeCard {...TYPE_CARD_MEDIUM_PROPS} />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item md={2} sm={4} xs={12}>
           <TypeCard {...TYPE_CARD_LIGHT_ITALIC_PROPS} />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item md={12} xs={12}>
           <Typography sx={{ color: '#FFFFFF' }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
@@ -67,11 +68,12 @@ export default function Types() {
       <Grid
         container
         sx={{ marginLeft: '1rem', marginTop: '2rem', marginBottom: '3rem' }}
+        rowGap={1}
       >
-        <Grid item xs={5}>
+        <Grid item md={5} xs={12}>
           <TextSample fontName="merriweather" />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item md={2} sm={4} xs={12}>
           <TypeCard {...TYPE_CARD_REGULAR_MERRIWEATHER_PROPS} />
         </Grid>
         <Grid item xs={12}>
