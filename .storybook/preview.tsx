@@ -52,7 +52,7 @@ export const decorators = [
       padding: '1rem',
       width: '100%',
       height: '100%',
-      backgroundColor: `${useDarkMode() ? '#383838' : '#F9F9F9'}`,
+      backgroundColor: `${isDarkMode ? '#383838' : '#F9F9F9'}`,
     }));
 
     return (
