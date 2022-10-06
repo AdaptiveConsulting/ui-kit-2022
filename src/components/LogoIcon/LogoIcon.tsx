@@ -7,7 +7,10 @@ interface Props {
 
 const LogoIcon: React.FC<Props> = ({ height = 56, width = 55 }) => {
   const theme = useTheme();
-  const color = theme.palette.mode === 'dark' ? '#fff' : '#323232';
+  const color =
+    theme.palette.mode === 'dark'
+      ? theme.palette.common.white
+      : theme.palette.background.paper;
 
   return (
     <svg
