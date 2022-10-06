@@ -13,7 +13,7 @@ interface TextSampleProps {
   fontName: string;
 }
 
-const TextSample: React.FunctionComponent<TextSampleProps> = ({ fontName }) => {
+const TextSample: React.FC<TextSampleProps> = ({ fontName }) => {
   return (
     <Box sx={{ bgcolor: '#323232' }}>
       <Typography

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import FontExample from './font-example';
 
-const FontMerriweatherExamples: React.FunctionComponent = () => {
+const FontMerriweatherExamples: React.FC = () => {
   return (
     <Grid
       container

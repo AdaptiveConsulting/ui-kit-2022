@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import FontExample from './font-example';
 
-const FontRobotoExamples: React.FunctionComponent = () => {
+const FontRobotoExamples: React.FC = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232' }} rowGap={2}>
       <Grid item lg={1} xs={2}>

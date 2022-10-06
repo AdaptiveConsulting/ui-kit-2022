@@ -17,7 +17,7 @@ const StyledCard = styled(Card)<StyledCardProps>`
   background-color: #555555;
 `;
 
-const TypeCard: React.FunctionComponent<TypeCardProps> = (props) => {
+const TypeCard: React.FC<TypeCardProps> = (props) => {
   return (
     <StyledCard fontFamily={props.fontFamily}>
       <CardContent>

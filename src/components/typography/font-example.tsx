@@ -23,7 +23,7 @@ function getFontWeightAndFontStyle(s: fontOption): FontWeightAndStyle {
   }
 }
 
-const FontExample: React.FunctionComponent<ExampleProps> = ({ title, content }) => {
+const FontExample: React.FC<ExampleProps> = ({ title, content }) => {
   return (
     <Box sx={{ bgcolor: '#323232', height: '60px' }}>
       <Typography

@@ -5,7 +5,7 @@ interface TypographyTopProps {
   title: 'TYPES' | 'STYLE';
 }
 
-const TypographyTop: React.FunctionComponent<TypographyTopProps> = ({ title }) => {
+const TypographyTop: React.FC<TypographyTopProps> = ({ title }) => {
   return (
     <Box
       sx={{
