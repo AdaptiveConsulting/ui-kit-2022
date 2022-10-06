@@ -4,7 +4,7 @@ import React from 'react';
 import FontMerriweatherExamples from './font-merriweather-examples';
 
 export default {
-  title: 'Components/typography',
+  title: 'Components/Typography',
   component: FontMerriweatherExamples,
 };
 

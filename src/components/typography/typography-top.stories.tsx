@@ -4,7 +4,7 @@ import React from 'react';
 import TypographyTop from './typography-top';
 
 export default {
-  title: 'Components/typography',
+  title: 'Components/Typography',
   component: TypographyTop,
   argTypes: {
     title: {

@@ -4,7 +4,7 @@ import React from 'react';
 import Types from './types';
 
 export default {
-  title: 'Components/typography',
+  title: 'Components/Typography',
   component: Types,
 };
 

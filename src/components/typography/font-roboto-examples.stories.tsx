@@ -4,7 +4,7 @@ import React from 'react';
 import FontRobotoExamples from './font-roboto-examples';
 
 export default {
-  title: 'Components/typography',
+  title: 'Components/Typography',
   component: FontRobotoExamples,
 };
 
