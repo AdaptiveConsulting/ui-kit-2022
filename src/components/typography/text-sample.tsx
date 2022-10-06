@@ -9,7 +9,11 @@ function capitablize(s: string) {
   return lower.charAt(0).toUpperCase() + lower.slice(1);
 }
 
-export default function TextSample({ fontName }: { fontName: string }) {
+interface TextSampleProps {
+  fontName: string;
+}
+
+const TextSample: React.FunctionComponent<TextSampleProps> = ({ fontName }) => {
   return (
     <Box sx={{ bgcolor: '#323232' }}>
       <Typography
@@ -39,4 +43,6 @@ export default function TextSample({ fontName }: { fontName: string }) {
       </Typography>
     </Box>
   );
-}
+};
+
+export default TextSample;

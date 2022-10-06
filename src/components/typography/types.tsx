@@ -32,7 +32,7 @@ const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
   fontFamily: 'Merriweather',
 };
 
-export default function Types() {
+const Types: React.FunctionComponent = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232', height: '100%' }}>
       <Grid item xs={12}>
@@ -85,4 +85,6 @@ export default function Types() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default Types;

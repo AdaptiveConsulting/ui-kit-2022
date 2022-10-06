@@ -23,7 +23,7 @@ function getFontWeightAndFontStyle(s: fontOption): FontWeightAndStyle {
   }
 }
 
-export default function FontExample({ title, content }: ExampleProps) {
+const FontExample: React.FunctionComponent<ExampleProps> = ({ title, content }) => {
   return (
     <Box sx={{ bgcolor: '#323232', height: '60px' }}>
       <Typography
@@ -34,4 +34,6 @@ export default function FontExample({ title, content }: ExampleProps) {
       <Typography sx={{ fontSize: '20px', color: '#F2F2F2' }}>{content}</Typography>
     </Box>
   );
-}
+};
+
+export default FontExample;

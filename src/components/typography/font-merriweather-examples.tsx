@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import FontExample from './font-example';
 
-export default function FontMerriweatherExamples() {
+const FontMerriweatherExamples: React.FunctionComponent = () => {
   return (
     <Grid
       container
@@ -35,4 +35,6 @@ export default function FontMerriweatherExamples() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default FontMerriweatherExamples;

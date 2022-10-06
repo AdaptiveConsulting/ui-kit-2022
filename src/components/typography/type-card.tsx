@@ -1,7 +1,7 @@
 import { Card, CardContent, styled, Typography } from '@mui/material';
 import * as React from 'react';
 
-interface Props {
+interface TypeCardProps {
   title: string;
   letter: string;
   fontFamily: string;
@@ -9,7 +9,7 @@ interface Props {
   fontStyle: string;
 }
 
-type StyledCardProps = Pick<Props, 'fontFamily'>;
+type StyledCardProps = Pick<TypeCardProps, 'fontFamily'>;
 
 const StyledCard = styled(Card)<StyledCardProps>`
   width: 132px;
@@ -17,7 +17,7 @@ const StyledCard = styled(Card)<StyledCardProps>`
   background-color: #555555;
 `;
 
-export default function TypeCard(props: Props) {
+const TypeCard: React.FunctionComponent<TypeCardProps> = (props) => {
   return (
     <StyledCard fontFamily={props.fontFamily}>
       <CardContent>
@@ -38,4 +38,6 @@ export default function TypeCard(props: Props) {
       </CardContent>
     </StyledCard>
   );
-}
+};
+
+export default TypeCard;

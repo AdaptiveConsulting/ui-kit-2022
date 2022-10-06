@@ -5,7 +5,7 @@ interface TypographyTopProps {
   title: 'TYPES' | 'STYLE';
 }
 
-export default function TypographyTop({ title }: TypographyTopProps) {
+const TypographyTop: React.FunctionComponent<TypographyTopProps> = ({ title }) => {
   return (
     <Box
       sx={{
@@ -19,4 +19,6 @@ export default function TypographyTop({ title }: TypographyTopProps) {
       <Typography sx={{ color: '#FFFFFF', marginLeft: '1rem' }}>{title}</Typography>
     </Box>
   );
-}
+};
+
+export default TypographyTop;
