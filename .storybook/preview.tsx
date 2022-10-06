@@ -3,8 +3,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import styled from '@emotion/styled';
 
-import { light, dark } from '../src/theme/index';
+import { light, dark } from '../src/theme';
 import { useDarkMode } from 'storybook-dark-mode';
+//Included React import since sometimes not including it can result in a build failure
+import React from 'react';
 
 const themeDefaults = {
   brandTitle: 'Adaptive UI Kit 2022',
