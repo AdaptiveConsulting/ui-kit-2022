@@ -15,6 +15,7 @@ export default {
     '@storybook/addon-interactions',
     'storybook-dark-mode',
     '@storybook/addon-a11y',
+    '@storybook/addon-storysource',
   ],
   staticDirs: ['./assets'],
   framework: '@storybook/react',
