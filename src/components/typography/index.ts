@@ -1,3 +1,3 @@
-import Types from './types';
+import TypesPage from './types-page';
 
-export default Types;
+export default TypesPage;
