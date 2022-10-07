@@ -18,5 +18,4 @@ Maximized.args = {
   iconHeight: 56,
   textWidth: 97,
   iconWidth: 55,
-  color: '#323232',
 };

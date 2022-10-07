@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
+    "@babel/types": "^7.19.3",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -52,6 +53,7 @@
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-storysource": "^6.5.12",
     "@storybook/builder-vite": "^0.2.2",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
@@ -68,6 +70,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -75,7 +78,8 @@
     "react-dom": "^18.2.0",
     "storybook-dark-mode": "^1.1.2",
     "typescript": "^4.6.4",
-    "vite": "^3.1.0"
+    "vite": "^3.1.0",
+    "vite-plugin-svgr": "^2.2.1"
   },
   "lint-staged": {
     "*.{jsx,js,ts,tsx}": "eslint --fix",
