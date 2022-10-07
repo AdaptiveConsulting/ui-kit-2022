@@ -8,3 +8,4 @@ export { LogoText } from './components/LogoText';
 export { MaximizedLogo } from './components/MaximizedLogo';
 export { Typography } from './components/Typography';
 export * from './constants';
+export * as Icon from './icons';
