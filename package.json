@@ -28,6 +28,10 @@
     "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "@fontsource/merriweather": "^4.5.14",
+    "@fontsource/roboto": "^4.5.8"
+  },
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
