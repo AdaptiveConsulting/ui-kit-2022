@@ -1,4 +1,5 @@
 import Typography from '@mui/material/Typography';
+
 export { Typography };
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {

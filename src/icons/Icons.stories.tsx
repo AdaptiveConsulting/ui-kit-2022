@@ -1,4 +1,4 @@
-import { SvgIcon, SvgIconProps } from '@mui/material';
+import { SvgIconProps } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 

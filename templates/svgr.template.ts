@@ -5,9 +5,6 @@ import {
   jsxIdentifier,
   jsxOpeningElement,
   jsxSpreadAttribute,
-  tsTypeAnnotation,
-  tsTypeParameterInstantiation,
-  tsTypeReference,
 } from '@babel/types';
 
 const template = ({ imports, componentName, jsx, exports, interfaces }, { tpl }) => {
