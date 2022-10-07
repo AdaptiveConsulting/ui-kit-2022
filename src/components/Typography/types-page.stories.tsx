@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import Types from './types';
+import TypesPage from './types-page';
 
 export default {
   title: 'Components/Typography',
-  component: Types,
+  component: TypesPage,
 };
 
-const Template = (args) => <Types {...args} />;
+const Template = (args) => <TypesPage {...args} />;
 
 export const TypesStory = Template.bind({});
 

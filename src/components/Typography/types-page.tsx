@@ -32,7 +32,7 @@ const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
   fontFamily: 'Merriweather',
 };
 
-const Types: React.FC = () => {
+const TypesPage: React.FC = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232', height: '100%' }}>
       <Grid item xs={12}>
@@ -87,4 +87,4 @@ const Types: React.FC = () => {
   );
 };
 
-export default Types;
+export default TypesPage;
