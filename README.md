@@ -1,31 +1,35 @@
 # UI kit 2022 for Adaptive
 
-## Project Setup
+## Installation
 
-### Enable pre-commit check
-
-- Run the command `npm run prepare`
-
-### Integretion DarkMode Add-on with customized theme
-
-- In the file `.storybook/preview.ts` add a global decorator for the integration of DarkMode add-on and custom theme provider.
+UI Kit 2022 is available as an [NPM package](https://www.npmjs.com/package/ui-kit-2022)
 
 ```
-import { useDarkMode } from 'storybook-dark-mode';
-import { addDecorator } from '@storybook/react';
+npm i ui-kit-2022
+```
 
-// your theme provider
-import ThemeContext from './theme';
+## Usage
 
-// create a component that uses the dark mode hook
-function ThemeWrapper(props) {
-  // render your custom theme provider
+```
+import "./App.css";
+
+import { LogoIcon } from "ui-kit-2022";
+
+function App() {
   return (
-    <ThemeContext.Provider value={useDarkMode() ? darkTheme : defaultTheme}>
-      {props.children}
-    </ThemeContext.Provider>
+    <div className="App">
+      <LogoIcon />
+    </div>
   );
 }
-
-export const decorators = [renderStory => <ThemeWrapper>{renderStory()}</ThemeWrapper>)];
+export default App;
 ```
+
+## Development
+
+1. Install [Node.js and NPM](https://nodejs.org/en/download/)
+2. Run the command `npm install`
+3. Run the command `npm run prepare`
+   - This will enable pre-commit check
+4. Run the command `npm run storybook`
+   - This wlll open a Storybook tab in your browser to view the components
