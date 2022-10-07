@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { MERRIWEATHER, ROBOTO } from '../../../src';
 import TextSample from './text-sample';
-
 export default {
   title: 'Docs/Components/Typography',
   component: TextSample,
   argTypes: {
     fontName: {
-      options: ['roboto', 'merriweather'],
+      options: [ROBOTO, MERRIWEATHER],
       control: { type: 'radio' },
     },
   },
