@@ -4,7 +4,7 @@ import React from 'react';
 import TypesPage from './types-page';
 
 export default {
-  title: 'Components/Typography',
+  title: 'Docs/Components/Typography',
   component: TypesPage,
 };
 
