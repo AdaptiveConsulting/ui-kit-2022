@@ -35,7 +35,7 @@ const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
 
 const TypesPage: React.FC = () => {
   return (
-    <Grid container sx={{ bgcolor: '#323232', height: '100%' }}>
+    <Grid container sx={{ bgcolor: '#323232' }}>
       <Grid item xs={12}>
         <TypographyTop title={'TYPES'} />
       </Grid>
