@@ -10,6 +10,6 @@ export default {
 
 const Template = (args) => <TypesPage {...args} />;
 
-export const TypesStory = Template.bind({});
+export const TypesPageStory = Template.bind({});
 
-TypesStory.args = {};
+TypesPageStory.args = {};

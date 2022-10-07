@@ -1,8 +1,7 @@
 import { Divider, Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
-import FontMerriweatherExamples from './font-merriweather-examples';
-import FontRobotoExamples from './font-roboto-examples';
+import FontExamples from './font-examples';
 import TextSample from './text-sample';
 import TypeCard from './type-card';
 import TypographyTop from './typography-top';
@@ -59,7 +58,7 @@ const TypesPage: React.FC = () => {
           <Typography sx={{ color: '#FFFFFF' }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
-          <FontRobotoExamples />
+          <FontExamples fontName="roboto" />
         </Grid>
       </Grid>
       <Grid item xs={12}>
@@ -80,7 +79,7 @@ const TypesPage: React.FC = () => {
           <Typography sx={{ color: '#FFFFFF' }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
-          <FontMerriweatherExamples />
+          <FontExamples fontName="merriweather" />
         </Grid>
       </Grid>
     </Grid>

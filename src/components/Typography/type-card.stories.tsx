@@ -19,10 +19,6 @@ export default {
       options: ['300', '400', '500'],
       control: { type: 'radio' },
     },
-    fontStyle: {
-      options: ['italic', 'normal'],
-      control: { type: 'radio' },
-    },
   },
 } as ComponentMeta<typeof TypeCard>;
 
@@ -37,5 +33,4 @@ TypeCardStory.args = {
   letter: 'Aa',
   fontFamily: 'Roboto',
   fontWeight: '300',
-  fontStyle: 'italic',
 };

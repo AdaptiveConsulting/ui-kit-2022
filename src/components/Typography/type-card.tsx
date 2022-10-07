@@ -6,7 +6,6 @@ interface TypeCardProps {
   letter: string;
   fontFamily: string;
   fontWeight: string;
-  fontStyle: string;
 }
 
 type StyledCardProps = Pick<TypeCardProps, 'fontFamily'>;
@@ -17,23 +16,23 @@ const StyledCard = styled(Card)<StyledCardProps>`
   background-color: #555555;
 `;
 
-const TypeCard: React.FC<TypeCardProps> = (props) => {
+const TypeCard: React.FC<TypeCardProps> = ({ title, letter, fontFamily, fontWeight }) => {
   return (
-    <StyledCard fontFamily={props.fontFamily}>
+    <StyledCard fontFamily={fontFamily}>
       <CardContent>
-        <Typography sx={{ fontSize: '12px', color: '#BBBBBB' }}>{props.title}</Typography>
+        <Typography sx={{ fontSize: '12px', color: '#BBBBBB' }}>{title}</Typography>
         <Typography
           component="div"
           sx={{
             fontSize: '50px',
             color: '#FFFFFF',
             textAlign: 'center',
-            fontWeight: `${props.fontWeight}`,
-            fontFamily: `${props.fontFamily}`,
-            fontStyle: `${props.fontStyle}`,
+            fontWeight: `${fontWeight}`,
+            fontFamily: `${fontFamily}`,
+            fontStyle: `${title === 'LIGHT ITALIC' ? 'italic' : 'normal'}`,
           }}
         >
-          {props.letter}
+          {letter}
         </Typography>
       </CardContent>
     </StyledCard>
