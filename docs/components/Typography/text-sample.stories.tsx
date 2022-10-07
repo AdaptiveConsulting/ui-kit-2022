@@ -21,5 +21,5 @@ const Template: ComponentStory<typeof TextSample> = (args) => {
 export const TextSampleStory = Template.bind({});
 
 TextSampleStory.args = {
-  fontName: 'roboto',
+  fontName: ROBOTO,
 };

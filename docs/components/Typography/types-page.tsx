@@ -60,7 +60,7 @@ const TypesPage: React.FC = () => {
           <Typography sx={{ color: '#FFFFFF' }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
-          <FontExamples fontName="roboto" />
+          <FontExamples fontName={ROBOTO} />
         </Grid>
       </Grid>
       <Grid item xs={12}>
@@ -81,7 +81,7 @@ const TypesPage: React.FC = () => {
           <Typography sx={{ color: '#FFFFFF' }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
-          <FontExamples fontName="merriweather" />
+          <FontExamples fontName={MERRIWEATHER} />
         </Grid>
       </Grid>
     </Grid>

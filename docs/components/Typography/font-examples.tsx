@@ -1,8 +1,8 @@
 import { Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
+import { MERRIWEATHER, ROBOTO } from '../../../src';
 import FontExample from './font-example';
-
 interface FontExamplesContainerProps {
   children: JSX.Element;
 }
@@ -75,13 +75,13 @@ const RobotoExamples = () => (
 );
 
 interface FontExamples {
-  fontName: 'roboto' | 'merriweather';
+  fontName: 'Roboto' | 'Merriweather';
 }
 
 const FontExamples: React.FC<FontExamples> = ({ fontName }) => {
   return (
     <FontExamplesContainer>
-      {fontName === 'roboto' ? <RobotoExamples /> : <MerriweatherExamples />}
+      {fontName === ROBOTO ? <RobotoExamples /> : <MerriweatherExamples />}
     </FontExamplesContainer>
   );
 };

@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { MERRIWEATHER, ROBOTO } from '../../../src';
 import TypeCard from './type-card';
-
 export default {
   title: 'Docs/Components/Typography',
   component: TypeCard,
@@ -12,7 +12,7 @@ export default {
       control: { type: 'radio' },
     },
     fontFamily: {
-      options: ['Roboto', 'Merriweather'],
+      options: [ROBOTO, MERRIWEATHER],
       control: { type: 'radio' },
     },
     fontWeight: {
@@ -31,6 +31,6 @@ export const TypeCardStory = Template.bind({});
 TypeCardStory.args = {
   title: 'REGULAR',
   letter: 'Aa',
-  fontFamily: 'Roboto',
+  fontFamily: ROBOTO,
   fontWeight: '300',
 };
