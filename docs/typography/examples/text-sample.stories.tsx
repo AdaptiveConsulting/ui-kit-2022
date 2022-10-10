@@ -4,7 +4,7 @@ import React from 'react';
 import { MERRIWEATHER, ROBOTO } from '../../../src';
 import TextSample from './text-sample';
 export default {
-  title: 'Docs/Components/Typography',
+  title: 'Typography/Examples',
   component: TextSample,
   argTypes: {
     fontName: {

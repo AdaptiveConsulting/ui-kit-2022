@@ -4,7 +4,7 @@ import React from 'react';
 import FontExmaple from './font-example';
 
 export default {
-  title: 'Docs/Components/Typography',
+  title: 'Typography/Examples',
   component: FontExmaple,
   argTypes: {
     title: {

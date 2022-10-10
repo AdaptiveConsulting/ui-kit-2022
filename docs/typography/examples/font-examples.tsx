@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
-import { MERRIWEATHER, ROBOTO } from '../../../src';
+import { ROBOTO } from '../../../src';
 import FontExample from './font-example';
 interface FontExamplesContainerProps {
   children: JSX.Element;

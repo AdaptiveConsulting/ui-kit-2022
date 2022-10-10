@@ -1,10 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { MERRIWEATHER, ROBOTO } from '../../../src';
 import FontExamples from './font-examples';
 export default {
-  title: 'Docs/Components/Typography',
+  title: 'Typography/Examples',
   component: FontExamples,
   argTypes: {
     fontName: {

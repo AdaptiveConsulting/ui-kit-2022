@@ -1,10 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import TypographyTop from './typography-top';
 
 export default {
-  title: 'Docs/Components/Typography',
+  title: 'Typography/Examples',
   component: TypographyTop,
   argTypes: {
     title: {

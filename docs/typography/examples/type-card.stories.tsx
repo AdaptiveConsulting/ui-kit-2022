@@ -4,7 +4,7 @@ import React from 'react';
 import { MERRIWEATHER, ROBOTO } from '../../../src';
 import TypeCard from './type-card';
 export default {
-  title: 'Docs/Components/Typography',
+  title: 'Typography/Examples',
   component: TypeCard,
   argTypes: {
     title: {
