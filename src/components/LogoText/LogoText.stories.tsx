@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import LogoText from './LogoText';
 
 export default {
-  title: 'Components/Icons',
+  title: 'Components/Branding',
   component: LogoText,
 } as ComponentMeta<typeof LogoText>;
 

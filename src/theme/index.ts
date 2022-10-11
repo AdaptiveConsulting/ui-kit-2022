@@ -4,18 +4,6 @@ import MuiDivider from './overrides/MuiDivider';
 import * as palette from './palette';
 import { THEME_TYPOGRAPHY as typography } from './typography';
 
-/*
-const components = {
-  MuiTypography: {
-    defaultProps: {
-      variantMapping: {
-        
-      }
-    }
-  }
-};
-*/
-
 // Component overrides
 const components = {
   MuiDivider,
