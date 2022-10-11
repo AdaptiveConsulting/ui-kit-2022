@@ -41,7 +41,7 @@ const tableCellStyles = {
   color: '#ffffff',
   borderColor: '#6b6b6b',
 };
-const TextStylesPage = () => {
+const TextStylesPage: React.FC = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232', width: 887 }}>
       <Grid item xs={12}>
