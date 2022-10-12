@@ -4,4 +4,4 @@ import tokens from './tokens.json';
 // See: https://mui.com/material-ui/customization/spacing/
 export default Object.values(tokens.global.size)
   .map((o) => Number(o.value))
-  .sort((a, b) => (a < b ? -1 : 1));
+  .sort((a, b) => a - b);
