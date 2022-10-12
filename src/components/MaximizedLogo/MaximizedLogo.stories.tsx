@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MaximizedLogo from './MaximizedLogo';
 
 export default {
-  title: 'Components/Icons',
+  title: 'Components/Branding',
   component: MaximizedLogo,
 } as ComponentMeta<typeof MaximizedLogo>;
 

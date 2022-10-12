@@ -5,7 +5,7 @@ import * as React from 'react';
 import * as icons from './';
 
 export default {
-  title: 'Icons/SvgIcon',
+  title: 'Components/Icons',
   component: React.Component<SvgIconProps>,
   argTypes: {
     component: {
@@ -21,7 +21,7 @@ const Template: ComponentStory<React.FC<SvgIconProps>> = (args: any) => {
   return <args.component {...svgArgs} />;
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
+export const Icons = Template.bind({});
+Icons.args = {
   component: 'AlarmBell',
 };
