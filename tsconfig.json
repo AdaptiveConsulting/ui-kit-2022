@@ -19,11 +19,7 @@
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },
-  "include": [
-    "src",
-    "docs/components/Typography/TextStylesPage.tsx",
-    "docs/components/Typography/TextStylesPage.stories.tsx"
-  ],
+  "include": ["src"],
   "exclude": ["**/*.stories.*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
