@@ -9,3 +9,4 @@ export { MaximizedLogo } from './components/MaximizedLogo';
 export { Typography } from './components/Typography';
 export * from './constants';
 export * as Icon from './icons';
+export { dark, light } from './theme';
