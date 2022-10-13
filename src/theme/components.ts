@@ -11,7 +11,7 @@ const COMPONENTS = {
           color: '#FFFFFF',
           backgroundColor: '#AAABD1',
           fontSize: '11px',
-          padding: '4px 4px',
+          padding: '1px 2px',
           '&:hover': {
             backgroundColor: '#6B6B8E',
           },
@@ -21,6 +21,9 @@ const COMPONENTS = {
           '&:focus': {
             border: '2px solid #FFFFFF',
             outline: '3px solid #FF8D00',
+          },
+          '&:disabled': {
+            backgroundColor: '#E4E4E4',
           },
         },
       },
