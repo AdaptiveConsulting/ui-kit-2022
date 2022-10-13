@@ -23,7 +23,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   variant: 'PRIMARY',
   children: 'Hello Adaptive',
-  // click: () => alert('This is a text button'),
+  click: () => alert('This is a text button'),
 };
 
 export const LeftIcon = Template.bind({});
@@ -32,7 +32,7 @@ LeftIcon.args = {
   variant: 'PRIMARY',
   children: 'Hello Adaptive',
   icon: 'left',
-  // click: () => alert('This is a text button'),
+  click: () => alert('This is a text button'),
 };
 
 export const RightIcon = Template.bind({});
@@ -41,13 +41,5 @@ RightIcon.args = {
   variant: 'PRIMARY',
   children: 'Hello Adaptive',
   icon: 'right',
-  // click: () => alert('This is a text button'),
-};
-
-export const SECONDARY = Template.bind({});
-
-SECONDARY.args = {
-  variant: 'SECONDARY',
-  children: 'Hello Adaptive',
-  click: () => alert('This is a Primary button'),
+  click: () => alert('This is a text button'),
 };
