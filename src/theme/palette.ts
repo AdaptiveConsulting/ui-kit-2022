@@ -9,13 +9,13 @@ import { alpha, PaletteOptions } from '@mui/material';
 
 declare module '@mui/material/styles/createPalette' {
   interface Palette {
-    buy: Palette['primary'];
-    sell: Palette['primary'];
+    buy: PaletteColor;
+    sell: PaletteColor;
   }
 
   interface PaletteOptions {
-    buy: PaletteOptions['primary'];
-    sell: PaletteOptions['primary'];
+    buy: PaletteColorOptions;
+    sell: PaletteColorOptions;
   }
 }
 
