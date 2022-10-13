@@ -73,6 +73,9 @@ const LIGHT_COMPONENTS = {
             backgroundColor: '#FFFFFF',
             textDecoration: 'none',
           },
+          '&:disabled': {
+            backgroundColor: '#E4E4E4',
+          },
         },
       },
     ],
@@ -161,6 +164,9 @@ const DARK_COMPONENTS = {
             border: `1px solid #5F618D`,
             backgroundColor: '#FFFFFF',
             color: '#DBDDFF',
+          },
+          '&:disabled': {
+            backgroundColor: '#E4E4E4',
           },
         },
       },
