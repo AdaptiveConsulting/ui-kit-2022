@@ -43,3 +43,11 @@ RightIcon.args = {
   icon: 'right',
   // click: () => alert('This is a text button'),
 };
+
+export const SECONDARY = Template.bind({});
+
+SECONDARY.args = {
+  variant: 'SECONDARY',
+  children: 'Hello Adaptive',
+  click: () => alert('This is a Primary button'),
+};
