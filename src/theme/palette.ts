@@ -5,7 +5,7 @@
 
 import { alpha, PaletteOptions } from '@mui/material';
 
-// Palette and PalleteOptions types can be extended here as needed
+// Palette and PaletteOptions types can be extended here as needed
 
 declare module '@mui/material/styles/createPalette' {
   interface Palette {
