@@ -8,7 +8,7 @@ const LIGHT_BUTTON = {
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
-        padding: '0px 3px',
+        padding: '0px 2px',
         '&:hover': {
           backgroundColor: '#A9ABD1',
         },
@@ -32,7 +32,7 @@ const LIGHT_BUTTON = {
       style: {
         border: `1px solid #5F618D`,
         borderRadius: '100px',
-        padding: '0px 3px',
+        padding: '0px 2px',
         color: '#5F618D',
         '&:hover': {
           backgroundColor: '#5F618D',
@@ -60,7 +60,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
-        padding: '0px 3px',
+        padding: '0px 2px',
         color: '#5F618D',
         '&:hover': {
           backgroundColor: '#FFFFFF',
@@ -98,7 +98,7 @@ const DARK_BUTTON = {
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
-        padding: '0px 3px',
+        padding: '0px 2px',
         '&:hover': {
           backgroundColor: '#A9ABD1',
         },
@@ -107,8 +107,9 @@ const DARK_BUTTON = {
           backgroundColor: '#DBDDFF',
         },
         '&:focus': {
-          border: '2px solid #FFFFFF',
-          outline: '3px solid #FF8D00',
+          outlineOffset: '2px',
+          outline: '2px solid #FF8D00',
+          border: '0px',
           backgroundColor: '#DBDDFF',
         },
         '&:disabled': {
@@ -122,24 +123,21 @@ const DARK_BUTTON = {
       style: {
         border: `1px solid #DBDDFF`,
         borderRadius: '100px',
-        padding: '0px 3px',
+        padding: '0px 2px',
         color: '#DBDDFF',
-        backgroundColor: '#FFFFFF',
         '&:hover': {
           backgroundColor: '#DBDDFF',
           color: '#4D4D4D',
         },
         '&:active': {
           border: `1px solid #5F618D`,
-          backgroundColor: '#FFFFFF',
           color: '#DBDDFF',
         },
         '&:focus': {
           padding: '2px 5px',
-          border: '2px solid #FF8D00',
-          outlineOffset: '-5px',
+          border: '2px solid #FFBE45',
+          outlineOffset: '-6px',
           outline: '2px solid #DBDDFF',
-          backgroundColor: '#FFFFFF',
           color: '#DBDDFF',
         },
         '&:disabled': {
@@ -153,7 +151,7 @@ const DARK_BUTTON = {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
         color: '#DBDDFF',
-        padding: '0px 3px',
+        padding: '0px 2px',
         borderRadius: '100px',
         '&:hover': {
           backgroundColor: 'inherit',
@@ -163,17 +161,15 @@ const DARK_BUTTON = {
         '&:focus': {
           padding: '2px 5px',
           borderRadius: '100px',
-          border: '2px solid #FF8D00',
-          outlineOffset: '-5px',
+          border: '2px solid #FFBE45',
+          outlineOffset: '-6px',
           outline: '2px solid #DBDDFF',
-          backgroundColor: '#FFFFFF',
           color: '#DBDDFF',
         },
         '&:active': {
           borderRadius: '100px',
           textDecoration: 'none',
           border: `1px solid #5F618D`,
-          backgroundColor: '#FFFFFF',
           color: '#DBDDFF',
         },
         '&:disabled': {

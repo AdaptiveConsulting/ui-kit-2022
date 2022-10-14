@@ -26,7 +26,14 @@ const ButtonDefault: React.FC<Props> = ({
         variant={variant}
         disabled={disabled}
         onClick={click}
-        startIcon={<SvgIcon component={ArrowLeft} viewBox="-6 -4 9 25" />}
+        startIcon={
+          <SvgIcon
+            component={ArrowLeft}
+            viewBox="-3 0 16 16"
+            sx={{ width: '16px', height: '16px' }}
+          />
+        }
+        sx={{ '& .MuiButton-startIcon': { mr: '4px' } }}
       >
         {children}
       </Button>
@@ -41,10 +48,11 @@ const ButtonDefault: React.FC<Props> = ({
         endIcon={
           <SvgIcon
             component={ArrowRight}
-            viewBox="7 -4 15 25"
-            sx={{ textAlign: 'center' }}
+            viewBox="3 0 16 16"
+            sx={{ width: '16px', height: '16px' }}
           />
         }
+        sx={{ '& .MuiButton-endIcon': { ml: '4px' } }}
       >
         {children}
       </Button>
