@@ -52,6 +52,7 @@ const LIGHT_BUTTON = {
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
+          color: '#7F7F7F',
         },
       },
     },
@@ -64,6 +65,11 @@ const LIGHT_BUTTON = {
           backgroundColor: '#FFFFFF',
           textDecoration: 'underline',
         },
+        '&:active': {
+          border: `1px solid #5F618D`,
+          backgroundColor: '#FFFFFF',
+          color: '#5F618D',
+        },
         '&:focus': {
           border: '1px solid #5F618D',
           borderRadius: '100px',
@@ -74,6 +80,7 @@ const LIGHT_BUTTON = {
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
+          color: '#7F7F7F',
         },
       },
     },
@@ -134,6 +141,7 @@ const DARK_BUTTON = {
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
+          color: '#7F7F7F',
         },
       },
     },
@@ -142,8 +150,10 @@ const DARK_BUTTON = {
       style: {
         color: '#DBDDFF',
         padding: '0px 3px',
+        borderRadius: '100px',
         '&:hover': {
           backgroundColor: 'inherit',
+          borderRadius: '100px',
           textDecoration: 'underline',
         },
         '&:focus': {
@@ -164,6 +174,7 @@ const DARK_BUTTON = {
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
+          color: '#7F7F7F',
         },
       },
     },
