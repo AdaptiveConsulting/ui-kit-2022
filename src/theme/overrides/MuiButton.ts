@@ -51,6 +51,7 @@ const LIGHT_BUTTON = {
           color: '#5F618D',
         },
         '&:disabled': {
+          border: 'none',
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
         },
@@ -79,6 +80,8 @@ const LIGHT_BUTTON = {
           textDecoration: 'none',
         },
         '&:disabled': {
+          borderRadius: '100px',
+          border: 'none',
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
         },
@@ -140,6 +143,7 @@ const DARK_BUTTON = {
           color: '#DBDDFF',
         },
         '&:disabled': {
+          border: 'none',
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
         },
@@ -173,6 +177,8 @@ const DARK_BUTTON = {
           color: '#DBDDFF',
         },
         '&:disabled': {
+          borderRadius: '100px',
+          border: 'none',
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
         },

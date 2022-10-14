@@ -11,6 +11,10 @@ export default {
       options: ['PRIMARY', 'SECONDARY', 'TERTIARY'],
       control: { type: 'radio' },
     },
+    disabled: {
+      options: [true, false],
+      control: { type: 'radio' },
+    },
   },
 } as ComponentMeta<typeof ButtonDefault>;
 
