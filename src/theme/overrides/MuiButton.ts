@@ -140,6 +140,9 @@ const DARK_BUTTON = {
           outline: '2px solid #DBDDFF',
           color: '#DBDDFF',
         },
+        '&:hover:focus': {
+          backgroundColor: 'inherit',
+        },
         '&:disabled': {
           border: 'none',
           backgroundColor: '#E4E4E4',
@@ -171,6 +174,9 @@ const DARK_BUTTON = {
           textDecoration: 'none',
           border: `1px solid #5F618D`,
           color: '#DBDDFF',
+        },
+        '&:hover:focus': {
+          textDecoration: 'none',
         },
         '&:disabled': {
           borderRadius: '100px',
