@@ -2,7 +2,7 @@ import { Divider as MuiDivider } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
-  title: 'Components/Divider',
+  title: 'Material UI/Divider',
   component: MuiDivider,
   argTypes: {
     variant: {
