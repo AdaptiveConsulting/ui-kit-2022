@@ -35,39 +35,89 @@ const rows = [
 ];
 
 const tableCellStyles = {
-  width: 122,
-  height: 40,
+  width: '7.625rem',
+  height: '2.5rem',
   padding: 0,
   color: '#ffffff',
   borderColor: '#6b6b6b',
 };
 const TextStylesPage: React.FC = () => {
   return (
-    <Grid container sx={{ bgcolor: '#323232', width: 887 }}>
+    <Grid container sx={{ bgcolor: '#323232' }}>
       <Grid item xs={12}>
         <TypographyTop title={'STYLE'} />
       </Grid>
-      <Grid>
-        <TableContainer>
-          <Table
-            sx={{
-              width: 732,
-              ml: 10,
-              mt: 5,
-              mb: 44,
-              bgcolor: '#323232',
-            }}
-            size="small"
-            aria-label="a dense table"
-          >
-            <TableHead>
-              <TableRow>
+      <TableContainer>
+        <Table
+          sx={{
+            width: '45.75rem',
+            margin: '2.4375rem auto 22rem',
+          }}
+          size="small"
+          aria-label="a dense table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell
+                sx={{
+                  ...tableCellStyles,
+                }}
+              >
+                <Typography variant="body1">Category</Typography>
+              </TableCell>
+              <TableCell
+                align="left"
+                sx={{
+                  ...tableCellStyles,
+                }}
+              >
+                <Typography variant="body1">Style Name</Typography>
+              </TableCell>
+              <TableCell
+                align="left"
+                sx={{
+                  ...tableCellStyles,
+                }}
+              >
+                <Typography variant="body1">Font Styles</Typography>
+              </TableCell>
+              <TableCell
+                align="left"
+                sx={{
+                  ...tableCellStyles,
+                }}
+              >
+                <Typography variant="body1">Alignment</Typography>
+              </TableCell>
+              <TableCell
+                align="left"
+                sx={{
+                  ...tableCellStyles,
+                }}
+              >
+                <Typography variant="body1">Size</Typography>
+              </TableCell>
+              <TableCell
+                align="left"
+                sx={{
+                  ...tableCellStyles,
+                }}
+              >
+                <Typography variant="body1">Case</Typography>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.category}>
                 <TableCell
-                  sx={{
-                    ...tableCellStyles,
-                  }}
+                  component="th"
+                  scope="row"
+                  sx={{ padding: 0, color: '#ffffff', borderColor: '#6b6b6b' }}
                 >
-                  <Typography variant="body1">Category</Typography>
+                  <Typography variant={row.category.toLowerCase() as any}>
+                    {row.category}
+                  </Typography>
                 </TableCell>
                 <TableCell
                   align="left"
@@ -75,7 +125,7 @@ const TextStylesPage: React.FC = () => {
                     ...tableCellStyles,
                   }}
                 >
-                  <Typography variant="body1">Style Name</Typography>
+                  <Typography variant="body2">{row.styleName}</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
@@ -83,7 +133,7 @@ const TextStylesPage: React.FC = () => {
                     ...tableCellStyles,
                   }}
                 >
-                  <Typography variant="body1">Font Styles</Typography>
+                  <Typography variant="body2">{row.fontStyles}</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
@@ -91,7 +141,7 @@ const TextStylesPage: React.FC = () => {
                     ...tableCellStyles,
                   }}
                 >
-                  <Typography variant="body1">Alignment</Typography>
+                  <Typography variant="body2">{row.alignment}</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
@@ -99,7 +149,7 @@ const TextStylesPage: React.FC = () => {
                     ...tableCellStyles,
                   }}
                 >
-                  <Typography variant="body1">Size</Typography>
+                  <Typography variant="body2">{row.size}</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
@@ -107,68 +157,13 @@ const TextStylesPage: React.FC = () => {
                     ...tableCellStyles,
                   }}
                 >
-                  <Typography variant="body1">Case</Typography>
+                  <Typography variant="body2">{row.capitalization}</Typography>
                 </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.category}>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    sx={{ padding: 0, color: '#ffffff', borderColor: '#6b6b6b' }}
-                  >
-                    <Typography variant={row.category.toLowerCase() as any}>
-                      {row.category}
-                    </Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      ...tableCellStyles,
-                    }}
-                  >
-                    <Typography variant="body2">{row.styleName}</Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      ...tableCellStyles,
-                    }}
-                  >
-                    <Typography variant="body2">{row.fontStyles}</Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      ...tableCellStyles,
-                    }}
-                  >
-                    <Typography variant="body2">{row.alignment}</Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      ...tableCellStyles,
-                    }}
-                  >
-                    <Typography variant="body2">{row.size}</Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      ...tableCellStyles,
-                    }}
-                  >
-                    <Typography variant="body2">{row.capitalization}</Typography>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Grid>
   );
 };
