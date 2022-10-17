@@ -4,7 +4,7 @@ import * as React from 'react';
 
 type PostionType = 'left' | 'middle' | 'right';
 
-interface Props {
+export interface Props {
   token: string;
   bgColor: string;
   color: string;
