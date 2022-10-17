@@ -17,6 +17,7 @@ declare module '@mui/material/styles/createPalette' {
     buy: PaletteColorOptions;
     sell: PaletteColorOptions;
   }
+
 }
 
 // common color values for both themes
@@ -92,6 +93,10 @@ export const light: PaletteOptions = {
   },
   background: {
     paper: '#F9F9F9',
+
+  action: {
+    disabledBackground: '#E4E4E4',
+    disabled: '#6B6B6B',
   },
 };
 
@@ -109,5 +114,8 @@ export const dark: PaletteOptions = {
   },
   background: {
     paper: '#323232',
+  action: {
+    disabledBackground: '#E4E4E4',
+    disabled: '#6B6B6B',
   },
 };

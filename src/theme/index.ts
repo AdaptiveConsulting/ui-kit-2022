@@ -1,22 +1,20 @@
 import { createTheme } from '@mui/material/styles';
 
-import MuiDivider from './overrides/MuiDivider';
+import { DARK_COMPONENTS, LIGHT_COMPONENTS } from './overrides';
 import * as palette from './palette';
+import spacing from './spacing';
 import { THEME_TYPOGRAPHY as typography } from './typography';
 
-// Component overrides
-const components = {
-  MuiDivider,
-};
-
 export const light = createTheme({
-  components,
+  components: LIGHT_COMPONENTS,
   palette: palette.light,
   typography,
+  spacing,
 });
 
 export const dark = createTheme({
-  components,
+  components: DARK_COMPONENTS,
   palette: palette.dark,
   typography,
+  spacing,
 });

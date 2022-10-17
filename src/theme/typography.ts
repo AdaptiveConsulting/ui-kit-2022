@@ -101,4 +101,10 @@ export const THEME_TYPOGRAPHY = {
     textTransform: 'capitalize',
     fontFamily: 'Roboto',
   },
+  button: {
+    fontSize: '11px',
+    textAlign: 'center',
+    fontWeight: 500,
+    fontFamily: 'Roboto',
+  },
 } as const;
