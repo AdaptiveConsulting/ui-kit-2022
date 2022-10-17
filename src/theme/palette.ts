@@ -93,9 +93,6 @@ export const light: PaletteOptions = {
   background: {
     paper: '#F9F9F9',
   },
-  action: {
-    // TODO, wait for the tokens
-  },
 };
 
 // TODO: Define MUI palettes for dark theme
@@ -112,8 +109,5 @@ export const dark: PaletteOptions = {
   },
   background: {
     paper: '#323232',
-  },
-  action: {
-    // TODO, wait for the tokens
   },
 };
