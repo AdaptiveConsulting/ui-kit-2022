@@ -4,7 +4,7 @@ import * as React from 'react';
 import { SmallLightLogo } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
-import { colorsConstant } from './palette.constants';
+import { colorsConstant, purposeConstant } from './palette.constants';
 const title = (
   <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <SvgIcon
@@ -56,18 +56,9 @@ const Palette: React.FC = () => {
         sx={{ bgcolor: '#323232', color: '#FFFFFF', padding: '1rem' }}
         rowGap={1}
       >
-        <SubTitle subTitle="Purpose" />
-        <TextContent>
-          Colors communicate branding. When applied consistently , they can communicate
-          information about system states, and draw attention to certain parts of the
-          screen, like an error that needs attention.
-        </TextContent>
-        <TextContent>
-          Though color does much to make a design more efficient and effective, we must
-          still pursue designs that are effective even to those with little or no color
-          perception. Therefore, colors should be used in an accessible manner, and no
-          information should be communicated by color alone.
-        </TextContent>
+        <SubTitle subTitle={purposeConstant.title} />
+        <TextContent>{purposeConstant.content[0]}</TextContent>
+        <TextContent>{purposeConstant.content[1]}</TextContent>
         <Grid container columnGap={1}>
           <Grid container xs={2}>
             <SubTitle subTitle="Core Neutrals" />

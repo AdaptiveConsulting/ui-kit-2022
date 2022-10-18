@@ -11,10 +11,3 @@ export default {
 const Template = (args) => <Palette {...args} />;
 
 export const ColorPaletteStory: ComponentStory<typeof Palette> = Template.bind({});
-
-// ColorPaletteStory.args = {
-//   colors: [
-//     { token: 'Common-Black', bgColor: '#000', color: '#FFF' },
-//     { token: 'Common-White', bgColor: '#FFF', color: '#000' },
-//   ],
-// };
