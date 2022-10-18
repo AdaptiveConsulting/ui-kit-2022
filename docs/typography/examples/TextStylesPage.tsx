@@ -41,6 +41,15 @@ const tableCellStyles = {
   color: '#ffffff',
   borderColor: '#6b6b6b',
 };
+const tableColumns: string[] = [
+  'Category',
+  'Style Name',
+  'Font Styles',
+  'Alignment',
+  'Size',
+  'Capitalization',
+];
+
 const TextStylesPage: React.FC = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232' }}>
@@ -58,53 +67,19 @@ const TextStylesPage: React.FC = () => {
         >
           <TableHead>
             <TableRow>
-              <TableCell
-                sx={{
-                  ...tableCellStyles,
-                }}
-              >
-                <Typography variant="body1">Category</Typography>
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  ...tableCellStyles,
-                }}
-              >
-                <Typography variant="body1">Style Name</Typography>
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  ...tableCellStyles,
-                }}
-              >
-                <Typography variant="body1">Font Styles</Typography>
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  ...tableCellStyles,
-                }}
-              >
-                <Typography variant="body1">Alignment</Typography>
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  ...tableCellStyles,
-                }}
-              >
-                <Typography variant="body1">Size</Typography>
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  ...tableCellStyles,
-                }}
-              >
-                <Typography variant="body1">Case</Typography>
-              </TableCell>
+              {tableColumns.map((column) => {
+                return (
+                  <TableCell
+                    key={column}
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
+                  >
+                    <Typography variant="body1">{column}</Typography>
+                  </TableCell>
+                );
+              })}
             </TableRow>
           </TableHead>
           <TableBody>
