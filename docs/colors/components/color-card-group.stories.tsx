@@ -16,7 +16,7 @@ export const ColorCardGroupStory: ComponentStory<typeof ColorCardGroup> = Templa
 
 ColorCardGroupStory.args = {
   colors: [
-    { token: 'Common-Black', bgColor: '#000', color: '#FFFFFF' },
+    { token: 'Common-Black', bgColor: '#000', color: '#FFF' },
     { token: 'Common-White', bgColor: '#FFF', color: '#000' },
   ],
 };

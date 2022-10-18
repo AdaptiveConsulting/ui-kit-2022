@@ -8,6 +8,7 @@ export interface Props {
   token: string;
   bgColor: string;
   color: string;
+  opacity: number;
   position: PostionType;
 }
 
@@ -21,12 +22,13 @@ const radiusStyle = (position: PostionType) => {
   return '0px 0px 0px 0px';
 };
 
-const ColorCard: React.FC<Props> = ({ token, bgColor, color, position }) => {
+const ColorCard: React.FC<Props> = ({ token, bgColor, color, opacity, position }) => {
   return (
     <Box
       sx={{
         bgcolor: `${bgColor}`,
         color: `${color}`,
+        opacity: `${opacity ? opacity : 1}`,
         height: '58px',
         width: '160px',
         display: 'flex',
@@ -42,7 +44,7 @@ const ColorCard: React.FC<Props> = ({ token, bgColor, color, position }) => {
         {token}
       </Typography>
       <Typography sx={{ fontSize: '12px', fontWeight: '400', fontFamily: 'Roboto' }}>
-        {bgColor}
+        {opacity ? `${Math.floor(opacity * 100) + '% OPACITY'}` : bgColor}
       </Typography>
     </Box>
   );

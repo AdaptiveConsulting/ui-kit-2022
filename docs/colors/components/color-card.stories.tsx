@@ -24,3 +24,13 @@ ColorCardStory.args = {
   color: '#FFFFFF',
   position: 'left',
 };
+
+export const OpacityCardStory: ComponentStory<typeof ColorCard> = Template.bind({});
+
+OpacityCardStory.args = {
+  token: 'Text-Primary',
+  bgColor: '#323232',
+  color: '#FFFFFF',
+  opacity: 0.38,
+  position: 'middle',
+};
