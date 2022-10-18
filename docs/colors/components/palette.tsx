@@ -17,6 +17,24 @@ const title = (
   </Box>
 );
 
+const SubTitle = ({ subTitle }: { subTitle: string }) => {
+  return (
+    <Grid item xs={12}>
+      <Typography sx={{ margin: '6px 0px' }}>{subTitle}</Typography>
+    </Grid>
+  );
+};
+
+const TextContent = ({ text }: { text: string }) => {
+  return (
+    <Grid item xs={12}>
+      <Typography variant="body2" sx={{ width: '50%', margin: '6px 0px' }}>
+        {text}
+      </Typography>
+    </Grid>
+  );
+};
+
 const Palette: React.FC = () => {
   return (
     <Grid>
@@ -24,24 +42,16 @@ const Palette: React.FC = () => {
         <TopBar title={title} />
       </Grid>
       <Grid container sx={{ bgcolor: '#323232', color: '#FFFFFF', padding: '1rem' }}>
-        <Grid item xs={12}>
-          <Typography sx={{ margin: '6px 0px' }}>Purpose</Typography>
-        </Grid>
-        <Grid item xs={12}>
+        <SubTitle subTitle="Purpose" />
+        {/* <Grid item xs={12}>
           <Typography variant="body2" sx={{ width: '50%', margin: '6px 0px' }}>
             Colors communicate branding. When applied consistently , they can communicate
             information about system states, and draw attention to certain parts of the
             screen, like an error that needs attention.
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="body2" sx={{ width: '50%', margin: '6px 0px' }}>
-            Though color does much to make a design more efficient and effective, we must
-            still pursue designs that are effective even to those with little or no color
-            perception. Therefore, colors should be used in an accessible manner, and no
-            information should be communicated by color alone.
-          </Typography>
-        </Grid>
+        </Grid> */}
+        <TextContent text="Colors communicate branding. When applied consistently , they can communicate information about system states, and draw attention to certain parts of the screen, like an error that needs attention." />
+        <TextContent text="Though color does much to make a design more efficient and effective, we must still pursue designs that are effective even to those with little or no color perception. Therefore, colors should be used in an accessible manner, and no information should be communicated by color alone." />
       </Grid>
     </Grid>
   );
