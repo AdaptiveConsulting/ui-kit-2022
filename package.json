@@ -63,6 +63,7 @@
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.10.2",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -87,6 +88,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chuck-adaptive/ui-kit-2022.git"
-  }
+    "url": "git+https://github.com/chuck-adaptive/ui-kit-2022.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chuck-adaptive/ui-kit-2022/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/chuck-adaptive/ui-kit-2022#readme",
+  "_id": "ui-kit-2022@0.0.0"
 }
