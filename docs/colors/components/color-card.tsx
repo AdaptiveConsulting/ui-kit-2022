@@ -8,7 +8,7 @@ export interface Props {
   token: string;
   bgColor: string;
   color: string;
-  opacity: number;
+  opacity?: number;
   position: PostionType;
 }
 

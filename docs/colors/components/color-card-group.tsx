@@ -24,7 +24,7 @@ const addPositionProp = (
 
 const ColorCardGroup: React.FC<Props> = ({ colors }) => {
   return (
-    <Grid container>
+    <Grid container wrap={'nowrap'}>
       {colors.map((value, index, arr) => (
         <Grid item key={value.token + index}>
           <ColorCard {...addPositionProp(value, index, arr.length)} />

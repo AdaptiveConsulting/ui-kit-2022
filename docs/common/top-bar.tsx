@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 
 interface Props {
-  title: 'TYPES' | 'STYLE';
+  title: JSX.Element | string;
 }
 
 const TopBar: React.FC<Props> = ({ title }) => {

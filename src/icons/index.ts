@@ -22,6 +22,7 @@ export { ReactComponent as Plus } from './images/PlusIcon.svg';
 export { ReactComponent as Refresh } from './images/RefreshIcon.svg';
 export { ReactComponent as Search } from './images/SearchIcon.svg';
 export { ReactComponent as Settings } from './images/SettingsIcon.svg';
+export { ReactComponent as SmallLightLogo } from './images/small-light-logo.svg';
 export { ReactComponent as Stop } from './images/StopIcon.svg';
 export { ReactComponent as Timer } from './images/TimerIcon.svg';
 export { ReactComponent as Trash } from './images/TrashIcon.svg';
