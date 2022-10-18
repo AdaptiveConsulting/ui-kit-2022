@@ -47,7 +47,7 @@ const TextContent = ({
 
 const Palette: React.FC = () => {
   return (
-    <Grid>
+    <Grid sx={{ minWidth: '1950px' }}>
       <Grid item xs={12}>
         <TopBar title={title} />
       </Grid>
