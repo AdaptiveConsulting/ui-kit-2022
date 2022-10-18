@@ -5,9 +5,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import * as React from 'react';
 
 import { Typography } from '../../../src/index';
-import TypographyTop from './typography-top';
+import TopBar from '../../common/top-bar';
 
 function createData(
   category: string,
@@ -54,7 +55,7 @@ const TextStylesPage: React.FC = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232' }}>
       <Grid item xs={12}>
-        <TypographyTop title={'STYLE'} />
+        <TopBar title={'STYLE'} />
       </Grid>
       <TableContainer>
         <Table

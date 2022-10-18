@@ -2,10 +2,10 @@ import { Divider, Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
 import { MERRIWEATHER, ROBOTO } from '../../../src';
+import TopBar from '../../common/top-bar';
 import FontExamples from './font-examples';
 import TextSample from './text-sample';
 import TypeCard from './type-card';
-import TypographyTop from './typography-top';
 
 const TYPE_CARD_REGULAR_PROPS = {
   title: 'REGULAR',
@@ -37,7 +37,7 @@ const TypesPage: React.FC = () => {
   return (
     <Grid container sx={{ bgcolor: '#323232' }}>
       <Grid item xs={12}>
-        <TypographyTop title={'TYPES'} />
+        <TopBar title={'TYPES'} />
       </Grid>
       <Grid
         container

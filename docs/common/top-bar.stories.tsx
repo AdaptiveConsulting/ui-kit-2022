@@ -1,10 +1,10 @@
 import React from 'react';
 
-import TypographyTop from './typography-top';
+import TopBar from './top-bar';
 
 export default {
   title: 'Typography/Examples',
-  component: TypographyTop,
+  component: TopBar,
   argTypes: {
     title: {
       options: ['TYPES', 'STYLE'],
@@ -13,7 +13,7 @@ export default {
   },
 };
 
-const Template = (args) => <TypographyTop {...args} />;
+const Template = (args) => <TopBar {...args} />;
 
 export const TypographyTopStory = Template.bind({});
 

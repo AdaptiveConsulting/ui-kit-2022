@@ -1,11 +1,11 @@
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 
-interface TypographyTopProps {
+interface Props {
   title: 'TYPES' | 'STYLE';
 }
 
-const TypographyTop: React.FC<TypographyTopProps> = ({ title }) => {
+const TopBar: React.FC<Props> = ({ title }) => {
   return (
     <Box
       sx={{
@@ -21,4 +21,4 @@ const TypographyTop: React.FC<TypographyTopProps> = ({ title }) => {
   );
 };
 
-export default TypographyTop;
+export default TopBar;
