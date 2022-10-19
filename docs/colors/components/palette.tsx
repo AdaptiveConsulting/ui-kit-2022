@@ -1,22 +1,10 @@
-import { Box, Grid, SvgIcon, Typography } from '@mui/material';
+import { Grid, SvgIcon, Typography } from '@mui/material';
 import * as React from 'react';
 
-import { SmallLightLogo } from '../../../src/icons';
+import { Color0, Color1, Color2, Color3, SmallLightLogo } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
 import { colorsConstant, purposeConstant } from './palette.constants';
-const title = (
-  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-    <SvgIcon
-      component={SmallLightLogo}
-      viewBox="0 0 35 35"
-      sx={{ width: '34px', height: '34px' }}
-    />
-    <Typography sx={{ color: '#FFFFFF', marginLeft: '1rem', fontSize: '16px' }}>
-      Reactive Design System
-    </Typography>
-  </Box>
-);
 
 const SubTitle = ({ subTitle }: { subTitle: string }) => {
   return (
@@ -26,13 +14,7 @@ const SubTitle = ({ subTitle }: { subTitle: string }) => {
   );
 };
 
-const TextContent = ({
-  children,
-  width,
-}: {
-  children: JSX.Element | string;
-  width?: string;
-}) => {
+const TextContent = ({ children, width }: { children: string; width?: string }) => {
   return (
     <Grid item xs={12}>
       <Typography
@@ -45,43 +27,92 @@ const TextContent = ({
   );
 };
 
+const ColorIcons = () => (
+  <Grid container sx={{ width: '146px' }}>
+    <Grid item xs={3}>
+      <SvgIcon
+        component={Color0}
+        viewBox="0 0 35 35"
+        sx={{ width: '34px', height: '34px' }}
+      />
+    </Grid>
+    <Grid item xs={3}>
+      <SvgIcon
+        component={Color1}
+        viewBox="0 0 35 35"
+        sx={{ width: '34px', height: '34px' }}
+      />
+    </Grid>
+    <Grid item xs={3}>
+      <SvgIcon
+        component={Color2}
+        viewBox="0 0 35 35"
+        sx={{ width: '34px', height: '34px' }}
+      />
+    </Grid>
+    <Grid item xs={3}>
+      <SvgIcon
+        component={Color3}
+        viewBox="0 0 35 35"
+        sx={{ width: '34px', height: '34px' }}
+      />
+    </Grid>
+  </Grid>
+);
+
 const Palette: React.FC = () => {
   return (
     <Grid sx={{ minWidth: '1950px' }}>
       <Grid item xs={12}>
-        <TopBar title={title} />
+        <TopBar icon={SmallLightLogo} title={'Reactive Design System'} />
       </Grid>
       <Grid
         container
         sx={{ bgcolor: '#323232', color: '#FFFFFF', padding: '1rem' }}
-        rowGap={1}
+        rowGap={5}
       >
         <SubTitle subTitle={purposeConstant.title} />
         <TextContent>{purposeConstant.content[0]}</TextContent>
         <TextContent>{purposeConstant.content[1]}</TextContent>
-        <Grid container columnGap={1}>
-          <Grid container xs={2}>
-            <SubTitle subTitle="Core Neutrals" />
-            <TextContent width="100%">{colorsConstant[0].content}</TextContent>
+        {colorsConstant.map((color, index) => {
+          return (
+            <Grid key={color.content + index} container rowGap={2}>
+              <Grid item xs={2}>
+                {color.title && <SubTitle subTitle={color.title} />}
+                {color.content && <TextContent width="100%">{color.content}</TextContent>}
+              </Grid>
+              <Grid item xs={9}>
+                {color.colors.map((value, index) => (
+                  <ColorCardGroup key={JSON.stringify(value) + index} colors={value} />
+                ))}
+              </Grid>
+            </Grid>
+          );
+        })}
+        <Grid container columnGap={2}>
+          <Grid item xs={4}>
+            <Typography variant={'body2'}>
+              All colors have been analyzed against each other in this matrix, and each
+              combination given a score. Every color in our palette has AA
+            </Typography>
+            <Typography variant={'body2'}>
+              AA or AAA: The two colors can be used as foreground and background against
+              each other with no restrictions. AA18: Can be used for graphical elements,
+              icons, or for text, as long as the text size is at least 18 pt. (Or 14 if
+              bold) DNP: Do not use this combination for anything functional or essential.
+              An exception might be a decorative object like a divider, or for a use in
+              which the information is communicated in an additional way..
+            </Typography>
           </Grid>
-          <Grid item xs={9}>
-            <ColorCardGroup colors={colorsConstant[0].colors[0]} />
-          </Grid>
-        </Grid>
-        <Grid container columnGap={1}>
-          <Grid container xs={2}>
-            <TextContent width="100%">{colorsConstant[1].content}</TextContent>
-          </Grid>
-          <Grid item xs={9}>
-            <ColorCardGroup colors={colorsConstant[1].colors[0]} />
-          </Grid>
-        </Grid>
-        <Grid container columnGap={1}>
-          <Grid container xs={2}>
-            <TextContent width="100%">{colorsConstant[2].content}</TextContent>
-          </Grid>
-          <Grid item xs={9}>
-            <ColorCardGroup colors={colorsConstant[2].colors[0]} />
+          <Grid item xs={6}>
+            <ColorIcons />
+            <Grid item xs={12} sx={{ width: '180px' }}>
+              <Typography
+                sx={{ color: '#CFCFCF', fontStyle: 'italic', fontSize: '11px' }}
+              >
+                Some examples of color combinations that are inaccessible.
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

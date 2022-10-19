@@ -28,7 +28,7 @@ const ColorCard: React.FC<Props> = ({ token, bgColor, color, opacity, position }
       sx={{
         bgcolor: `${bgColor}`,
         color: `${color}`,
-        opacity: `${opacity ? opacity : 1}`,
+        opacity: `${opacity ? opacity : 0.95}`,
         height: '58px',
         width: '160px',
         display: 'flex',
