@@ -6,6 +6,12 @@ const purposeConstant = {
   ],
 };
 
+const ColorConTrastExplanation = [
+  'All colors have been analyzed against each other in this matrix, and each combination given a score. Every color in our palette has AA',
+  'AA or AAA: The two colors can be used as foreground and background against each other with no restrictions. AA18: Can be used for graphical elements, icons, or for text, as long as the text size is at least 18 pt. (Or 14 if bold) DNP: Do not use this combination for anything functional or essential. An exception might be a decorative object like a divider, or for a use in which the information is communicated in an additional way..',
+  'Some examples of color combinations that are inaccessible.',
+];
+
 const colorsConstant = [
   {
     title: 'Core Neutrals',
@@ -155,4 +161,4 @@ const colorsConstant = [
     ],
   },
 ];
-export { colorsConstant, purposeConstant };
+export { ColorConTrastExplanation, colorsConstant, purposeConstant };

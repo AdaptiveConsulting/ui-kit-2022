@@ -4,12 +4,18 @@ import * as React from 'react';
 import { Color0, Color1, Color2, Color3, SmallLightLogo } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
-import { colorsConstant, purposeConstant } from './palette.constants';
+import {
+  ColorConTrastExplanation,
+  colorsConstant,
+  purposeConstant,
+} from './palette.constants';
 
 const SubTitle = ({ subTitle }: { subTitle: string }) => {
   return (
     <Grid item xs={12}>
-      <Typography sx={{ margin: '6px 0px' }}>{subTitle}</Typography>
+      <Typography variant={'h4'} sx={{ margin: '6px 0px' }}>
+        {subTitle}
+      </Typography>
     </Grid>
   );
 };
@@ -91,26 +97,17 @@ const Palette: React.FC = () => {
         })}
         <Grid container columnGap={2}>
           <Grid item xs={4}>
-            <Typography variant={'body2'}>
-              All colors have been analyzed against each other in this matrix, and each
-              combination given a score. Every color in our palette has AA
-            </Typography>
-            <Typography variant={'body2'}>
-              AA or AAA: The two colors can be used as foreground and background against
-              each other with no restrictions. AA18: Can be used for graphical elements,
-              icons, or for text, as long as the text size is at least 18 pt. (Or 14 if
-              bold) DNP: Do not use this combination for anything functional or essential.
-              An exception might be a decorative object like a divider, or for a use in
-              which the information is communicated in an additional way..
-            </Typography>
+            <Typography variant={'body2'}>{ColorConTrastExplanation[0]}</Typography>
+            <Typography variant={'body2'}>{ColorConTrastExplanation[1]}</Typography>
           </Grid>
           <Grid item xs={6}>
             <ColorIcons />
             <Grid item xs={12} sx={{ width: '180px' }}>
               <Typography
-                sx={{ color: '#CFCFCF', fontStyle: 'italic', fontSize: '11px' }}
+                variant={'body2'}
+                sx={{ color: '#CFCFCF', fontStyle: 'italic' }}
               >
-                Some examples of color combinations that are inaccessible.
+                {ColorConTrastExplanation[2]}
               </Typography>
             </Grid>
           </Grid>

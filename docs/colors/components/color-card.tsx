@@ -38,12 +38,10 @@ const ColorCard: React.FC<Props> = ({ token, bgColor, color, opacity, position }
         borderRadius: `${radiusStyle(position)}`,
       }}
     >
-      <Typography
-        sx={{ fontSize: '16px', fontWeight: '700', fontFamily: 'Merriweather Serif' }}
-      >
+      <Typography variant="h4" sx={{ fontWeight: '700', fontSize: '13px' }}>
         {token}
       </Typography>
-      <Typography sx={{ fontSize: '12px', fontWeight: '400', fontFamily: 'Roboto' }}>
+      <Typography variant="body2">
         {opacity ? `${Math.floor(opacity * 100) + '% OPACITY'}` : bgColor}
       </Typography>
     </Box>
