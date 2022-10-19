@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../packages/ui-kit-theme" },
+    { "path": "../packages/ui-kit-components" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@ui-kit-2022/svgr-template",
+  "version": "1.0.0",
+  "description": "SVGR Template for Adaptive UI Kit",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@babel/types": "^7.19.3"
+  }
+}

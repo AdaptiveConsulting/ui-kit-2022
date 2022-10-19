@@ -1,0 +1,41 @@
+{
+  "name": "@ui-kit-2022/docs",
+  "version": "0.0.0",
+  "description": "Adaptive UI-Kit 2022 Documentation",
+  "private": true,
+  "scripts": {
+    "build": "build-storybook",
+    "preview": "yarn storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-gh-pages": "BASE_PATH=/ui-kit-2022/ yarn build-storybook",
+    "clean": "rm -r storybook-static"
+  },
+  "depedencies": {
+    "@mui/material": "^5.10.6",
+    "@emotion/styled": "^11.10.4",
+    "@ui-kit-2022/theme": "0.0.0",
+    "@ui-kit-2022/components": "0.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@emotion/styled": "^11.10.4",
+    "@storybook/addon-a11y": "^6.5.12",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-storysource": "^6.5.12",
+    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@ui-kit-2022/svgr-template": "^1.0.0",
+    "@ui-kit-2022/theme": "0.0.0",
+    "babel-loader": "^8.2.5",
+    "storybook-dark-mode": "^1.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdaptiveConsulting/ui-kit-2022.git",
+    "directory": "docs"
+  }
+}

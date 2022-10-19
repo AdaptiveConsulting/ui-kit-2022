@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist/types",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -17,9 +17,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "types": ["vite/client"]
+    "paths": {
+      "@ui-kit-2022/*": ["packages/*/src/index.ts"]
+    }
   },
-  "include": ["src", "docs"],
-  "exclude": ["**/*.stories.*"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "files": [],
+  "references": [
+    { "path": "packages/ui-kit-components" },
+    { "path": "packages/ui-kit-theme" }
+  ],
+  "exclude": ["**/node_modules", "**/dist", "*.d.ts"]
 }

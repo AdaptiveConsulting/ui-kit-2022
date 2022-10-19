@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declarationDir": "dist/types",
+    "types": ["vite/client"]
+  },
+  "references": [{ "path": "../ui-kit-theme" }]
+}

@@ -6,6 +6,17 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*.tsbuildinfo
+
+# yarn (ZeroInstalls off)
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 node_modules
 dist

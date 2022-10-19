@@ -1,0 +1,41 @@
+{
+  "name": "@ui-kit-2022/theme",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/ui-kit-2022-theme.umd.cjs",
+  "module": "./dist/ui-kit-2022-theme.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ui-kit-2022-theme.js",
+      "require": "./dist/ui-kit-2022-theme.umd.cjs"
+    }
+  },
+  "typings": "./dist/types/index.d.ts",
+  "scripts": {
+    "dev": "npm run check-types && vite build --watch",
+    "build": "vite build && npm run build-types",
+    "check-types": "tsc --noEmit",
+    "build-types": "tsc --declaration --emitDeclarationOnly",
+    "clean": "rm -r ./dist"
+  },
+  "dependencies": {
+    "@fontsource/merriweather": "^4.5.14",
+    "@fontsource/roboto": "^4.5.8"
+  },
+  "peerDependencies": {
+    "@mui/material": "^5.10.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@mui/material": "^5.10.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdaptiveConsulting/ui-kit-2022.git",
+    "directory": "packages/ui-kit-theme"
+  }
+}
