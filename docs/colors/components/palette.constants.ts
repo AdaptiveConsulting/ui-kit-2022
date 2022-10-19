@@ -1,4 +1,4 @@
-const purposeConstant = {
+const PURPOSE = {
   title: 'Purpose',
   content: [
     'Colors communicate branding. When applied consistently , they can communicate information about system states, and draw attention to certain parts of the screen, like an error that needs attention.',
@@ -6,13 +6,13 @@ const purposeConstant = {
   ],
 };
 
-const ColorConTrastExplanation = [
+const COLOR_CONTRAST_EXPLANATION = [
   'All colors have been analyzed against each other in this matrix, and each combination given a score. Every color in our palette has AA',
   'AA or AAA: The two colors can be used as foreground and background against each other with no restrictions. AA18: Can be used for graphical elements, icons, or for text, as long as the text size is at least 18 pt. (Or 14 if bold) DNP: Do not use this combination for anything functional or essential. An exception might be a decorative object like a divider, or for a use in which the information is communicated in an additional way..',
   'Some examples of color combinations that are inaccessible.',
 ];
 
-const colorsConstant = [
+const COLORS = [
   {
     title: 'Core Neutrals',
     content: 'The “paper” colors are our near-black and near-black base backgrounds.',
@@ -161,4 +161,4 @@ const colorsConstant = [
     ],
   },
 ];
-export { ColorConTrastExplanation, colorsConstant, purposeConstant };
+export { COLOR_CONTRAST_EXPLANATION, COLORS, PURPOSE };

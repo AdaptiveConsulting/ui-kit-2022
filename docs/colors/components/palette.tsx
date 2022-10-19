@@ -4,11 +4,7 @@ import * as React from 'react';
 import { Color0, Color1, Color2, Color3, SmallLightLogo } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
-import {
-  ColorConTrastExplanation,
-  colorsConstant,
-  purposeConstant,
-} from './palette.constants';
+import { COLOR_CONTRAST_EXPLANATION, COLORS, PURPOSE } from './palette.constants';
 
 const SubTitle = ({ subTitle }: { subTitle: string }) => {
   return (
@@ -77,12 +73,12 @@ const Palette: React.FC = () => {
         sx={{ bgcolor: '#323232', color: '#FFFFFF', padding: '1rem' }}
         rowGap={5}
       >
-        <SubTitle subTitle={purposeConstant.title} />
-        <TextContent>{purposeConstant.content[0]}</TextContent>
-        <TextContent>{purposeConstant.content[1]}</TextContent>
-        {colorsConstant.map((color, index) => {
+        <SubTitle subTitle={PURPOSE.title} />
+        <TextContent>{PURPOSE.content[0]}</TextContent>
+        <TextContent>{PURPOSE.content[1]}</TextContent>
+        {COLORS.map((color, index) => {
           return (
-            <Grid key={color.content + index} container rowGap={2}>
+            <Grid key={color.content + index} xs={12} container columnGap={1}>
               <Grid item xs={2}>
                 {color.title && <SubTitle subTitle={color.title} />}
                 {color.content && <TextContent width="100%">{color.content}</TextContent>}
@@ -97,17 +93,17 @@ const Palette: React.FC = () => {
         })}
         <Grid container columnGap={2}>
           <Grid item xs={4}>
-            <Typography variant={'body2'}>{ColorConTrastExplanation[0]}</Typography>
-            <Typography variant={'body2'}>{ColorConTrastExplanation[1]}</Typography>
+            <Typography variant={'body2'}>{COLOR_CONTRAST_EXPLANATION[0]}</Typography>
+            <Typography variant={'body2'}>{COLOR_CONTRAST_EXPLANATION[1]}</Typography>
           </Grid>
           <Grid item xs={6}>
             <ColorIcons />
-            <Grid item xs={12} sx={{ width: '180px' }}>
+            <Grid item xs={12} sx={{ width: '250px' }}>
               <Typography
                 variant={'body2'}
-                sx={{ color: '#CFCFCF', fontStyle: 'italic' }}
+                sx={{ color: '#CFCFCF', fontStyle: 'italic', fontSize: '11px' }}
               >
-                {ColorConTrastExplanation[2]}
+                {COLOR_CONTRAST_EXPLANATION[2]}
               </Typography>
             </Grid>
           </Grid>
