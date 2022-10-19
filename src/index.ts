@@ -3,6 +3,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/merriweather/400.css';
 export { Logo } from './components/Branding/Logo';
+export { LogoBrand } from './components/Branding/LogoBrand';
 export { LogoText } from './components/Branding/LogoText';
 export { Example } from './components/example';
 export { Typography } from './components/Typography';
