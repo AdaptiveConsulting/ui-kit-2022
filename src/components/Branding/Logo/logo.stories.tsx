@@ -5,7 +5,6 @@ import Logo from './Logo';
 export default {
   title: 'Components/Branding',
   component: Logo,
-  name: 'Logo',
 } as ComponentMeta<typeof Logo>;
 
 const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />;
