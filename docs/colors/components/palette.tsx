@@ -55,7 +55,7 @@ const ColorIcons = ({ palette }: { palette: Palette }) => {
 
 const ColorPalette: React.FC = () => {
   const { palette } = useTheme();
-  console.log('theme', palette);
+
   return (
     <Grid sx={{ minWidth: '1950px' }}>
       <Grid item xs={12}>

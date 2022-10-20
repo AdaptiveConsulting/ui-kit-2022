@@ -1,4 +1,4 @@
-import { Box, SvgIcon, Typography } from '@mui/material';
+import { Box, SvgIcon, Typography, useTheme } from '@mui/material';
 import * as React from 'react';
 
 interface Props {
@@ -7,16 +7,17 @@ interface Props {
 }
 
 const TopBar: React.FC<Props> = ({ icon, title }) => {
+  const { palette } = useTheme();
   return (
     <Box
       sx={{
         height: '68px',
-        bgcolor: '#555555',
+        bgcolor: `${palette.grey['700']}`,
         display: 'flex',
         alignItems: 'center',
         padding: '0px 1rem',
         justifyContent: 'flex-start',
-        color: '#FFFFFF',
+        color: `${palette.common.white}`,
       }}
     >
       {icon && (
