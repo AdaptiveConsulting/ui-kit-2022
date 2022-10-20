@@ -13,12 +13,12 @@ npm i ui-kit-2022
 ```
 import "./App.css";
 
-import { LogoIcon } from "ui-kit-2022";
+import { Logo } from "ui-kit-2022";
 
 function App() {
   return (
     <div className="App">
-      <LogoIcon />
+      <Logo />
     </div>
   );
 }
