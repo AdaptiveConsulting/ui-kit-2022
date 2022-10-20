@@ -69,7 +69,7 @@ const Palette: React.FC = () => {
         <TextContent>{PURPOSE.content[1]}</TextContent>
         {COLORS.map((color, index) => {
           return (
-            <Grid key={color.content + index} xs={12} container columnGap={1}>
+            <Grid key={color.content + index} container columnGap={1}>
               <Grid item xs={2}>
                 {color.title && <SubTitle subTitle={color.title} />}
                 {color.content && <TextContent width="100%">{color.content}</TextContent>}
