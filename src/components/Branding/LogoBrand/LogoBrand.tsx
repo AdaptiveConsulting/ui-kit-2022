@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 
-import { LogoLarge } from '../';
+import { LogoLarge } from '../raw-icons';
 
 interface Props {
   height?: number;

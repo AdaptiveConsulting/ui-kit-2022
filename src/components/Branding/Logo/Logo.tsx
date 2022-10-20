@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 
-import { LogoLarge, LogoMaximized, LogoSmall } from '../';
+import { LogoLarge, LogoMaximized, LogoSmall } from '../raw-icons';
 
 interface Props {
   variant?: string;
