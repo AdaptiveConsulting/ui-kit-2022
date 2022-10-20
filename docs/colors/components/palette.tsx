@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Palette, Typography, useTheme } from '@mui/material';
 import * as React from 'react';
 
 import { LogoSmall } from '../../../src/components/Branding/raw-icons';
@@ -30,7 +30,7 @@ const TextContent = ({ children, width }: { children: string; width?: string }) 
   );
 };
 
-const ColorIcons = () => {
+const ColorIcons = ({ palette }: { palette: Palette }) => {
   const IconWrapper = ({ color, bgColor }: { color: string; bgColor: string }) => {
     return (
       <Grid item xs={3}>
@@ -45,15 +45,17 @@ const ColorIcons = () => {
 
   return (
     <Grid container sx={{ width: '146px' }}>
-      <IconWrapper color="#6B6B6B" bgColor="#4D4D4D" />
-      <IconWrapper color="#B60017" bgColor="#FF274B" />
-      <IconWrapper color="#5F618D" bgColor="#FF274B" />
-      <IconWrapper color="#5F618D" bgColor="#01C38D" />
+      <IconWrapper color={palette.grey['600']} bgColor={palette.grey['800']} />
+      <IconWrapper color={palette.error.dark} bgColor={palette.error.main} />
+      <IconWrapper color={palette.primary.dark} bgColor={palette.error.main} />
+      <IconWrapper color={palette.primary.dark} bgColor={palette.success.main} />
     </Grid>
   );
 };
 
-const Palette: React.FC = () => {
+const ColorPalette: React.FC = () => {
+  const { palette } = useTheme();
+  console.log('theme', palette);
   return (
     <Grid sx={{ minWidth: '1950px' }}>
       <Grid item xs={12}>
@@ -61,7 +63,11 @@ const Palette: React.FC = () => {
       </Grid>
       <Grid
         container
-        sx={{ bgcolor: '#323232', color: '#FFFFFF', padding: '1rem' }}
+        sx={{
+          bgcolor: `${palette.mode === 'dark' ? palette.background.paper : palette.logo}`,
+          color: `${palette.common.white}`,
+          padding: '1rem',
+        }}
         rowGap={5}
       >
         <SubTitle subTitle={PURPOSE.title} />
@@ -88,11 +94,15 @@ const Palette: React.FC = () => {
             <Typography variant={'body2'}>{COLOR_CONTRAST_EXPLANATION[1]}</Typography>
           </Grid>
           <Grid item xs={6}>
-            <ColorIcons />
+            <ColorIcons palette={palette} />
             <Grid item xs={12} sx={{ width: '250px', mt: '1rem' }}>
               <Typography
                 variant={'body2'}
-                sx={{ color: '#CFCFCF', fontStyle: 'italic', fontSize: '11px' }}
+                sx={{
+                  color: `${palette.grey['300']}`,
+                  fontStyle: 'italic',
+                  fontSize: '11px',
+                }}
               >
                 {COLOR_CONTRAST_EXPLANATION[2]}
               </Typography>
@@ -104,4 +114,4 @@ const Palette: React.FC = () => {
   );
 };
 
-export default Palette;
+export default ColorPalette;

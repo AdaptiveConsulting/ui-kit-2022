@@ -1,3 +1,6 @@
+import { dark } from '../../../src/theme';
+const { palette } = dark;
+
 const PURPOSE = {
   title: 'Purpose',
   content: [
@@ -18,8 +21,16 @@ const COLORS = [
     content: 'The “paper” colors are our near-black and near-black base backgrounds.',
     colors: [
       [
-        { token: 'Common-Black', bgColor: '#000', color: '#FFF' },
-        { token: 'Common-White', bgColor: '#FFF', color: '#000' },
+        {
+          token: 'Common-Black',
+          bgColor: palette.common.black,
+          color: palette.common.white,
+        },
+        {
+          token: 'Common-White',
+          bgColor: palette.common.white,
+          color: palette.common.black,
+        },
       ],
     ],
   },
@@ -28,8 +39,16 @@ const COLORS = [
       'When the user switches between light and dark themes, most of the change will show itself via a dark grey changing to a light, or a light changing to a dark.',
     colors: [
       [
-        { token: 'Paper-Black', bgColor: '#323232', color: '#FFFFFF' },
-        { token: 'Paper-White', bgColor: '#F9F9F9', color: '#323232' },
+        {
+          token: 'Paper-Black',
+          bgColor: palette.background.paper,
+          color: palette.common.white,
+        },
+        {
+          token: 'Paper-White',
+          bgColor: palette.grey['50'],
+          color: palette.background.paper,
+        },
       ],
     ],
   },
@@ -38,16 +57,36 @@ const COLORS = [
       'Often, but not always, a grey will change to a complimentary one on the opposite side of this spectrum.',
     colors: [
       [
-        { token: 'Grey-50', bgColor: '#F9F9F9', color: '#323232' },
-        { token: 'Grey-100', bgColor: '#F2F2F2', color: '#323232' },
-        { token: 'Grey-200', bgColor: '#E4E4E4', color: '#323232' },
-        { token: 'Grey-300', bgColor: '#CFCFCF', color: '#323232' },
-        { token: 'Grey-400', bgColor: '#BBBBBB', color: '#323232' },
-        { token: 'Grey-500', bgColor: '#7F7F7F', color: '#FFFFFF' },
-        { token: 'Grey-600', bgColor: '#6B6B6B', color: '#FFFFFF' },
-        { token: 'Grey-700', bgColor: '#555555', color: '#FFFFFF' },
-        { token: 'Grey-800', bgColor: '#4D4D4D', color: '#FFFFFF' },
-        { token: 'Grey-900', bgColor: '#383838', color: '#FFFFFF' },
+        {
+          token: 'Grey-50',
+          bgColor: palette.grey['50'],
+          color: palette.background.paper,
+        },
+        {
+          token: 'Grey-100',
+          bgColor: palette.grey['100'],
+          color: palette.background.paper,
+        },
+        {
+          token: 'Grey-200',
+          bgColor: palette.grey['200'],
+          color: palette.background.paper,
+        },
+        {
+          token: 'Grey-300',
+          bgColor: palette.grey['300'],
+          color: palette.background.paper,
+        },
+        {
+          token: 'Grey-400',
+          bgColor: palette.grey['400'],
+          color: palette.background.paper,
+        },
+        { token: 'Grey-500', bgColor: palette.grey['500'], color: palette.common.white },
+        { token: 'Grey-600', bgColor: palette.grey['600'], color: palette.common.white },
+        { token: 'Grey-700', bgColor: palette.grey['700'], color: palette.common.white },
+        { token: 'Grey-800', bgColor: palette.grey['800'], color: palette.common.white },
+        { token: 'Grey-900', bgColor: palette.grey['900'], color: palette.common.white },
       ],
     ],
   },
@@ -56,10 +95,22 @@ const COLORS = [
       'These key “A” greys were pulled from the grey spectrum and used as reference to create the color families below.',
     colors: [
       [
-        { token: 'Grey-A100', bgColor: '#F2F2F2', color: '#323232' },
-        { token: 'Grey-A200', bgColor: '#E4E4E4', color: '#323232' },
-        { token: 'Grey-A400', bgColor: '#BBBBBB', color: '#323232' },
-        { token: 'Grey-A700', bgColor: '#555555', color: '#FFFFFF' },
+        {
+          token: 'Grey-A100',
+          bgColor: palette.grey['100'],
+          color: palette.background.paper,
+        },
+        {
+          token: 'Grey-A200',
+          bgColor: palette.grey['200'],
+          color: palette.background.paper,
+        },
+        {
+          token: 'Grey-A400',
+          bgColor: palette.grey['400'],
+          color: palette.background.paper,
+        },
+        { token: 'Grey-A700', bgColor: palette.grey['700'], color: palette.common.white },
       ],
     ],
   },
@@ -68,9 +119,21 @@ const COLORS = [
     content: 'This color family is used for brand accents.',
     colors: [
       [
-        { token: 'Primary-Dark', bgColor: '#5F618D', color: '#FFFFFF' },
-        { token: 'Primary-Main', bgColor: '#A9ABD1', color: '#000000' },
-        { token: 'Primary-Light', bgColor: '#DBDDFF', color: '#000000' },
+        {
+          token: 'Primary-Dark',
+          bgColor: palette.primary.dark,
+          color: palette.common.white,
+        },
+        {
+          token: 'Primary-Main',
+          bgColor: palette.primary.main,
+          color: palette.common.black,
+        },
+        {
+          token: 'Primary-Light',
+          bgColor: palette.primary.light,
+          color: palette.common.black,
+        },
       ],
     ],
   },
@@ -80,9 +143,21 @@ const COLORS = [
       'This color family is used to draw special attention to actions related to “selling.” It is currently duplicative of the color family used for “info”',
     colors: [
       [
-        { token: 'Secondary-Dark', bgColor: '#005195', color: '#FFFFFF' },
-        { token: 'Primary-Main', bgColor: '#2D96FF', color: '#000000' },
-        { token: 'Primary-Light', bgColor: '#76C6FF', color: '#000000' },
+        {
+          token: 'Secondary-Dark',
+          bgColor: palette.secondary.dark,
+          color: palette.common.white,
+        },
+        {
+          token: 'Primary-Main',
+          bgColor: palette.secondary.main,
+          color: palette.common.black,
+        },
+        {
+          token: 'Primary-Light',
+          bgColor: palette.secondary.light,
+          color: palette.common.black,
+        },
       ],
     ],
   },
@@ -92,9 +167,13 @@ const COLORS = [
       'Use these colors when there are errors, especially those that will stop the user’s progress without a resolution. This family is currently duplicative of the color family used for “Sell”',
     colors: [
       [
-        { token: 'Error-Dark', bgColor: '#B60017', color: '#FFFFFF' },
-        { token: 'Error-Main', bgColor: '#FF274B', color: '#000000' },
-        { token: 'Error-Light', bgColor: '#FF6877', color: '#000000' },
+        { token: 'Error-Dark', bgColor: palette.error.dark, color: palette.common.white },
+        { token: 'Error-Main', bgColor: palette.error.main, color: palette.common.black },
+        {
+          token: 'Error-Light',
+          bgColor: palette.error.light,
+          color: palette.common.black,
+        },
       ],
     ],
   },
@@ -104,9 +183,21 @@ const COLORS = [
       'Use these colors when communicating that there is the possibility of an outcome that is not an error, but not ideal.',
     colors: [
       [
-        { token: 'Warning-Dark', bgColor: '#EA4F01', color: '#FFFFFF' },
-        { token: 'Warning-Main', bgColor: '#FF8D00', color: '#000000' },
-        { token: 'Warning-Light', bgColor: '#FFBE45', color: '#000000' },
+        {
+          token: 'Warning-Dark',
+          bgColor: palette.warning.dark,
+          color: palette.common.white,
+        },
+        {
+          token: 'Warning-Main',
+          bgColor: palette.warning.main,
+          color: palette.common.black,
+        },
+        {
+          token: 'Warning-Light',
+          bgColor: palette.warning.light,
+          color: palette.common.black,
+        },
       ],
     ],
   },
@@ -120,9 +211,21 @@ const COLORS = [
     content: 'Use these colors when confirming that a process or action has succeeded.',
     colors: [
       [
-        { token: 'Warning-Dark', bgColor: '#01603D', color: '#FFFFFF' },
-        { token: 'Warning-Main', bgColor: '#01C38D', color: '#000000' },
-        { token: 'Warning-Light', bgColor: '#5DF7BD', color: '#000000' },
+        {
+          token: 'Success-Dark',
+          bgColor: palette.success.dark,
+          color: palette.common.white,
+        },
+        {
+          token: 'Success-Main',
+          bgColor: palette.success.main,
+          color: palette.common.black,
+        },
+        {
+          token: 'Success-Light',
+          bgColor: palette.success.light,
+          color: palette.common.black,
+        },
       ],
     ],
   },
@@ -132,14 +235,14 @@ const COLORS = [
       'These accents can be used to help a user understand when they are performing a buy or sell action. Do not use color alone to communicate information.',
     colors: [
       [
-        { token: 'Buy-Dark', bgColor: '#005195', color: '#FFFFFF' },
-        { token: 'Buy-Main', bgColor: '#2D96FF', color: '#000000' },
-        { token: 'Buy-Light', bgColor: '#76C6FF', color: '#000000' },
+        { token: 'Buy-Dark', bgColor: palette.buy.dark, color: palette.common.white },
+        { token: 'Buy-Main', bgColor: palette.buy.dark, color: palette.common.black },
+        { token: 'Buy-Light', bgColor: palette.buy.light, color: palette.common.black },
       ],
       [
-        { token: 'Sell-Dark', bgColor: '#B60017', color: '#FFFFFF' },
-        { token: 'Sell-Main', bgColor: '#FF274B', color: '#000000' },
-        { token: 'Sell-Light', bgColor: '#FF6877', color: '#000000' },
+        { token: 'Sell-Dark', bgColor: palette.sell.dark, color: palette.common.white },
+        { token: 'Sell-Main', bgColor: palette.sell.main, color: palette.common.black },
+        { token: 'Sell-Light', bgColor: palette.sell.light, color: palette.common.black },
       ],
     ],
   },
@@ -149,14 +252,44 @@ const COLORS = [
       'Text color is constant in most cases, but its opacity can communicate emphasis or a disabled state. These opacity settings will be accessible for nearly every foreseeable background.',
     colors: [
       [
-        { token: 'Text-Primary', bgColor: '#323232', color: '#FFFFFF', opacity: 0.95 },
-        { token: 'Text-Secondary', bgColor: '#323232', color: '#FFFFFF', opacity: 0.83 },
-        { token: 'Text-Disabled', bgColor: '#323232', color: '#FFFFFF', opacity: 0.38 },
+        {
+          token: 'Text-Primary',
+          bgColor: palette.background.paper,
+          color: palette.common.white,
+          opacity: 0.95,
+        },
+        {
+          token: 'Text-Secondary',
+          bgColor: palette.background.paper,
+          color: palette.common.white,
+          opacity: 0.83,
+        },
+        {
+          token: 'Text-Disabled',
+          bgColor: palette.background.paper,
+          color: palette.common.white,
+          opacity: 0.38,
+        },
       ],
       [
-        { token: 'Text-Primary', bgColor: '#FFFFFF', color: '#323232', opacity: 0.95 },
-        { token: 'Text-Secondary', bgColor: '#FFFFFF', color: '#323232', opacity: 0.83 },
-        { token: 'Text-Disabled', bgColor: '#FFFFFF', color: '#323232', opacity: 0.38 },
+        {
+          token: 'Text-Primary',
+          bgColor: palette.common.white,
+          color: palette.background.paper,
+          opacity: 0.95,
+        },
+        {
+          token: 'Text-Secondary',
+          bgColor: palette.common.white,
+          color: palette.background.paper,
+          opacity: 0.83,
+        },
+        {
+          token: 'Text-Disabled',
+          bgColor: palette.common.white,
+          color: palette.background.paper,
+          opacity: 0.38,
+        },
       ],
     ],
   },
