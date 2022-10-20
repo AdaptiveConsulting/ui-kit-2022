@@ -27,7 +27,9 @@ const TopBar: React.FC<Props> = ({ icon, title }) => {
           sx={{ width: '34px', height: '34px' }}
         />
       )}
-      <Typography sx={{ color: '#FFFFFF', marginLeft: '1rem' }}>{title}</Typography>
+      <Typography sx={{ color: `${palette.common.white}`, marginLeft: '1rem' }}>
+        {title}
+      </Typography>
     </Box>
   );
 };
