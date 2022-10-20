@@ -59,7 +59,7 @@ const TextStylesPage: React.FC = () => {
     <Grid
       container
       sx={{
-        bgcolor: `${palette.mode === 'dark' ? palette.background.paper : palette.logo}`,
+        bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
       }}
     >
       <Grid item xs={12}>
@@ -99,8 +99,8 @@ const TextStylesPage: React.FC = () => {
                   scope="row"
                   sx={{
                     padding: 0,
-                    color: `${palette.common.white}`,
-                    borderColor: `${palette.grey['600']}`,
+                    color: palette.common.white,
+                    borderColor: palette.grey['600'],
                   }}
                 >
                   <Typography variant={row.category.toLowerCase() as any}>

@@ -26,23 +26,23 @@ const ColorCard: React.FC<Props> = ({ token, bgColor, color, opacity, position }
   return (
     <Box
       sx={{
-        bgcolor: `${bgColor}`,
-        color: `${color}`,
-        opacity: `${opacity ? opacity : 0.95}`,
+        bgcolor: bgColor,
+        color: color,
+        opacity: opacity ? opacity : 0.95,
         height: '58px',
         width: '160px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         padding: '12px',
-        borderRadius: `${radiusStyle(position)}`,
+        borderRadius: radiusStyle(position),
       }}
     >
       <Typography variant="h4" sx={{ fontWeight: '700', fontSize: '13px' }}>
         {token}
       </Typography>
       <Typography variant="body2">
-        {opacity ? `${Math.floor(opacity * 100) + '% OPACITY'}` : bgColor}
+        {opacity ? Math.floor(opacity * 100) + '% OPACITY' : bgColor}
       </Typography>
     </Box>
   );

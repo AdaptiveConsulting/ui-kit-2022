@@ -22,7 +22,7 @@ const TextContent = ({ children, width }: { children: string; width?: string }) 
     <Grid item xs={12}>
       <Typography
         variant="body2"
-        sx={{ width: `${width ? width : '50%'}`, margin: '6px 0px' }}
+        sx={{ width: width ? width : '50%', margin: '6px 0px' }}
       >
         {children}
       </Typography>
@@ -34,9 +34,7 @@ const ColorIcons = ({ palette }: { palette: Palette }) => {
   const IconWrapper = ({ color, bgColor }: { color: string; bgColor: string }) => {
     return (
       <Grid item xs={3}>
-        <Box
-          sx={{ bgcolor: `${bgColor}`, width: '24px', height: '24px', color: `${color}` }}
-        >
+        <Box sx={{ bgcolor: bgColor, width: '24px', height: '24px', color: color }}>
           <Cog sx={{ width: '18px', height: '18px' }} viewBox="-2 -2 16 16" />
         </Box>
       </Grid>
@@ -64,8 +62,8 @@ const ColorPalette: React.FC = () => {
       <Grid
         container
         sx={{
-          bgcolor: `${palette.mode === 'dark' ? palette.background.paper : palette.logo}`,
-          color: `${palette.common.white}`,
+          bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
+          color: palette.common.white,
           padding: '1rem',
         }}
         rowGap={5}
@@ -99,7 +97,7 @@ const ColorPalette: React.FC = () => {
               <Typography
                 variant={'body2'}
                 sx={{
-                  color: `${palette.grey['300']}`,
+                  color: palette.grey['300'],
                   fontStyle: 'italic',
                   fontSize: '11px',
                 }}

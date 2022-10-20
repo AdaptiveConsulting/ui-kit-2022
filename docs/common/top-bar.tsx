@@ -12,12 +12,12 @@ const TopBar: React.FC<Props> = ({ icon, title }) => {
     <Box
       sx={{
         height: '68px',
-        bgcolor: `${palette.grey['700']}`,
+        bgcolor: palette.grey['700'],
         display: 'flex',
         alignItems: 'center',
         padding: '0px 1rem',
         justifyContent: 'flex-start',
-        color: `${palette.common.white}`,
+        color: palette.common.white,
       }}
     >
       {icon && (
@@ -27,7 +27,7 @@ const TopBar: React.FC<Props> = ({ icon, title }) => {
           sx={{ width: '34px', height: '34px' }}
         />
       )}
-      <Typography sx={{ color: `${palette.common.white}`, marginLeft: '1rem' }}>
+      <Typography sx={{ color: palette.common.white, marginLeft: '1rem' }}>
         {title}
       </Typography>
     </Box>

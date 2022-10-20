@@ -39,7 +39,7 @@ const TypesPage: React.FC = () => {
     <Grid
       container
       sx={{
-        bgcolor: `${palette.mode === 'dark' ? palette.background.paper : palette.logo}`,
+        bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
       }}
     >
       <Grid item xs={12}>
@@ -63,7 +63,7 @@ const TypesPage: React.FC = () => {
           <TypeCard {...TYPE_CARD_LIGHT_ITALIC_PROPS} />
         </Grid>
         <Grid item md={12} xs={12}>
-          <Typography sx={{ color: `${palette.common.white}` }}>Examples</Typography>
+          <Typography sx={{ color: palette.common.white }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
           <FontExamples fontName={ROBOTO} />
@@ -84,7 +84,7 @@ const TypesPage: React.FC = () => {
           <TypeCard {...TYPE_CARD_REGULAR_MERRIWEATHER_PROPS} />
         </Grid>
         <Grid item xs={12}>
-          <Typography sx={{ color: `${palette.common.white}` }}>Examples</Typography>
+          <Typography sx={{ color: palette.common.white }}>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
           <FontExamples fontName={MERRIWEATHER} />
