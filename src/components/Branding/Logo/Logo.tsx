@@ -8,7 +8,7 @@ interface Props {
 
 const Logo: React.FC<Props> = (svgProps) => {
   const theme = useTheme();
-  const color = theme.palette.mode === 'dark' ? theme.palette.common.white : '#323232';
+  const color = theme.palette.logo;
 
   switch (svgProps.variant) {
     case 'maximized':

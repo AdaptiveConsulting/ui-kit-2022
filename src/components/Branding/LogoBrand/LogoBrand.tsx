@@ -9,7 +9,7 @@ interface Props {
 
 const LogoBrand: React.FC<Props> = ({ height = 150, width = 148 }) => {
   const theme = useTheme();
-  const color = theme.palette.mode === 'dark' ? theme.palette.common.white : '#323232';
+  const color = theme.palette.logo;
 
   return <LogoLarge sx={{ color: color, height: height, width: width }} />;
 };

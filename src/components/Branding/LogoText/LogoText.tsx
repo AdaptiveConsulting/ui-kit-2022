@@ -7,7 +7,7 @@ interface Props {
 
 const LogoText: React.FC<Props> = ({ height = 32, width = 97 }) => {
   const theme = useTheme();
-  const color = theme.palette.mode === 'dark' ? theme.palette.common.white : '#323232';
+  const color = theme.palette.logo;
 
   return (
     <svg

@@ -11,11 +11,13 @@ declare module '@mui/material/styles/createPalette' {
   interface Palette {
     buy: PaletteColor;
     sell: PaletteColor;
+    logo: string;
   }
 
   interface PaletteOptions {
     buy: PaletteColorOptions;
     sell: PaletteColorOptions;
+    logo?: string;
   }
 }
 
@@ -82,6 +84,7 @@ const BASIC_COLOR: PaletteOptions = {
 export const light: PaletteOptions = {
   mode: 'light',
   ...BASIC_COLOR,
+  logo: '#323232',
   divider: alpha('#383838', 0.2), // Todo: Import base color (not alpha) from tokens file (Grey 900)
   contrastThreshold: 3,
   tonalOffset: 2,
@@ -103,6 +106,7 @@ export const light: PaletteOptions = {
 export const dark: PaletteOptions = {
   mode: 'dark',
   ...BASIC_COLOR,
+  logo: '#fff',
   divider: alpha('#F9F9F9', 0.2), // Todo: Import base color (not alpha) from tokens file (Grey 50)
   contrastThreshold: 3,
   tonalOffset: 2,
