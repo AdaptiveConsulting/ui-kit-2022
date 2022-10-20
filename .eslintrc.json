@@ -31,8 +31,9 @@
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended" // Make sure this is always the last element in the array.
   ],
-  "plugins": ["simple-import-sort", "prettier"],
+  "plugins": ["simple-import-sort", "unused-imports", "prettier"],
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/accessible-emoji": "off",

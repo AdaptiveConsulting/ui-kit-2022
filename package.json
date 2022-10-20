@@ -23,10 +23,15 @@
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
     "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint": "npm run lint:format && npm run lint:fix ",
+    "lint:test": "eslint ./src --ext .jsx,.js,.ts,.tsx --ignore-path ./.gitignore",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-gh-pages": "BASE_PATH=/ui-kit-2022/ npm run build-storybook",
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "@fontsource/merriweather": "^4.5.14",
+    "@fontsource/roboto": "^4.5.8"
   },
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
@@ -38,6 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
+    "@babel/types": "^7.19.3",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -48,6 +54,7 @@
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-storysource": "^6.5.12",
     "@storybook/builder-vite": "^0.2.2",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
@@ -57,6 +64,7 @@
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.10.2",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -64,6 +72,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -71,7 +80,8 @@
     "react-dom": "^18.2.0",
     "storybook-dark-mode": "^1.1.2",
     "typescript": "^4.6.4",
-    "vite": "^3.1.0"
+    "vite": "^3.1.0",
+    "vite-plugin-svgr": "^2.2.1"
   },
   "lint-staged": {
     "*.{jsx,js,ts,tsx}": "eslint --fix",
@@ -79,6 +89,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chuck-adaptive/ui-kit-2022.git"
-  }
+    "url": "git+https://github.com/chuck-adaptive/ui-kit-2022.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chuck-adaptive/ui-kit-2022/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/chuck-adaptive/ui-kit-2022#readme",
+  "_id": "ui-kit-2022@0.0.0"
 }

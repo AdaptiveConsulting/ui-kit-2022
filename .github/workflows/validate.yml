@@ -1,0 +1,20 @@
+name: Validate Linting Passes
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Validate Linting Passes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint Code Base
+        run: npm run lint:test
