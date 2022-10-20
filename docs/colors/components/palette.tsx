@@ -1,7 +1,7 @@
-import { Grid, SvgIcon, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
-import { Cog, Color0, Color1, Color2, SmallLightLogo } from '../../../src/icons';
+import { Cog, SmallLightLogo } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
 import { COLOR_CONTRAST_EXPLANATION, COLORS, PURPOSE } from './palette.constants';
@@ -29,38 +29,28 @@ const TextContent = ({ children, width }: { children: string; width?: string }) 
   );
 };
 
-const ColorIcons = () => (
-  <Grid container sx={{ width: '146px' }}>
-    <Grid item xs={3}>
-      <SvgIcon
-        component={Color0}
-        viewBox="0 0 35 35"
-        sx={{ width: '34px', height: '34px' }}
-      />
+const ColorIcons = () => {
+  const IconWrapper = ({ color, bgColor }: { color: string; bgColor: string }) => {
+    return (
+      <Grid item xs={3}>
+        <Box
+          sx={{ bgcolor: `${bgColor}`, width: '24px', height: '24px', color: `${color}` }}
+        >
+          <Cog sx={{ width: '18px', height: '18px' }} viewBox="-2 -2 16 16" />
+        </Box>
+      </Grid>
+    );
+  };
+
+  return (
+    <Grid container sx={{ width: '146px' }}>
+      <IconWrapper color="#6B6B6B" bgColor="#4D4D4D" />
+      <IconWrapper color="#B60017" bgColor="#FF274B" />
+      <IconWrapper color="#5F618D" bgColor="#FF274B" />
+      <IconWrapper color="#5F618D" bgColor="#01C38D" />
     </Grid>
-    <Grid item xs={3}>
-      <SvgIcon
-        component={Color1}
-        viewBox="0 0 35 35"
-        sx={{ width: '34px', height: '34px' }}
-      />
-    </Grid>
-    <Grid item xs={3}>
-      <SvgIcon
-        component={Color2}
-        viewBox="0 0 35 35"
-        sx={{ width: '34px', height: '34px' }}
-      />
-    </Grid>
-    <Grid item xs={3}>
-      <SvgIcon
-        component={Cog}
-        viewBox="0 0 35 35"
-        sx={{ width: '34px', height: '34px' }}
-      />
-    </Grid>
-  </Grid>
-);
+  );
+};
 
 const Palette: React.FC = () => {
   return (
@@ -98,7 +88,7 @@ const Palette: React.FC = () => {
           </Grid>
           <Grid item xs={6}>
             <ColorIcons />
-            <Grid item xs={12} sx={{ width: '250px' }}>
+            <Grid item xs={12} sx={{ width: '250px', mt: '1rem' }}>
               <Typography
                 variant={'body2'}
                 sx={{ color: '#CFCFCF', fontStyle: 'italic', fontSize: '11px' }}
