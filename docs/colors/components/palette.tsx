@@ -1,7 +1,7 @@
 import { Grid, SvgIcon, Typography } from '@mui/material';
 import * as React from 'react';
 
-import { Color0, Color1, Color2, Color3, SmallLightLogo } from '../../../src/icons';
+import { Cog, Color0, Color1, Color2, SmallLightLogo } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
 import { COLOR_CONTRAST_EXPLANATION, COLORS, PURPOSE } from './palette.constants';
@@ -54,7 +54,7 @@ const ColorIcons = () => (
     </Grid>
     <Grid item xs={3}>
       <SvgIcon
-        component={Color3}
+        component={Cog}
         viewBox="0 0 35 35"
         sx={{ width: '34px', height: '34px' }}
       />
