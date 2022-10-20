@@ -16,6 +16,7 @@ const TopBar: React.FC<Props> = ({ icon, title }) => {
         alignItems: 'center',
         padding: '0px 1rem',
         justifyContent: 'flex-start',
+        color: '#FFFFFF',
       }}
     >
       {icon && (

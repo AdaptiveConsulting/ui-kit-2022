@@ -1,7 +1,8 @@
 import { Box, Grid, Typography } from '@mui/material';
 import * as React from 'react';
 
-import { Cog, SmallLightLogo } from '../../../src/icons';
+import { LogoSmall } from '../../../src/components/Branding/raw-icons';
+import { Cog } from '../../../src/icons';
 import TopBar from '../../common/top-bar';
 import ColorCardGroup from './color-card-group';
 import { COLOR_CONTRAST_EXPLANATION, COLORS, PURPOSE } from './palette.constants';
@@ -56,7 +57,7 @@ const Palette: React.FC = () => {
   return (
     <Grid sx={{ minWidth: '1950px' }}>
       <Grid item xs={12}>
-        <TopBar icon={SmallLightLogo} title={'Reactive Design System'} />
+        <TopBar icon={LogoSmall} title={'Reactive Design System'} />
       </Grid>
       <Grid
         container
