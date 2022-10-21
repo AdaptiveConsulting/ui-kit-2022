@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-    paths: ["docs/**", "src/**", ".storybook/**"]
+    paths: ["docs/**", "packages/**"]
 
 jobs:
 
@@ -16,13 +16,13 @@ jobs:
 
       - name: Build Storybook
         run: |
-          npm ci
-          npm run build-gh-pages
+          yarn install --immutable
+          yarn workspace @ui-kit-2022/docs run build-gh-pages
 
       - name: Build Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: storybook-static
+          path: docs/storybook-static
 
   deploy:
     needs: build
