@@ -1,13 +1,14 @@
-import { Grid } from '@mui/material';
+import { Grid, Palette, useTheme } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import * as React from 'react';
 
 import { Typography } from '../../../src/index';
-import TypographyTop from './typography-top';
+import TopBar from '../../common/top-bar';
 
 function createData(
   category: string,
@@ -34,12 +35,14 @@ const rows = [
   createData('Caption', 'Caption', 'Light Italic', 'Left', '11px', 'Sentence'),
 ];
 
-const tableCellStyles = {
-  width: '7.625rem',
-  height: '2.5rem',
-  padding: 0,
-  color: '#ffffff',
-  borderColor: '#6b6b6b',
+const tableCellStyles = (palette: Palette) => {
+  return {
+    width: '7.625rem',
+    height: '2.5rem',
+    padding: 0,
+    color: palette.common.white,
+    borderColor: palette.grey['600'],
+  };
 };
 const tableColumns: string[] = [
   'Category',
@@ -51,10 +54,16 @@ const tableColumns: string[] = [
 ];
 
 const TextStylesPage: React.FC = () => {
+  const { palette } = useTheme();
   return (
-    <Grid container sx={{ bgcolor: '#323232' }}>
+    <Grid
+      container
+      sx={{
+        bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
+      }}
+    >
       <Grid item xs={12}>
-        <TypographyTop title={'STYLE'} />
+        <TopBar title={'STYLE'} />
       </Grid>
       <TableContainer>
         <Table
@@ -73,7 +82,7 @@ const TextStylesPage: React.FC = () => {
                     key={column}
                     align="left"
                     sx={{
-                      ...tableCellStyles,
+                      ...tableCellStyles(palette),
                     }}
                   >
                     <Typography variant="body1">{column}</Typography>
@@ -88,7 +97,11 @@ const TextStylesPage: React.FC = () => {
                 <TableCell
                   component="th"
                   scope="row"
-                  sx={{ padding: 0, color: '#ffffff', borderColor: '#6b6b6b' }}
+                  sx={{
+                    padding: 0,
+                    color: palette.common.white,
+                    borderColor: palette.grey['600'],
+                  }}
                 >
                   <Typography variant={row.category.toLowerCase() as any}>
                     {row.category}
@@ -97,7 +110,7 @@ const TextStylesPage: React.FC = () => {
                 <TableCell
                   align="left"
                   sx={{
-                    ...tableCellStyles,
+                    ...tableCellStyles(palette),
                   }}
                 >
                   <Typography variant="body2">{row.styleName}</Typography>
@@ -105,7 +118,7 @@ const TextStylesPage: React.FC = () => {
                 <TableCell
                   align="left"
                   sx={{
-                    ...tableCellStyles,
+                    ...tableCellStyles(palette),
                   }}
                 >
                   <Typography variant="body2">{row.fontStyles}</Typography>
@@ -113,7 +126,7 @@ const TextStylesPage: React.FC = () => {
                 <TableCell
                   align="left"
                   sx={{
-                    ...tableCellStyles,
+                    ...tableCellStyles(palette),
                   }}
                 >
                   <Typography variant="body2">{row.alignment}</Typography>
@@ -121,7 +134,7 @@ const TextStylesPage: React.FC = () => {
                 <TableCell
                   align="left"
                   sx={{
-                    ...tableCellStyles,
+                    ...tableCellStyles(palette),
                   }}
                 >
                   <Typography variant="body2">{row.size}</Typography>
@@ -129,7 +142,7 @@ const TextStylesPage: React.FC = () => {
                 <TableCell
                   align="left"
                   sx={{
-                    ...tableCellStyles,
+                    ...tableCellStyles(palette),
                   }}
                 >
                   <Typography variant="body2">{row.capitalization}</Typography>
