@@ -12,7 +12,7 @@ import { THEME_TYPOGRAPHY as typography } from './typography';
 
 export * from './constants';
 
-export { spacing };
+export { palette, spacing };
 
 export const light = createTheme({
   components: LIGHT_COMPONENTS as any,

@@ -18,19 +18,21 @@
     "dev": "npm run check-types && vite build --watch",
     "build": "vite build && npm run build-types",
     "check-types": "tsc --noEmit",
-    "build-types": "tsc --declaration --emitDeclarationOnly",
-    "clean": "rm -r ./dist"
+    "build-types": "tsc --emitDeclarationOnly",
+    "clean": "rm -r ./dist .ui-kit-components.tsbuildinfo"
   },
   "peerDependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
+    "@ui-kit-2022/theme": "0.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@ui-kit-2022/svgr-template": "^1.0.0"
+    "@ui-kit-2022/svgr-template": "^1.0.0",
+    "@ui-kit-2022/theme": "0.0.0"
   },
   "repository": {
     "type": "git",

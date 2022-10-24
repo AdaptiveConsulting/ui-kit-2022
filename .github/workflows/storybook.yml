@@ -17,8 +17,7 @@ jobs:
       - name: Build Storybook
         run: |
           yarn install --immutable
-          yarn workspace @ui-kit-2022/theme run build
-          yarn workspace @ui-kit-2022/components run build
+          yarn build-lib
           yarn workspace @ui-kit-2022/docs run build-gh-pages
 
       - name: Build Pages Artifact

@@ -4,7 +4,8 @@
     "rootDir": "src",
     "composite": true,
     "declarationDir": "dist/types",
-    "types": ["vite/client"]
+    "tsBuildInfoFile": ".ui-kit-theme.tsbuildinfo"
   },
-  "include": ["src", "src/**/*.json"]
+  "include": ["src", "src/**/*.json"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

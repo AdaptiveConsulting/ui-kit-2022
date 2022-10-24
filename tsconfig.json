@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "declaration": true,
+    "declarationMap": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -26,5 +27,5 @@
     { "path": "packages/ui-kit-components" },
     { "path": "packages/ui-kit-theme" }
   ],
-  "exclude": ["**/node_modules", "**/dist", "*.d.ts"]
+  "exclude": ["**/node_modules", "**/dist"]
 }
