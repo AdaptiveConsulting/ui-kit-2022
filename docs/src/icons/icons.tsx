@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { TopBar } from '../common';
 import Purpose from './purpose';
+import Sizing from './sizing';
 const Icons = () => {
   const { palette } = useTheme();
 
@@ -22,6 +23,7 @@ const Icons = () => {
         rowGap={5}
       >
         <Purpose />
+        <Sizing />
       </Grid>
     </Grid>
   );
