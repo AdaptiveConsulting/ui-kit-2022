@@ -2,7 +2,8 @@ import { Grid, useTheme } from '@mui/material';
 import { BrandIcon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
-import { SubTitle, TopBar } from '../common';
+import { TopBar } from '../common';
+import Purpose from './purpose';
 const Icons = () => {
   const { palette } = useTheme();
 
@@ -20,7 +21,7 @@ const Icons = () => {
         }}
         rowGap={5}
       >
-        <SubTitle subTitle="purpose" />
+        <Purpose />
       </Grid>
     </Grid>
   );
