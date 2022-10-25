@@ -26,10 +26,14 @@ export default function SplashScreen() {
   }, [setWindowWidth]);
 
   const theme = useTheme();
+  //Using string because the hex isn't offered in both themes
   const background = '#323232';
   const color = theme.palette.common.white;
 
   const Container = styled.div(() => ({
+    position: 'absolute',
+    top: 0,
+    left: 0,
     backgroundColor: background,
     color: color,
     width: '100%',
