@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import SplashScreenStory from './splashScreenStory';
-// import { SplashScreen as SplashScreenStory } from '@ui-kit-2022/components';
 
 export default {
   title: 'Components/Branding',
