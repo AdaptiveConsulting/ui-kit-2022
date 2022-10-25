@@ -18,8 +18,8 @@
     "dev": "npm run check-types && vite build --watch",
     "build": "vite build && npm run build-types",
     "check-types": "tsc --noEmit",
-    "build-types": "tsc --declaration --emitDeclarationOnly",
-    "clean": "rm -r ./dist"
+    "build-types": "tsc --emitDeclarationOnly",
+    "clean": "rm -r ./dist .ui-kit-theme.tsbuildinfo"
   },
   "dependencies": {
     "@fontsource/merriweather": "^4.5.14",

@@ -1,3 +1,5 @@
+import '@ui-kit-2022/theme';
+
 export { Logo } from './components/Branding/Logo';
 export { LogoBrand } from './components/Branding/LogoBrand';
 export { LogoText } from './components/Branding/LogoText';
