@@ -44,12 +44,12 @@ export default function SplashScreen() {
   return (
     <Container>
       <LogoBrand
-        width={windowWidth >= 512 ? undefined : 104}
-        height={windowWidth >= 512 ? undefined : 103}
+        width={windowWidth > 512 ? undefined : 104}
+        height={windowWidth > 512 ? undefined : 103}
       />
       <LogoText
-        width={windowWidth >= 512 ? undefined : 169}
-        height={windowWidth >= 512 ? undefined : 56}
+        width={windowWidth > 512 ? undefined : 169}
+        height={windowWidth > 512 ? undefined : 56}
       />
       <Typography
         sx={{
