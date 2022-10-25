@@ -1,9 +1,8 @@
 import { ThemeProvider } from '@emotion/react';
 import { Box, useTheme } from '@mui/material';
-
-import { Button } from '../../src/components/Button';
-import { Typography } from '../../src/index';
-import { dark } from '../../src/theme/index';
+import { Button } from '@ui-kit-2022/components';
+import { Typography } from '@ui-kit-2022/components';
+import { dark } from '@ui-kit-2022/theme';
 
 interface Props {
   title?: 'Dark' | 'Light';

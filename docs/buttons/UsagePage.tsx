@@ -9,8 +9,8 @@ import {
   TableRow,
   useTheme,
 } from '@mui/material';
+import { Typography } from '@ui-kit-2022/components';
 
-import { Typography } from '../../src/index';
 import UsageExample from './UsageExample';
 
 function createData(variant: string, purpose: string) {
