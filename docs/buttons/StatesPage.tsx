@@ -9,11 +9,11 @@ import {
   TableRow,
   useTheme,
 } from '@mui/material';
-import { Typography } from '@ui-kit-2022/components';
-import { Button } from '@ui-kit-2022/components';
+import { Button, Typography } from '@ui-kit-2022/components';
 
 import TopBar from '../src/common/top-bar';
-
+import DarkBgState from './DarkBgState';
+import LightBgState from './LightBgState';
 const StatesPage = () => {
   const theme = useTheme();
   return (
@@ -33,8 +33,8 @@ const StatesPage = () => {
       >
         {/* primary-any background */}
         <Box sx={{ marginBottom: '2.5rem' }}>
-          <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography>Primary-any background</Typography>
+          <Box sx={{ paddingLeft: '5.2rem' }}>
+            <Typography variant="subheader1">Primary - any background</Typography>
           </Box>
           <TableContainer>
             <Table
@@ -42,48 +42,64 @@ const StatesPage = () => {
                 [`& .${tableCellClasses.root}`]: {
                   borderBottom: 'none',
                 },
-                width: '93%',
+                width: '95%',
               }}
             >
               <TableHead>
                 <TableRow>
                   <TableCell align="left" sx={{ width: '7.5%' }}>
-                    <Typography variant="subheader1"></Typography>
+                    <Typography></Typography>
                   </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Default</Typography>
+                  <TableCell
+                    align="left"
+                    sx={{ paddingLeft: '0', color: theme.palette.common.white }}
+                  >
+                    <Typography variant="subheader3">Default</Typography>
                   </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Hover</Typography>
+                  <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+                    <Typography variant="subheader3">Hover</Typography>
                   </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Active/Pressed</Typography>
+                  <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+                    <Typography variant="subheader3">Active/Pressed</Typography>
                   </TableCell>
-                  <TableCell align="left" sx={{ paddingRight: '0' }}>
-                    <Typography variant="subheader1">Focused(ADA)</Typography>
+                  <TableCell
+                    align="left"
+                    sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                  >
+                    <Typography variant="subheader3">Focused(ADA)</Typography>
                   </TableCell>
-                  <TableCell align="left" sx={{ paddingRight: '0' }}>
-                    <Typography variant="subheader1">Disabled</Typography>
+                  <TableCell
+                    align="left"
+                    sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                  >
+                    <Typography variant="subheader3">Disabled</Typography>
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <TableCell sx={{ width: '10%', paddingLeft: '0' }}>
+                  <TableCell
+                    sx={{
+                      width: '10%',
+                      paddingLeft: '0',
+                      paddingTop: '0',
+                      color: theme.palette.common.white,
+                    }}
+                  >
                     <Typography variant="subheader3">Default</Typography>
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{ paddingLeft: '0', paddingTop: '0' }}>
                     <Button variant="PRIMARY">BUTTON TEXT</Button>
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{ paddingTop: '0' }}>
                     <Button variant="PRIMARY">BUTTON TEXT</Button>
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{ paddingTop: '0' }}>
                     <Button variant="PRIMARY">BUTTON TEXT</Button>
                   </TableCell>
                   <TableCell
                     sx={{
-                      paddingRight: '0',
+                      paddingTop: '0',
                     }}
                   >
                     <Button variant="PRIMARY">BUTTON TEXT</Button>
@@ -91,9 +107,12 @@ const StatesPage = () => {
                   <TableCell
                     sx={{
                       paddingRight: '0',
+                      paddingTop: '0',
                     }}
                   >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" disabled>
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                 </TableRow>
                 <TableRow>
@@ -103,6 +122,7 @@ const StatesPage = () => {
                       paddingBottom: '0',
                       width: '7.5%',
                       paddingLeft: '0',
+                      color: theme.palette.common.white,
                     }}
                   >
                     <Typography variant="subheader3">Icon Right</Typography>
@@ -111,9 +131,12 @@ const StatesPage = () => {
                     sx={{
                       paddingTop: '0',
                       paddingBottom: '0',
+                      paddingLeft: '0',
                     }}
                   >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="right">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                   <TableCell
                     sx={{
@@ -121,7 +144,9 @@ const StatesPage = () => {
                       paddingBottom: '0',
                     }}
                   >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="right">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                   <TableCell
                     sx={{
@@ -129,7 +154,9 @@ const StatesPage = () => {
                       paddingBottom: '0',
                     }}
                   >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="right">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                   <TableCell
                     sx={{
@@ -138,28 +165,44 @@ const StatesPage = () => {
                       paddingRight: '0',
                     }}
                   >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="right">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell sx={{ width: '7.5%', paddingLeft: '0' }}>
+                  <TableCell
+                    sx={{
+                      width: '7.5%',
+                      paddingLeft: '0',
+                      color: theme.palette.common.white,
+                    }}
+                  >
                     <Typography variant="subheader3">Icon Left</Typography>
                   </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                  <TableCell sx={{ paddingLeft: '0' }}>
+                    <Button variant="PRIMARY" icon="left">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                   <TableCell sx={{}}>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="left">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                   <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="left">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                   <TableCell
                     sx={{
                       paddingRight: '0',
                     }}
                   >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    <Button variant="PRIMARY" icon="left">
+                      BUTTON TEXT
+                    </Button>
                   </TableCell>
                 </TableRow>
               </TableBody>
@@ -168,563 +211,31 @@ const StatesPage = () => {
         </Box>
         {/* secondary-on light background */}
         <Box sx={{ marginBottom: '1.1875rem' }}>
-          <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography>Secondary-On light background</Typography>
+          <Box sx={{ paddingLeft: '5.4rem', marginBottom: '0.94rem' }}>
+            <Typography variant="subheader1">Secondary - On light background</Typography>
           </Box>
-          <TableContainer>
-            <Table
-              sx={{
-                [`& .${tableCellClasses.root}`]: {
-                  borderBottom: 'none',
-                },
-                width: '80%',
-              }}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell align="left" sx={{ width: '7.5%' }}>
-                    <Typography variant="subheader1"></Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Default</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Hover</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Active/Pressed</Typography>
-                  </TableCell>
-                  <TableCell align="left" sx={{ paddingRight: '0' }}>
-                    <Typography variant="subheader1">Focused(ADA)</Typography>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell sx={{ width: '10%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Default</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      width: '7.5%',
-                      paddingLeft: '0',
-                    }}
-                  >
-                    <Typography variant="subheader3">Icon Right</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingRight: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ width: '7.5%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Icon Left</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <LightBgState variantType="SECONDARY" />
         </Box>
         {/* secondary-on dark background */}
         <Box sx={{ marginBottom: '2.5rem' }}>
           <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography>Secondary-On dark background</Typography>
+            <Typography variant="subheader1">Secondary - On dark background</Typography>
           </Box>
-          <TableContainer>
-            <Table
-              sx={{
-                [`& .${tableCellClasses.root}`]: {
-                  borderBottom: 'none',
-                },
-                width: '80%',
-              }}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell align="left" sx={{ width: '7.5%' }}>
-                    <Typography variant="subheader1"></Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Default</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Hover</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Active/Pressed</Typography>
-                  </TableCell>
-                  <TableCell align="left" sx={{ paddingRight: '0' }}>
-                    <Typography variant="subheader1">Focused(ADA)</Typography>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell sx={{ width: '10%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Default</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      width: '7.5%',
-                      paddingLeft: '0',
-                    }}
-                  >
-                    <Typography variant="subheader3">Icon Right</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ width: '7.5%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Icon Left</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <DarkBgState variantType="SECONDARY" />
         </Box>
         {/* tertiary-on light background */}
-        <Box sx={{ marginBottom: '2.5rem' }}>
-          <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography>Tertiary-On light background</Typography>
+        <Box sx={{ marginBottom: '1.1875rem' }}>
+          <Box sx={{ paddingLeft: '5.4rem', marginBottom: '0.94rem' }}>
+            <Typography variant="subheader1">Tertiary - On light background</Typography>
           </Box>
-          <TableContainer>
-            <Table
-              sx={{
-                [`& .${tableCellClasses.root}`]: {
-                  borderBottom: 'none',
-                },
-                width: '80%',
-              }}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell align="left" sx={{ width: '7.5%' }}>
-                    <Typography variant="subheader1"></Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Default</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Hover</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Active/Pressed</Typography>
-                  </TableCell>
-                  <TableCell align="left" sx={{ paddingRight: '0' }}>
-                    <Typography variant="subheader1">Focused(ADA)</Typography>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell sx={{ width: '10%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Default</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      width: '7.5%',
-                      paddingLeft: '0',
-                    }}
-                  >
-                    <Typography variant="subheader3">Icon Right</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingRight: '0',
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ width: '7.5%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Icon Left</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      backgroundColor: theme.palette.grey[50],
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <LightBgState variantType="TERTIARY" />
         </Box>
         {/* tertiary-on dark background */}
         <Box>
           <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography>Tertiary-On dark background</Typography>
+            <Typography variant="subheader1">Tertiary - On dark background</Typography>
           </Box>
-          <TableContainer>
-            <Table
-              sx={{
-                [`& .${tableCellClasses.root}`]: {
-                  borderBottom: 'none',
-                },
-                width: '80%',
-              }}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell align="left" sx={{ width: '7.5%' }}>
-                    <Typography variant="subheader1"></Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Default</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Hover</Typography>
-                  </TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subheader1">Active/Pressed</Typography>
-                  </TableCell>
-                  <TableCell align="left" sx={{ paddingRight: '0' }}>
-                    <Typography variant="subheader1">Focused(ADA)</Typography>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell sx={{ width: '10%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Default</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      width: '7.5%',
-                      paddingLeft: '0',
-                    }}
-                  >
-                    <Typography variant="subheader3">Icon Right</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ width: '7.5%', paddingLeft: '0' }}>
-                    <Typography variant="subheader3">Icon Left</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <DarkBgState variantType="TERTIARY" />
         </Box>
       </Box>
     </>

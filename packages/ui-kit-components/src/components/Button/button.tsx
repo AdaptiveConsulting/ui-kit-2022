@@ -10,6 +10,7 @@ interface Props {
   disabled?: boolean;
   icon?: 'left' | 'right';
   click?: () => void;
+  //state?: 'hover' | 'active' | 'focused';
 }
 
 const ButtonDefault: React.FC<Props> = ({
