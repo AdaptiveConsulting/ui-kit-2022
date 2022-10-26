@@ -16,7 +16,7 @@ const VARIANTS = {
 };
 
 export default {
-  title: 'Typography/Variants',
+  title: 'Theme/Typography/Variants',
   component: Typography,
   argTypes: {
     children: {

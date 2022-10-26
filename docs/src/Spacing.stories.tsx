@@ -7,7 +7,7 @@ import { spacing } from '@ui-kit-2022/theme';
 const control = { type: 'range', min: 0, max: spacing.length - 1 };
 
 export default {
-  title: 'Docs/Spacing',
+  title: 'Theme/Spacing',
   component: Grid,
   argTypes: {
     rowSpacing: {

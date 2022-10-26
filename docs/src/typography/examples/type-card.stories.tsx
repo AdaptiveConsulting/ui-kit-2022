@@ -4,7 +4,7 @@ import React from 'react';
 
 import TypeCard from './type-card';
 export default {
-  title: 'Typography/Examples',
+  title: 'Theme/Typography',
   component: TypeCard,
   argTypes: {
     title: {
@@ -34,3 +34,5 @@ TypeCardStory.args = {
   fontFamily: ROBOTO,
   fontWeight: '300',
 };
+
+TypeCardStory.storyName = 'Type Card';

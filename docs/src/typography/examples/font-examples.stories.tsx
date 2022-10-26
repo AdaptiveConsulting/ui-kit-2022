@@ -3,7 +3,7 @@ import React from 'react';
 
 import FontExamples from './font-examples';
 export default {
-  title: 'Typography/Examples',
+  title: 'Theme/Typography',
   component: FontExamples,
   argTypes: {
     fontName: {
@@ -20,3 +20,5 @@ export const FontExamplesStory = Template.bind({});
 FontExamplesStory.args = {
   fontName: ROBOTO,
 };
+
+FontExamplesStory.storyName = 'Font Examples';

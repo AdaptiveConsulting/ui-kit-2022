@@ -4,7 +4,7 @@ import React from 'react';
 import FontExmaple from './font-example';
 
 export default {
-  title: 'Typography/Examples',
+  title: 'Theme/Typography',
   component: FontExmaple,
   argTypes: {
     title: {
@@ -22,3 +22,5 @@ FontExampleStory.args = {
   title: 'Light Italic',
   content: 'Miscellaneous {ex: time stamps}',
 };
+
+FontExampleStory.storyName = 'Font Example';

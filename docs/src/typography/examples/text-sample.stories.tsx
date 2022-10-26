@@ -5,7 +5,7 @@ import React from 'react';
 import TextSample from './text-sample';
 
 export default {
-  title: 'Typography/Examples',
+  title: 'Theme/Typography',
   component: TextSample,
   argTypes: {
     fontName: {
@@ -24,3 +24,5 @@ export const TextSampleStory = Template.bind({});
 TextSampleStory.args = {
   fontName: ROBOTO,
 };
+
+TextSampleStory.storyName = 'Text Sample';

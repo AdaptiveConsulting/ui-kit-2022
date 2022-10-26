@@ -4,7 +4,7 @@ import React from 'react';
 import ColorCard from './color-card';
 
 export default {
-  title: 'Colors/colorCard',
+  title: 'Design System/Building Blocks/Color',
   components: ColorCard,
   argTypes: {
     position: {
@@ -25,6 +25,8 @@ ColorCardStory.args = {
   position: 'left',
 };
 
+ColorCardStory.storyName = 'Color Card';
+
 export const OpacityCardStory: ComponentStory<typeof ColorCard> = Template.bind({});
 
 OpacityCardStory.args = {
@@ -34,3 +36,5 @@ OpacityCardStory.args = {
   opacity: 0.38,
   position: 'middle',
 };
+
+OpacityCardStory.storyName = 'Opacity Card';

@@ -4,7 +4,7 @@ import React from 'react';
 import ColorCardGroup from './color-card-group';
 
 export default {
-  title: 'Colors/colorCardGroup',
+  title: 'Design System/Building Blocks/Color',
   components: ColorCardGroup,
 } as ComponentMeta<typeof ColorCardGroup>;
 
@@ -20,3 +20,5 @@ ColorCardGroupStory.args = {
     { token: 'Common-White', bgColor: '#FFF', color: '#000' },
   ],
 };
+
+ColorCardGroupStory.storyName = 'Color Card Group';

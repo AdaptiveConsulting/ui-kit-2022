@@ -3,7 +3,7 @@ import React from 'react';
 import TopBar from './top-bar';
 
 export default {
-  title: 'Typography/Examples',
+  title: 'Design System/Building Blocks/Common',
   component: TopBar,
   argTypes: {
     title: {
@@ -20,3 +20,5 @@ export const TypographyTopStory = Template.bind({});
 TypographyTopStory.args = {
   title: 'TYPES',
 };
+
+TypographyTopStory.storyName = 'Typography Top';

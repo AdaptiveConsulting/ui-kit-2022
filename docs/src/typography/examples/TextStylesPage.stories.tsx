@@ -2,7 +2,7 @@ import { ComponentStory } from '@storybook/react';
 
 import TextStylesPage from './TextStylesPage';
 export default {
-  title: 'Typography/Examples',
+  title: 'Design System/Typography',
   component: TextStylesPage,
 };
 
