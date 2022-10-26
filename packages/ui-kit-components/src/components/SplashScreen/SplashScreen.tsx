@@ -1,5 +1,3 @@
-import '@fontsource/merriweather/400.css';
-
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
