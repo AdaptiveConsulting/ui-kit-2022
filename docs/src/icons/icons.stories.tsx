@@ -10,4 +10,4 @@ export default {
 
 const Template = () => <Icons />;
 
-export const ColorPaletteStory: ComponentStory<typeof Icons> = Template.bind({});
+export const IconsStory: ComponentStory<typeof Icons> = Template.bind({});

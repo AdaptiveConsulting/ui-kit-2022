@@ -3,8 +3,10 @@ import { BrandIcon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import { TopBar } from '../common';
+import Color from './color';
 import Purpose from './purpose';
 import Sizing from './sizing';
+import WithText from './with-text';
 const Icons = () => {
   const { palette } = useTheme();
 
@@ -24,6 +26,8 @@ const Icons = () => {
       >
         <Purpose />
         <Sizing />
+        <Color />
+        <WithText />
       </Grid>
     </Grid>
   );
