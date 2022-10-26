@@ -1,2 +1,2 @@
-import SplashScreen from './splashScreen';
+import SplashScreen from './SplashScreen';
 export { SplashScreen };
