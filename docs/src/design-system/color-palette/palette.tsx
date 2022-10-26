@@ -2,13 +2,13 @@ import { Box, Grid, Palette, Typography, useTheme } from '@mui/material';
 import { BrandIcon, Icon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
-import TopBar from '../../common/top-bar';
 import ColorCardGroup from '../building-blocks/color/color-card-group';
 import {
   COLOR_CONTRAST_EXPLANATION,
   COLORS,
   PURPOSE,
 } from '../building-blocks/color/palette.constants';
+import TopBar from '../building-blocks/common/top-bar';
 
 const SubTitle = ({ subTitle }: { subTitle: string }) => {
   return (

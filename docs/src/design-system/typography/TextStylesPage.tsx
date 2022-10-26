@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Typography } from '@ui-kit-2022/components';
 
-import TopBar from '../../common/top-bar';
+import TopBar from '../building-blocks/common/top-bar';
 
 function createData(
   category: string,
