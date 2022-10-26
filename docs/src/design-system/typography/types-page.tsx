@@ -2,9 +2,9 @@ import { Divider, Grid, Typography, useTheme } from '@mui/material';
 import { MERRIWEATHER, ROBOTO } from '@ui-kit-2022/theme';
 import * as React from 'react';
 
-import FontExamples from '../../typography/examples/font-examples';
-import TextSample from '../../typography/examples/text-sample';
-import TypeCard from '../../typography/examples/type-card';
+import FontExamples from '../../theme/typography/examples/font-examples';
+import TextSample from '../../theme/typography/examples/text-sample';
+import TypeCard from '../../theme/typography/examples/type-card';
 import TopBar from '../building-blocks/common/top-bar';
 
 const TYPE_CARD_REGULAR_PROPS = {
