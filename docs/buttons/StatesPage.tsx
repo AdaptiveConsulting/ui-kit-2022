@@ -17,7 +17,7 @@ import TopBar from '../src/common/top-bar';
 import DarkBgState from './DarkBgState';
 import LightBgState from './LightBgState';
 const StatesPage = () => {
-  const theme = useTheme();
+  const { palette } = useTheme();
   return (
     <>
       <Box sx={{ width: '900px' }}>
@@ -30,7 +30,7 @@ const StatesPage = () => {
           paddingLeft: '1.25rem',
           paddingTop: '1.875rem',
           paddingBottom: '3.5rem',
-          color: theme.palette.common.white,
+          color: palette.common.white,
         }}
       >
         {/* primary-any background */}
@@ -55,25 +55,25 @@ const StatesPage = () => {
                     </TableCell>
                     <TableCell
                       align="left"
-                      sx={{ paddingLeft: '0', color: theme.palette.common.white }}
+                      sx={{ paddingLeft: '0', color: palette.common.white }}
                     >
                       <Typography variant="subheader3">Default</Typography>
                     </TableCell>
-                    <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+                    <TableCell align="left" sx={{ color: palette.common.white }}>
                       <Typography variant="subheader3">Hover</Typography>
                     </TableCell>
-                    <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+                    <TableCell align="left" sx={{ color: palette.common.white }}>
                       <Typography variant="subheader3">Active/Pressed</Typography>
                     </TableCell>
                     <TableCell
                       align="left"
-                      sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                      sx={{ paddingRight: '0', color: palette.common.white }}
                     >
                       <Typography variant="subheader3">Focused(ADA)</Typography>
                     </TableCell>
                     <TableCell
                       align="left"
-                      sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                      sx={{ paddingRight: '0', color: palette.common.white }}
                     >
                       <Typography variant="subheader3">Disabled</Typography>
                     </TableCell>
@@ -86,7 +86,7 @@ const StatesPage = () => {
                         width: '10%',
                         paddingLeft: '0',
                         paddingTop: '0',
-                        color: theme.palette.common.white,
+                        color: palette.common.white,
                       }}
                     >
                       <Typography variant="subheader3">Default</Typography>
@@ -127,19 +127,17 @@ const StatesPage = () => {
                   <TableRow>
                     <TableCell
                       sx={{
-                        paddingTop: '0',
-                        paddingBottom: '0',
+                        py: '0',
                         width: '7.5%',
                         paddingLeft: '0',
-                        color: theme.palette.common.white,
+                        color: palette.common.white,
                       }}
                     >
                       <Typography variant="subheader3">Icon Right</Typography>
                     </TableCell>
                     <TableCell
                       sx={{
-                        paddingTop: '0',
-                        paddingBottom: '0',
+                        py: '0',
                         paddingLeft: '0',
                       }}
                     >
@@ -149,8 +147,7 @@ const StatesPage = () => {
                     </TableCell>
                     <TableCell
                       sx={{
-                        paddingTop: '0',
-                        paddingBottom: '0',
+                        py: '0',
                       }}
                     >
                       <Box className="hover">
@@ -161,8 +158,7 @@ const StatesPage = () => {
                     </TableCell>
                     <TableCell
                       sx={{
-                        paddingTop: '0',
-                        paddingBottom: '0',
+                        py: '0',
                       }}
                     >
                       <Box className="active">
@@ -173,8 +169,7 @@ const StatesPage = () => {
                     </TableCell>
                     <TableCell
                       sx={{
-                        paddingTop: '0',
-                        paddingBottom: '0',
+                        py: '0',
                         paddingRight: '0',
                       }}
                     >
@@ -190,7 +185,7 @@ const StatesPage = () => {
                       sx={{
                         width: '7.5%',
                         paddingLeft: '0',
-                        color: theme.palette.common.white,
+                        color: palette.common.white,
                       }}
                     >
                       <Typography variant="subheader3">Icon Left</Typography>

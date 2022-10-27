@@ -35,7 +35,7 @@ const rows = [
 ];
 
 const UsagePage = () => {
-  const theme = useTheme();
+  const { palette } = useTheme();
 
   return (
     <>
@@ -72,16 +72,15 @@ const UsagePage = () => {
                 <TableCell
                   align="left"
                   style={{ verticalAlign: 'top' }}
-                  sx={{ color: theme.palette.grey[50], padding: 0, width: '164px' }}
+                  sx={{ color: palette.grey[50], padding: 0, width: '164px' }}
                 >
                   <Typography variant="subheader1">Variant</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
                   sx={{
-                    color: theme.palette.grey[50],
-                    padding: 0,
-                    paddingBottom: '1.25rem',
+                    color: palette.grey[50],
+                    padding: '0 0 1.25rem 0',
                     width: '510px',
                   }}
                 >
@@ -97,7 +96,7 @@ const UsagePage = () => {
                     scope="row"
                     style={{ verticalAlign: 'top' }}
                     sx={{
-                      color: theme.palette.grey[50],
+                      color: palette.grey[50],
                       padding: 0,
                       width: '164px',
                     }}
@@ -107,10 +106,9 @@ const UsagePage = () => {
                   <TableCell
                     align="left"
                     sx={{
-                      color: theme.palette.grey[50],
-                      padding: 0,
+                      color: palette.grey[50],
+                      padding: '0 0 1.25rem 0',
                       width: '510px',
-                      paddingBottom: '1.25rem',
                     }}
                   >
                     <Typography variant="body2">{row.purpose}</Typography>

@@ -18,7 +18,7 @@ interface Props {
   variantType?: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 }
 const DarkBgState: React.FC<Props> = ({ variantType }) => {
-  const theme = useTheme();
+  const { palette } = useTheme();
   return (
     <ThemeProvider theme={dark}>
       <TableContainer>
@@ -32,24 +32,21 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
         >
           <TableHead>
             <TableRow>
-              <TableCell
-                align="left"
-                sx={{ width: '7.5%', color: theme.palette.common.white }}
-              >
+              <TableCell align="left" sx={{ width: '7.5%', color: palette.common.white }}>
                 <Typography variant="subheader3"></Typography>
               </TableCell>
-              <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+              <TableCell align="left" sx={{ color: palette.common.white }}>
                 <Typography variant="subheader3">Default</Typography>
               </TableCell>
-              <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+              <TableCell align="left" sx={{ color: palette.common.white }}>
                 <Typography variant="subheader3">Hover</Typography>
               </TableCell>
-              <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+              <TableCell align="left" sx={{ color: palette.common.white }}>
                 <Typography variant="subheader3">Active/Pressed</Typography>
               </TableCell>
               <TableCell
                 align="left"
-                sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                sx={{ paddingRight: '0', color: palette.common.white }}
               >
                 <Typography variant="subheader3">Focused(ADA)</Typography>
               </TableCell>
@@ -62,7 +59,7 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                   width: '10%',
                   paddingLeft: '0',
                   paddingTop: '0',
-                  color: theme.palette.common.white,
+                  color: palette.common.white,
                 }}
               >
                 <Typography variant="subheader3">Default</Typography>
@@ -94,19 +91,17 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
             <TableRow>
               <TableCell
                 sx={{
-                  paddingTop: '0',
-                  paddingBottom: '0',
+                  py: '0',
                   width: '7.5%',
                   paddingLeft: '0',
-                  color: theme.palette.common.white,
+                  color: palette.common.white,
                 }}
               >
                 <Typography variant="subheader3">Icon Right</Typography>
               </TableCell>
               <TableCell
                 sx={{
-                  paddingTop: '0',
-                  paddingBottom: '0',
+                  py: '0',
                 }}
               >
                 <Button variant={variantType} icon="right">
@@ -115,8 +110,7 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
               </TableCell>
               <TableCell
                 sx={{
-                  paddingTop: '0',
-                  paddingBottom: '0',
+                  py: '0',
                 }}
               >
                 <Box className="hover">
@@ -127,8 +121,7 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
               </TableCell>
               <TableCell
                 sx={{
-                  paddingTop: '0',
-                  paddingBottom: '0',
+                  py: '0',
                 }}
               >
                 <Box className="active">
@@ -139,8 +132,7 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
               </TableCell>
               <TableCell
                 sx={{
-                  paddingTop: '0',
-                  paddingBottom: '0',
+                  py: '0',
                   paddingRight: '0',
                 }}
               >
@@ -156,7 +148,7 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                 sx={{
                   width: '7.5%',
                   paddingLeft: '0',
-                  color: theme.palette.common.white,
+                  color: palette.common.white,
                 }}
               >
                 <Typography variant="subheader3">Icon Left</Typography>

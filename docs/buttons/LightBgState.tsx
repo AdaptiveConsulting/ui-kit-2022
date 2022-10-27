@@ -17,7 +17,7 @@ interface Props {
 }
 
 const LightBgState: React.FC<Props> = ({ variantType }) => {
-  const theme = useTheme();
+  const { palette } = useTheme();
   return (
     <TableContainer>
       <Table
@@ -33,22 +33,13 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             <TableCell align="left" sx={{ width: '7.5%' }}>
               <Typography variant="subheader1"></Typography>
             </TableCell>
-            <TableCell
-              align="left"
-              sx={{ paddingTop: '0', color: theme.palette.common.white }}
-            >
+            <TableCell align="left" sx={{ paddingTop: '0', color: palette.common.white }}>
               <Typography variant="subheader3">Default</Typography>
             </TableCell>
-            <TableCell
-              align="left"
-              sx={{ paddingTop: '0', color: theme.palette.common.white }}
-            >
+            <TableCell align="left" sx={{ paddingTop: '0', color: palette.common.white }}>
               <Typography variant="subheader3">Hover</Typography>
             </TableCell>
-            <TableCell
-              align="left"
-              sx={{ paddingTop: '0', color: theme.palette.common.white }}
-            >
+            <TableCell align="left" sx={{ paddingTop: '0', color: palette.common.white }}>
               <Typography variant="subheader3">Active/Pressed</Typography>
             </TableCell>
             <TableCell
@@ -56,7 +47,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
               sx={{
                 paddingRight: '0',
                 paddingTop: '0',
-                color: theme.palette.common.white,
+                color: palette.common.white,
               }}
             >
               <Typography variant="subheader3">Focused(ADA)</Typography>
@@ -69,14 +60,14 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
               sx={{
                 width: '10%',
                 paddingLeft: '0',
-                color: theme.palette.common.white,
+                color: palette.common.white,
               }}
             >
               <Typography variant="subheader3">Default</Typography>
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
                 borderTopLeftRadius: '4px',
               }}
             >
@@ -84,7 +75,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="hover">
@@ -93,7 +84,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="active">
@@ -103,7 +94,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             <TableCell
               sx={{
                 paddingRight: '0',
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
                 borderTopRightRadius: '4px',
               }}
             >
@@ -115,20 +106,18 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
           <TableRow>
             <TableCell
               sx={{
-                paddingTop: '0',
-                paddingBottom: '0',
+                py: '0',
                 width: '7.5%',
                 paddingLeft: '0',
-                color: theme.palette.common.white,
+                color: palette.common.white,
               }}
             >
               <Typography variant="subheader3">Icon Right</Typography>
             </TableCell>
             <TableCell
               sx={{
-                paddingTop: '0',
-                paddingBottom: '0',
-                backgroundColor: theme.palette.grey[50],
+                py: '0',
+                backgroundColor: palette.grey[50],
               }}
             >
               <Button variant={variantType} icon="right">
@@ -137,9 +126,8 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                paddingTop: '0',
-                paddingBottom: '0',
-                backgroundColor: theme.palette.grey[50],
+                py: '0',
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="hover">
@@ -150,9 +138,8 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                paddingTop: '0',
-                paddingBottom: '0',
-                backgroundColor: theme.palette.grey[50],
+                py: '0',
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="active">
@@ -163,10 +150,9 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                paddingTop: '0',
-                paddingBottom: '0',
+                py: '0',
                 paddingRight: '0',
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="focus">
@@ -181,14 +167,14 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
               sx={{
                 width: '7.5%',
                 paddingLeft: '0',
-                color: theme.palette.common.white,
+                color: palette.common.white,
               }}
             >
               <Typography variant="subheader3">Icon Left</Typography>
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
                 borderBottomLeftRadius: '4px',
               }}
             >
@@ -198,7 +184,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="hover">
@@ -209,7 +195,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
               }}
             >
               <Box className="active">
@@ -220,7 +206,7 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
             </TableCell>
             <TableCell
               sx={{
-                backgroundColor: theme.palette.grey[50],
+                backgroundColor: palette.grey[50],
                 paddingRight: '0',
                 borderBottomRightRadius: '4px',
               }}

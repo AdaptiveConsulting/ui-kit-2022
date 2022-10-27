@@ -8,7 +8,7 @@ interface Props {
 }
 
 const UsageExample: React.FC<Props> = ({ title }) => {
-  const theme = useTheme();
+  const { palette } = useTheme();
   const ButtonGroup = () => {
     if (title === 'Dark') {
       return (
@@ -30,9 +30,7 @@ const UsageExample: React.FC<Props> = ({ title }) => {
   };
   return (
     <Box>
-      <Box
-        sx={{ marginBottom: '1rem', marginLeft: '1rem', color: theme.palette.grey[50] }}
-      >
+      <Box sx={{ marginBottom: '1rem', marginLeft: '1rem', color: palette.grey[50] }}>
         <Typography variant="subheader3">{title} Background </Typography>
       </Box>
       <Box
@@ -41,8 +39,7 @@ const UsageExample: React.FC<Props> = ({ title }) => {
           flexDirection: 'column',
           width: '161px',
           height: '174px',
-          backgroundColor:
-            title === 'Dark' ? theme.palette.grey[900] : theme.palette.grey[50],
+          backgroundColor: title === 'Dark' ? palette.grey[900] : palette.grey[50],
           justifyContent: 'space-around',
           alignItems: 'center',
         }}

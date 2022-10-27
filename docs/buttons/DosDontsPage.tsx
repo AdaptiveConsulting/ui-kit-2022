@@ -1,12 +1,12 @@
-import { Box, SvgIcon, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
+import { Icon } from '@ui-kit-2022/components';
 
-import { Check, Close } from '../../packages/ui-kit-components/src/icons';
 import TopBar from '../src/common/top-bar';
 import DosDontsExample from './DosDontsExample';
 
 const DosDontsPage = () => {
-  const theme = useTheme();
+  const { palette } = useTheme();
   return (
     <>
       <Box sx={{ width: '717px' }}>
@@ -16,11 +16,8 @@ const DosDontsPage = () => {
         sx={{
           width: '717px',
           backgroundColor: '#323232',
-          color: theme.palette.common.white,
-          paddingTop: '2rem',
-          paddingLeft: '2.1875rem',
-          paddingRight: '2.1875rem',
-          paddingBottom: '2.5rem',
+          color: palette.common.white,
+          padding: '2rem 2.1875rem 2.5rem',
           display: 'flex',
           justifyContent: 'space-between',
         }}
@@ -31,16 +28,11 @@ const DosDontsPage = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              marginTop: '0.625rem',
-              marginBottom: '0.625rem',
+              my: '0.625rem',
             }}
           >
             <Typography variant="subheader1">DO</Typography>
-            <SvgIcon
-              component={Check}
-              viewBox="-5 -2 21 19"
-              sx={{ width: '21px', height: '19px' }}
-            />
+            <Icon.Check viewBox="-5 -2 21 19" sx={{ width: '21px', height: '19px' }} />
           </Box>
           <Typography variant="body2">
             <Typography variant="subheader3">Right Aligned: </Typography>Primary
@@ -51,11 +43,7 @@ const DosDontsPage = () => {
           <DosDontsExample exampleType="Dont" />
           <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '0.625rem' }}>
             <Typography variant="subheader1">{"DON'T"}</Typography>
-            <SvgIcon
-              component={Close}
-              viewBox="-4 0 16 16"
-              sx={{ width: '13px', height: '13px' }}
-            />
+            <Icon.Close viewBox="-4 0 16 16" sx={{ width: '13px', height: '13px' }} />
           </Box>
         </Box>
       </Box>
