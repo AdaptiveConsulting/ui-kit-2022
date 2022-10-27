@@ -50,7 +50,6 @@ const UsagePage = () => {
           paddingTop: '1.875rem',
           paddingLeft: '1.875rem',
           display: 'flex',
-          //justifyContent: 'space-around',
         }}
       >
         <TableContainer

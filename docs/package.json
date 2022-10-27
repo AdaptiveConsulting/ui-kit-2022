@@ -30,6 +30,7 @@
     "@ui-kit-2022/svgr-template": "^1.0.0",
     "@ui-kit-2022/theme": "0.0.0",
     "babel-loader": "^8.2.5",
+    "storybook-addon-pseudo-states": "^1.15.1",
     "storybook-dark-mode": "^1.1.2"
   },
   "repository": {
