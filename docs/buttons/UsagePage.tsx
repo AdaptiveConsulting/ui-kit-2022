@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 
+import TopBar from '../src/common/top-bar';
 import UsageExample from './UsageExample';
 
 function createData(variant: string, purpose: string) {
@@ -37,89 +38,94 @@ const UsagePage = () => {
   const theme = useTheme();
 
   return (
-    <Box
-      sx={{
-        width: '1060px',
-        height: '295px',
-        backgroundColor: '#323232',
-        paddingTop: '1.875rem',
-        paddingLeft: '1.875rem',
-        display: 'flex',
-        //justifyContent: 'space-around',
-      }}
-    >
-      <TableContainer
+    <>
+      <Box sx={{ width: '1060px' }}>
+        <TopBar title={'USAGE'} />
+      </Box>
+      <Box
         sx={{
+          width: '1060px',
+          height: '295px',
           backgroundColor: '#323232',
-          width: '674px',
-          marginRight: '0.8125rem',
+          paddingTop: '1.875rem',
+          paddingLeft: '1.875rem',
+          display: 'flex',
+          //justifyContent: 'space-around',
         }}
       >
-        <Table
+        <TableContainer
           sx={{
-            [`& .${tableCellClasses.root}`]: {
-              borderBottom: 'none',
-            },
+            backgroundColor: '#323232',
+            width: '674px',
+            marginRight: '0.8125rem',
           }}
         >
-          <TableHead>
-            <TableRow>
-              <TableCell
-                align="left"
-                style={{ verticalAlign: 'top' }}
-                sx={{ color: theme.palette.grey[50], padding: 0, width: '164px' }}
-              >
-                <Typography variant="subheader1">Variant</Typography>
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  color: theme.palette.grey[50],
-                  padding: 0,
-                  paddingBottom: '1.25rem',
-                  width: '510px',
-                }}
-              >
-                <Typography variant="subheader1">Purpose</Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.variant}>
+          <Table
+            sx={{
+              [`& .${tableCellClasses.root}`]: {
+                borderBottom: 'none',
+              },
+            }}
+          >
+            <TableHead>
+              <TableRow>
                 <TableCell
-                  component="th"
-                  scope="row"
+                  align="left"
                   style={{ verticalAlign: 'top' }}
-                  sx={{
-                    color: theme.palette.grey[50],
-                    padding: 0,
-                    width: '164px',
-                  }}
+                  sx={{ color: theme.palette.grey[50], padding: 0, width: '164px' }}
                 >
-                  <Typography variant="subheader3">{row.variant}</Typography>
+                  <Typography variant="subheader1">Variant</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
                   sx={{
                     color: theme.palette.grey[50],
                     padding: 0,
-                    width: '510px',
                     paddingBottom: '1.25rem',
+                    width: '510px',
                   }}
                 >
-                  <Typography variant="body2">{row.purpose}</Typography>
+                  <Typography variant="subheader1">Purpose</Typography>
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <UsageExample title="Dark" />
-      <Box sx={{ marginLeft: '0.56rem' }}>
-        <UsageExample title="Light" />
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.variant}>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    style={{ verticalAlign: 'top' }}
+                    sx={{
+                      color: theme.palette.grey[50],
+                      padding: 0,
+                      width: '164px',
+                    }}
+                  >
+                    <Typography variant="subheader3">{row.variant}</Typography>
+                  </TableCell>
+                  <TableCell
+                    align="left"
+                    sx={{
+                      color: theme.palette.grey[50],
+                      padding: 0,
+                      width: '510px',
+                      paddingBottom: '1.25rem',
+                    }}
+                  >
+                    <Typography variant="body2">{row.purpose}</Typography>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <UsageExample title="Dark" />
+        <Box sx={{ marginLeft: '0.56rem' }}>
+          <UsageExample title="Light" />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

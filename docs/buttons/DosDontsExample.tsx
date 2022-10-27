@@ -33,9 +33,10 @@ const DosDontsExample: React.FC<Props> = ({ exampleType }) => {
             backgroundColor: theme.palette.grey[200],
           }}
         ></Box>
+
         <SvgIcon
           component={Close}
-          viewBox="-3 0 16 16"
+          viewBox="0 0 13 13"
           sx={{ width: '10.19px', height: '10.18px', color: theme.palette.grey[500] }}
         />
       </Box>
