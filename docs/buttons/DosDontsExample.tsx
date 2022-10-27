@@ -1,5 +1,6 @@
 import { Box, SvgIcon, useTheme } from '@mui/material';
-import { Close } from '@ui-kit-2022/components/src/icons';
+
+import { Close } from '../../packages/ui-kit-components/src/icons';
 interface Props {
   exampleType?: 'Do' | 'Dont';
 }

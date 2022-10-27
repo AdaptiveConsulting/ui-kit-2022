@@ -1,7 +1,7 @@
 import { Box, SvgIcon, useTheme } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
-import { Check, Close } from '@ui-kit-2022/components/src/icons';
 
+import { Check, Close } from '../../packages/ui-kit-components/src/icons';
 import TopBar from '../src/common/top-bar';
 import DosDontsExample from './DosDontsExample';
 
