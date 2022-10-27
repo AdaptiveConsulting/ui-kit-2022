@@ -1,29 +1,15 @@
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import React, { useEffect, useState } from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import LogoBrand from '../Branding/LogoBrand/LogoBrand';
 import LogoText from '../Branding/LogoText/LogoText';
 
 export default function SplashScreen() {
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [setWindowWidth]);
-
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   //Using string because the hex isn't offered in both themes
   const background = '#323232';
   const color = theme.palette.common.white;
@@ -46,12 +32,12 @@ export default function SplashScreen() {
   return (
     <Container>
       <LogoBrand
-        width={windowWidth >= 600 ? undefined : 104}
-        height={windowWidth >= 600 ? undefined : 103}
+        width={isSmallScreen ? 104 : undefined}
+        height={isSmallScreen ? 103 : undefined}
       />
       <LogoText
-        width={windowWidth >= 600 ? undefined : 169}
-        height={windowWidth >= 600 ? undefined : 56}
+        width={isSmallScreen ? 169 : undefined}
+        height={isSmallScreen ? 56 : undefined}
       />
       <Typography
         sx={{
