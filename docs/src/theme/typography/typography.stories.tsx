@@ -16,7 +16,7 @@ const VARIANTS = {
 };
 
 export default {
-  title: 'Theme/Typography/Variants',
+  title: 'Theme/Typography Variants',
   component: Typography,
   argTypes: {
     children: {
@@ -41,3 +41,5 @@ export const Variants = Template.bind({});
 Variants.args = {
   variant: Object.keys(VARIANTS)[0],
 };
+
+Variants.storyName = 'Typography Variants';

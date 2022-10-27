@@ -5,7 +5,7 @@ import React from 'react';
 import TextSample from './text-sample';
 
 export default {
-  title: 'Theme/Typography',
+  title: 'Design System / Building Blocks / Typography',
   component: TextSample,
   argTypes: {
     fontName: {

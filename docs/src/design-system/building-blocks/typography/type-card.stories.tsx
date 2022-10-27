@@ -4,7 +4,7 @@ import React from 'react';
 
 import TypeCard from './type-card';
 export default {
-  title: 'Theme/Typography',
+  title: 'Design System / Building Blocks / Typography',
   component: TypeCard,
   argTypes: {
     title: {

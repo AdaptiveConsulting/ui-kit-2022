@@ -3,7 +3,7 @@ import React from 'react';
 
 import FontExamples from './font-examples';
 export default {
-  title: 'Theme/Typography',
+  title: 'Design System / Building Blocks / Typography',
   component: FontExamples,
   argTypes: {
     fontName: {
