@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import SplashScreenStory from './splashScreenStory';
+import SplashScreenStory from './SplashScreenStory';
 
 export default {
   title: 'Components/Branding',
   component: SplashScreenStory,
   argTypes: {
     showSplash: {
-      options: { true: true, false: false },
+      options: [true, false],
       control: { type: 'select' },
     },
   },
