@@ -51,58 +51,60 @@ const Text: React.FC = () => {
 const DoIconWithLabel: React.FC<{ palette: Palette }> = ({ palette }) => {
   return (
     <Grid item xs={2.5}>
-      <Grid item xs={12}>
-        <Typography variant="h2" sx={{ color: palette.success.main }}>
-          Do:
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'start',
-            gap: '0.5rem',
-          }}
-        >
-          <Icon.Cog sx={{ width: '9px', height: '9px' }} />
-          <Typography variant="body2">Settings</Typography>
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'start',
-            gap: '0.5rem',
-          }}
-        >
-          <Icon.Cog sx={{ width: '12px', height: '12px' }} />
-          <Typography variant="body1">Settings</Typography>
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'start',
-            gap: '0.5rem',
-          }}
-        >
-          <Icon.Cog sx={{ width: '18px', height: '18px' }} />
-          <Typography variant="h1">Settings</Typography>
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography
-          variant="body2"
-          sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-        >
-          Icons and labels are equal or similar in height, consistently applied, with the
-          same color, and center alignment.
-        </Typography>
+      <Grid container rowGap={2}>
+        <Grid item xs={12}>
+          <Typography variant="h2" sx={{ color: palette.success.main }}>
+            Do:
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'start',
+              gap: '0.5rem',
+            }}
+          >
+            <Icon.Cog sx={{ width: '9px', height: '9px' }} />
+            <Typography variant="body2">Settings</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'start',
+              gap: '0.5rem',
+            }}
+          >
+            <Icon.Cog sx={{ width: '12px', height: '12px' }} />
+            <Typography variant="body1">Settings</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'start',
+              gap: '0.5rem',
+            }}
+          >
+            <Icon.Cog sx={{ width: '18px', height: '18px' }} />
+            <Typography variant="h1">Settings</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography
+            variant="body2"
+            sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
+          >
+            Icons and labels are equal or similar in height, consistently applied, with
+            the same color, and center alignment.
+          </Typography>
+        </Grid>
       </Grid>
     </Grid>
   );
@@ -111,7 +113,7 @@ const DoIconWithLabel: React.FC<{ palette: Palette }> = ({ palette }) => {
 const DontIconWithLabel: React.FC<{ palette: Palette }> = ({ palette }) => {
   return (
     <Grid item xs={2.5}>
-      <Grid container>
+      <Grid container rowGap={2}>
         <Grid item xs={12}>
           <Typography variant="h2" sx={{ color: palette.error.main }}>
             Don&apos;t:
