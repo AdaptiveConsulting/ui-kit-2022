@@ -7,7 +7,7 @@ export default {
   component: SplashScreenStory,
   argTypes: {
     showSplash: {
-      options: { true: true, false: false },
+      options: [true, false],
       control: { type: 'select' },
     },
   },
