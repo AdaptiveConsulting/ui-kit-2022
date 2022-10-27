@@ -21,3 +21,5 @@ export const UsageExampleStory = Template.bind({});
 UsageExampleStory.args = {
   title: 'Dark',
 };
+
+UsageExampleStory.storyName = 'Usage Example';

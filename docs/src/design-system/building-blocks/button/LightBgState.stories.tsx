@@ -20,3 +20,5 @@ export const LightBgStateStory = Template.bind({});
 LightBgStateStory.args = {
   variantType: 'Primary',
 };
+
+LightBgStateStory.storyName = 'Light Bg State';
