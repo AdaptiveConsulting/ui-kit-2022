@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import LightBgState from './LightBgState';
 
 export default {
-  title: 'Docs/Button',
+  title: 'Design System / Building Blocks / Button',
   component: LightBgState,
   argTypes: {
     variantType: {

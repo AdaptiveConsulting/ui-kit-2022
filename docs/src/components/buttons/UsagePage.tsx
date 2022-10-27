@@ -11,8 +11,8 @@ import {
 } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 
-import TopBar from '../src/common/top-bar';
-import UsageExample from './UsageExample';
+import UsageExample from '../../design-system/building-blocks/button/UsageExample';
+import TopBar from '../../design-system/building-blocks/common/top-bar';
 
 function createData(variant: string, purpose: string) {
   return { variant, purpose };

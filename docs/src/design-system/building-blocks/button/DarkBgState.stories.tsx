@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DarkBgState from './DarkBgState';
 
 export default {
-  title: 'Docs/Button',
+  title: 'Design System / Building Blocks / Button',
   component: DarkBgState,
   argTypes: {
     variantType: {
@@ -19,3 +19,5 @@ export const DarkBgStateStory = Template.bind({});
 DarkBgStateStory.args = {
   variantType: 'PRIMARY',
 };
+
+DarkBgStateStory.storyName = 'Dark Bg State';

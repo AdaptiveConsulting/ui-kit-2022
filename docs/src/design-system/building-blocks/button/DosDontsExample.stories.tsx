@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DosDontsExample from './DosDontsExample';
 
 export default {
-  title: 'Docs/Button',
+  title: 'Design System / Building Blocks / Button',
   component: DosDontsExample,
   argTypes: {
     exampleType: {
@@ -21,3 +21,5 @@ export const DosDontsExampleStory = Template.bind({});
 DosDontsExampleStory.args = {
   exampleType: 'Do',
 };
+
+DosDontsExampleStory.storyName = "Dos Don'ts Example";
