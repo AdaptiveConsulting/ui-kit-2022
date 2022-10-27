@@ -70,6 +70,7 @@ const LIGHT_BUTTON = {
           border: `1px solid #5F618D`,
           backgroundColor: '#FFFFFF',
           color: '#5F618D',
+          borderRadius: '100px',
         },
         '&:focus': {
           border: '1px solid #5F618D',

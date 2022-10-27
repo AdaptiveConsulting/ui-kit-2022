@@ -39,5 +39,9 @@
     "type": "git",
     "url": "https://github.com/chuck-adaptive/ui-kit-2022.git",
     "directory": "packages/ui-kit-components"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

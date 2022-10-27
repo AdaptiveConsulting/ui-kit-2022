@@ -4,12 +4,12 @@ import * as React from 'react';
 import { ArrowLeft, ArrowRight } from '../../icons';
 type VariantType = 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 
-export interface Props {
-  children?: JSX.Element;
+interface Props {
+  children?: JSX.Element | string;
   variant?: VariantType;
   disabled?: boolean;
-  icon: 'left' | 'right' | undefined;
-  click: () => void;
+  icon?: 'left' | 'right';
+  click?: () => void;
 }
 
 const ButtonDefault: React.FC<Props> = ({

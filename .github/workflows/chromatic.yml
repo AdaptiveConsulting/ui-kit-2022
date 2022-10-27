@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: |
-          yarn install --immutable
+          yarn
           yarn build-lib
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
@@ -28,3 +28,4 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: docs
