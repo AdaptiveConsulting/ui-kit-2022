@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { TopBar } from '../common';
 import Color from './color';
+import IconLibrary from './icon-library';
 import Purpose from './purpose';
 import Sizing from './sizing';
 import WithText from './with-text';
@@ -28,6 +29,7 @@ const Icons: React.FC = () => {
         <Sizing />
         <Color />
         <WithText />
+        <IconLibrary />
       </Grid>
     </Grid>
   );
