@@ -11,6 +11,10 @@
     ".": {
       "import": "./dist/ui-kit-2022-theme.js",
       "require": "./dist/ui-kit-2022-theme.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "typings": "./dist/types/index.d.ts",
@@ -31,7 +35,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@mui/material": "^5.10.6"
+    "@mui/material": "^5.10.6",
+    "vite": "^3.1.0"
   },
   "repository": {
     "type": "git",
