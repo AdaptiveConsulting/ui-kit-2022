@@ -3,6 +3,7 @@ import { Icon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import { SubTitle } from '../common';
+import { SIZING } from './icons.constants';
 const CONTAINER_SIZE = { width: '100%', height: '100%' };
 
 const ICON_SUBTITLE_STYLE = {
@@ -115,41 +116,28 @@ const Sizing = () => {
       <Grid container columnGap={3}>
         <Grid item xs={2}>
           <SubTitle subTitle="Sizing" />
-          <Typography variant="body2">
-            Use icons in approved sizes with enough space around them.
-          </Typography>
-          <Typography variant="body2">
-            They are sized to take up the central 75% of a square, transparent frame whose
-            pixel dimensions are one of our approved sizing increments of S, M, L or XL. =
-          </Typography>
+          <Typography variant="body2">{SIZING.paragraph1}</Typography>
+          <Typography variant="body2">{SIZING.paragraph2}</Typography>
           <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-            The use of S and XL icons will be rare.
+            {SIZING.paragraph3}
           </Typography>
         </Grid>
         <Grid item xs={1.5} sx={ICONS_GROUP_LAYOUT_STYLE}>
           <Grid container sx={CONTAINER_SIZE}>
-            <IconSubtitleComponent palette={palette}>
-              {'S' as SubtitleType}
-            </IconSubtitleComponent>
-            <IconSubtitleComponent palette={palette}>
-              {'M' as SubtitleType}
-            </IconSubtitleComponent>
-            <IconSubtitleComponent palette={palette}>
-              {'L' as SubtitleType}
-            </IconSubtitleComponent>
-            <IconSubtitleComponent palette={palette}>
-              {'XL' as SubtitleType}
-            </IconSubtitleComponent>
+            {SIZING.sizes.map((value) => (
+              <IconSubtitleComponent key={value} palette={palette}>
+                {value as SubtitleType}
+              </IconSubtitleComponent>
+            ))}
           </Grid>
         </Grid>
         <Grid item xs={1.2} sx={ICONS_GROUP_LAYOUT_STYLE}>
           <Grid container sx={CONTAINER_SIZE}>
-            <IconSubtitleComponent palette={palette}>
-              {'Too small!' as SubtitleType}
-            </IconSubtitleComponent>
-            <IconSubtitleComponent palette={palette}>
-              {'Too big!' as SubtitleType}
-            </IconSubtitleComponent>
+            {SIZING.errorSizes.map((value) => (
+              <IconSubtitleComponent key={value} palette={palette}>
+                {'Too small!' as SubtitleType}
+              </IconSubtitleComponent>
+            ))}
           </Grid>
         </Grid>
       </Grid>
