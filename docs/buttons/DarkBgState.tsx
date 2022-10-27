@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import {
   Table,
   TableBody,
@@ -70,10 +71,14 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                 <Button variant={variantType}>BUTTON TEXT</Button>
               </TableCell>
               <TableCell sx={{ paddingTop: '0' }}>
-                <Button variant={variantType}>BUTTON TEXT</Button>
+                <Box className="hover">
+                  <Button variant={variantType}>BUTTON TEXT</Button>
+                </Box>
               </TableCell>
               <TableCell sx={{ paddingTop: '0' }}>
-                <Button variant={variantType}>BUTTON TEXT</Button>
+                <Box className="active">
+                  <Button variant={variantType}>BUTTON TEXT</Button>
+                </Box>
               </TableCell>
               <TableCell
                 sx={{
@@ -81,7 +86,9 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                   paddingTop: '0',
                 }}
               >
-                <Button variant={variantType}>BUTTON TEXT</Button>
+                <Box className="focus">
+                  <Button variant={variantType}>BUTTON TEXT</Button>
+                </Box>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -112,9 +119,11 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                   paddingBottom: '0',
                 }}
               >
-                <Button variant={variantType} icon="right">
-                  BUTTON TEXT
-                </Button>
+                <Box className="hover">
+                  <Button variant={variantType} icon="right">
+                    BUTTON TEXT
+                  </Button>
+                </Box>
               </TableCell>
               <TableCell
                 sx={{
@@ -122,9 +131,11 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                   paddingBottom: '0',
                 }}
               >
-                <Button variant={variantType} icon="right">
-                  BUTTON TEXT
-                </Button>
+                <Box className="active">
+                  <Button variant={variantType} icon="right">
+                    BUTTON TEXT
+                  </Button>
+                </Box>
               </TableCell>
               <TableCell
                 sx={{
@@ -133,9 +144,11 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                   paddingRight: '0',
                 }}
               >
-                <Button variant={variantType} icon="right">
-                  BUTTON TEXT
-                </Button>
+                <Box className="focus">
+                  <Button variant={variantType} icon="right">
+                    BUTTON TEXT
+                  </Button>
+                </Box>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -154,23 +167,29 @@ const DarkBgState: React.FC<Props> = ({ variantType }) => {
                 </Button>
               </TableCell>
               <TableCell>
-                <Button variant={variantType} icon="left">
-                  BUTTON TEXT
-                </Button>
+                <Box className="hover">
+                  <Button variant={variantType} icon="left">
+                    BUTTON TEXT
+                  </Button>
+                </Box>
               </TableCell>
               <TableCell>
-                <Button variant={variantType} icon="left">
-                  BUTTON TEXT
-                </Button>
+                <Box className="active">
+                  <Button variant={variantType} icon="left">
+                    BUTTON TEXT
+                  </Button>
+                </Box>
               </TableCell>
               <TableCell
                 sx={{
                   paddingRight: '0',
                 }}
               >
-                <Button variant={variantType} icon="left">
-                  BUTTON TEXT
-                </Button>
+                <Box className="focus">
+                  <Button variant={variantType} icon="left">
+                    BUTTON TEXT
+                  </Button>
+                </Box>
               </TableCell>
             </TableRow>
           </TableBody>

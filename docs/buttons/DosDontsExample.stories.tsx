@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DosDontsExample from './DosDontsExample';
 
 export default {
-  title: 'Docs/Button/DosDonts',
+  title: 'Docs/Button',
   component: DosDontsExample,
   argTypes: {
     exampleType: {

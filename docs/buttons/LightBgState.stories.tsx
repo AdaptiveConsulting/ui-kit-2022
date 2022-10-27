@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import LightBgState from './LightBgState';
 
 export default {
-  title: 'Docs/Button/States',
+  title: 'Docs/Button',
   component: LightBgState,
   argTypes: {
     variantType: {
@@ -16,8 +16,7 @@ export default {
 const Template: ComponentStory<typeof LightBgState> = (args) => (
   <LightBgState {...args} />
 );
-
 export const LightBgStateStory = Template.bind({});
 LightBgStateStory.args = {
-  variantType: 'PRIMARY',
+  variantType: 'Primary',
 };

@@ -7,9 +7,11 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  ThemeProvider,
   useTheme,
 } from '@mui/material';
 import { Button, Typography } from '@ui-kit-2022/components';
+import { dark } from '@ui-kit-2022/theme';
 
 import TopBar from '../src/common/top-bar';
 import DarkBgState from './DarkBgState';
@@ -36,178 +38,198 @@ const StatesPage = () => {
           <Box sx={{ paddingLeft: '5.2rem' }}>
             <Typography variant="subheader1">Primary - any background</Typography>
           </Box>
-          <TableContainer>
-            <Table
-              sx={{
-                [`& .${tableCellClasses.root}`]: {
-                  borderBottom: 'none',
-                },
-                width: '95%',
-              }}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell align="left" sx={{ width: '7.5%' }}>
-                    <Typography></Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{ paddingLeft: '0', color: theme.palette.common.white }}
-                  >
-                    <Typography variant="subheader3">Default</Typography>
-                  </TableCell>
-                  <TableCell align="left" sx={{ color: theme.palette.common.white }}>
-                    <Typography variant="subheader3">Hover</Typography>
-                  </TableCell>
-                  <TableCell align="left" sx={{ color: theme.palette.common.white }}>
-                    <Typography variant="subheader3">Active/Pressed</Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{ paddingRight: '0', color: theme.palette.common.white }}
-                  >
-                    <Typography variant="subheader3">Focused(ADA)</Typography>
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{ paddingRight: '0', color: theme.palette.common.white }}
-                  >
-                    <Typography variant="subheader3">Disabled</Typography>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      width: '10%',
-                      paddingLeft: '0',
-                      paddingTop: '0',
-                      color: theme.palette.common.white,
-                    }}
-                  >
-                    <Typography variant="subheader3">Default</Typography>
-                  </TableCell>
-                  <TableCell sx={{ paddingLeft: '0', paddingTop: '0' }}>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell sx={{ paddingTop: '0' }}>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell sx={{ paddingTop: '0' }}>
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY">BUTTON TEXT</Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                      paddingTop: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY" disabled>
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      width: '7.5%',
-                      paddingLeft: '0',
-                      color: theme.palette.common.white,
-                    }}
-                  >
-                    <Typography variant="subheader3">Icon Right</Typography>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingLeft: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY" icon="right">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY" icon="right">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY" icon="right">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY" icon="right">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell
-                    sx={{
-                      width: '7.5%',
-                      paddingLeft: '0',
-                      color: theme.palette.common.white,
-                    }}
-                  >
-                    <Typography variant="subheader3">Icon Left</Typography>
-                  </TableCell>
-                  <TableCell sx={{ paddingLeft: '0' }}>
-                    <Button variant="PRIMARY" icon="left">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                  <TableCell sx={{}}>
-                    <Button variant="PRIMARY" icon="left">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="PRIMARY" icon="left">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      paddingRight: '0',
-                    }}
-                  >
-                    <Button variant="PRIMARY" icon="left">
-                      BUTTON TEXT
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <ThemeProvider theme={dark}>
+            <TableContainer>
+              <Table
+                sx={{
+                  [`& .${tableCellClasses.root}`]: {
+                    borderBottom: 'none',
+                  },
+                  width: '95%',
+                }}
+              >
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="left" sx={{ width: '7.5%' }}>
+                      <Typography></Typography>
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{ paddingLeft: '0', color: theme.palette.common.white }}
+                    >
+                      <Typography variant="subheader3">Default</Typography>
+                    </TableCell>
+                    <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+                      <Typography variant="subheader3">Hover</Typography>
+                    </TableCell>
+                    <TableCell align="left" sx={{ color: theme.palette.common.white }}>
+                      <Typography variant="subheader3">Active/Pressed</Typography>
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                    >
+                      <Typography variant="subheader3">Focused(ADA)</Typography>
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{ paddingRight: '0', color: theme.palette.common.white }}
+                    >
+                      <Typography variant="subheader3">Disabled</Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell
+                      sx={{
+                        width: '10%',
+                        paddingLeft: '0',
+                        paddingTop: '0',
+                        color: theme.palette.common.white,
+                      }}
+                    >
+                      <Typography variant="subheader3">Default</Typography>
+                    </TableCell>
+                    <TableCell sx={{ paddingLeft: '0', paddingTop: '0' }}>
+                      <Button variant="PRIMARY">BUTTON TEXT</Button>
+                    </TableCell>
+                    <TableCell sx={{ paddingTop: '0' }}>
+                      <Box className="hover">
+                        <Button variant="PRIMARY">BUTTON TEXT</Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell sx={{ paddingTop: '0' }}>
+                      <Box className="active">
+                        <Button variant="PRIMARY">BUTTON TEXT</Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: '0',
+                      }}
+                    >
+                      <Box className="focus">
+                        <Button variant="PRIMARY">BUTTON TEXT</Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingRight: '0',
+                        paddingTop: '0',
+                      }}
+                    >
+                      <Button variant="PRIMARY" disabled>
+                        BUTTON TEXT
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell
+                      sx={{
+                        paddingTop: '0',
+                        paddingBottom: '0',
+                        width: '7.5%',
+                        paddingLeft: '0',
+                        color: theme.palette.common.white,
+                      }}
+                    >
+                      <Typography variant="subheader3">Icon Right</Typography>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: '0',
+                        paddingBottom: '0',
+                        paddingLeft: '0',
+                      }}
+                    >
+                      <Button variant="PRIMARY" icon="right">
+                        BUTTON TEXT
+                      </Button>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: '0',
+                        paddingBottom: '0',
+                      }}
+                    >
+                      <Box className="hover">
+                        <Button variant="PRIMARY" icon="right">
+                          BUTTON TEXT
+                        </Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: '0',
+                        paddingBottom: '0',
+                      }}
+                    >
+                      <Box className="active">
+                        <Button variant="PRIMARY" icon="right">
+                          BUTTON TEXT
+                        </Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: '0',
+                        paddingBottom: '0',
+                        paddingRight: '0',
+                      }}
+                    >
+                      <Box className="focus">
+                        <Button variant="PRIMARY" icon="right">
+                          BUTTON TEXT
+                        </Button>
+                      </Box>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell
+                      sx={{
+                        width: '7.5%',
+                        paddingLeft: '0',
+                        color: theme.palette.common.white,
+                      }}
+                    >
+                      <Typography variant="subheader3">Icon Left</Typography>
+                    </TableCell>
+                    <TableCell sx={{ paddingLeft: '0' }}>
+                      <Button variant="PRIMARY" icon="left">
+                        BUTTON TEXT
+                      </Button>
+                    </TableCell>
+                    <TableCell sx={{}}>
+                      <Box className="hover">
+                        <Button variant="PRIMARY" icon="left">
+                          BUTTON TEXT
+                        </Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell>
+                      <Box className="active">
+                        <Button variant="PRIMARY" icon="left">
+                          BUTTON TEXT
+                        </Button>
+                      </Box>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingRight: '0',
+                      }}
+                    >
+                      <Box className="focus">
+                        <Button variant="PRIMARY" icon="left">
+                          BUTTON TEXT
+                        </Button>
+                      </Box>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </ThemeProvider>
         </Box>
         {/* secondary-on light background */}
         <Box sx={{ marginBottom: '1.1875rem' }}>

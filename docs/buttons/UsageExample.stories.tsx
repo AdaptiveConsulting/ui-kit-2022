@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import UsageExample from './UsageExample';
 
 export default {
-  title: 'Docs/Button/Usage',
+  title: 'Docs/Button',
   component: UsageExample,
   argTypes: {
     title: {

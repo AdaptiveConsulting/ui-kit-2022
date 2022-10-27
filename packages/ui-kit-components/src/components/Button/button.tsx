@@ -10,7 +10,7 @@ interface Props {
   disabled?: boolean;
   icon?: 'left' | 'right';
   click?: () => void;
-  //state?: 'hover' | 'active' | 'focused';
+  id?: string;
 }
 
 const ButtonDefault: React.FC<Props> = ({
@@ -19,6 +19,7 @@ const ButtonDefault: React.FC<Props> = ({
   children = '',
   icon,
   click,
+  id,
 }) => {
   if (icon === 'left') {
     return (
@@ -27,6 +28,7 @@ const ButtonDefault: React.FC<Props> = ({
         variant={variant}
         disabled={disabled}
         onClick={click}
+        id={id}
         startIcon={
           <SvgIcon
             component={ArrowLeft}
@@ -46,6 +48,7 @@ const ButtonDefault: React.FC<Props> = ({
         variant={variant}
         disabled={disabled}
         onClick={click}
+        id={id}
         endIcon={
           <SvgIcon
             component={ArrowRight}
@@ -61,7 +64,7 @@ const ButtonDefault: React.FC<Props> = ({
   }
 
   return (
-    <Button disableRipple variant={variant} disabled={disabled} onClick={click}>
+    <Button disableRipple variant={variant} disabled={disabled} onClick={click} id={id}>
       {children}
     </Button>
   );

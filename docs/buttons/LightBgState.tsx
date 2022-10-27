@@ -1,4 +1,5 @@
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -79,13 +80,6 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 borderTopLeftRadius: '4px',
               }}
             >
-              <Button variant={variantType}>BUTTON222 TEXT</Button>
-            </TableCell>
-            <TableCell
-              sx={{
-                backgroundColor: theme.palette.grey[50],
-              }}
-            >
               <Button variant={variantType}>BUTTON TEXT</Button>
             </TableCell>
             <TableCell
@@ -93,7 +87,18 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 backgroundColor: theme.palette.grey[50],
               }}
             >
-              <Button variant={variantType}>BUTTON TEXT</Button>
+              <Box className="hover">
+                <Button variant={variantType}>BUTTON TEXT</Button>
+              </Box>
+            </TableCell>
+            <TableCell
+              sx={{
+                backgroundColor: theme.palette.grey[50],
+              }}
+            >
+              <Box className="active">
+                <Button variant={variantType}>BUTTON TEXT</Button>
+              </Box>
             </TableCell>
             <TableCell
               sx={{
@@ -102,7 +107,9 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 borderTopRightRadius: '4px',
               }}
             >
-              <Button variant={variantType}>BUTTON TEXT</Button>
+              <Box className="focus">
+                <Button variant={variantType}>BUTTON TEXT</Button>
+              </Box>
             </TableCell>
           </TableRow>
           <TableRow>
@@ -135,9 +142,11 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 backgroundColor: theme.palette.grey[50],
               }}
             >
-              <Button variant={variantType} icon="right">
-                BUTTON TEXT
-              </Button>
+              <Box className="hover">
+                <Button variant={variantType} icon="right">
+                  BUTTON TEXT
+                </Button>
+              </Box>
             </TableCell>
             <TableCell
               sx={{
@@ -146,9 +155,11 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 backgroundColor: theme.palette.grey[50],
               }}
             >
-              <Button variant={variantType} icon="right">
-                BUTTON TEXT
-              </Button>
+              <Box className="active">
+                <Button variant={variantType} icon="right">
+                  BUTTON TEXT
+                </Button>
+              </Box>
             </TableCell>
             <TableCell
               sx={{
@@ -158,9 +169,11 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 backgroundColor: theme.palette.grey[50],
               }}
             >
-              <Button variant={variantType} icon="right">
-                BUTTON TEXT
-              </Button>
+              <Box className="focus">
+                <Button variant={variantType} icon="right">
+                  BUTTON TEXT
+                </Button>
+              </Box>
             </TableCell>
           </TableRow>
           <TableRow>
@@ -188,18 +201,22 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 backgroundColor: theme.palette.grey[50],
               }}
             >
-              <Button variant={variantType} icon="left">
-                BUTTON TEXT
-              </Button>
+              <Box className="hover">
+                <Button variant={variantType} icon="left">
+                  BUTTON TEXT
+                </Button>
+              </Box>
             </TableCell>
             <TableCell
               sx={{
                 backgroundColor: theme.palette.grey[50],
               }}
             >
-              <Button variant={variantType} icon="left">
-                BUTTON TEXT
-              </Button>
+              <Box className="active">
+                <Button variant={variantType} icon="left">
+                  BUTTON TEXT
+                </Button>
+              </Box>
             </TableCell>
             <TableCell
               sx={{
@@ -208,9 +225,11 @@ const LightBgState: React.FC<Props> = ({ variantType }) => {
                 borderBottomRightRadius: '4px',
               }}
             >
-              <Button variant={variantType} icon="left">
-                BUTTON TEXT
-              </Button>
+              <Box className="focus">
+                <Button variant={variantType} icon="left">
+                  BUTTON TEXT
+                </Button>
+              </Box>
             </TableCell>
           </TableRow>
         </TableBody>

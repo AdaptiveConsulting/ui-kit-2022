@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import UsagePage from './UsagePage';
 
 export default {
-  title: 'Docs/Button/Usage',
+  title: 'Docs/Button',
   component: UsagePage,
 } as ComponentMeta<typeof UsagePage>;
 

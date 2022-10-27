@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DosDontsPage from './DosDontsPage';
 
 export default {
-  title: 'Docs/Button/DosDonts',
+  title: 'Docs/Button',
   component: DosDontsPage,
 } as ComponentMeta<typeof DosDontsPage>;
 
