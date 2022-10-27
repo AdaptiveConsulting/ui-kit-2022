@@ -46,18 +46,18 @@ export default function SplashScreen() {
   return (
     <Container>
       <LogoBrand
-        width={windowWidth > 512 ? undefined : 104}
-        height={windowWidth > 512 ? undefined : 103}
+        width={windowWidth >= 600 ? undefined : 104}
+        height={windowWidth >= 600 ? undefined : 103}
       />
       <LogoText
-        width={windowWidth > 512 ? undefined : 169}
-        height={windowWidth > 512 ? undefined : 56}
+        width={windowWidth >= 600 ? undefined : 169}
+        height={windowWidth >= 600 ? undefined : 56}
       />
       <Typography
         sx={{
           color: theme.palette.grey[300],
           fontWeight: '400',
-          fontSize: windowWidth >= 512 ? '25px' : '20px',
+          fontSize: { sm: '25px', xs: '20px' },
           fontFamily: `Merriweather, serif`,
         }}
       >
