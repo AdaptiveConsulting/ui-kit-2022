@@ -23,7 +23,7 @@ const Icons: React.FC = () => {
           color: palette.common.white,
           padding: '1rem',
         }}
-        rowGap={5}
+        rowGap={6}
       >
         <Purpose />
         <Sizing />

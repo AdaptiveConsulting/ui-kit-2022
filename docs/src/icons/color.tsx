@@ -23,8 +23,8 @@ const IconsGroup: React.FC<{
             display: 'flex',
             justifyContent: 'space-evenly',
             alignItems: 'start',
-            bgcolor: background === 'dark' ? 'inherit' : palette.grey[50],
             padding: '1rem 0rem',
+            bgcolor: background === 'dark' ? 'inherit' : palette.grey[50],
           }}
         >
           <Box
@@ -47,8 +47,8 @@ const IconsGroup: React.FC<{
               sx={{
                 ontSize: '11px',
                 fontWeight: '300',
-                color: background === 'dark' ? 'inherit' : palette.grey[900],
                 fontStyle: 'italic',
+                color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
               Default
@@ -75,8 +75,8 @@ const IconsGroup: React.FC<{
               sx={{
                 ontSize: '11px',
                 fontWeight: '300',
-                color: background === 'dark' ? 'inherit' : palette.grey[900],
                 fontStyle: 'italic',
+                color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
               Hover
@@ -98,8 +98,8 @@ const IconsGroup: React.FC<{
               sx={{
                 ontSize: '11px',
                 fontWeight: '300',
-                color: background === 'dark' ? 'inherit' : palette.grey[900],
                 fontStyle: 'italic',
+                color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
               Active
@@ -109,8 +109,8 @@ const IconsGroup: React.FC<{
               sx={{
                 ontSize: '11px',
                 fontWeight: '300',
-                color: background === 'dark' ? 'inherit' : palette.grey[900],
                 fontStyle: 'italic',
+                color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
               (pressed)
@@ -134,8 +134,8 @@ const IconsGroup: React.FC<{
               sx={{
                 ontSize: '11px',
                 fontWeight: '300',
-                color: background === 'dark' ? 'inherit' : palette.grey[900],
                 fontStyle: 'italic',
+                color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
               Disabled
