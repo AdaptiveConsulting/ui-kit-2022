@@ -2,7 +2,7 @@ import { Grid, List, ListItem, Typography } from '@mui/material';
 import * as React from 'react';
 
 import { SubTitle } from '../common';
-const Purpose = () => {
+const Purpose: React.FC = () => {
   return (
     <>
       <SubTitle subTitle="Purpose" />

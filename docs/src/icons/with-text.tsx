@@ -2,7 +2,7 @@ import { Grid, List, ListItem, Typography } from '@mui/material';
 import * as React from 'react';
 
 import { SubTitle } from '../common';
-const WithText = () => {
+const WithText: React.FC = () => {
   return (
     <Grid item xs={12}>
       <Grid container columnGap={3}>

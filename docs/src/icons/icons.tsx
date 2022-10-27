@@ -7,7 +7,7 @@ import Color from './color';
 import Purpose from './purpose';
 import Sizing from './sizing';
 import WithText from './with-text';
-const Icons = () => {
+const Icons: React.FC = () => {
   const { palette } = useTheme();
 
   return (
