@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import SplashScreenStory from './splashScreenStory';
+import SplashScreenStory from './SplashScreenStory';
 
 export default {
   title: 'Components/Branding',
