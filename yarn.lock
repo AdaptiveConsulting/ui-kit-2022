@@ -4704,6 +4704,7 @@ __metadata:
     "@ui-kit-2022/svgr-template": ^1.0.0
     "@ui-kit-2022/theme": 0.0.0
     babel-loader: ^8.2.5
+    storybook-addon-pseudo-states: ^1.15.1
     storybook-dark-mode: ^1.1.2
   languageName: unknown
   linkType: soft
@@ -15148,6 +15149,26 @@ __metadata:
   version: 2.14.2
   resolution: "store2@npm:2.14.2"
   checksum: 6f270fc5bab99b63f45fcc7bd8b99c2714b4adf880f557ed7ffb5ed3987131251165bccde425a00928aaf044870aee79ddeef548576d093c68703ed2edec45d7
+  languageName: node
+  linkType: hard
+
+"storybook-addon-pseudo-states@npm:^1.15.1":
+  version: 1.15.1
+  resolution: "storybook-addon-pseudo-states@npm:1.15.1"
+  peerDependencies:
+    "@storybook/addons": ^6.5.0
+    "@storybook/api": ^6.5.0
+    "@storybook/components": ^6.5.0
+    "@storybook/core-events": ^6.5.0
+    "@storybook/theming": ^6.5.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 67087030c1db4159fe928984d79374e8b72ad617ebd29a0f95ff076433dd27931ebee2570005268a88e648a16f324440c9d7fbe74eb2b5a706913392b8d4d5f2
   languageName: node
   linkType: hard
 

@@ -10,6 +10,7 @@ export default {
     'storybook-dark-mode',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
+    'storybook-addon-pseudo-states',
   ],
   staticDirs: ['./assets'],
   framework: '@storybook/react',
