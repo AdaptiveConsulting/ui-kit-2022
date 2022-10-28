@@ -7,11 +7,6 @@ export default {
   },
   styleOverrides: {
     root: ({ theme, ownerState }: any) => ({
-      fontSize: theme.typography.button.fontSize,
-      fontFamily: theme.typography.button.fontSize,
-      fontWeight: theme.typography.button.fontWeight,
-
-      textTransform: 'uppercase',
       height: 'auto',
       borderRadius: '8px',
 
@@ -36,6 +31,15 @@ export default {
         }
       })
       */
+    }),
+    label: ({ theme }: any) => ({
+      fontSize: theme.typography.button.fontSize,
+      fontFamily: theme.typography.button.fontFamily,
+      fontWeight: theme.typography.button.fontWeight,
+      textTransform: 'uppercase',
+
+      lineHeight: '13px',
+      padding: '4px',
     }),
     filled: ({ theme, ownerState }: any) => ({
       // Ensures smooth border transition when entering active state.
@@ -98,10 +102,6 @@ export default {
         color: alpha(theme.palette.common.black, 0.95),
       }),
     }),
-    label: {
-      lineHeight: '13px',
-      padding: '4px',
-    },
     icon: {
       width: '16px',
       height: '16px',
