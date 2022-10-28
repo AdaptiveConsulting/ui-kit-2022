@@ -165,8 +165,8 @@ const ICON_LIBRARY = {
     columnTwo: [
       { label: 'calendar', icon: Icon.Calendar },
       { label: 'groups', icon: Icon.Groups },
-      { label: 'more', icon: Icon.More },
-      { label: 'eye', icon: Icon.Eye },
+      { label: 'more', icon: Icon.Dots },
+      { label: 'eye', icon: Icon.View },
       { label: 'search', icon: Icon.Search },
       { label: 'filter', icon: Icon.Filter },
       { label: 'settings', icon: Icon.Settings },
