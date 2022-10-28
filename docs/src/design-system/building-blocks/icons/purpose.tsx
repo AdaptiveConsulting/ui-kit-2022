@@ -5,7 +5,7 @@ import { SubTitle } from '../common';
 import { PURPOSE } from './icons.constants';
 const Purpose: React.FC = () => {
   return (
-    <>
+    <Grid container>
       <SubTitle subTitle={PURPOSE.title} />
       <Grid item xs={12}>
         <Typography variant="body2">{PURPOSE.paragraph1}</Typography>
@@ -27,7 +27,7 @@ const Purpose: React.FC = () => {
           ))}
         </List>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
