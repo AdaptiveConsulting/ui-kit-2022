@@ -159,7 +159,7 @@ const DoIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
                     <SvgIcon
                       component={value.icon}
                       viewBox="-4 -3 18 18"
-                      sx={{ color: palette.common.black }}
+                      sx={{ color: palette.grey[600] }}
                     />
                   )}
                 </Grid>
@@ -213,7 +213,7 @@ const DontIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
                     <SvgIcon
                       component={value.icon}
                       viewBox="-4 -3 18 18"
-                      sx={{ color: palette.common.black }}
+                      sx={{ color: palette.grey[600] }}
                     />
                   )}
                 </Grid>
