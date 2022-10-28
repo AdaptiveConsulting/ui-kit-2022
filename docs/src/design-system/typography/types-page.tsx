@@ -3,9 +3,7 @@ import { MERRIWEATHER, ROBOTO } from '@ui-kit-2022/theme';
 import * as React from 'react';
 
 import TopBar from '../building-blocks/common/top-bar';
-import FontExamples from '../building-blocks/typography/font-examples';
-import TextSample from '../building-blocks/typography/text-sample';
-import TypeCard from '../building-blocks/typography/type-card';
+import { FontExamples, TextSample, TypeCard } from '../building-blocks/typography';
 
 const TYPE_CARD_REGULAR_PROPS = {
   title: 'REGULAR',
