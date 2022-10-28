@@ -3,11 +3,6 @@ import { BrandIcon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import { TopBar } from '../building-blocks/common';
-// import Color from '../building-blocks//color';
-// import IconLibrary from './icon-library';
-// import Purpose from './purpose';
-// import Sizing from './sizing';
-// import WithText from './with-text';
 import { Color, IconLibrary, Purpose, Sizing, WithText } from '../building-blocks/icons';
 const Icons: React.FC = () => {
   const { palette } = useTheme();
