@@ -131,11 +131,11 @@ const Sizing = () => {
             ))}
           </Grid>
         </Grid>
-        <Grid item xs={1.2} sx={ICONS_GROUP_LAYOUT_STYLE}>
+        <Grid item xs={1.3} sx={ICONS_GROUP_LAYOUT_STYLE}>
           <Grid container sx={CONTAINER_SIZE}>
             {SIZING.errorSizes.map((value) => (
               <IconSubtitleComponent key={value} palette={palette}>
-                {'Too small!' as SubtitleType}
+                {value as SubtitleType}
               </IconSubtitleComponent>
             ))}
           </Grid>

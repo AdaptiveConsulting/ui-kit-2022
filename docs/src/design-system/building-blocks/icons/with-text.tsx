@@ -1,24 +1,27 @@
-import { Box, Grid, List, ListItem, Palette, Typography, useTheme } from '@mui/material';
+import {
+  Box,
+  Grid,
+  List,
+  ListItem,
+  Palette,
+  SvgIcon,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import { Icon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import { SubTitle } from '../common';
-
+import { WITH_TEXT } from './icons.constants';
 const Text: React.FC = () => {
   return (
     <Grid item xs={2}>
-      <SubTitle subTitle="With Text" />
+      <SubTitle subTitle={WITH_TEXT.subTitle} />
       <Grid item xs={12}>
-        <Typography variant="body2">
-          Almost always use icons with accompanying text. When this is impossible, ensure
-          an aria-label that can identify the icon on hover, and which is detectable by
-          screen reader users.
-        </Typography>
+        <Typography variant="body2">{WITH_TEXT.paragraph1}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2">
-          Create a harmonious relationship between the icon and its label with...
-        </Typography>
+        <Typography variant="body2">{WITH_TEXT.paragraph2}</Typography>
       </Grid>
       <Grid item xs={12}>
         <List
@@ -29,24 +32,18 @@ const Text: React.FC = () => {
             padding: '0 0 ',
           }}
         >
-          <ListItem sx={{ display: 'list-item', padding: '0 0' }}>
-            Center vertical alignment between text and icon
-          </ListItem>
-          <ListItem sx={{ display: 'list-item', padding: '0 0' }}>
-            Consistent pairing of label and icon across the experience
-          </ListItem>
-          <ListItem sx={{ display: 'list-item', padding: '0 0' }}>
-            A match-or near-match in height between the text and the icon
-          </ListItem>
-          <ListItem sx={{ display: 'list-item', padding: '0 0' }}>
-            Text and icon the same color. (This will usually mean that you will seek even
-            higher contrast ratios to accomodate the text. That ratio should be 4.5:1)
-          </ListItem>
+          {WITH_TEXT.textList.map((value) => (
+            <ListItem key={value} sx={{ display: 'list-item', padding: '0 0' }}>
+              {value}
+            </ListItem>
+          ))}
         </List>
       </Grid>
     </Grid>
   );
 };
+
+type variantType = 'body1' | 'body2' | 'h1';
 
 const DoIconWithLabel: React.FC<{ palette: Palette }> = ({ palette }) => {
   return (
@@ -57,52 +54,29 @@ const DoIconWithLabel: React.FC<{ palette: Palette }> = ({ palette }) => {
             Do:
           </Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '9px', height: '9px' }} />
-            <Typography variant="body2">Settings</Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '12px', height: '12px' }} />
-            <Typography variant="body1">Settings</Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '18px', height: '18px' }} />
-            <Typography variant="h1">Settings</Typography>
-          </Box>
-        </Grid>
+        {WITH_TEXT.column1.map((value) => (
+          <Grid key={JSON.stringify(value)} item xs={12}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'start',
+                gap: '0.5rem',
+              }}
+            >
+              <Icon.Cog sx={value.iconStyle} />
+              <Typography variant={value.fontVariant as variantType}>
+                {value.label}
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
         <Grid item xs={12}>
           <Typography
             variant="body2"
             sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
           >
-            Icons and labels are equal or similar in height, consistently applied, with
-            the same color, and center alignment.
+            {WITH_TEXT.exampleExplanation.column1}
           </Typography>
         </Grid>
       </Grid>
@@ -119,113 +93,39 @@ const DontIconWithLabel: React.FC<{ palette: Palette }> = ({ palette }) => {
             Don&apos;t:
           </Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '9px', height: '9px' }} />
-            <Typography variant="h1">Settings</Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography
-            variant="body2"
-            sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-          >
-            Type noticeably larger than icon.
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '18px', height: '18px' }} />
-            <Typography variant="body2">Settings</Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography
-            variant="body2"
-            sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-          >
-            Type noticeably smaller than icon.
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '9px', height: '9px' }} />
-            <Typography variant="h2">Settings</Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography
-            variant="body2"
-            sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-          >
-            Type has top alignment with icon. Use center alignment.
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '9px', height: '9px' }} />
-            <Typography variant="body2" sx={{ color: palette.error.light }}>
-              Settings
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography
-            variant="body2"
-            sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-          >
-            Type is a different color than icon.
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '0.5rem',
-            }}
-          >
-            <Icon.Cog sx={{ width: '9px', height: '9px' }} />
-            <Typography variant="body2">Configure</Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography
-            variant="body2"
-            sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-          >
-            Icon has a different label than it does elsewhere in the experience.
-          </Typography>
-        </Grid>
+        {WITH_TEXT.column2.map((value, index) => (
+          <React.Fragment key={JSON.stringify(value)}>
+            <Grid item xs={12}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'start',
+                  gap: '0.5rem',
+                }}
+              >
+                <Icon.Cog sx={value.iconStyle} />
+                <Typography
+                  variant={value.fontVariant as variantType}
+                  sx={{
+                    color: index === 3 ? palette.error.light : 'inherit',
+                    alignSelf: index === 2 ? 'end' : 'center',
+                  }}
+                >
+                  {value.label}
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                variant="body2"
+                sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
+              >
+                {value.explanation}
+              </Typography>
+            </Grid>
+          </React.Fragment>
+        ))}
       </Grid>
     </Grid>
   );
@@ -246,47 +146,30 @@ const DoIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
             columnGap={3}
             alignItems="center"
             sx={{
-              width: '90px',
+              width: '100px',
               height: '110px',
               bgcolor: palette.grey[50],
-              padding: '0.25rem 0rem',
+              padding: '0.5rem 0rem 0rem',
             }}
           >
-            <Grid item xs={3}></Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                Edit
-              </Typography>
-            </Grid>
-            <Grid item xs={3}></Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                Setting
-              </Typography>
-            </Grid>
-            <Grid item xs={3}></Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                Close
-              </Typography>
-            </Grid>
-            <Grid
-              item
-              xs={3}
-              sx={{
-                color: palette.common.black,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-              }}
-            >
-              <Icon.Plus />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                And new
-              </Typography>
-            </Grid>
+            {WITH_TEXT.column3.icons.map((value) => (
+              <React.Fragment key={value.label}>
+                <Grid item xs={3}>
+                  {value.icon && (
+                    <SvgIcon
+                      component={value.icon}
+                      viewBox="-4 -3 18 18"
+                      sx={{ color: palette.common.black }}
+                    />
+                  )}
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography variant="body2" sx={{ color: palette.common.black }}>
+                    {value.label}
+                  </Typography>
+                </Grid>
+              </React.Fragment>
+            ))}
           </Grid>
         </Grid>
         <Grid item xs={12}>
@@ -294,8 +177,7 @@ const DoIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
             variant="body2"
             sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
           >
-            Use an icon to add special interest to identify an frequent or primary action,
-            or a key piece of information.
+            {WITH_TEXT.exampleExplanation.column3}
           </Typography>
         </Grid>
       </Grid>
@@ -318,80 +200,30 @@ const DontIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
             columnGap={3}
             alignItems="center"
             sx={{
-              width: '90px',
+              width: '100px',
               height: '110px',
               bgcolor: palette.grey[50],
               padding: '0.25rem 0rem',
             }}
           >
-            <Grid
-              item
-              xs={3}
-              sx={{
-                color: palette.common.black,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-              }}
-            >
-              <Icon.Edit />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                Edit
-              </Typography>
-            </Grid>
-            <Grid
-              item
-              xs={3}
-              sx={{
-                color: palette.common.black,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-              }}
-            >
-              <Icon.Settings />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                Setting
-              </Typography>
-            </Grid>
-            <Grid
-              item
-              xs={3}
-              sx={{
-                color: palette.common.black,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-              }}
-            >
-              <Icon.Close />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                Close
-              </Typography>
-            </Grid>
-            <Grid
-              item
-              xs={3}
-              sx={{
-                color: palette.common.black,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-              }}
-            >
-              <Icon.Plus />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="body2" sx={{ color: palette.common.black }}>
-                And new
-              </Typography>
-            </Grid>
+            {WITH_TEXT.column4.icons.map((value) => (
+              <React.Fragment key={value.label}>
+                <Grid item xs={3}>
+                  {value.icon && (
+                    <SvgIcon
+                      component={value.icon}
+                      viewBox="-4 -3 18 18"
+                      sx={{ color: palette.common.black }}
+                    />
+                  )}
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography variant="body2" sx={{ color: palette.common.black }}>
+                    {value.label}
+                  </Typography>
+                </Grid>
+              </React.Fragment>
+            ))}
           </Grid>
         </Grid>
         <Grid item xs={12}>
@@ -399,8 +231,7 @@ const DontIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
             variant="body2"
             sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
           >
-            Label every item in a list or menu with unique icons. If every item is
-            special, then no item is special.
+            {WITH_TEXT.exampleExplanation.column4}
           </Typography>
         </Grid>
       </Grid>

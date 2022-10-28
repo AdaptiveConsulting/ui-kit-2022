@@ -3,8 +3,21 @@ import { Icon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import { SubTitle } from '../common';
-
+import { COLOR } from './icons.constants';
 type BackgroundType = 'dark' | 'light';
+
+const ICON_WITH_LABEL_STYLE = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const LABEL_STYLE = {
+  ontSize: '11px',
+  fontWeight: '300',
+  fontStyle: 'italic',
+};
 
 const IconsGroup: React.FC<{
   children: string;
@@ -27,14 +40,7 @@ const IconsGroup: React.FC<{
             bgcolor: background === 'dark' ? 'inherit' : palette.grey[50],
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <Box sx={ICON_WITH_LABEL_STYLE}>
             <Box
               sx={{
                 color: background === 'dark' ? palette.grey[300] : palette.grey[600],
@@ -45,23 +51,14 @@ const IconsGroup: React.FC<{
             <Typography
               variant="body2"
               sx={{
-                ontSize: '11px',
-                fontWeight: '300',
-                fontStyle: 'italic',
+                ...LABEL_STYLE,
                 color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
-              Default
+              {COLOR.labels[0]}
             </Typography>
           </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <Box sx={ICON_WITH_LABEL_STYLE}>
             <Box
               sx={{
                 color:
@@ -73,57 +70,37 @@ const IconsGroup: React.FC<{
             <Typography
               variant="body2"
               sx={{
-                ontSize: '11px',
-                fontWeight: '300',
-                fontStyle: 'italic',
+                ...LABEL_STYLE,
                 color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
-              Hover
+              {COLOR.labels[1]}
             </Typography>
           </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <Box sx={ICON_WITH_LABEL_STYLE}>
             <Box sx={{ color: palette.primary.main }}>
               <Icon.Cog />
             </Box>
             <Typography
               variant="body2"
               sx={{
-                ontSize: '11px',
-                fontWeight: '300',
-                fontStyle: 'italic',
+                ...LABEL_STYLE,
                 color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
-              Active
+              {COLOR.labels[2]}
             </Typography>
             <Typography
               variant="body2"
               sx={{
-                ontSize: '11px',
-                fontWeight: '300',
-                fontStyle: 'italic',
+                ...LABEL_STYLE,
                 color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
-              (pressed)
+              {COLOR.labels[3]}
             </Typography>
           </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <Box sx={ICON_WITH_LABEL_STYLE}>
             <Box
               sx={{ color: background === 'dark' ? palette.grey[50] : palette.grey[300] }}
             >
@@ -132,22 +109,17 @@ const IconsGroup: React.FC<{
             <Typography
               variant="body2"
               sx={{
-                ontSize: '11px',
-                fontWeight: '300',
-                fontStyle: 'italic',
+                ...LABEL_STYLE,
                 color: background === 'dark' ? 'inherit' : palette.grey[900],
               }}
             >
-              Disabled
+              {COLOR.labels[4]}
             </Typography>
           </Box>
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Typography
-          variant="body2"
-          sx={{ fontSize: '11px', fontWeight: '300', fontStyle: 'italic' }}
-        >
+        <Typography variant="body2" sx={LABEL_STYLE}>
           {children}
         </Typography>
       </Grid>
@@ -161,23 +133,20 @@ const Color: React.FC = () => {
     <Grid item xs={12}>
       <Grid container columnGap={3}>
         <Grid item xs={2}>
-          <SubTitle subTitle="Color" />
-          <Typography variant="body2">
-            Use icon colors with enough color contrast against their backgrounds. The
-            contrast ratio of an icon to its background must be at least 3:1.
-          </Typography>
+          <SubTitle subTitle={COLOR.subTitle} />
+          <Typography variant="body2">{COLOR.paragraph1}</Typography>
           <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-            Exception: interactive elements that are disabled.
+            {COLOR.paragraph2}
           </Typography>
         </Grid>
         <Grid item xs={2.5}>
           <IconsGroup palette={palette} background="dark">
-            Use these colors against background colors of Core-Primary-2 or darker.
+            {COLOR.IconExampleExplanation1}
           </IconsGroup>
         </Grid>
         <Grid item xs={2.5}>
           <IconsGroup palette={palette} background="light">
-            Use these colors against background colors of Core-Secondary-4 or lighter.
+            {COLOR.IconExampleExplanation2}
           </IconsGroup>
         </Grid>
       </Grid>

@@ -21,6 +21,131 @@ const SIZING = {
   errorSizes: ['Too small!', 'Too big!'],
 };
 
+const COLOR = {
+  subTitle: 'Color',
+  paragraph1:
+    'Use icon colors with enough color contrast against their backgrounds. The contrast ratio of an icon to its background must be at least 3:1.',
+  paragraph2: 'Exception: interactive elements that are disabled.',
+  IconExampleExplanation1:
+    'Use these colors against background colors of Core-Primary-2 or darker.',
+  IconExampleExplanation2:
+    'Use these colors against background colors of Core-Secondary-4 or lighter.',
+  labels: ['Default', 'Hover', 'Active', '(pressed)', 'Disabled'],
+};
+
+const WITH_TEXT = {
+  subTitle: 'With Text',
+  paragraph1:
+    'Almost always use icons with accompanying text. When this is impossible, ensure an aria-label that can identify the icon on hover, and which is detectable by screen reader users.',
+  paragraph2: 'Create a harmonious relationship between the icon and its label with...',
+  textList: [
+    'Center vertical alignment between text and icon',
+    'Consistent pairing of label and icon across the experience',
+    'A match-or near-match in height between the text and the icon',
+    'Text and icon the same color. (This will usually mean that you will seek even higher contrast ratios to accomodate the text. That ratio should be 4.5:1)',
+  ],
+
+  exampleExplanation: {
+    column1:
+      'Icons and labels are equal or similar in height, consistently applied, with the same color, and center alignment.',
+    column3:
+      'Use an icon to add special interest to identify an frequent or primary action, or a key piece of information.',
+    column4:
+      'Label every item in a list or menu with unique icons. If every item is special, then no item is special.',
+  },
+
+  column1: [
+    {
+      label: 'Settings',
+      iconStyle: { width: '9px', height: '9px' },
+      fontVariant: 'body2',
+    },
+    {
+      label: 'Settings',
+      iconStyle: { width: '12px', height: '12px' },
+      fontVariant: 'body1',
+    },
+    {
+      label: 'Settings',
+      iconStyle: { width: '18px', height: '18px' },
+      fontVariant: 'h1',
+    },
+  ],
+  column2: [
+    {
+      label: 'Settings',
+      iconStyle: { width: '9px', height: '9px' },
+      fontVariant: 'h1',
+      explanation: 'Type noticeably larger than icon.',
+    },
+    {
+      label: 'Settings',
+      iconStyle: { width: '18px', height: '18px' },
+      fontVariant: 'body2',
+      explanation: 'Type noticeably smaller than icon.',
+    },
+    {
+      label: 'Settings',
+      iconStyle: { width: '9px', height: '9px', alignSelf: 'start' },
+      fontVariant: 'h2',
+      explanation: 'Type has top alignment with icon. Use center alignment.',
+    },
+    {
+      label: 'Settings',
+      iconStyle: { width: '9px', height: '9px' },
+      fontVariant: 'body2',
+      explanation: 'Type is a different color than icon.',
+    },
+    {
+      label: 'Configure',
+      iconStyle: { width: '9px', height: '9px' },
+      fontVariant: 'body2',
+      explanation: 'Icon has a different label than it does elsewhere in the experience.',
+    },
+  ],
+  column3: {
+    icons: [
+      {
+        label: 'Edit',
+      },
+      {
+        label: 'Setting',
+      },
+      {
+        label: 'Close',
+      },
+      {
+        label: 'And new',
+        icon: Icon.Plus,
+      },
+    ],
+    explanation:
+      'Use an icon to add special interest to identify an frequent or primary action, or a key piece of information.',
+  },
+  column4: {
+    icons: [
+      {
+        label: 'Edit',
+        icon: Icon.Edit,
+      },
+      {
+        label: 'Setting',
+        icon: Icon.Settings,
+      },
+      {
+        label: 'Close',
+        icon: Icon.Close,
+      },
+      {
+        label: 'And new',
+        icon: Icon.Plus,
+      },
+    ],
+    explanation:
+      'Label every item in a list or menu with unique icons. If every item is special, then no item is special.',
+  },
+};
+
 const ICON_LIBRARY = {
   textTitle: 'Icon library',
   text: 'These are the vectors on which the icon component is based.',
@@ -68,4 +193,4 @@ const ICON_LIBRARY = {
   },
 };
 
-export { ICON_LIBRARY, PURPOSE, SIZING };
+export { COLOR, ICON_LIBRARY, PURPOSE, SIZING, WITH_TEXT };
