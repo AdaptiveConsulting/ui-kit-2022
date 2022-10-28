@@ -2,10 +2,10 @@ import { Divider, Grid, Typography, useTheme } from '@mui/material';
 import { MERRIWEATHER, ROBOTO } from '@ui-kit-2022/theme';
 import * as React from 'react';
 
-import FontExamples from '../../theme/typography/examples/font-examples';
-import TextSample from '../../theme/typography/examples/text-sample';
-import TypeCard from '../../theme/typography/examples/type-card';
 import TopBar from '../building-blocks/common/top-bar';
+import FontExamples from '../building-blocks/typography/font-examples';
+import TextSample from '../building-blocks/typography/text-sample';
+import TypeCard from '../building-blocks/typography/type-card';
 
 const TYPE_CARD_REGULAR_PROPS = {
   title: 'REGULAR',
