@@ -25,13 +25,11 @@ function getFontWeightAndFontStyle(s: fontOption): FontWeightAndStyle {
 
 const FontExample: React.FC<ExampleProps> = ({ title, content }) => {
   return (
-    <Box sx={{ bgcolor: '#323232', maxHeight: '120px' }}>
-      <Typography
-        sx={{ fontSize: '20px', color: '#F2F2F2', ...getFontWeightAndFontStyle(title) }}
-      >
+    <Box sx={{ maxHeight: '120px' }}>
+      <Typography sx={{ fontSize: '20px', ...getFontWeightAndFontStyle(title) }}>
         {title}
       </Typography>
-      <Typography sx={{ fontSize: '20px', color: '#F2F2F2' }}>{content}</Typography>
+      <Typography sx={{ fontSize: '20px' }}>{content}</Typography>
     </Box>
   );
 };

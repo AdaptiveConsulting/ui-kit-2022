@@ -30,7 +30,7 @@ export const parameters = {
       ...themes.dark,
       ...themeDefaults,
       appBg: '#323232',
-      appContentBg: '#383838',
+      appContentBg: '#323232',
       brandImage: 'brand-logo.light.svg',
     },
     // Override the default light theme
@@ -54,7 +54,7 @@ export const decorators = [
       padding: '1rem',
       width: '100%',
       height: '100%',
-      backgroundColor: `${isDarkMode ? '#383838' : '#F9F9F9'}`,
+      backgroundColor: `${isDarkMode ? '#323232' : '#F9F9F9'}`,
     }));
 
     return (

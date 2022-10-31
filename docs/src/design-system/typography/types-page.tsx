@@ -34,12 +34,7 @@ const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
 const TypesPage: React.FC = () => {
   const { palette } = useTheme();
   return (
-    <Grid
-      container
-      sx={{
-        bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
-      }}
-    >
+    <Grid container>
       <Grid item xs={12}>
         <TopBar title={'TYPES'} />
       </Grid>
@@ -61,7 +56,7 @@ const TypesPage: React.FC = () => {
           <TypeCard {...TYPE_CARD_LIGHT_ITALIC_PROPS} />
         </Grid>
         <Grid item md={12} xs={12}>
-          <Typography sx={{ color: palette.common.white }}>Examples</Typography>
+          <Typography>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
           <FontExamples fontName={ROBOTO} />
@@ -82,7 +77,7 @@ const TypesPage: React.FC = () => {
           <TypeCard {...TYPE_CARD_REGULAR_MERRIWEATHER_PROPS} />
         </Grid>
         <Grid item xs={12}>
-          <Typography sx={{ color: palette.common.white }}>Examples</Typography>
+          <Typography>Examples</Typography>
         </Grid>
         <Grid item xs={12}>
           <FontExamples fontName={MERRIWEATHER} />
