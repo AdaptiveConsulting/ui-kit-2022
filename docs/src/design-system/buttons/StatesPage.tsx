@@ -13,9 +13,9 @@ import {
 import { Button, Typography } from '@ui-kit-2022/components';
 import { dark } from '@ui-kit-2022/theme';
 
-import DarkBgState from '../../design-system/building-blocks/button/DarkBgState';
-import LightBgState from '../../design-system/building-blocks/button/LightBgState';
-import TopBar from '../../design-system/building-blocks/common/top-bar';
+import DarkBgState from '../building-blocks/button/DarkBgState';
+import LightBgState from '../building-blocks/button/LightBgState';
+import TopBar from '../building-blocks/common/top-bar';
 
 const StatesPage = () => {
   const { palette } = useTheme();

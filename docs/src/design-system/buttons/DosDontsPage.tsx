@@ -2,8 +2,8 @@ import { Box, useTheme } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 import { Icon } from '@ui-kit-2022/components';
 
-import DosDontsExample from '../../design-system/building-blocks/button/DosDontsExample';
-import TopBar from '../../design-system/building-blocks/common/top-bar';
+import DosDontsExample from '../building-blocks/button/DosDontsExample';
+import TopBar from '../building-blocks/common/top-bar';
 
 const DosDontsPage = () => {
   const { palette } = useTheme();

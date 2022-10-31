@@ -10,4 +10,7 @@ const Template: ComponentStory<typeof LogoBrand> = (args) => <LogoBrand {...args
 
 export const Brand = Template.bind({});
 
-Brand.args = {};
+Brand.args = {
+  width: 100,
+  height: 100,
+};

@@ -2,9 +2,9 @@ import { Button, SvgIcon } from '@mui/material';
 import * as React from 'react';
 
 import { ArrowLeft, ArrowRight } from '../../icons';
-type VariantType = 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 
-interface Props {
+export type VariantType = 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
+export interface Props {
   children?: JSX.Element | string;
   variant?: VariantType;
   disabled?: boolean;
