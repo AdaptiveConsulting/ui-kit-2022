@@ -8,7 +8,7 @@ const LIGHT_BUTTON = {
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
-        padding: '0px 2px',
+        padding: '0px 4px',
         '&:hover': {
           backgroundColor: '#A9ABD1',
         },
@@ -32,7 +32,7 @@ const LIGHT_BUTTON = {
       style: {
         border: `1px solid #5F618D`,
         borderRadius: '100px',
-        padding: '0px 2px',
+        padding: '0px 4px',
         color: '#5F618D',
         '&:hover': {
           backgroundColor: '#5F618D',
@@ -60,7 +60,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
-        padding: '0px 2px',
+        padding: '0px 4px',
         color: '#5F618D',
         '&:hover': {
           backgroundColor: '#FFFFFF',
@@ -99,7 +99,7 @@ const DARK_BUTTON = {
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
-        padding: '0px 2px',
+        padding: '0px 4px',
         '&:hover': {
           backgroundColor: '#A9ABD1',
         },
@@ -124,7 +124,7 @@ const DARK_BUTTON = {
       style: {
         border: `1px solid #DBDDFF`,
         borderRadius: '100px',
-        padding: '0px 2px',
+        padding: '0px 4px',
         color: '#DBDDFF',
         '&:hover': {
           backgroundColor: '#DBDDFF',
@@ -155,7 +155,7 @@ const DARK_BUTTON = {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
         color: '#DBDDFF',
-        padding: '0px 2px',
+        padding: '0px 4px',
         borderRadius: '100px',
         '&:hover': {
           backgroundColor: 'inherit',
