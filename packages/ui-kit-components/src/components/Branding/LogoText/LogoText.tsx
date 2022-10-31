@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material';
 
-import { darkLogoColor, lightLogoColor, LogoText as Logo_Text } from '../raw-icons';
+import { darkLogoColor, lightLogoColor, LogoText as Logo_Text } from '../branding';
 
 interface Props {
   height?: number;

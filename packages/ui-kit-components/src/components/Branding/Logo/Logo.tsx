@@ -6,7 +6,7 @@ import {
   LogoLarge,
   LogoMaximized,
   LogoSmall,
-} from '../raw-icons';
+} from '../branding';
 
 interface Props {
   variant?: string;
