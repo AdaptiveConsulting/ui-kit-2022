@@ -39,8 +39,7 @@ const tableCellStyles = (palette: Palette) => {
     width: '7.625rem',
     height: '2.5rem',
     padding: 0,
-    color: palette.common.white,
-    borderColor: palette.grey['600'],
+    borderColor: { dark: palette.grey['600'], light: palette.grey['200'] }[palette.mode],
   };
 };
 const tableColumns: string[] = [
@@ -55,12 +54,7 @@ const tableColumns: string[] = [
 const TextStylesPage: React.FC = () => {
   const { palette } = useTheme();
   return (
-    <Grid
-      container
-      sx={{
-        bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
-      }}
-    >
+    <Grid container>
       <Grid item xs={12}>
         <TopBar title={'STYLE'} />
       </Grid>
@@ -98,8 +92,10 @@ const TextStylesPage: React.FC = () => {
                   scope="row"
                   sx={{
                     padding: 0,
-                    color: palette.common.white,
-                    borderColor: palette.grey['600'],
+                    borderColor: {
+                      dark: palette.grey['600'],
+                      light: palette.grey['200'],
+                    }[palette.mode],
                   }}
                 >
                   <Typography variant={row.category.toLowerCase() as any}>

@@ -10,8 +10,8 @@ export interface TextSampleProps {
 
 const TextSample: React.FC<TextSampleProps> = ({ fontName }) => {
   return (
-    <Box sx={{ bgcolor: '#323232' }}>
-      <Typography sx={{ color: '#FFFFFF', fontSize: '24px', marginBottom: '10px' }}>
+    <Box>
+      <Typography sx={{ fontSize: '24px', marginBottom: '10px' }}>
         {fontName.toUpperCase()}
       </Typography>
       <Typography

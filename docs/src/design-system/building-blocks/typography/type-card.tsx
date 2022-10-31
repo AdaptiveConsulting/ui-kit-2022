@@ -1,4 +1,4 @@
-import { Card, CardContent, styled, Typography } from '@mui/material';
+import { Card, CardContent, styled, Typography, useTheme } from '@mui/material';
 import * as React from 'react';
 
 export interface TypeCardProps {
@@ -13,19 +13,25 @@ type StyledCardProps = Pick<TypeCardProps, 'fontFamily'>;
 const StyledCard = styled(Card)<StyledCardProps>`
   width: 132px;
   height: 125px;
-  background-color: #555555;
 `;
 
 const TypeCard: React.FC<TypeCardProps> = ({ title, letter, fontFamily, fontWeight }) => {
+  const { palette } = useTheme();
   return (
-    <StyledCard fontFamily={fontFamily}>
+    <StyledCard
+      fontFamily={fontFamily}
+      sx={{
+        backgroundColor: { dark: palette.grey.A700, light: palette.grey.A200 }[
+          palette.mode
+        ],
+      }}
+    >
       <CardContent>
         <Typography sx={{ fontSize: '12px', color: '#BBBBBB' }}>{title}</Typography>
         <Typography
           component="div"
           sx={{
             fontSize: '50px',
-            color: '#FFFFFF',
             textAlign: 'center',
             fontWeight: `${fontWeight}`,
             fontFamily: `${fontFamily}`,
