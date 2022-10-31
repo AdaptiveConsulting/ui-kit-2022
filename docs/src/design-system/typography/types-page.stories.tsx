@@ -3,12 +3,10 @@ import React from 'react';
 import TypesPage from './types-page';
 
 export default {
-  title: 'Design System/Types Page',
+  title: 'Design System/Typography',
   component: TypesPage,
 };
 
 const Template = () => <TypesPage />;
 
-export const TypesPageStory = Template.bind({});
-
-TypesPageStory.storyName = 'Types Page';
+export const Fonts = Template.bind({});

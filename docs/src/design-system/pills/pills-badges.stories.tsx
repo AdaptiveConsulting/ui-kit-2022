@@ -19,3 +19,4 @@ PillsDesignDoc.parameters = {
     active: '.active',
   },
 };
+PillsDesignDoc.storyName = 'Pills and Badges';

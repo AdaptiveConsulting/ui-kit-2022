@@ -10,4 +10,4 @@ const Template: ComponentStory<typeof LogoText> = (args) => <LogoText {...args} 
 
 export const Text = Template.bind({});
 
-Text.args = {};
+Text.args = { width: 100, height: 100 };
