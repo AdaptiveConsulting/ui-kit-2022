@@ -1,6 +1,6 @@
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material';
 
-import { LogoLarge } from '../raw-icons';
+import { darkLogoColor, lightLogoColor, LogoLarge } from '../raw-icons';
 
 interface Props {
   height?: number;
@@ -9,7 +9,7 @@ interface Props {
 
 const LogoBrand: React.FC<Props> = ({ height = 150, width = 148 }) => {
   const theme = useTheme();
-  const color = theme.palette.logo;
+  const color = theme.palette.mode === 'dark' ? lightLogoColor : darkLogoColor;
 
   return <LogoLarge sx={{ color: color, height: height, width: width }} />;
 };
