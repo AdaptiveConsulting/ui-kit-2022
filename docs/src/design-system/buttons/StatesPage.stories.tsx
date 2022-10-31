@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import StatesPage from './StatesPage';
 
 export default {
-  title: 'Components/Button',
+  title: 'Design System/Buttons',
   component: StatesPage,
 } as ComponentMeta<typeof StatesPage>;
 
