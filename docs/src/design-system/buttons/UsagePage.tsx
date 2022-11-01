@@ -7,9 +7,10 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  useTheme,
+  ThemeProvider,
 } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
+import { dark, light } from '@ui-kit-2022/theme';
 
 import UsageExample from '../building-blocks/button/UsageExample';
 import TopBar from '../building-blocks/common/top-bar';
@@ -35,26 +36,20 @@ const rows = [
 ];
 
 const UsagePage = () => {
-  const { palette } = useTheme();
-
   return (
     <>
-      <Box sx={{ width: '1060px' }}>
+      <Box>
         <TopBar title={'USAGE'} />
       </Box>
       <Box
         sx={{
-          width: '1060px',
-          height: '295px',
-          backgroundColor: '#323232',
-          paddingTop: '1.875rem',
-          paddingLeft: '1.875rem',
+          p: '1.875rem 1rem 3rem 1.875rem',
           display: 'flex',
+          justifyContent: 'center',
         }}
       >
         <TableContainer
           sx={{
-            backgroundColor: '#323232',
             width: '674px',
             marginRight: '0.8125rem',
           }}
@@ -71,14 +66,13 @@ const UsagePage = () => {
                 <TableCell
                   align="left"
                   style={{ verticalAlign: 'top' }}
-                  sx={{ color: palette.grey[50], padding: 0, width: '164px' }}
+                  sx={{ padding: 0, width: '164px' }}
                 >
                   <Typography variant="subheader1">Variant</Typography>
                 </TableCell>
                 <TableCell
                   align="left"
                   sx={{
-                    color: palette.grey[50],
                     padding: '0 0 1.25rem 0',
                     width: '510px',
                   }}
@@ -95,7 +89,6 @@ const UsagePage = () => {
                     scope="row"
                     style={{ verticalAlign: 'top' }}
                     sx={{
-                      color: palette.grey[50],
                       padding: 0,
                       width: '164px',
                     }}
@@ -105,7 +98,6 @@ const UsagePage = () => {
                   <TableCell
                     align="left"
                     sx={{
-                      color: palette.grey[50],
                       padding: '0 0 1.25rem 0',
                       width: '510px',
                     }}
@@ -117,10 +109,14 @@ const UsagePage = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <UsageExample title="Dark" />
-        <Box sx={{ marginLeft: '0.56rem' }}>
-          <UsageExample title="Light" />
-        </Box>
+        <ThemeProvider theme={dark}>
+          <UsageExample />
+        </ThemeProvider>
+        <ThemeProvider theme={light}>
+          <Box sx={{ marginLeft: '0.56rem' }}>
+            <UsageExample />
+          </Box>
+        </ThemeProvider>
       </Box>
     </>
   );
