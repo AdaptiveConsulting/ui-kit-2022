@@ -16,7 +16,7 @@ const LIGHT_BUTTON = {
           border: '1px solid #A9ABD1',
           backgroundColor: '#DBDDFF',
         },
-        '&:focus': {
+        '&:focus-visible': {
           border: '2px solid #FFFFFF',
           outline: '3px solid #FF8D00',
           backgroundColor: '#DBDDFF',
@@ -43,7 +43,7 @@ const LIGHT_BUTTON = {
           backgroundColor: '#FFFFFF',
           color: '#5F618D',
         },
-        '&:focus': {
+        '&:focus-visible': {
           border: '1px solid #5F618D',
           outlineOffset: '2px',
           outline: '2px solid #FF8D00',
@@ -62,6 +62,7 @@ const LIGHT_BUTTON = {
       style: {
         padding: '0px 4px',
         color: '#5F618D',
+        borderRadius: '100px',
         '&:hover': {
           backgroundColor: '#FFFFFF',
           textDecoration: 'underline',
@@ -70,18 +71,15 @@ const LIGHT_BUTTON = {
           border: `1px solid #5F618D`,
           backgroundColor: '#FFFFFF',
           color: '#5F618D',
-          borderRadius: '100px',
         },
-        '&:focus': {
+        '&:focus-visible': {
           border: '1px solid #5F618D',
-          borderRadius: '100px',
           outlineOffset: '2px',
           outline: '2px solid #FF8D00',
           backgroundColor: '#FFFFFF',
           textDecoration: 'none',
         },
         '&:disabled': {
-          borderRadius: '100px',
           border: 'none',
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
@@ -107,7 +105,7 @@ const DARK_BUTTON = {
           border: '1px solid #A9ABD1',
           backgroundColor: '#DBDDFF',
         },
-        '&:focus': {
+        '&:focus-visible': {
           outlineOffset: '2px',
           outline: '2px solid #FF8D00',
           border: '0px',
@@ -134,7 +132,7 @@ const DARK_BUTTON = {
           border: `1px solid #5F618D`,
           color: '#DBDDFF',
         },
-        '&:focus': {
+        '&:focus-visible': {
           padding: '2px 5px',
           border: '2px solid #FFBE45',
           outlineOffset: '-6px',
@@ -162,16 +160,14 @@ const DARK_BUTTON = {
           borderRadius: '100px',
           textDecoration: 'underline',
         },
-        '&:focus': {
+        '&:focus-visible': {
           padding: '2px 5px',
-          borderRadius: '100px',
           border: '2px solid #FFBE45',
           outlineOffset: '-6px',
           outline: '2px solid #DBDDFF',
           color: '#DBDDFF',
         },
         '&:active': {
-          borderRadius: '100px',
           textDecoration: 'none',
           border: `1px solid #5F618D`,
           color: '#DBDDFF',
@@ -180,7 +176,6 @@ const DARK_BUTTON = {
           textDecoration: 'none',
         },
         '&:disabled': {
-          borderRadius: '100px',
           border: 'none',
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
