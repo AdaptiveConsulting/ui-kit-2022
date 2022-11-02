@@ -38,7 +38,6 @@ const tableCellStyles = (palette: Palette) => {
   return {
     width: '7.625rem',
     height: '2.5rem',
-    padding: 0,
     borderColor: { dark: palette.grey['600'], light: palette.grey['200'] }[palette.mode],
   };
 };
