@@ -10,11 +10,17 @@ import {
 
 interface Props {
   variant?: string;
+  color?: string;
 }
 
 const Logo: React.FC<Props> = (svgProps) => {
   const theme = useTheme();
-  const color = theme.palette.mode === 'dark' ? lightLogoColor : darkLogoColor;
+  const isDarkMode = theme.palette.mode === 'dark' ? true : false;
+  const color = svgProps.color
+    ? svgProps.color
+    : isDarkMode
+    ? lightLogoColor
+    : darkLogoColor;
 
   switch (svgProps.variant) {
     case 'maximized':

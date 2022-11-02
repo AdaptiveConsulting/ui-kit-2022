@@ -5,13 +5,15 @@ import { darkLogoColor, lightLogoColor, LogoText as Logo_Text } from '../brandin
 interface Props {
   height?: number;
   width?: number;
+  color?: string;
 }
 
-const LogoText: React.FC<Props> = ({ height = 90, width = 272 }) => {
+const LogoText: React.FC<Props> = ({ height = 90, width = 272, color }) => {
   const theme = useTheme();
-  const color = theme.palette.mode === 'dark' ? lightLogoColor : darkLogoColor;
+  const isDarkMode = theme.palette.mode === 'dark' ? true : false;
+  const logoColor = color ? color : isDarkMode ? lightLogoColor : darkLogoColor;
 
-  return <Logo_Text sx={{ color: color, height: height, width: width }} />;
+  return <Logo_Text sx={{ color: logoColor, height: height, width: width }} />;
 };
 
 export default LogoText;

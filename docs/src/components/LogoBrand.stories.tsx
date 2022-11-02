@@ -4,13 +4,21 @@ import { LogoBrand } from '@ui-kit-2022/components';
 export default {
   title: 'Components/Branding',
   component: LogoBrand,
+  argTypes: {
+    width: {
+      control: 'number',
+      defaultValue: 100,
+    },
+    height: {
+      control: 'number',
+      defaultValue: 100,
+    },
+    color: {
+      control: 'text',
+    },
+  },
 } as ComponentMeta<typeof LogoBrand>;
 
 const Template: ComponentStory<typeof LogoBrand> = (args) => <LogoBrand {...args} />;
 
 export const Brand = Template.bind({});
-
-Brand.args = {
-  width: 100,
-  height: 100,
-};

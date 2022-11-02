@@ -4,10 +4,21 @@ import { LogoText } from '@ui-kit-2022/components';
 export default {
   title: 'Components/Branding',
   component: LogoText,
+  argTypes: {
+    width: {
+      control: 'number',
+      defaultValue: 100,
+    },
+    height: {
+      control: 'number',
+      defaultValue: 100,
+    },
+    color: {
+      control: 'text',
+    },
+  },
 } as ComponentMeta<typeof LogoText>;
 
 const Template: ComponentStory<typeof LogoText> = (args) => <LogoText {...args} />;
 
 export const Text = Template.bind({});
-
-Text.args = { width: 100, height: 100 };
