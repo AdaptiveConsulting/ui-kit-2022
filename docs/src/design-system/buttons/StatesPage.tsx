@@ -7,46 +7,43 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  ThemeProvider,
   useTheme,
 } from '@mui/material';
 import { Button, Typography } from '@ui-kit-2022/components';
-import { dark } from '@ui-kit-2022/theme';
+import { dark, light } from '@ui-kit-2022/theme';
 
-import DarkBgState from '../building-blocks/button/DarkBgState';
-import LightBgState from '../building-blocks/button/LightBgState';
+import ButtonStatesExample from '../building-blocks/button/ButtonStatesExample';
 import TopBar from '../building-blocks/common/top-bar';
 
 const StatesPage = () => {
   const { palette } = useTheme();
   return (
     <>
-      <Box sx={{ width: '900px' }}>
+      <Box>
         <TopBar title={'STATES'} />
       </Box>
-      <Box
-        sx={{
-          width: '900px',
-          backgroundColor: '#323232',
-          paddingLeft: '1.25rem',
-          paddingTop: '1.875rem',
-          paddingBottom: '3.5rem',
-          color: palette.common.white,
-        }}
-      >
-        {/* primary-any background */}
-        <Box sx={{ marginBottom: '2.5rem' }}>
-          <Box sx={{ paddingLeft: '5.2rem' }}>
-            <Typography variant="subheader1">Primary - any background</Typography>
-          </Box>
-          <ThemeProvider theme={dark}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box
+          sx={{
+            width: '900px',
+            paddingLeft: '1.25rem',
+            paddingTop: '1.875rem',
+            paddingBottom: '3.5rem',
+          }}
+        >
+          {/* primary-any background */}
+          <Box sx={{ marginBottom: '2.5rem' }}>
+            <Box sx={{ paddingLeft: '5.2rem' }}>
+              <Typography variant="subheader1">Primary - any background</Typography>
+            </Box>
             <TableContainer>
               <Table
                 sx={{
                   [`& .${tableCellClasses.root}`]: {
                     borderBottom: 'none',
+                    p: '0.625rem 1.8rem 0.625rem 0',
                   },
-                  width: '95%',
+                  width: '98%',
                 }}
               >
                 <TableHead>
@@ -54,28 +51,19 @@ const StatesPage = () => {
                     <TableCell align="left" sx={{ width: '7.5%' }}>
                       <Typography></Typography>
                     </TableCell>
-                    <TableCell
-                      align="left"
-                      sx={{ paddingLeft: '0', color: palette.common.white }}
-                    >
+                    <TableCell align="left" sx={{ paddingLeft: '0' }}>
                       <Typography variant="subheader3">Default</Typography>
                     </TableCell>
-                    <TableCell align="left" sx={{ color: palette.common.white }}>
+                    <TableCell align="left">
                       <Typography variant="subheader3">Hover</Typography>
                     </TableCell>
-                    <TableCell align="left" sx={{ color: palette.common.white }}>
+                    <TableCell align="left">
                       <Typography variant="subheader3">Active/Pressed</Typography>
                     </TableCell>
-                    <TableCell
-                      align="left"
-                      sx={{ paddingRight: '0', color: palette.common.white }}
-                    >
+                    <TableCell align="left" sx={{ paddingRight: '0' }}>
                       <Typography variant="subheader3">Focused(ADA)</Typography>
                     </TableCell>
-                    <TableCell
-                      align="left"
-                      sx={{ paddingRight: '0', color: palette.common.white }}
-                    >
+                    <TableCell align="left" sx={{ paddingRight: '0' }}>
                       <Typography variant="subheader3">Disabled</Typography>
                     </TableCell>
                   </TableRow>
@@ -225,35 +213,37 @@ const StatesPage = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-          </ThemeProvider>
-        </Box>
-        {/* secondary-on light background */}
-        <Box sx={{ marginBottom: '1.1875rem' }}>
-          <Box sx={{ paddingLeft: '5.4rem', marginBottom: '0.94rem' }}>
-            <Typography variant="subheader1">Secondary - On light background</Typography>
           </Box>
-          <LightBgState variantType="SECONDARY" />
-        </Box>
-        {/* secondary-on dark background */}
-        <Box sx={{ marginBottom: '2.5rem' }}>
-          <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography variant="subheader1">Secondary - On dark background</Typography>
+          {/* secondary-on light background */}
+          <Box sx={{ marginBottom: '1.1875rem' }}>
+            <Box sx={{ paddingLeft: '5.4rem' }}>
+              <Typography variant="subheader1">
+                Secondary - On light background
+              </Typography>
+            </Box>
+            <ButtonStatesExample variantType="SECONDARY" overrideTheme={light} />
           </Box>
-          <DarkBgState variantType="SECONDARY" />
-        </Box>
-        {/* tertiary-on light background */}
-        <Box sx={{ marginBottom: '1.1875rem' }}>
-          <Box sx={{ paddingLeft: '5.4rem', marginBottom: '0.94rem' }}>
-            <Typography variant="subheader1">Tertiary - On light background</Typography>
+          {/* secondary-on dark background */}
+          <Box sx={{ marginBottom: '2.5rem' }}>
+            <Box sx={{ paddingLeft: '5.5rem' }}>
+              <Typography variant="subheader1">Secondary - On dark background</Typography>
+            </Box>
+            <ButtonStatesExample variantType="SECONDARY" overrideTheme={dark} />
           </Box>
-          <LightBgState variantType="TERTIARY" />
-        </Box>
-        {/* tertiary-on dark background */}
-        <Box>
-          <Box sx={{ paddingLeft: '5.5rem' }}>
-            <Typography variant="subheader1">Tertiary - On dark background</Typography>
+          {/* tertiary-on light background */}
+          <Box sx={{ marginBottom: '1.1875rem' }}>
+            <Box sx={{ paddingLeft: '5.4rem' }}>
+              <Typography variant="subheader1">Tertiary - On light background</Typography>
+            </Box>
+            <ButtonStatesExample variantType="TERTIARY" overrideTheme={light} />
           </Box>
-          <DarkBgState variantType="TERTIARY" />
+          {/* tertiary-on dark background */}
+          <Box>
+            <Box sx={{ paddingLeft: '5.5rem' }}>
+              <Typography variant="subheader1">Tertiary - On dark background</Typography>
+            </Box>
+            <ButtonStatesExample variantType="TERTIARY" overrideTheme={dark} />
+          </Box>
         </Box>
       </Box>
     </>

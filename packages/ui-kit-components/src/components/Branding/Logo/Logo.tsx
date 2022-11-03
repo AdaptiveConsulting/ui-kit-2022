@@ -1,6 +1,12 @@
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material';
 
-import { LogoLarge, LogoMaximized, LogoSmall } from '../raw-icons';
+import {
+  darkLogoColor,
+  lightLogoColor,
+  LogoLarge,
+  LogoMaximized,
+  LogoSmall,
+} from '../branding';
 
 interface Props {
   variant?: string;
@@ -8,12 +14,11 @@ interface Props {
 
 const Logo: React.FC<Props> = (svgProps) => {
   const theme = useTheme();
-  const color = theme.palette.logo;
+  const color = theme.palette.mode === 'dark' ? lightLogoColor : darkLogoColor;
 
   switch (svgProps.variant) {
     case 'maximized':
       return <LogoMaximized sx={{ color: color, height: 53, width: 154 }} />;
-      break;
     case 'large':
       return <LogoLarge sx={{ color: color, height: 53, width: 56 }} />;
     default:

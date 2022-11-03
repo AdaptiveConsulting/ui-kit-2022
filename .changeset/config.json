@@ -3,8 +3,8 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [],
-  "access": "restricted",
+  "linked": [["@ui-kit-2022/components", "@ui-kit-2022/theme", "@ui-kit-2022/docs"]],
+  "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": []

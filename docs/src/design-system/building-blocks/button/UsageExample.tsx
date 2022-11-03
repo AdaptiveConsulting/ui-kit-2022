@@ -1,37 +1,16 @@
-import { Box, ThemeProvider, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { Button } from '@ui-kit-2022/components';
 import { Typography } from '@ui-kit-2022/components';
-import { dark } from '@ui-kit-2022/theme';
 
-interface Props {
-  title?: 'Dark' | 'Light';
-}
-
-const UsageExample: React.FC<Props> = ({ title }) => {
+const UsageExample: React.FC = () => {
   const { palette } = useTheme();
-  const ButtonGroup = () => {
-    if (title === 'Dark') {
-      return (
-        <ThemeProvider theme={dark}>
-          <Button variant="PRIMARY">BUTTON TEXT</Button>
-          <Button variant="SECONDARY">BUTTON TEXT</Button>
-          <Button variant="TERTIARY">BUTTON TEXT</Button>
-        </ThemeProvider>
-      );
-    } else {
-      return (
-        <>
-          <Button variant="PRIMARY">BUTTON TEXT</Button>
-          <Button variant="SECONDARY">BUTTON TEXT</Button>
-          <Button variant="TERTIARY">BUTTON TEXT</Button>
-        </>
-      );
-    }
-  };
+
   return (
     <Box>
-      <Box sx={{ marginBottom: '1rem', marginLeft: '1rem', color: palette.grey[50] }}>
-        <Typography variant="subheader3">{title} Background </Typography>
+      <Box sx={{ marginBottom: '1rem', marginLeft: '1rem' }}>
+        <Typography variant="subheader3">
+          {palette.mode === 'dark' ? 'Dark' : 'Light'} Background
+        </Typography>
       </Box>
       <Box
         sx={{
@@ -39,12 +18,17 @@ const UsageExample: React.FC<Props> = ({ title }) => {
           flexDirection: 'column',
           width: '161px',
           height: '174px',
-          backgroundColor: title === 'Dark' ? palette.grey[900] : palette.grey[50],
           justifyContent: 'space-around',
           alignItems: 'center',
+          backgroundColor: {
+            dark: palette.grey[900],
+            light: palette.grey[50],
+          }[palette.mode],
         }}
       >
-        <ButtonGroup />
+        <Button variant="PRIMARY">BUTTON TEXT</Button>
+        <Button variant="SECONDARY">BUTTON TEXT</Button>
+        <Button variant="TERTIARY">BUTTON TEXT</Button>
       </Box>
     </Box>
   );
