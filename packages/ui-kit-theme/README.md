@@ -20,6 +20,7 @@ To apply a theme import it from the `@ui-kit-2022/theme` package and use a Theme
 ```
 import { ThemeProvider } from "@mui/material/styles";
 import { light, dark } from "@ui-kit-2022/theme";
+import '@ui-kit-2022/theme/dist/style.css';
 import CssBaseline from "@mui/material/CssBaseline";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
