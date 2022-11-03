@@ -4,6 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 import AppBar from './components/AppBar';
+import SideBar from './components/side-bar/SideBar';
 
 export default function Stocks() {
   const theme = useTheme();
@@ -18,6 +19,7 @@ export default function Stocks() {
     <Container>
       <AppBar />
       Stocks
+      <SideBar />
     </Container>
   );
 }
