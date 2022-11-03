@@ -221,28 +221,28 @@ const StatesPage = () => {
                 Secondary - On light background
               </Typography>
             </Box>
-            <ButtonStatesExample variantType="SECONDARY" theme={light} />
+            <ButtonStatesExample variantType="SECONDARY" overrideTheme={light} />
           </Box>
           {/* secondary-on dark background */}
           <Box sx={{ marginBottom: '2.5rem' }}>
             <Box sx={{ paddingLeft: '5.5rem' }}>
               <Typography variant="subheader1">Secondary - On dark background</Typography>
             </Box>
-            <ButtonStatesExample variantType="SECONDARY" theme={dark} />
+            <ButtonStatesExample variantType="SECONDARY" overrideTheme={dark} />
           </Box>
           {/* tertiary-on light background */}
           <Box sx={{ marginBottom: '1.1875rem' }}>
             <Box sx={{ paddingLeft: '5.4rem' }}>
               <Typography variant="subheader1">Tertiary - On light background</Typography>
             </Box>
-            <ButtonStatesExample variantType="TERTIARY" theme={light} />
+            <ButtonStatesExample variantType="TERTIARY" overrideTheme={light} />
           </Box>
           {/* tertiary-on dark background */}
           <Box>
             <Box sx={{ paddingLeft: '5.5rem' }}>
               <Typography variant="subheader1">Tertiary - On dark background</Typography>
             </Box>
-            <ButtonStatesExample variantType="TERTIARY" theme={dark} />
+            <ButtonStatesExample variantType="TERTIARY" overrideTheme={dark} />
           </Box>
         </Box>
       </Box>

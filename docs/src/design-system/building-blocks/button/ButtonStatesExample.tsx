@@ -16,18 +16,16 @@ import React from 'react';
 
 export interface Props {
   variantType?: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
-  theme: Theme;
+  overrideTheme?: Theme;
 }
 
-const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() }) => {
-  const bgColor = (theme: Theme) => {
-    return {
-      backgroundColor: {
-        light: theme.palette.grey[50],
-        dark: theme.palette.background.paper,
-      }[theme.palette.mode],
-    };
-  };
+const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) => {
+  const globalTheme = useTheme();
+  const theme = overrideTheme ?? globalTheme;
+  const backgroundColor =
+    theme.palette.mode === 'light'
+      ? theme.palette.grey[50]
+      : theme.palette.background.paper;
   return (
     <TableContainer>
       <Table
@@ -76,7 +74,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
             <ThemeProvider theme={theme}>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                   borderTopLeftRadius: '4px',
                 }}
               >
@@ -84,7 +82,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Box className="hover">
@@ -93,7 +91,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Box className="active">
@@ -103,7 +101,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               <TableCell
                 sx={{
                   paddingRight: '0',
-                  ...bgColor(theme),
+                  backgroundColor,
                   borderTopRightRadius: '4px',
                   width: '7.5rem',
                 }}
@@ -121,7 +119,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
             <ThemeProvider theme={theme}>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Button variant={variantType} icon="right">
@@ -130,7 +128,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Box className="hover">
@@ -141,7 +139,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Box className="active">
@@ -152,7 +150,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                   width: '7.5rem',
                 }}
               >
@@ -171,7 +169,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
             <ThemeProvider theme={theme}>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                   borderBottomLeftRadius: '4px',
                 }}
               >
@@ -181,7 +179,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Box className="hover">
@@ -192,7 +190,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                 }}
               >
                 <Box className="active">
@@ -203,7 +201,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, theme = useTheme() 
               </TableCell>
               <TableCell
                 sx={{
-                  ...bgColor(theme),
+                  backgroundColor,
                   borderBottomRightRadius: '4px',
                   width: '7.5rem',
                 }}
