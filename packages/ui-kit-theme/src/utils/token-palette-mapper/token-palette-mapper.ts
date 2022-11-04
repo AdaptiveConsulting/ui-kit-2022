@@ -18,7 +18,7 @@ interface TokensType {
 const tokenPaletteMapper = (tokens: TokensType) => {
   const match = /A([1247]00)?/;
 
-  let palette: PaletteType | string | undefined;
+  let palette: PaletteType | string | Record<string, unknown> = {};
   let i: string;
   for (i in tokens) {
     if (typeof tokens[i] === 'object' && tokens !== null) {
