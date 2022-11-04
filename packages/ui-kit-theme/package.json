@@ -23,7 +23,8 @@
     "build": "vite build && npm run build-types",
     "check-types": "tsc --noEmit",
     "build-types": "tsc --emitDeclarationOnly",
-    "clean": "rm -r ./dist .ui-kit-theme.tsbuildinfo"
+    "clean": "rm -r ./dist .ui-kit-theme.tsbuildinfo",
+    "palette-generate": "tsc --resolveJsonModule ./src/utils/token-palette-mapper/index.ts --resolveJsonModule && node ./src/utils/token-palette-mapper/index.js"
   },
   "dependencies": {
     "@fontsource/merriweather": "^4.5.14",
