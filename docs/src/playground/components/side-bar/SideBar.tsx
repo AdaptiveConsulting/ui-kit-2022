@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React from 'react';
 
 import Company from './Company';
 import News from './News';
@@ -17,7 +18,9 @@ const SideBar = () => {
     padding: 0 16px;
     width: 350px;
     max-width: 350px;
-    overflow-y: auto;
+    ${useMediaQuery(theme.breakpoints.up('lg'))
+      ? 'overflow-y: auto;'
+      : 'overflow-y: visible'}
     overflow-x: hidden;
     background-color: #f1f2f2;
     color: ${theme.palette.grey[900]};
@@ -44,7 +47,7 @@ const SideBar = () => {
   `;
 
   const NewsContainer = styled.div`
-    padding: 24px 20px;
+    padding: 24px 0;
     grid-area: news;
   `;
 

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Typography } from '@mui/material';
+import { Divider, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
@@ -53,8 +53,11 @@ export default function News() {
     display: block;
     line-height: 1rem;
     margin-top: 0.25rem;
-    margin-bottom: 1rem;
     padding-bottom: 19px;
+  `;
+
+  const Article = styled.article`
+    padding: 0 20px;
   `;
 
   return (
@@ -62,9 +65,9 @@ export default function News() {
       <Typography
         variant="h1"
         sx={{
-          padding: 0,
           margin: 0,
           marginBottom: '15px',
+          padding: '0 20px',
           fontWeight: 300,
           fontSize: '16px',
           color: theme.palette.grey[800],
@@ -73,13 +76,18 @@ export default function News() {
       >
         Latest News
       </Typography>
-      {mockNews.map((news) => (
-        <article key={news.title}>
-          <NewsHeadline>{news.title}</NewsHeadline>
-          <NewsCaption>
-            {news.published} - {news.company}
-          </NewsCaption>
-        </article>
+      {mockNews.map((news, index) => (
+        <>
+          <Article key={news.title}>
+            <NewsHeadline>{news.title}</NewsHeadline>
+            <NewsCaption>
+              {news.published} - {news.company}
+            </NewsCaption>
+          </Article>
+          {index !== 2 ? (
+            <Divider color={'#EAEBEB'} variant="middle" sx={{ margin: '0 0 16px 0' }} />
+          ) : null}
+        </>
       ))}
     </NewsCard>
   );
