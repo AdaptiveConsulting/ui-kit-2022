@@ -16,10 +16,12 @@ const LIGHT_BUTTON = {
           border: '1px solid #A9ABD1',
           backgroundColor: '#DBDDFF',
         },
+        '&:focus': {
+          outline: 'none',
+        },
         '&:focus-visible': {
-          border: '2px solid #FFFFFF',
+          border: '2px solid inherit',
           outline: '3px solid #FF8D00',
-          backgroundColor: '#DBDDFF',
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
@@ -43,11 +45,13 @@ const LIGHT_BUTTON = {
           backgroundColor: '#FFFFFF',
           color: '#5F618D',
         },
+        '&:focus': {
+          outline: 'none',
+        },
         '&:focus-visible': {
           border: '1px solid #5F618D',
           outlineOffset: '2px',
-          outline: '2px solid #FF8D00',
-          backgroundColor: '#FFFFFF',
+          outline: '3px solid #FF8D00',
           color: '#5F618D',
         },
         '&:disabled': {
@@ -63,20 +67,23 @@ const LIGHT_BUTTON = {
         padding: '0px 4px',
         color: '#5F618D',
         borderRadius: '100px',
+        backgroundColor: 'inherit',
         '&:hover': {
-          backgroundColor: '#FFFFFF',
           textDecoration: 'underline',
+          backgroundColor: 'inherit',
         },
         '&:active': {
           border: `1px solid #5F618D`,
-          backgroundColor: '#FFFFFF',
           color: '#5F618D',
+          textDecoration: 'none',
+        },
+        '&:focus': {
+          outline: 'none',
         },
         '&:focus-visible': {
           border: '1px solid #5F618D',
           outlineOffset: '2px',
-          outline: '2px solid #FF8D00',
-          backgroundColor: '#FFFFFF',
+          outline: '3px solid #FF8D00',
           textDecoration: 'none',
         },
         '&:disabled': {
@@ -105,11 +112,12 @@ const DARK_BUTTON = {
           border: '1px solid #A9ABD1',
           backgroundColor: '#DBDDFF',
         },
+        '&:focus': {
+          outline: 'none',
+        },
         '&:focus-visible': {
-          outlineOffset: '2px',
-          outline: '2px solid #FF8D00',
-          border: '0px',
-          backgroundColor: '#DBDDFF',
+          border: '2px solid inherit',
+          outline: '3px solid #FF8D00',
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
@@ -132,11 +140,14 @@ const DARK_BUTTON = {
           border: `1px solid #5F618D`,
           color: '#DBDDFF',
         },
+        '&:focus': {
+          outline: 'none',
+          color: '#DBDDFF',
+        },
         '&:focus-visible': {
-          padding: '2px 5px',
-          border: '2px solid #FFBE45',
-          outlineOffset: '-6px',
-          outline: '2px solid #DBDDFF',
+          border: '1px solid #DBDDFF',
+          outlineOffset: '2px',
+          outline: '3px solid #FFBE45',
           color: '#DBDDFF',
         },
         '&:hover:focus': {
@@ -160,20 +171,19 @@ const DARK_BUTTON = {
           borderRadius: '100px',
           textDecoration: 'underline',
         },
-        '&:focus-visible': {
-          padding: '2px 5px',
-          border: '2px solid #FFBE45',
-          outlineOffset: '-6px',
-          outline: '2px solid #DBDDFF',
-          color: '#DBDDFF',
-        },
         '&:active': {
           textDecoration: 'none',
           border: `1px solid #5F618D`,
           color: '#DBDDFF',
         },
-        '&:hover:focus': {
-          textDecoration: 'none',
+        '&:focus': {
+          outline: 'none',
+        },
+        '&:focus-visible': {
+          border: '1px solid #DBDDFF',
+          outlineOffset: '2px',
+          outline: '3px solid #FFBE45',
+          color: '#DBDDFF',
         },
         '&:disabled': {
           border: 'none',
