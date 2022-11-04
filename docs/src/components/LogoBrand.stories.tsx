@@ -13,9 +13,6 @@ export default {
       control: 'number',
       defaultValue: 100,
     },
-    color: {
-      control: 'text',
-    },
   },
 } as ComponentMeta<typeof LogoBrand>;
 
