@@ -19,9 +19,8 @@ export default function Peers() {
   `;
 
   const PeersCard = styled.div`
-    ${useMediaQuery(theme.breakpoints.down('md'))
-      ? 'grid-column: 1/-1; grid-row: 2; padding: 24px 20px;'
-      : null}
+    padding: 0 20px 24px 20px;
+    ${useMediaQuery(theme.breakpoints.down('lg')) ? 'padding-top: 24px;' : null}
     ${useMediaQuery(theme.breakpoints.down('sm')) ? 'grid-column: 1; grid-row: 3;' : null}
   `;
 

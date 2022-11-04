@@ -22,9 +22,11 @@ export default function Company() {
     font-size: 12px;
     line-height: 1.67;
     letter-spacing: 0.09px;
+    margin: 0;
   `;
 
   const CompanyCard = styled.div`
+    padding: 24px 20px;
     ${useMediaQuery(theme.breakpoints.down('lg'))
       ? 'padding-top: 0;'
       : 'padding-top: 12px;'}

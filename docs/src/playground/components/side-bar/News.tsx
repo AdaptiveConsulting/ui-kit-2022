@@ -30,8 +30,11 @@ export default function News() {
   ];
 
   const NewsCard = styled.div`
+    padding: 24px 0;
     ${useMediaQuery(theme.breakpoints.down('lg')) ? 'grid-column: 2; grid-row: 1;' : null}
-    ${useMediaQuery(theme.breakpoints.down('sm')) ? 'grid-column: 1; grid-row: 2;' : null}
+    ${useMediaQuery(theme.breakpoints.down('sm'))
+      ? 'padding-top: 0; grid-column: 1; grid-row: 2;'
+      : null}
   `;
 
   const NewsHeadline = styled.a`
