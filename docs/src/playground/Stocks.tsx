@@ -4,6 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 import AppBar from './components/AppBar';
+import KeyStatistics from './components/KeyStatistics';
 import SideBar from './components/side-bar/SideBar';
 
 export default function Stocks() {
@@ -12,13 +13,20 @@ export default function Stocks() {
   const Container = styled.div`
     display: flex;
     height: 100vh;
-    ${useMediaQuery(theme.breakpoints.down('lg')) ? 'flex-direction: column' : null}
+    ${useMediaQuery(theme.breakpoints.down('lg')) ? 'flex-direction: column;' : null}
+    background-color: #f9fafa;
+  `;
+
+  const Main = styled.main`
+    flex-grow: 1;
   `;
 
   return (
     <Container>
       <AppBar />
-      Stocks
+      <Main>
+        <KeyStatistics />
+      </Main>
       <SideBar />
     </Container>
   );
