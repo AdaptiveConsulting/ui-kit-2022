@@ -54,6 +54,10 @@ const LIGHT_BUTTON = {
           outline: '3px solid #FF8D00',
           color: '#5F618D',
         },
+        '&:focus-visible:hover': {
+          backgroundColor: '#5F618D',
+          color: '#FFFFFF',
+        },
         '&:disabled': {
           border: 'none',
           backgroundColor: '#E4E4E4',
@@ -85,6 +89,9 @@ const LIGHT_BUTTON = {
           outlineOffset: '2px',
           outline: '3px solid #FF8D00',
           textDecoration: 'none',
+        },
+        '&:focus-visible:hover': {
+          textDecoration: 'underline',
         },
         '&:disabled': {
           border: 'none',
@@ -119,6 +126,9 @@ const DARK_BUTTON = {
           border: '2px solid inherit',
           outline: '3px solid #FF8D00',
         },
+        '&:focus-visible:hover': {
+          backgroundColor: '#A9ABD1',
+        },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
           color: '#7F7F7F',
@@ -152,6 +162,10 @@ const DARK_BUTTON = {
         },
         '&:hover:focus': {
           backgroundColor: 'inherit',
+        },
+        '&:focus-visible:hover': {
+          backgroundColor: '#DBDDFF',
+          color: '#4D4D4D',
         },
         '&:disabled': {
           border: 'none',
