@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React from 'react';
 
 import { Subheading } from '../Common.styles';
 

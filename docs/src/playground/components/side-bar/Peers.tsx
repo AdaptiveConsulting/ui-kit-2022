@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Pill } from '@ui-kit-2022/components';
+import React from 'react';
 
 //TODO:  Update styling once Figma designs are finished.  The live RA, which is where the styling is from,
 // doesn't match up with the design system.
