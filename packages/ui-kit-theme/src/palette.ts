@@ -28,7 +28,7 @@ declare module '@mui/material/styles/createPalette' {
 }
 
 const BASIC_COLOR = tokenPaletteMapper(tokens.global.Colors);
-console.log('BASIC_COLOR', BASIC_COLOR);
+
 // TODO: Define MUI palettes for light theme
 export const light: PaletteOptions = {
   mode: 'light',
