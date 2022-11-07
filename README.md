@@ -12,7 +12,9 @@
 
 ### Development Workflow
 
-This library is composed of several packages, most of which need to be built before your development and build tooling will work. The quickest way to build the package is to run the command: `yarn build`.
+This library is composed of several packages, most of which need to be built before your development and build tooling will work. The quickest way to build the package is to run the command: `yarn build`. To only build the components and theme packages, run `yarn build-lib`.
+
+To quickly start a dev process that watches `@ui-kit-2022/components`, `@ui-kit-2022/theme`, and starts the Storybook preview, run `yarn dev`. You can then make changes in each package and have those changes reflected in Storybook for fast development feedback.
 
 While not always neccessary, you can remove all builds with `yarn clean`.
 
@@ -22,10 +24,7 @@ To run a local command on a sub package, for instance if you only want to build 
 
 - `yarn workspace @ui-kit-2022/components run build` to build the component package only.
 - `yarn workspace @ui-kit-2022/docs run preview` to run the storybook locally for development.
-- `yarn workspace @ui-kit-2022/theme run dev` to run a dev build of the theme package that auto rebuilds on change. The `@ui-kit-2022/components` package also supports a `dev` command.
-
-When developing in multiple packages at the same time, currently you'll need to run separate dev/preview commands for each package in order for each to auto rebuild so dependent packages to recongize changes in the package they depend upon.
-For instance, Storybook will no longer auto update when a file changes in the components package. You'll need to make sure the components package is autorebuilding along side the Storybook process to get a similar experience.
+- `yarn workspace @ui-kit-2022/theme run dev` to run a dev build of the theme package that auto rebuilds on change. The `@ui-kit-2022/components` package also supports a `dev` command. You can also use the shorthand `yarn dev:components` or `yarn dev:theme`.
 
 ## Releasing
 

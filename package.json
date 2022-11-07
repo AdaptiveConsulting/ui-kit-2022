@@ -7,6 +7,10 @@
     "docs"
   ],
   "scripts": {
+    "dev": "yarn build-lib && yarn conc \"yarn dev:components\" \"yarn dev:theme\" \"yarn dev:storybook\"",
+    "dev:components": "yarn workspace @ui-kit-2022/components run dev",
+    "dev:theme": "yarn workspace @ui-kit-2022/theme run dev",
+    "dev:storybook": "yarn workspace @ui-kit-2022/docs run preview",
     "build": "yarn workspaces foreach --topological-dev run build",
     "build-lib": "yarn workspaces foreach --topological-dev --from '{@ui-kit-2022/components,@ui-kit-2022/theme}' run build",
     "build-storybook": "yarn workspace @ui-kit-2022/docs run build",
@@ -44,7 +48,8 @@
     "react-dom": "^18.2.0",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
-    "vite-plugin-svgr": "^2.2.1"
+    "vite-plugin-svgr": "^2.2.1",
+    "concurrently": "^7.5.0"
   },
   "lint-staged": {
     "*.{jsx,js,ts,tsx}": "eslint --fix",
