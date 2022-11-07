@@ -1,4 +1,4 @@
-import { PaletteColorOptions } from '@mui/material';
+import { Color, PaletteColorOptions } from '@mui/material';
 
 interface TokenColor {
   value: string;
@@ -27,7 +27,8 @@ interface PaletteType {
   sell: PaletteColorOptions;
   buy: PaletteColorOptions;
   paper: PaperColorOption;
-  [x: string]: PaletteColorOptions | PaperColorOption;
+  grey: Color;
+  [x: string]: PaletteColorOptions | PaperColorOption | Color;
 }
 
 const tokenPaletteMapper = (tokens: TokensType) => {

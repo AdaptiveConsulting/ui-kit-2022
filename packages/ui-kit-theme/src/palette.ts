@@ -33,7 +33,7 @@ const BASIC_COLOR = tokenPaletteMapper(tokens.global.Colors);
 export const light: PaletteOptions = {
   mode: 'light',
   ...BASIC_COLOR,
-  divider: alpha('#383838', 0.2),
+  divider: alpha(BASIC_COLOR.grey[900], 0.2),
   contrastThreshold: 3,
   tonalOffset: 2,
   text: {
@@ -42,11 +42,11 @@ export const light: PaletteOptions = {
     disabled: 'rgba(0, 0, 0, 0.38)',
   },
   background: {
-    paper: '#F9F9F9',
+    paper: BASIC_COLOR.grey[50],
   },
   action: {
-    disabledBackground: '#E4E4E4',
-    disabled: '#6B6B6B',
+    disabledBackground: BASIC_COLOR.grey[200],
+    disabled: BASIC_COLOR.grey[600],
   },
 };
 
@@ -54,7 +54,7 @@ export const light: PaletteOptions = {
 export const dark: PaletteOptions = {
   mode: 'dark',
   ...BASIC_COLOR,
-  divider: alpha('#F9F9F9', 0.2),
+  divider: alpha(BASIC_COLOR.grey[50], 0.2),
   contrastThreshold: 3,
   tonalOffset: 2,
   text: {
@@ -63,10 +63,10 @@ export const dark: PaletteOptions = {
     disabled: 'rgba(255, 255, 255, 0.38)',
   },
   background: {
-    paper: '#323232',
+    paper: BASIC_COLOR.grey[900],
   },
   action: {
-    disabledBackground: '#E4E4E4',
-    disabled: '#6B6B6B',
+    disabledBackground: BASIC_COLOR.grey[200],
+    disabled: BASIC_COLOR.grey[600],
   },
 };
