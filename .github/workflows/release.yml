@@ -39,3 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create Release Branch
+        if: steps.changesets.outputs.published == 'true'
+        run: node ./scripts/branch-on-publish.js '${{steps.changesets.outputs.publishedPackages}}'
+
