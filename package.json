@@ -7,6 +7,10 @@
     "docs"
   ],
   "scripts": {
+    "dev": "yarn build-lib && yarn conc \"yarn dev:components\" \"yarn dev:theme\" \"yarn dev:storybook\"",
+    "dev:components": "yarn workspace @ui-kit-2022/components run dev",
+    "dev:theme": "yarn workspace @ui-kit-2022/theme run dev",
+    "dev:storybook": "yarn workspace @ui-kit-2022/docs run preview",
     "build": "yarn workspaces foreach --topological-dev run build",
     "build-lib": "yarn workspaces foreach --topological-dev --from '{@ui-kit-2022/components,@ui-kit-2022/theme}' run build",
     "build-storybook": "yarn workspace @ui-kit-2022/docs run build",
@@ -31,6 +35,7 @@
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",
     "chromatic": "^6.10.2",
+    "concurrently": "^7.5.0",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
