@@ -16,7 +16,8 @@
     "lint:test": "eslint . --ext .jsx,.js,.ts,.tsx --ignore-path ./.gitignore",
     "prepare": "husky install",
     "clean": "rm -r ./dist; yarn workspaces foreach run clean",
-    "publish": "yarn workspaces foreach npm publish --tolerate-republish"
+    "release": "yarn build-lib && yarn changeset publish",
+    "version": "yarn changeset version && yarn"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.0",

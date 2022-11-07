@@ -12,7 +12,7 @@ const TopBar: React.FC<Props> = ({ icon, title }) => {
     <Box
       sx={{
         height: '68px',
-        backgroundColor: { dark: palette.grey['700'], light: palette.grey['200'] }[
+        backgroundColor: { dark: palette.grey['900'], light: palette.grey['200'] }[
           palette.mode
         ],
         display: 'flex',

@@ -1,59 +1,6 @@
-# UI kit 2022 for Adaptive
+# Adaptive UI-Kit 2022
 
-## Installation
-
-UI Kit 2022 is available as an [NPM package](https://www.npmjs.com/package/ui-kit-2022)
-
-```
-npm i ui-kit-2022
-```
-
-## Usage
-
-```
-import "./App.css";
-
-import { Logo } from "@ui-kit-2022/components";
-
-function App() {
-  return (
-    <div className="App">
-      <Logo />
-    </div>
-  );
-}
-export default App;
-```
-
-### Theme Usage
-
-- Install `@mui/material` and `@emotion/styled` using `npm install @mui/material @emotion/styled`
-
-To use a theme other than the default you'll need to add a `ThemeProvider` component. Here is an example of such:
-
-```
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
-
-import { ThemeProvider } from "@mui/material/styles";
-import { light, dark } from "@ui-kit-2022/theme";
-import CssBaseline from "@mui/material/CssBaseline";
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <ThemeProvider theme={dark}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>
-);
-```
-
-## Development
-
-### Setup
+## Setup
 
 1. Install [Node.js and NPM](https://nodejs.org/en/download/)
 2. Install Yarn2+ (https://yarnpkg.com/getting-started/install) and follow these steps:
@@ -79,3 +26,11 @@ To run a local command on a sub package, for instance if you only want to build 
 
 When developing in multiple packages at the same time, currently you'll need to run separate dev/preview commands for each package in order for each to auto rebuild so dependent packages to recongize changes in the package they depend upon.
 For instance, Storybook will no longer auto update when a file changes in the components package. You'll need to make sure the components package is autorebuilding along side the Storybook process to get a similar experience.
+
+## Releasing
+
+Releases are handled with [Changesets](https://github.com/changesets/changesets/).
+
+When adding a feature or fixing a bug, add to the changset before commiting and sending a PR if you think that change needs to be specified in the release changelog: `yarn changeset`
+
+As we merge in these changesets, a release PR will be created and updated with all the changesets that have been merged, handling all package version bumps and generating the changelog. Once that PR is approved and merged, a release will be created, and the new package versions will be published to NPM.

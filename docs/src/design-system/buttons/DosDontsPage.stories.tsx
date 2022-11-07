@@ -11,4 +11,4 @@ const Template: ComponentStory<typeof DosDontsPage> = () => <DosDontsPage />;
 
 export const DosDonts = Template.bind({});
 
-DosDonts.storyName = "Do's Don'ts";
+DosDonts.storyName = "Do's Dont's";

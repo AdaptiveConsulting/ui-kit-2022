@@ -1,6 +1,6 @@
 {
   "name": "@ui-kit-2022/docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Adaptive UI-Kit 2022 Documentation",
   "private": true,
   "scripts": {
@@ -26,9 +26,9 @@
     "@storybook/builder-vite": "^0.2.2",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
-    "@ui-kit-2022/components": "0.0.0",
+    "@ui-kit-2022/components": "0.0.1",
     "@ui-kit-2022/svgr-template": "^1.0.0",
-    "@ui-kit-2022/theme": "0.0.0",
+    "@ui-kit-2022/theme": "0.0.1",
     "babel-loader": "^8.2.5",
     "storybook-addon-pseudo-states": "^1.15.1",
     "storybook-dark-mode": "^1.1.2"
