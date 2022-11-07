@@ -1,13 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import StatesPage from './StatesPage';
-// import addons from '@storybook/addons';
-// import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
-
-// const channel = addons.getChannel();
-// channel.on(DARK_MODE_EVENT_NAME, () => {
-//   console.log('hihi');
-// });
 
 export default {
   title: 'Design System/Buttons',
