@@ -1,19 +1,8 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  ThemeProvider,
-  Toolbar,
-  useTheme,
-} from '@mui/material';
+import { Box, Container, Grid, ThemeProvider, Toolbar, useTheme } from '@mui/material';
 import { LogoBrand, Typography } from '@ui-kit-2022/components';
 import { dark, light } from '@ui-kit-2022/theme';
 
+import LongLabelExample from '../building-blocks/table/LongLabelExample';
 import TableExample from '../building-blocks/table/TableExample';
 
 const TableUsagePage = () => {
@@ -111,50 +100,20 @@ const TableUsagePage = () => {
               <Grid item xs={4}>
                 <ThemeProvider theme={dark}>
                   <Box sx={{ backgroundColor: dark.palette.background.paper }} p={3}>
-                    <TableContainer>
-                      <Table>
-                        <TableBody>
-                          <TableRow
-                            sx={{
-                              borderTop: 1,
-                              borderBottom: 1,
-                              borderColor: dark.palette.divider,
-                            }}
-                          >
-                            <TableCell component="th" scope="row">
-                              Label (Subheader Small, Primary opacity)
-                            </TableCell>
-                            <TableCell align="right">
-                              Value (Regular, Secondary Opacity)
-                            </TableCell>
-                          </TableRow>
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
+                    <LongLabelExample
+                      longLabel="Label (Subheader Small, Primary opacity)"
+                      value="Value (Regular, Secondary Opacity)"
+                    />
                   </Box>
                 </ThemeProvider>
               </Grid>
               <Grid item xs={4}>
                 <ThemeProvider theme={light}>
                   <Box sx={{ backgroundColor: light.palette.background.paper }} p={3}>
-                    <TableContainer>
-                      <Table>
-                        <TableBody>
-                          <TableRow
-                            sx={{
-                              borderTop: 1,
-                              borderBottom: 1,
-                              borderColor: light.palette.divider,
-                            }}
-                          >
-                            <TableCell component="th" scope="row">
-                              This is a long label name
-                            </TableCell>
-                            <TableCell align="right">Value name</TableCell>
-                          </TableRow>
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
+                    <LongLabelExample
+                      longLabel="This is a long label name"
+                      value="Value name"
+                    />
                   </Box>
                 </ThemeProvider>
               </Grid>
