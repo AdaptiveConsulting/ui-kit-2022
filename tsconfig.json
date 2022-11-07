@@ -16,7 +16,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "jsx": "react-jsx",
     "paths": {
       "@ui-kit-2022/*": ["packages/*/src/index.ts"]
