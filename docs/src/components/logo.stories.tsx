@@ -9,9 +9,7 @@ export default {
       options: ['small', 'large', 'maximized'],
       control: { type: 'select' },
     },
-    color: {
-      control: 'text',
-    },
+    color: { control: { type: 'color' } },
   },
 } as ComponentMeta<typeof Logo>;
 

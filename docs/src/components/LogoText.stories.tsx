@@ -13,9 +13,7 @@ export default {
       control: 'number',
       defaultValue: 100,
     },
-    color: {
-      control: 'text',
-    },
+    color: { control: { type: 'color' } },
   },
 } as ComponentMeta<typeof LogoText>;
 
