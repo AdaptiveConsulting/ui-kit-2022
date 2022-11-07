@@ -1,36 +1,60 @@
-import { PaletteColor, PaletteOptions } from '@mui/material';
-
-interface PaletteType {
-  [x: string]: PaletteOptions | PaletteType | PaletteColor;
-  sell: PaletteColor;
-  buy: PaletteColor;
-}
+import { PaletteColorOptions } from '@mui/material';
 
 interface TokenColor {
   value: string;
   type: string;
 }
 
+interface TokenColorsGroup {
+  [x: string]: TokenColor | TokenColorsGroup;
+}
+
 interface TokensType {
-  [x: string]: TokenColor | TokensType | string;
+  [x: string]: TokenColorsGroup;
+}
+
+export interface PaperColor {
+  black: string;
+  white: string;
+}
+
+export interface PaperColorOption {
+  black: string;
+  white: string;
+}
+
+interface PaletteType {
+  sell: PaletteColorOptions;
+  buy: PaletteColorOptions;
+  paper: PaperColorOption;
+  [x: string]: PaletteColorOptions | PaperColorOption;
 }
 
 const tokenPaletteMapper = (tokens: TokensType) => {
-  const match = /A([1247]00)?/;
-
-  let palette: PaletteType | string | Record<string, unknown> = {};
-  let i: string;
-  for (i in tokens) {
-    if (typeof tokens[i] === 'object' && tokens !== null) {
-      (palette as PaletteType)[match.test(i) ? i : i.toLowerCase()] = tokenPaletteMapper(
-        tokens[i] as TokensType,
-      );
-    } else {
-      palette = (tokens['value'] as string).toUpperCase();
-    }
+  const palette: PaletteType | Record<string, unknown> = {};
+  for (const i in tokens) {
+    palette[i.toString().toLowerCase()] = tokenColorsGroupMapper(tokens[i]);
   }
 
   return palette as PaletteType;
+};
+
+const tokenColorsGroupMapper = (colorsGroup: TokenColorsGroup): PaletteColorOptions => {
+  const match = /A[1247]00/;
+  let result: PaletteColorOptions = {};
+  for (const i in colorsGroup) {
+    if (i === 'A') {
+      result = {
+        ...result,
+        ...tokenColorsGroupMapper(colorsGroup[i] as TokenColorsGroup),
+      };
+    } else {
+      const key = match.test(i) ? i : i.toString().toLowerCase();
+      Object.assign(result, { [key]: colorsGroup[i].value.toString().toUpperCase() });
+    }
+  }
+
+  return result as PaletteColorOptions;
 };
 
 export default tokenPaletteMapper;
