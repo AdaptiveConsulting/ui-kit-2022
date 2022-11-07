@@ -33,7 +33,6 @@ export default function Company() {
     display: grid;
     grid-template-columns: 100%;
     overflow: hidden;
-    align-content: baseline;
   `;
 
   return (

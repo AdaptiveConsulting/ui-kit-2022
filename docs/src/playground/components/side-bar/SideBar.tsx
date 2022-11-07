@@ -14,7 +14,6 @@ const SideBar = () => {
   const SideBar = styled.aside`
     display: grid;
     grid-template-areas: 'company' 'peers' 'news';
-    align-content: baseline;
     padding: 0 16px;
     width: 350px;
     max-width: 350px;
