@@ -46,7 +46,7 @@ const RenderIcons: React.FC<RenderIconsProps> = ({ column }) => {
 const ColumnOne: React.FC = () => {
   return (
     <Grid item xs={1.5}>
-      <Grid container columnGap={1.5}>
+      <Grid container columnGap={1}>
         <RenderIcons column={ICON_LIBRARY.icons.columnOne} />
       </Grid>
     </Grid>
@@ -56,7 +56,7 @@ const ColumnOne: React.FC = () => {
 const ColumnTwo: React.FC = () => {
   return (
     <Grid item xs={1.5}>
-      <Grid container columnGap={1.5}>
+      <Grid container columnGap={1}>
         <RenderIcons column={ICON_LIBRARY.icons.columnTwo} />
       </Grid>
     </Grid>
@@ -66,7 +66,7 @@ const ColumnTwo: React.FC = () => {
 const ColumnThree: React.FC = () => {
   return (
     <Grid item xs={1.5}>
-      <Grid container columnGap={1.5}>
+      <Grid container columnGap={1}>
         <RenderIcons column={ICON_LIBRARY.icons.columnThree} />
       </Grid>
     </Grid>
