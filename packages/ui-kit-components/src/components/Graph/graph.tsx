@@ -27,6 +27,7 @@ const getData = (labels, data) => {
     labels,
     datasets: [
       {
+        lineTension: 0.2,
         data,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -56,11 +57,10 @@ const Graph: React.FC<GraphProps> = ({yLabelNumbers, labels, data}) => {
     },
     plugins: {
       legend: {
-        position: 'top' as const,
+        display: false,
       },
       title: {
-        display: true,
-        text: 'Chart.js Line Chart',
+        display: false,
       },
     },
   };

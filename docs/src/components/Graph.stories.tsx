@@ -7,15 +7,18 @@ export default {
   title: 'Components/Graph',
   component: Graph,
 } as ComponentMeta<typeof Graph>;
+import { faker } from '@faker-js/faker';
 
 const Template: ComponentStory<typeof Graph> = (props) => {
 return <Graph {...props}/>};
 
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'January', 'February', 'March', 'April', 'May', 'June', 'July']
+
 export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
 GraphStory.args = {
-  yLabelNumbers: 5,
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  data: [23, 45, 132, 124, 32, 54, 89],
+  yLabelNumbers: 10,
+  labels,
+  data: labels.map( _ => faker.datatype.number({min: 20, max: 500})),
 }
 
