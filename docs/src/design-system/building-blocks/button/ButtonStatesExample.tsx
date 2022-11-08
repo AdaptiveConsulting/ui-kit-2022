@@ -32,9 +32,12 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
         sx={{
           [`& .${tableCellClasses.root}`]: {
             borderBottom: 'none',
-            p: '0.625rem 0 0.625rem 0.5rem',
+            p:
+              variantType === 'PRIMARY'
+                ? '0.625rem 1.8rem 0.625rem 0'
+                : '0.625rem 0 0.625rem 0.5rem',
           },
-          width: '78%',
+          width: variantType === 'PRIMARY' ? '98%' : '78%',
         }}
       >
         <TableHead>
@@ -51,22 +54,21 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
             <TableCell align="left">
               <Typography variant="subheader3">Active/Pressed</Typography>
             </TableCell>
-            <TableCell
-              align="left"
-              sx={{
-                paddingRight: '0',
-                paddingTop: '0',
-              }}
-            >
+            <TableCell align="left">
               <Typography variant="subheader3">Focused(ADA)</Typography>
             </TableCell>
+            {variantType === 'PRIMARY' && (
+              <TableCell align="left">
+                <Typography variant="subheader3">Disabled</Typography>
+              </TableCell>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell
               sx={{
-                width: '12%',
+                width: variantType === 'PRIMARY' ? '10%' : '12%',
               }}
             >
               <Typography variant="subheader3">Default</Typography>
@@ -100,16 +102,29 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
               </TableCell>
               <TableCell
                 sx={{
-                  paddingRight: '0',
                   backgroundColor,
                   borderTopRightRadius: '4px',
-                  width: '7.5rem',
+                  width: variantType !== 'PRIMARY' ? '7.5rem' : 'auto',
                 }}
               >
                 <Box className="focus">
                   <Button variant={variantType}>BUTTON TEXT</Button>
                 </Box>
               </TableCell>
+              {variantType === 'PRIMARY' && (
+                <TableCell
+                  align="left"
+                  sx={{
+                    backgroundColor,
+                  }}
+                >
+                  <Box>
+                    <Button variant={variantType} disabled>
+                      BUTTON TEXT
+                    </Button>
+                  </Box>
+                </TableCell>
+              )}
             </ThemeProvider>
           </TableRow>
           <TableRow>
@@ -151,7 +166,6 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
               <TableCell
                 sx={{
                   backgroundColor,
-                  width: '7.5rem',
                 }}
               >
                 <Box className="focus">
@@ -203,7 +217,6 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
                 sx={{
                   backgroundColor,
                   borderBottomRightRadius: '4px',
-                  width: '7.5rem',
                 }}
               >
                 <Box className="focus">
