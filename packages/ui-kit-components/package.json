@@ -27,7 +27,11 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
     "@ui-kit-2022/theme": "0.0.1",
+    "chart.js": "^3.9.1",
+    "chartjs-plugin-annotation": "^2.0.0",
+    "chartjs-plugin-zoom": "^1.2.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
