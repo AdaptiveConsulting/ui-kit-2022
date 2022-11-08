@@ -24,6 +24,8 @@ const IconsGroup: React.FC<{
   background: BackgroundType;
   palette: Palette;
 }> = ({ children, background, palette }) => {
+  const FONT_COLOR = background === 'dark' ? palette.grey[50] : palette.grey[900];
+
   return (
     <Grid
       container
@@ -37,7 +39,7 @@ const IconsGroup: React.FC<{
             justifyContent: 'space-evenly',
             alignItems: 'start',
             padding: '1rem 0rem',
-            bgcolor: background === 'dark' ? '#323232' : palette.grey[50],
+            bgcolor: background === 'dark' ? palette.paper.black : palette.grey[50],
           }}
         >
           <Box sx={ICON_WITH_LABEL_STYLE}>
@@ -52,7 +54,7 @@ const IconsGroup: React.FC<{
               variant="body2"
               sx={{
                 ...LABEL_STYLE,
-                color: background === 'dark' ? palette.grey[50] : palette.grey[900],
+                color: FONT_COLOR,
               }}
             >
               {COLOR.labels[0]}
@@ -71,7 +73,7 @@ const IconsGroup: React.FC<{
               variant="body2"
               sx={{
                 ...LABEL_STYLE,
-                color: background === 'dark' ? palette.grey[50] : palette.grey[900],
+                color: FONT_COLOR,
               }}
             >
               {COLOR.labels[1]}
@@ -85,7 +87,7 @@ const IconsGroup: React.FC<{
               variant="body2"
               sx={{
                 ...LABEL_STYLE,
-                color: background === 'dark' ? palette.grey[50] : palette.grey[900],
+                color: FONT_COLOR,
               }}
             >
               {COLOR.labels[2]}
@@ -94,7 +96,7 @@ const IconsGroup: React.FC<{
               variant="body2"
               sx={{
                 ...LABEL_STYLE,
-                color: background === 'dark' ? palette.grey[50] : palette.grey[900],
+                color: FONT_COLOR,
               }}
             >
               {COLOR.labels[3]}
@@ -112,7 +114,7 @@ const IconsGroup: React.FC<{
               variant="body2"
               sx={{
                 ...LABEL_STYLE,
-                color: background === 'dark' ? palette.grey[50] : palette.grey[900],
+                color: FONT_COLOR,
               }}
             >
               {COLOR.labels[4]}
