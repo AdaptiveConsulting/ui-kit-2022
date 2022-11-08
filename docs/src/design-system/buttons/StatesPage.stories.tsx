@@ -13,7 +13,7 @@ export const States = Template.bind({});
 States.parameters = {
   pseudo: {
     hover: '.hover',
-    focus: '.focus',
+    focusVisible: '.focus',
     active: '.active',
   },
 };

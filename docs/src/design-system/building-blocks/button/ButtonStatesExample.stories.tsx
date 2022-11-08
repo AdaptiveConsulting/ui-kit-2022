@@ -23,7 +23,7 @@ StatesExample.args = {
 StatesExample.parameters = {
   pseudo: {
     hover: '.hover',
-    focus: '.focus',
+    focusVisible: '.focus',
     active: '.active',
   },
 };
