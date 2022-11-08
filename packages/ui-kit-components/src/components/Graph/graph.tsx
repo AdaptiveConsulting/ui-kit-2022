@@ -37,23 +37,25 @@ const getData = (labels, data) => {
 };
 
 export interface GraphProps {
-  yLabelNumbers?: number;
+  yLabelStep?: number;
   labels: string[];
   data: number[];
 }
 
-const Graph: React.FC<GraphProps> = ({ yLabelNumbers, labels, data }) => {
+const Graph: React.FC<GraphProps> = ({ yLabelStep, labels, data }) => {
+  const max = Math.ceil(Math.max(...data)); 
+  const min = Math.floor(Math.min(...data));
   const options = {
     responsive: true,
     scales: {
       y: {
         ticks: {
-          callback: (value: number, index: number, ticks: unknown[]) => {
-            const step = yLabelNumbers
-              ? Math.ceil(ticks.length / (yLabelNumbers - 1))
-              : 1;
-            return index % step === 0 || index === ticks.length - 1 ? value : null;
-          },
+          beginAtZero: true,
+          maxTicksLimit: data.length + 1,
+          stepSize: yLabelStep,
+          max: max,
+          min: min,
+          autoSkip: true,
         },
       },
     },

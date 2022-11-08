@@ -33,7 +33,7 @@ const labels = [
 export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
 GraphStory.args = {
-  yLabelNumbers: 10,
+  yLabelStep: 100,
   labels,
   data: labels.map((_) => faker.datatype.number({ min: 20, max: 500 })),
 };
