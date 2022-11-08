@@ -1,5 +1,5 @@
 // @ts-nocheck
-import * as React from "react"
+import * as React from 'react';
 
 import {
   Chart as ChartJS,
@@ -19,7 +19,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const getData = (labels, data) => {
@@ -34,26 +34,28 @@ const getData = (labels, data) => {
       },
     ],
   };
-} 
+};
 
 export interface GraphProps {
-  yLabelNumbers? : number;
+  yLabelNumbers?: number;
   labels: string[];
   data: number[];
 }
 
-const Graph: React.FC<GraphProps> = ({yLabelNumbers, labels, data}) => {
+const Graph: React.FC<GraphProps> = ({ yLabelNumbers, labels, data }) => {
   const options = {
     responsive: true,
     scales: {
       y: {
         ticks: {
           callback: (value: number, index: number, ticks: unknown[]) => {
-            const step = yLabelNumbers ? Math.ceil(ticks.length / (yLabelNumbers- 1)) : 1;
-            return (index % step === 0 || index === ticks.length - 1) ? value : null;
-          }
-        }
-      }
+            const step = yLabelNumbers
+              ? Math.ceil(ticks.length / (yLabelNumbers - 1))
+              : 1;
+            return index % step === 0 || index === ticks.length - 1 ? value : null;
+          },
+        },
+      },
     },
     plugins: {
       legend: {
@@ -65,10 +67,8 @@ const Graph: React.FC<GraphProps> = ({yLabelNumbers, labels, data}) => {
     },
   };
 
-  const datasets = getData(labels, data)
-  return (
-    <Line options={options as ChartJS.ChartOptions} data={datasets} />
-  )
-}
+  const datasets = getData(labels, data);
+  return <Line options={options as ChartJS.ChartOptions} data={datasets} />;
+};
 
 export default Graph;

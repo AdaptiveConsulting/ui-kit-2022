@@ -10,15 +10,30 @@ export default {
 import { faker } from '@faker-js/faker';
 
 const Template: ComponentStory<typeof Graph> = (props) => {
-return <Graph {...props}/>};
+  return <Graph {...props} />;
+};
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'January', 'February', 'March', 'April', 'May', 'June', 'July']
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+];
 
 export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
 GraphStory.args = {
   yLabelNumbers: 10,
   labels,
-  data: labels.map( _ => faker.datatype.number({min: 20, max: 500})),
-}
-
+  data: labels.map((_) => faker.datatype.number({ min: 20, max: 500 })),
+};

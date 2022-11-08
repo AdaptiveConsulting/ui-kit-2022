@@ -6,7 +6,7 @@ export { LogoBrand } from './components/Branding/LogoBrand';
 export { LogoText } from './components/Branding/LogoText';
 export { Button } from './components/Button';
 export { Pill } from './components/Pill';
-export { Graph } from './components/Graph'
+export { Graph } from './components/Graph';
 export { SplashScreen } from './components/SplashScreen';
 export { Typography } from './components/Typography';
 export * as Icon from './icons';
