@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 import { Icon } from '@ui-kit-2022/components';
 
@@ -6,21 +6,24 @@ import DosDontsExample from '../building-blocks/button/DosDontsExample';
 import TopBar from '../building-blocks/common/top-bar';
 
 const DosDontsPage = () => {
+  const matches = useMediaQuery('(min-width: 830px)');
+  const matchesSM = useMediaQuery('(min-width: 410px)');
   return (
     <>
       <Box>
-        <TopBar title={"DO'S AND DONT'S"} />
+        <TopBar title={"Do's & Dont's"} />
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Box
           sx={{
-            minWidth: '717px',
-            padding: '2rem 2.1875rem 2.5rem',
+            minWidth: matches ? '717px' : '270px',
+            padding: matchesSM ? '2.5rem 2rem' : '2.5rem 0',
             display: 'flex',
+            flexDirection: matches ? 'row' : 'column',
             justifyContent: 'space-between',
           }}
         >
-          <Box sx={{ width: '271px' }}>
+          <Box sx={{ width: '271px', mb: matches ? '0' : '3rem' }}>
             <DosDontsExample exampleType="Do" />
             <Box
               sx={{
