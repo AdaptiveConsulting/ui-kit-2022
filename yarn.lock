@@ -5087,6 +5087,7 @@ __metadata:
     husky: ^8.0.1
     jest: ^29.2.2
     lint-staged: ^13.0.3
+    parse-node-version: ^2.0.0
     prettier: ^2.7.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14026,6 +14027,13 @@ __metadata:
     json-parse-even-better-errors: ^2.3.0
     lines-and-columns: ^1.1.6
   checksum: 62085b17d64da57f40f6afc2ac1f4d95def18c4323577e1eced571db75d9ab59b297d1d10582920f84b15985cbfc6b6d450ccbf317644cfa176f3ed982ad87e2
+  languageName: node
+  linkType: hard
+
+"parse-node-version@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "parse-node-version@npm:2.0.0"
+  checksum: bc0a6df8d9eeb24eb1b6b74fa877166eb7982f3ba0515b0d7e81cc0f0243a13f9552b02693af2e66a90ff6a24f3a7603f7f077cbc10dea235b2c455ac8198c4e
   languageName: node
   linkType: hard
 
