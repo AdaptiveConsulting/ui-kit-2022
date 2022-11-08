@@ -66,7 +66,6 @@ const componentSizeAndColor = (palette: Palette, size: SubtitleType) => {
     case 'XL':
       return {
         size: 3,
-        color: palette.grey[50],
       };
     case 'Too big!':
     case 'Too small!':

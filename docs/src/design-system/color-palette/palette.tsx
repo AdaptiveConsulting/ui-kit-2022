@@ -65,8 +65,6 @@ const ColorPalette: React.FC = () => {
       <Grid
         container
         sx={{
-          bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
-          color: palette.common.white,
           padding: '1rem',
         }}
         rowGap={5}
