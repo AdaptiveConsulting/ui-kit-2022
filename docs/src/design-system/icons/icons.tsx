@@ -15,8 +15,9 @@ const Icons: React.FC = () => {
       <Grid
         container
         sx={{
-          bgcolor: palette.mode === 'dark' ? palette.background.paper : palette.logo,
-          color: palette.common.white,
+          bgcolor:
+            palette.mode === 'dark' ? palette.background.paper : palette.common.white,
+          color: palette.text.primary,
           padding: '1rem',
         }}
         rowGap={6}
