@@ -8,32 +8,25 @@ export default {
   component: Graph,
 } as ComponentMeta<typeof Graph>;
 import { faker } from '@faker-js/faker';
-
+import Perlin from '../utils/perlin';
 const Template: ComponentStory<typeof Graph> = (props) => {
   return <Graph {...props} />;
 };
 
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-];
+const perlin = new Perlin();
+let y = 0.008;
+
+const labels = (Array(24 * 60).fill(0).map((_, i) => { return ('0' + ~~(i / 60) + ': 0' + Math.round(60  * (i / 60 % 1))).replace(/\d(\d\d)/g, '$1') })).filter(time => {
+  const [hour, minute] = time.split(":");
+  return ['09', '10', '11', '12', '13', '14', '15', '16'].includes(hour);
+});
 
 export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
 GraphStory.args = {
-  yLabelStep: 100,
+  yLabelStep: 50,
+  xLabelStep: 30,
   labels,
-  data: labels.map((_) => faker.datatype.number({ min: 20, max: 500 })),
+  data: labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 100}),
+  previousData: 160,
 };
