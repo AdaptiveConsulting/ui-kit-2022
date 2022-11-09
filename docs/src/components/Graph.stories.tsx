@@ -7,7 +7,7 @@ export default {
   title: 'Components/Graph',
   component: Graph,
 } as ComponentMeta<typeof Graph>;
-import { faker } from '@faker-js/faker';
+
 import Perlin from '../utils/perlin';
 const Template: ComponentStory<typeof Graph> = (props) => {
   return <Graph {...props} />;
