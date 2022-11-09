@@ -15,7 +15,7 @@ export default {
       };
     },
     listbox: {
-      padding: 0,
+      padding: '8px 0',
       margin: '0 10px',
     },
     groupLabel: ({ theme }: { theme: Theme }) => ({
@@ -30,6 +30,9 @@ export default {
       borderRadius: '100px',
       '&.Mui-focused': {
         backgroundColor: `${theme.palette.primary[theme.palette.mode]} !important`,
+      },
+      '& > span.prediction-highlight': {
+        color: theme.palette.grey[600],
       },
     }),
   },
