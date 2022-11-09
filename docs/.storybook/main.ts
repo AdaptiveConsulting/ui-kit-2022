@@ -17,10 +17,6 @@ export default {
   core: {
     builder: '@storybook/builder-vite',
   },
-  features: {
-    storyStoreV7: true,
-    babelModeV7: true,
-  },
   async viteFinal(config, { configType }) {
     config.base = process.env.BASE_PATH || config.base;
     config.plugins = [
