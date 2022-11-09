@@ -1,41 +1,19 @@
-import { Autocomplete, TextField } from '@mui/material';
+import {
+  Autocomplete,
+  AutocompleteProps,
+  AutocompleteRenderOptionState,
+  TextField,
+} from '@mui/material';
 
 import * as Icons from '../../icons';
 
-export interface TextSearchProps<T> {
-  options: Array<T>;
-  loading?: boolean;
-  loadingText?: string;
-  noOptionsText?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
-  size?: 'small' | 'medium';
-  disableCloseOnSelect?: boolean;
-  placeholder?: string;
-  groupBy?: (option: T) => string;
-  open?: boolean;
-  value?: T;
-  inputValue?: string;
-  getOptionLabel?: (option: T) => string;
-  fullWidth?: boolean;
-  getOptionDisabled?: (option: T) => boolean;
-  filterOptions?: (options: Array<T>, state: object) => Array<T>;
-  filterSelectedOptions?: boolean;
-  isOptionEqualToValue?: (option: T, value: T) => boolean;
-  onChange?: (
-    event: React.SyntheticEvent,
-    value: T | Array<T>,
-    reason: string,
-    details?: string,
-  ) => void;
-  onOpen?: (event: React.SyntheticEvent) => void;
-  onInputChange?: (event: React.SyntheticEvent, value: string, reason: string) => void;
-  onHighlightChange?: (event: React.SyntheticEvent, option: T, reason: string) => void;
-  onClose?: (event: React.SyntheticEvent, reason: string) => void;
-}
+type TextSearchProps<T> = Omit<AutocompleteProps<T, false, false, false>, 'renderInput'>;
 
-export const renderPredictiveLabel = (label: string, inputValue: string) => {
-  if (inputValue === '') {
+export const renderPredictiveLabel = (
+  label: string,
+  { inputValue, selected }: AutocompleteRenderOptionState,
+) => {
+  if (inputValue === '' || selected) {
     return label;
   }
 
@@ -50,11 +28,11 @@ export const renderPredictiveLabel = (label: string, inputValue: string) => {
         elements: [
           ...elements.slice(0, -1),
           ...[
-            label.substring(lastIndex, matchIndex),
+            label.substring(lastIndex, matchIndex).replace(/ /g, '\u00A0'), // replace whitespace with &nbsp;
             <span key={matchIndex} className="prediction-highlight">
-              {label.substring(matchIndex, nextIndex)}
+              {label.substring(matchIndex, nextIndex).replace(/ /g, '\u00A0')}
             </span>,
-            label.substring(nextIndex, label.length),
+            label.substring(nextIndex, label.length).replace(/ /g, '\u00A0'),
           ].filter((s) => s),
         ],
         lastIndex: nextIndex,
@@ -75,10 +53,8 @@ const TextSearch = <T,>({
     <Autocomplete
       {...(props as any)}
       clearIcon={<Icons.Close />}
-      renderOption={(props, opt, state) => (
-        <li {...props}>
-          {renderPredictiveLabel(getOptionLabel(opt as any), state.inputValue)}
-        </li>
+      renderOption={(props, opt: T, state) => (
+        <li {...props}>{renderPredictiveLabel(getOptionLabel(opt), state)}</li>
       )}
       renderInput={(params) => (
         <TextField {...params} variant="standard" placeholder={placeholder} />
