@@ -2,21 +2,33 @@ import { Box, useTheme } from '@mui/material';
 import { Button } from '@ui-kit-2022/components';
 import { Typography } from '@ui-kit-2022/components';
 
-const UsageExample: React.FC = () => {
+interface Props {
+  hideTitle?: boolean;
+}
+
+const UsageExample: React.FC<Props> = ({ hideTitle }) => {
   const { palette } = useTheme();
+  const theme = useTheme();
 
   return (
     <Box>
-      <Box sx={{ marginBottom: '1rem', marginLeft: '1rem' }}>
-        <Typography variant="subheader3">
-          {palette.mode === 'dark' ? 'Dark' : 'Light'} Background
-        </Typography>
-      </Box>
+      {hideTitle ? null : (
+        <Box sx={{ marginBottom: '1rem', marginLeft: '1rem' }}>
+          <Typography variant="subheader3">
+            {palette.mode === 'dark' ? 'Dark' : 'Light'} Background
+          </Typography>
+        </Box>
+      )}
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          width: '161px',
+          [theme.breakpoints.up('md')]: {
+            width: '161px',
+          },
+          [theme.breakpoints.down('md')]: {
+            maxWidth: '161px',
+          },
           height: '174px',
           justifyContent: 'space-around',
           alignItems: 'center',
