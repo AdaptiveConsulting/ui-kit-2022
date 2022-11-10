@@ -14,6 +14,8 @@ import {
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import zoomPlugin from 'chartjs-plugin-zoom';
+import {Palette, useTheme} from '@mui/material'
+import {hexToRgbA} from "../../utils"
 
 ChartJS.register(
   CategoryScale,
@@ -40,21 +42,20 @@ const convertLabels = (labels: string[], step: number = 30) => {
 }
 
 
-const getData = (labels: string[], data: number[]) => {
+const getData = (labels: string[], data: number[], palette: Palette) => {
   return {
     labels: labels,
     datasets: [
       {
         lineTension: 0.2,
         data,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: palette.primary.main,
       },
     ],
   };
 };
 
-const generateBackgroundColorBoxes = (labelsConverted: string[], step: number = 60) => {
+const generateBackgroundColorBoxes = (labelsConverted: string[], step: number = 60, palette: Palette) => {
   let boxes = {};
   const labelsDisplayed = labelsConverted.filter((label) => label !== '');
   labelsDisplayed.forEach((label, index) => {
@@ -67,7 +68,7 @@ const generateBackgroundColorBoxes = (labelsConverted: string[], step: number = 
           type: 'box',
           xMin: index * step,
           xMax: index * step + step,
-          backgroundColor: 'rgba(241, 242, 242, 0.75)',
+          backgroundColor: palette.mode === "light" ? hexToRgbA(palette.grey[100], 0.6) : hexToRgbA(palette.grey[900], 0.6)
         },
       };
     }
@@ -96,10 +97,11 @@ const Graph: React.FC<GraphProps> = ({
   data,
   previousData,
 }) => {
+  const {palette} = useTheme();
   const max = Math.ceil(Math.max(...data));
   const min = Math.floor(Math.min(...data));
   const labelsConverted = convertLabels(labels, xLabelStep);
-  const backgroundColorBoxes = generateBackgroundColorBoxes(labelsConverted, xLabelStep);
+  const backgroundColorBoxes = generateBackgroundColorBoxes(labelsConverted, xLabelStep, palette);
 
   const options = {
     responsive: true,
@@ -123,7 +125,8 @@ const Graph: React.FC<GraphProps> = ({
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
-              return 'orange';
+              // @ts-ignore
+              return hexToRgbA(palette.paper.black, 0.2);
             }
           },
         },
@@ -160,7 +163,7 @@ const Graph: React.FC<GraphProps> = ({
             display: true,
             yMin: previousData,
             yMax: previousData,
-            borderColor: 'rgb(158, 158, 200)',
+            borderColor: palette.primary.dark,
             borderDash: [5, 2],
             borderWidth: 1,
           },
@@ -169,7 +172,7 @@ const Graph: React.FC<GraphProps> = ({
     },
   };
 
-  const datasets = getData(labelsConverted, data);
+  const datasets = getData(labelsConverted, data, palette);
   return <Line options={options as any} data={datasets} />;
 };
 
