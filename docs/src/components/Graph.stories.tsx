@@ -25,8 +25,8 @@ export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
 GraphStory.args = {
   yLabelStep: 50,
-  xLabelStep: 30,
+  xLabelStep: 60,
   labels,
-  data: labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 100}),
-  previousData: 160,
+  data: labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 200}),
+  previousData: Math.random() * 150,
 };

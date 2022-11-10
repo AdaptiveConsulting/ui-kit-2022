@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 
 import {
@@ -28,9 +27,22 @@ ChartJS.register(
   annotationPlugin,
 );
 
-const getData = (labels: string[], data: number[], step: number = 30) => {
+const convertLabels = (labels: string[], step: number = 30) => {
+  const [beginHour, beginMinute] = labels[0].split(":");
+  return labels.map((label, index, arr) => {
+    const [hour, minute] = label.split(':');
+    const interval = (parseInt(hour) - parseInt(beginHour)) * 60 + (parseInt(minute) - parseInt(beginMinute)); 
+    return interval % step === 0 ||
+      index === arr.length - 1
+      ? label
+      : '';
+  });
+}
+
+
+const getData = (labels: string[], data: number[]) => {
   return {
-    labels: labels.map((label, index, arr) => {const[hour, minute] = label.split(":"); return (parseInt(minute) + (parseInt(hour) * 60)) % step === 0 || parseInt(minute) % step === 0 || index === arr.length - 1? label: ""}),
+    labels: labels,
     datasets: [
       {
         lineTension: 0.2,
@@ -42,6 +54,27 @@ const getData = (labels: string[], data: number[], step: number = 30) => {
   };
 };
 
+const generateBackgroundColorBoxes = (labelsConverted: string[], step: number = 60) => {
+  let boxes = {};
+  const labelsDisplayed = labelsConverted.filter((label) => label !== '');
+  labelsDisplayed.forEach((label, index) => {
+    if (index % 2 === 0) {
+      boxes = {
+        ...boxes,
+        [`box${index}`]: {
+          borderWidth: 0,
+          drawTime: 'beforeDatasetsDraw',
+          type: 'box',
+          xMin: index * step,
+          xMax: index * step + step,
+          backgroundColor: 'rgba(241, 242, 242, 0.75)',
+        },
+      };
+    }
+  });
+  return boxes;
+};
+
 export interface GraphProps {
   yLabelStep?: number;
   xLabelStep?: number;
@@ -50,15 +83,29 @@ export interface GraphProps {
   previousData?: number;
 }
 
-const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, previousData }) => {
-  const max = Math.ceil(Math.max(...data)); 
+interface GridColorCtx {
+  tick: {
+    label: string;
+  };
+}
+
+const Graph: React.FC<GraphProps> = ({
+  yLabelStep,
+  xLabelStep,
+  labels,
+  data,
+  previousData,
+}) => {
+  const max = Math.ceil(Math.max(...data));
   const min = Math.floor(Math.min(...data));
+  const labelsConverted = convertLabels(labels, xLabelStep);
+  const backgroundColorBoxes = generateBackgroundColorBoxes(labelsConverted, xLabelStep);
+
   const options = {
     responsive: true,
     scales: {
       y: {
         ticks: {
-          beginAtZero: true,
           maxTicksLimit: data.length + 1,
           stepSize: yLabelStep,
           max: max,
@@ -72,8 +119,14 @@ const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, pre
           autoSkip: true,
         },
         grid: {
-          display: false
-        }
+          color: (ctx: GridColorCtx) => {
+            if (ctx.tick.label === '') {
+              return 'rgba(0, 0, 0, 0)';
+            } else {
+              return 'orange';
+            }
+          },
+        },
       },
     },
     elements: {
@@ -96,45 +149,14 @@ const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, pre
           pinch: {
             enabled: true,
           },
-          mode: "x" as "x" | "y" | "xy",
+          mode: 'x' as 'x' | 'y' | 'xy',
         },
       },
       annotation: {
         annotations: {
-          box1: {
-            borderWidth: 0,
-            drawTime: 'beforeDatasetsDraw',
-            type: 'box',
-            xMin: 0,
-            xMax: 60,
-            backgroundColor: 'rgba(241, 242, 242, 0.75)',
-          },
-          box2: {
-            borderWidth: 0,
-            drawTime: 'beforeDatasetsDraw',
-            type: 'box',
-            xMin: 120,
-            xMax: 180,
-            backgroundColor: 'rgba(241, 242, 242, 0.75)',
-          },
-          box3: {
-            borderWidth: 0,
-            drawTime: 'beforeDatasetsDraw',
-            type: 'box',
-            xMin: 240,
-            xMax: 300,
-            backgroundColor: 'rgba(241, 242, 242, 0.75)',
-          },
-          box4: {
-            borderWidth: 0,
-            drawTime: 'beforeDatasetsDraw',
-            type: 'box',
-            xMin: 360,
-            xMax: 420,
-            backgroundColor: 'rgba(241, 242, 242, 0.75)',
-          },
+          ...backgroundColorBoxes,
           line1: {
-            type: 'line' as "box",
+            type: 'line' as 'box',
             display: true,
             yMin: previousData,
             yMax: previousData,
@@ -142,12 +164,12 @@ const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, pre
             borderDash: [5, 2],
             borderWidth: 1,
           },
-        }
-      }
+        },
+      },
     },
   };
 
-  const datasets = getData(labels, data, xLabelStep);
+  const datasets = getData(labelsConverted, data);
   return <Line options={options as any} data={datasets} />;
 };
 
