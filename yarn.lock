@@ -5033,7 +5033,7 @@ __metadata:
     "@mui/material": ^5.10.6
     "@ui-kit-2022/theme": 0.0.1
     chart.js: ^3.9.1
-    chartjs-plugin-annotation: ^2.0.0
+    chartjs-plugin-annotation: ^2.0.1
     chartjs-plugin-zoom: ^1.2.1
     react: ^18.2.0
     react-chartjs-2: ^4.3.1
@@ -5061,7 +5061,7 @@ __metadata:
     "@ui-kit-2022/theme": 0.0.1
     babel-loader: ^8.2.5
     chart.js: ^3.9.1
-    chartjs-plugin-annotation: ^2.0.0
+    chartjs-plugin-annotation: ^2.0.1
     chartjs-plugin-zoom: ^1.2.1
     react-chartjs-2: ^4.3.1
     storybook-addon-pseudo-states: ^1.15.1
@@ -5083,7 +5083,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.38.0
     "@vitejs/plugin-react": ^2.1.0
     chart.js: ^3.9.1
-    chartjs-plugin-annotation: ^2.0.0
+    chartjs-plugin-annotation: ^2.0.1
     chartjs-plugin-zoom: ^1.2.1
     chromatic: ^6.10.2
     concurrently: ^7.5.0
@@ -6983,7 +6983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chartjs-plugin-annotation@npm:^2.0.0":
+"chartjs-plugin-annotation@npm:^2.0.1":
   version: 2.0.1
   resolution: "chartjs-plugin-annotation@npm:2.0.1"
   peerDependencies:

@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import * as React from 'react';
 
 import {
@@ -104,7 +104,6 @@ const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, pre
           box1: {
             borderWidth: 0,
             drawTime: 'beforeDatasetsDraw',
-            // @ts-ignore
             type: 'box',
             xMin: 0,
             xMax: 60,
@@ -113,10 +112,25 @@ const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, pre
           box2: {
             borderWidth: 0,
             drawTime: 'beforeDatasetsDraw',
-            // @ts-ignore
             type: 'box',
             xMin: 120,
             xMax: 180,
+            backgroundColor: 'rgba(241, 242, 242, 0.75)',
+          },
+          box3: {
+            borderWidth: 0,
+            drawTime: 'beforeDatasetsDraw',
+            type: 'box',
+            xMin: 240,
+            xMax: 300,
+            backgroundColor: 'rgba(241, 242, 242, 0.75)',
+          },
+          box4: {
+            borderWidth: 0,
+            drawTime: 'beforeDatasetsDraw',
+            type: 'box',
+            xMin: 360,
+            xMax: 420,
             backgroundColor: 'rgba(241, 242, 242, 0.75)',
           },
           line1: {
@@ -134,7 +148,7 @@ const Graph: React.FC<GraphProps> = ({ yLabelStep, xLabelStep, labels, data, pre
   };
 
   const datasets = getData(labels, data, xLabelStep);
-  return <Line options={options} data={datasets} />;
+  return <Line options={options as any} data={datasets} />;
 };
 
 export default Graph;
