@@ -44,7 +44,8 @@ export default {
 } as ComponentMeta<typeof MuiDivider>;
 
 const Template: ComponentStory<typeof MuiDivider> = (args) => {
-  return <MuiDivider {...args} sx={{ height: '100vh' }} />;
+  const sx = args.orientation === 'vertical' ? { height: '100vh' } : undefined;
+  return <MuiDivider {...args} sx={sx} />;
 };
 
 export const Divider = Template.bind({});
