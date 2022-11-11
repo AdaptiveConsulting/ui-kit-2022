@@ -14,8 +14,8 @@ import {
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import {Palette, useTheme} from '@mui/material'
-import {hexToRgbA} from "../../utils"
+import { Palette, useTheme } from '@mui/material';
+import { hexToRgbA } from '../../utils';
 
 ChartJS.register(
   CategoryScale,
@@ -30,17 +30,15 @@ ChartJS.register(
 );
 
 const convertLabels = (labels: string[], step: number = 30) => {
-  const [beginHour, beginMinute] = labels[0].split(":");
+  const [beginHour, beginMinute] = labels[0].split(':');
   return labels.map((label, index, arr) => {
     const [hour, minute] = label.split(':');
-    const interval = (parseInt(hour) - parseInt(beginHour)) * 60 + (parseInt(minute) - parseInt(beginMinute)); 
-    return interval % step === 0 ||
-      index === arr.length - 1
-      ? label
-      : '';
+    const interval =
+      (parseInt(hour) - parseInt(beginHour)) * 60 +
+      (parseInt(minute) - parseInt(beginMinute));
+    return interval % step === 0 || index === arr.length - 1 ? label : '';
   });
-}
-
+};
 
 const getData = (labels: string[], data: number[], palette: Palette) => {
   return {
@@ -55,7 +53,11 @@ const getData = (labels: string[], data: number[], palette: Palette) => {
   };
 };
 
-const generateBackgroundColorBoxes = (labelsConverted: string[], step: number = 60, palette: Palette) => {
+const generateBackgroundColorBoxes = (
+  labelsConverted: string[],
+  step: number = 60,
+  palette: Palette,
+) => {
   let boxes = {};
   const labelsDisplayed = labelsConverted.filter((label) => label !== '');
   labelsDisplayed.forEach((label, index) => {
@@ -68,7 +70,10 @@ const generateBackgroundColorBoxes = (labelsConverted: string[], step: number = 
           type: 'box',
           xMin: index * step,
           xMax: index * step + step,
-          backgroundColor: palette.mode === "light" ? hexToRgbA(palette.grey[100], 0.6) : hexToRgbA(palette.grey[900], 0.6)
+          backgroundColor:
+            palette.mode === 'light'
+              ? hexToRgbA(palette.grey[100], 0.6)
+              : hexToRgbA(palette.grey[900], 0.6),
         },
       };
     }
@@ -97,11 +102,15 @@ const Graph: React.FC<GraphProps> = ({
   data,
   previousData,
 }) => {
-  const {palette} = useTheme();
+  const { palette } = useTheme();
   const max = Math.ceil(Math.max(...data));
   const min = Math.floor(Math.min(...data));
   const labelsConverted = convertLabels(labels, xLabelStep);
-  const backgroundColorBoxes = generateBackgroundColorBoxes(labelsConverted, xLabelStep, palette);
+  const backgroundColorBoxes = generateBackgroundColorBoxes(
+    labelsConverted,
+    xLabelStep,
+    palette,
+  );
 
   const options = {
     responsive: true,
