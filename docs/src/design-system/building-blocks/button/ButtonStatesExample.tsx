@@ -1,16 +1,4 @@
-import {
-  Box,
-  Table,
-  TableBody,
-  TableCell,
-  tableCellClasses,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Theme,
-  ThemeProvider,
-  useTheme,
-} from '@mui/material';
+import { Box, Grid, Theme, useMediaQuery, useTheme } from '@mui/material';
 import { Button, Typography } from '@ui-kit-2022/components';
 import React from 'react';
 
@@ -26,210 +14,191 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
     theme.palette.mode === 'light'
       ? theme.palette.grey[50]
       : theme.palette.background.paper;
+  const gridDirection = useMediaQuery(theme.breakpoints.down('md')) ? 'column' : 'row';
+
   return (
-    <TableContainer>
-      <Table
-        sx={{
-          [`& .${tableCellClasses.root}`]: {
-            borderBottom: 'none',
-            p:
-              variantType === 'PRIMARY'
-                ? '0.625rem 1.8rem 0.625rem 0'
-                : '0.625rem 0 0.625rem 0.5rem',
-          },
-          width: variantType === 'PRIMARY' ? '98%' : '78%',
-        }}
+    <>
+      <Grid
+        container
+        spacing={{ sm: 0, md: 4 }}
+        rowSpacing={{ xs: 6, sm: 2 }}
+        sx={{ [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' } }}
       >
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">
-              <Typography variant="subheader1"></Typography>
-            </TableCell>
-            <TableCell align="left">
+        {gridDirection === 'column' ? null : (
+          <Grid
+            container
+            item
+            columnSpacing={'40px'}
+            columns={{ md: 6 }}
+            direction={gridDirection}
+            rowSpacing={4}
+            alignItems="left"
+          >
+            <Grid item md={1}></Grid>
+            <Grid item md={1}>
               <Typography variant="subheader3">Default</Typography>
-            </TableCell>
-            <TableCell align="left">
+            </Grid>
+            <Grid item md={1}>
               <Typography variant="subheader3">Hover</Typography>
-            </TableCell>
-            <TableCell align="left">
+            </Grid>
+            <Grid item md={1}>
               <Typography variant="subheader3">Active/Pressed</Typography>
-            </TableCell>
-            <TableCell align="left">
+            </Grid>
+            <Grid item md={1}>
               <Typography variant="subheader3">Focused(ADA)</Typography>
-            </TableCell>
+            </Grid>
+            <Grid item md={1}>
+              <Typography variant="subheader3">Disabled</Typography>
+            </Grid>
+          </Grid>
+        )}
+        <Grid
+          container
+          item
+          xs={1}
+          sm={1}
+          md={6}
+          columnSpacing={'40px'}
+          columns={{ xs: 2, sm: 3, md: 6 }}
+          direction={gridDirection}
+          rowSpacing={4}
+          alignItems="center"
+        >
+          <Grid item md={1}>
+            <Typography variant="subheader3">Default</Typography>
+          </Grid>
+          <Grid item md={1}>
+            <Button variant={variantType}>BUTTON TEXT</Button>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="hover">
+              <Button variant={variantType}>BUTTON TEXT</Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="active">
+              <Button variant={variantType}>BUTTON TEXT</Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="focus">
+              <Button variant={variantType}>BUTTON TEXT</Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
             {variantType === 'PRIMARY' && (
-              <TableCell align="left">
-                <Typography variant="subheader3">Disabled</Typography>
-              </TableCell>
+              <Box>
+                <Button variant={variantType} disabled>
+                  BUTTON TEXT
+                </Button>
+              </Box>
             )}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell
-              sx={{
-                width: variantType === 'PRIMARY' ? '10%' : '12%',
-              }}
-            >
-              <Typography variant="subheader3">Default</Typography>
-            </TableCell>
-            <ThemeProvider theme={theme}>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                  borderTopLeftRadius: '4px',
-                }}
-              >
-                <Button variant={variantType}>BUTTON TEXT</Button>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="hover">
-                  <Button variant={variantType}>BUTTON TEXT</Button>
-                </Box>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="active">
-                  <Button variant={variantType}>BUTTON TEXT</Button>
-                </Box>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                  borderTopRightRadius: '4px',
-                  width: variantType !== 'PRIMARY' ? '7.5rem' : 'auto',
-                }}
-              >
-                <Box className="focus">
-                  <Button variant={variantType}>BUTTON TEXT</Button>
-                </Box>
-              </TableCell>
-              {variantType === 'PRIMARY' && (
-                <TableCell
-                  align="left"
-                  sx={{
-                    backgroundColor,
-                  }}
-                >
-                  <Box>
-                    <Button variant={variantType} disabled>
-                      BUTTON TEXT
-                    </Button>
-                  </Box>
-                </TableCell>
-              )}
-            </ThemeProvider>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <Typography variant="subheader3">Icon Right</Typography>
-            </TableCell>
-            <ThemeProvider theme={theme}>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Button variant={variantType} icon="right">
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          item
+          xs={1}
+          sm={1}
+          md={6}
+          columnSpacing={'40px'}
+          columns={{ xs: 2, sm: 3, md: 6 }}
+          direction={gridDirection}
+          rowSpacing={4}
+          alignItems="center"
+        >
+          <Grid item md={1}>
+            <Typography variant="subheader3">Icon Right</Typography>
+          </Grid>
+          <Grid item md={1}>
+            <Button variant={variantType} icon="right">
+              BUTTON TEXT
+            </Button>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="hover">
+              <Button variant={variantType} icon="right">
+                BUTTON TEXT
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="active">
+              <Button variant={variantType} icon="right">
+                BUTTON TEXT
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="focus">
+              <Button variant={variantType} icon="right">
+                BUTTON TEXT
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            {variantType === 'PRIMARY' && (
+              <Box>
+                <Button variant={variantType} disabled icon="right">
                   BUTTON TEXT
                 </Button>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="hover">
-                  <Button variant={variantType} icon="right">
-                    BUTTON TEXT
-                  </Button>
-                </Box>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="active">
-                  <Button variant={variantType} icon="right">
-                    BUTTON TEXT
-                  </Button>
-                </Box>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="focus">
-                  <Button variant={variantType} icon="right">
-                    BUTTON TEXT
-                  </Button>
-                </Box>
-              </TableCell>
-            </ThemeProvider>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <Typography variant="subheader3">Icon Left</Typography>
-            </TableCell>
-            <ThemeProvider theme={theme}>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                  borderBottomLeftRadius: '4px',
-                }}
-              >
-                <Button variant={variantType} icon="left">
+              </Box>
+            )}
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          item
+          xs={1}
+          sm={1}
+          md={6}
+          columnSpacing={'40px'}
+          columns={{ xs: 2, sm: 3, md: 6 }}
+          direction={gridDirection}
+          rowSpacing={4}
+          alignItems="center"
+        >
+          <Grid item md={1}>
+            <Typography variant="subheader3">Icon Left</Typography>
+          </Grid>
+          <Grid item md={1}>
+            <Button variant={variantType} icon="left">
+              BUTTON TEXT
+            </Button>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="hover">
+              <Button variant={variantType} icon="left">
+                BUTTON TEXT
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="active">
+              <Button variant={variantType} icon="left">
+                BUTTON TEXT
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            <Box className="focus">
+              <Button variant={variantType} icon="left">
+                BUTTON TEXT
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item md={1}>
+            {variantType === 'PRIMARY' && (
+              <Box>
+                <Button variant={variantType} disabled icon="left">
                   BUTTON TEXT
                 </Button>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="hover">
-                  <Button variant={variantType} icon="left">
-                    BUTTON TEXT
-                  </Button>
-                </Box>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                }}
-              >
-                <Box className="active">
-                  <Button variant={variantType} icon="left">
-                    BUTTON TEXT
-                  </Button>
-                </Box>
-              </TableCell>
-              <TableCell
-                sx={{
-                  backgroundColor,
-                  borderBottomRightRadius: '4px',
-                }}
-              >
-                <Box className="focus">
-                  <Button variant={variantType} icon="left">
-                    BUTTON TEXT
-                  </Button>
-                </Box>
-              </TableCell>
-            </ThemeProvider>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+              </Box>
+            )}
+          </Grid>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 export default ButtonStatesExample;
