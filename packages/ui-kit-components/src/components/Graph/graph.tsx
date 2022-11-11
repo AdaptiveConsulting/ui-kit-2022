@@ -116,6 +116,15 @@ interface GridColorCtx {
   };
 }
 
+/**
+ * 
+ * @param yLabelStep represents the step size between the values of labels in y-axis. 
+ * @param xLabelStep represents the step size between the values of labels in x-axis. 
+ * @param labels an array contains the labels displayed in x-axis 
+ * @param data an array contains one or two series of data displayed for the line on the chart 
+ * @param previousData a value displayed by the horizantol line on the chart 
+ * @returns 
+ */
 const Graph: React.FC<GraphProps> = ({
   yLabelStep,
   xLabelStep,
