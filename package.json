@@ -61,8 +61,8 @@
     "vite-plugin-svgr": "^2.2.1"
   },
   "lint-staged": {
-    "./*.{jsx,js,ts,tsx}": "npx eslint --fix",
-    "./*.{js,jsx,ts,tsx,css,md,json}": "npx prettier --cache --write"
+    "*.{jsx,js,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,css,md,json}": "prettier --cache --write"
   },
   "repository": {
     "type": "git",
