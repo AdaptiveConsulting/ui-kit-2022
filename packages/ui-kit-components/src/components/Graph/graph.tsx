@@ -127,8 +127,6 @@ const Graph: React.FC<GraphProps> = ({
   const max = Math.ceil(Math.max(...(data[0].filter(num => num !== undefined)) as number[]));
   const min = Math.floor(Math.min(...(data[0].filter(num => num !== undefined)) as number[]));
 
-  console.table([max, min], ["max", "min"])
-
   const labelsConverted = convertLabels(labels, xLabelStep);
   const backgroundColorBoxes = generateBackgroundColorBoxes(
     labelsConverted,
