@@ -8,6 +8,8 @@ import {
   TableHead,
   TableRow,
   ThemeProvider,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 import { dark, light } from '@ui-kit-2022/theme';
@@ -36,6 +38,8 @@ const rows = [
 ];
 
 const UsagePage = () => {
+  const theme = useTheme();
+
   return (
     <>
       <Box>
@@ -106,17 +110,62 @@ const UsagePage = () => {
                   </TableCell>
                 </TableRow>
               ))}
+              {useMediaQuery(theme.breakpoints.down('md')) ? (
+                <>
+                  <TableRow>
+                    <TableCell
+                      align="left"
+                      style={{ verticalAlign: 'top' }}
+                      sx={{ padding: 0, width: '164px' }}
+                    >
+                      <Typography variant="subheader3">Dark Background</Typography>
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        width: '510px',
+                      }}
+                    >
+                      <ThemeProvider theme={dark}>
+                        <UsageExample hideTitle={true} />
+                      </ThemeProvider>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell
+                      align="left"
+                      style={{ verticalAlign: 'top' }}
+                      sx={{ padding: 0, width: '164px' }}
+                    >
+                      <Typography variant="subheader3">Light Background</Typography>
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        padding: '0 0 1.25rem 0',
+                        width: '510px',
+                      }}
+                    >
+                      <ThemeProvider theme={light}>
+                        <UsageExample hideTitle={true} />
+                      </ThemeProvider>
+                    </TableCell>
+                  </TableRow>
+                </>
+              ) : null}
             </TableBody>
           </Table>
         </TableContainer>
-        <ThemeProvider theme={dark}>
-          <UsageExample />
-        </ThemeProvider>
-        <ThemeProvider theme={light}>
-          <Box sx={{ marginLeft: '0.56rem' }}>
+        {useMediaQuery(theme.breakpoints.down('md')) ? null : (
+          <ThemeProvider theme={dark}>
             <UsageExample />
-          </Box>
-        </ThemeProvider>
+          </ThemeProvider>
+        )}
+        {useMediaQuery(theme.breakpoints.down('md')) ? null : (
+          <ThemeProvider theme={light}>
+            <UsageExample />
+          </ThemeProvider>
+        )}
       </Box>
     </>
   );

@@ -7,5 +7,6 @@ export { LogoText } from './components/Branding/LogoText';
 export { Button } from './components/Button';
 export { Pill } from './components/Pill';
 export { SplashScreen } from './components/SplashScreen';
+export { TextSearch } from './components/TextSearch';
 export { Typography } from './components/Typography';
 export * as Icon from './icons';

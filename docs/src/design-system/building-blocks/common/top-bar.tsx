@@ -1,37 +1,27 @@
-import { Box, SvgIcon, Typography, useTheme } from '@mui/material';
+import { Toolbar, Typography, useTheme } from '@mui/material';
+import { LogoBrand } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 interface Props {
-  icon?: React.ElementType;
   title: JSX.Element | string;
 }
 
-const TopBar: React.FC<Props> = ({ icon, title }) => {
+const TopBar: React.FC<Props> = ({ title }) => {
   const { palette } = useTheme();
   return (
-    <Box
+    <Toolbar
       sx={{
-        height: '68px',
-        backgroundColor: { dark: palette.grey['900'], light: palette.grey['200'] }[
-          palette.mode
-        ],
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0px 1rem',
-        justifyContent: 'flex-start',
+        backgroundColor: {
+          dark: palette.grey['800'],
+          light: palette.grey['200'],
+        }[palette.mode],
       }}
     >
-      {icon && (
-        <SvgIcon
-          component={icon}
-          viewBox="0 0 35 35"
-          sx={{ width: '34px', height: '34px' }}
-        />
-      )}
-      <Typography variant="h1" sx={{ marginLeft: '1rem' }}>
+      <LogoBrand width={34} height={34} />
+      <Typography variant="h4" ml={2}>
         {title}
       </Typography>
-    </Box>
+    </Toolbar>
   );
 };
 
