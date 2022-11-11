@@ -27,6 +27,32 @@ GraphStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
-  data: labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 200}),
+  data: [labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 200})],
   previousData: Math.random() * 150,
 };
+
+export const GraphCloseEarlyStory = Template.bind({});
+
+GraphCloseEarlyStory.storyName = 'Graph Close Early';
+GraphCloseEarlyStory.args = {
+  yLabelStep: 50,
+  xLabelStep: 60,
+  labels,
+  data: [labels.map((_, index) => {y+= 0.008; return index < 300 ? perlin.get(1, y) * 300 + 200: undefined})],
+  previousData: Math.random() * 150,
+}
+
+export const GraphTwoPartsStory = Template.bind({});
+
+const dataWholeLine = labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 200});
+
+GraphTwoPartsStory.storyName = 'Graph Two Parts';
+GraphTwoPartsStory.args = {
+  yLabelStep: 50,
+  xLabelStep: 60,
+  labels,
+  data: [dataWholeLine.map((element, index) => index < 300 ? element : undefined),
+    dataWholeLine.map((element, index) => index >= 300 ? element : undefined)
+  ],
+  previousData: Math.random() * 150,
+}

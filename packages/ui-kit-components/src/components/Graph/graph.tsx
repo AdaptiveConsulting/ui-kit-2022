@@ -40,13 +40,32 @@ const convertLabels = (labels: string[], step: number = 30) => {
   });
 };
 
-const getData = (labels: string[], data: number[], palette: Palette) => {
-  return {
+const getData = (labels: string[], data: PartialNumberType[][], palette: Palette) => {
+  const [dataFirstPart, dataSecondPart] = data;
+
+  return dataSecondPart ? {
     labels: labels,
     datasets: [
       {
         lineTension: 0.2,
-        data,
+        data: dataFirstPart,
+        borderColor: palette.primary.main,
+      },
+      {
+        lineTension: 0.2,
+        data: dataSecondPart,
+        borderDash: [10,5],
+        borderColor: palette.primary.main,
+      },
+    ],
+  } 
+  : 
+  {
+    labels: labels,
+    datasets: [
+      {
+        lineTension: 0.2,
+        data: dataFirstPart,
         borderColor: palette.primary.main,
       },
     ],
@@ -81,11 +100,13 @@ const generateBackgroundColorBoxes = (
   return boxes;
 };
 
+type PartialNumberType = number | undefined;
+
 export interface GraphProps {
   yLabelStep?: number;
   xLabelStep?: number;
   labels: string[];
-  data: number[];
+  data: PartialNumberType[][];
   previousData?: number;
 }
 
@@ -103,8 +124,11 @@ const Graph: React.FC<GraphProps> = ({
   previousData,
 }) => {
   const { palette } = useTheme();
-  const max = Math.ceil(Math.max(...data));
-  const min = Math.floor(Math.min(...data));
+  const max = Math.ceil(Math.max(...(data[0].filter(num => num !== undefined)) as number[]));
+  const min = Math.floor(Math.min(...(data[0].filter(num => num !== undefined)) as number[]));
+
+  console.table([max, min], ["max", "min"])
+
   const labelsConverted = convertLabels(labels, xLabelStep);
   const backgroundColorBoxes = generateBackgroundColorBoxes(
     labelsConverted,
@@ -117,7 +141,7 @@ const Graph: React.FC<GraphProps> = ({
     scales: {
       y: {
         ticks: {
-          maxTicksLimit: data.length + 1,
+          maxTicksLimit: data[0].length + 1,
           stepSize: yLabelStep,
           max: max,
           min: min,
@@ -182,7 +206,7 @@ const Graph: React.FC<GraphProps> = ({
   };
 
   const datasets = getData(labelsConverted, data, palette);
-  return <Line options={options as any} data={datasets} />;
+  return <Line options={options as any} data={datasets as any} />;
 };
 
 export default Graph;
