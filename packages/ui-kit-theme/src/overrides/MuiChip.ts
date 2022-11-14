@@ -102,6 +102,11 @@ export default {
         color: alpha(theme.palette.common.black, 0.95),
       }),
     }),
+    colorInfo: ({ theme, ownerState }: any) => ({
+      ...(ownerState.variant === 'filled' && {
+        color: alpha(theme.palette.common.black, 0.95),
+      }),
+    }),
     icon: {
       width: '16px',
       height: '16px',
