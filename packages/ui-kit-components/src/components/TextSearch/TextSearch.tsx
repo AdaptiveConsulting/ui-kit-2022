@@ -7,7 +7,10 @@ import {
 
 import * as Icons from '../../icons';
 
-type TextSearchProps<T> = Omit<AutocompleteProps<T, false, false, false>, 'renderInput'>;
+export interface TextSearchProps<T>
+  extends Omit<AutocompleteProps<T, false, false, false>, 'renderInput'> {
+  placeholder?: string;
+}
 
 export const renderPredictiveLabel = (
   label: string,
