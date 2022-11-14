@@ -1,4 +1,4 @@
-import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Grid, ThemeProvider, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 import { dark, light } from '@ui-kit-2022/theme';
 
@@ -7,6 +7,10 @@ import TopBar from '../building-blocks/common/top-bar';
 
 const StatesPage = () => {
   const theme = useTheme();
+  const headerStyles = {
+    paddingLeft: '8px !important',
+    paddingBottom: `${theme.spacing(4)} !important`,
+  };
 
   return (
     <>
@@ -38,7 +42,7 @@ const StatesPage = () => {
                   <Grid item xs={0} md={1}></Grid>
                 </>
               ) : null}
-              <Grid item md={8}>
+              <Grid item md={8} sx={{ ...headerStyles }}>
                 <Typography variant="subheader1">Primary - any background</Typography>
               </Grid>
             </Grid>
@@ -60,13 +64,15 @@ const StatesPage = () => {
                   <Grid item xs={0} md={1}></Grid>
                 </>
               ) : null}
-              <Grid item md={8}>
+              <Grid item md={8} sx={{ ...headerStyles }}>
                 <Typography variant="subheader1">
                   Secondary - On light background
                 </Typography>
               </Grid>
             </Grid>
-            <ButtonStatesExample variantType="SECONDARY" overrideTheme={light} />
+            <ThemeProvider theme={light}>
+              <ButtonStatesExample variantType="SECONDARY" overrideTheme={light} />
+            </ThemeProvider>
           </Box>
 
           {/* secondary-on dark background */}
@@ -85,13 +91,15 @@ const StatesPage = () => {
                   <Grid item xs={0} md={1}></Grid>
                 </>
               ) : null}
-              <Grid item md={8}>
+              <Grid item md={8} sx={{ ...headerStyles }}>
                 <Typography variant="subheader1">
                   Secondary - On dark background
                 </Typography>
               </Grid>
             </Grid>
-            <ButtonStatesExample variantType="SECONDARY" overrideTheme={dark} />
+            <ThemeProvider theme={dark}>
+              <ButtonStatesExample variantType="SECONDARY" overrideTheme={dark} />
+            </ThemeProvider>
           </Box>
           {/* tertiary-on light background */}
           <Box sx={{ marginBottom: '2.5rem' }}>
@@ -109,13 +117,15 @@ const StatesPage = () => {
                   <Grid item xs={0} md={1}></Grid>
                 </>
               ) : null}
-              <Grid item md={8}>
+              <Grid item md={8} sx={{ ...headerStyles }}>
                 <Typography variant="subheader1">
                   Tertiary - On light background
                 </Typography>
               </Grid>
             </Grid>
-            <ButtonStatesExample variantType="TERTIARY" overrideTheme={light} />
+            <ThemeProvider theme={light}>
+              <ButtonStatesExample variantType="TERTIARY" overrideTheme={light} />
+            </ThemeProvider>
           </Box>
           {/* tertiary-on dark background */}
           <Box>
@@ -133,13 +143,15 @@ const StatesPage = () => {
                   <Grid item xs={0} md={1}></Grid>
                 </>
               ) : null}
-              <Grid item md={8}>
+              <Grid item md={8} sx={{ ...headerStyles }}>
                 <Typography variant="subheader1">
                   Tertiary - On dark background
                 </Typography>
               </Grid>
             </Grid>
-            <ButtonStatesExample variantType="TERTIARY" overrideTheme={dark} />
+            <ThemeProvider theme={dark}>
+              <ButtonStatesExample variantType="TERTIARY" overrideTheme={dark} />
+            </ThemeProvider>
           </Box>
         </Box>
       </Box>
