@@ -179,7 +179,6 @@ const Graph: React.FC<GraphProps> = ({
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
-
               return hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2);
             }
           },
