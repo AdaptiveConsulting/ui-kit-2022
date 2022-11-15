@@ -42,7 +42,7 @@ export const light: PaletteOptions = {
     disabled: 'rgba(0, 0, 0, 0.38)',
   },
   background: {
-    paper: BASIC_COLOR.grey[50],
+    paper: BASIC_COLOR.paper.white,
   },
   action: {
     disabledBackground: BASIC_COLOR.grey[200],
@@ -63,7 +63,7 @@ export const dark: PaletteOptions = {
     disabled: 'rgba(255, 255, 255, 0.38)',
   },
   background: {
-    paper: BASIC_COLOR.grey[900],
+    paper: BASIC_COLOR.paper.black,
   },
   action: {
     disabledBackground: BASIC_COLOR.grey[200],
