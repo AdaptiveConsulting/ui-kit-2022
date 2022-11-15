@@ -159,6 +159,12 @@ const Graph: React.FC<GraphProps> = ({
     responsive: true,
     scales: {
       y: {
+        // border: {
+        //   color:
+        //     palette.mode === 'light'
+        //       ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
+        //       : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2),
+        // },
         ticks: {
           maxTicksLimit: data[0].length + 1,
           stepSize: yLabelStep,
@@ -166,8 +172,25 @@ const Graph: React.FC<GraphProps> = ({
           min: min,
           autoSkip: true,
         },
+        grid: {
+          color: (ctx: GridColorCtx) => {
+            if (ctx.tick.label === '') {
+              return 'rgba(0, 0, 0, 0)';
+            } else {
+              return palette.mode === 'light'
+                ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
+                : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2);
+            }
+          },
+        },
       },
       x: {
+        // border: {
+        //   color:
+        //     palette.mode === 'light'
+        //       ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
+        //       : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2),
+        // },
         ticks: {
           maxTicksLimit: labels.length + 1,
           autoSkip: true,
@@ -179,7 +202,9 @@ const Graph: React.FC<GraphProps> = ({
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
-              return hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2);
+              return palette.mode === 'light'
+                ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
+                : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2);
             }
           },
         },
