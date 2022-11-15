@@ -43,33 +43,33 @@ const convertLabels = (labels: string[], step: number = 30) => {
 const getData = (labels: string[], data: PartialNumberType[][], palette: Palette) => {
   const [dataFirstPart, dataSecondPart] = data;
 
-  return dataSecondPart ? {
-    labels: labels,
-    datasets: [
-      {
-        lineTension: 0.2,
-        data: dataFirstPart,
-        borderColor: palette.primary.main,
-      },
-      {
-        lineTension: 0.2,
-        data: dataSecondPart,
-        borderDash: [10,5],
-        borderColor: palette.primary.main,
-      },
-    ],
-  } 
-  : 
-  {
-    labels: labels,
-    datasets: [
-      {
-        lineTension: 0.2,
-        data: dataFirstPart,
-        borderColor: palette.primary.main,
-      },
-    ],
-  };
+  return dataSecondPart
+    ? {
+        labels: labels,
+        datasets: [
+          {
+            lineTension: 0.2,
+            data: dataFirstPart,
+            borderColor: palette.primary.main,
+          },
+          {
+            lineTension: 0.2,
+            data: dataSecondPart,
+            borderDash: [10, 5],
+            borderColor: palette.primary.main,
+          },
+        ],
+      }
+    : {
+        labels: labels,
+        datasets: [
+          {
+            lineTension: 0.2,
+            data: dataFirstPart,
+            borderColor: palette.primary.main,
+          },
+        ],
+      };
 };
 
 const generateBackgroundColorBoxes = (
@@ -117,13 +117,13 @@ interface GridColorCtx {
 }
 
 /**
- * 
- * @param yLabelStep represents the step size between the values of labels in y-axis. 
- * @param xLabelStep represents the step size between the values of labels in x-axis. 
- * @param labels an array contains the labels displayed in x-axis 
- * @param data an array contains one or two series of data displayed for the line on the chart 
- * @param previousData a value displayed by the horizantol line on the chart 
- * @returns 
+ *
+ * @param yLabelStep represents the step size between the values of labels in y-axis.
+ * @param xLabelStep represents the step size between the values of labels in x-axis.
+ * @param labels an array contains the labels displayed in x-axis
+ * @param data an array contains one or two series of data displayed for the line on the chart
+ * @param previousData a value displayed by the horizantol line on the chart
+ * @returns
  */
 const Graph: React.FC<GraphProps> = ({
   yLabelStep,
@@ -133,8 +133,12 @@ const Graph: React.FC<GraphProps> = ({
   previousData,
 }) => {
   const { palette } = useTheme();
-  const max = Math.ceil(Math.max(...(data[0].filter(num => num !== undefined)) as number[]));
-  const min = Math.floor(Math.min(...(data[0].filter(num => num !== undefined)) as number[]));
+  const max = Math.ceil(
+    Math.max(...(data[0].filter((num) => num !== undefined) as number[])),
+  );
+  const min = Math.floor(
+    Math.min(...(data[0].filter((num) => num !== undefined) as number[])),
+  );
 
   const labelsConverted = convertLabels(labels, xLabelStep);
   const backgroundColorBoxes = generateBackgroundColorBoxes(
@@ -159,6 +163,8 @@ const Graph: React.FC<GraphProps> = ({
         ticks: {
           maxTicksLimit: labels.length + 1,
           autoSkip: true,
+          maxRotation: 0,
+          minRotation: 0
         },
         grid: {
           color: (ctx: GridColorCtx) => {
@@ -180,6 +186,12 @@ const Graph: React.FC<GraphProps> = ({
     plugins: {
       legend: {
         display: false,
+        labels: {
+          fontColor:
+            palette.mode === 'light'
+              ? hexToRgbA(palette.common.black, 0.55)
+              : hexToRgbA(palette.common.white, 0.55),
+        },
       },
       title: {
         display: false,
