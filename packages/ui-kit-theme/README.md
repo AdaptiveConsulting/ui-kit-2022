@@ -1,5 +1,8 @@
 # UI Kit Theme
 
+[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://adaptiveconsulting.github.io/ui-kit-2022/)
+[![npm version](https://img.shields.io/npm/v/@ui-kit-2022/theme.svg?label=@ui-kit-2022/theme)](https://www.npmjs.com/package/@ui-kit-2022/theme)
+
 This package contains light and dark themes from the UI Kit Design System. To learn more visit the project's:
 
 - [Storybook](https://adaptiveconsulting.github.io/ui-kit-2022/)
