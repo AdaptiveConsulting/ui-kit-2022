@@ -28,6 +28,15 @@ ChartJS.register(
   annotationPlugin,
 );
 
+interface PaperColorOption {
+  black: string;
+  white: string;
+}
+
+interface PaperOption {
+  paper: PaperColorOption;
+}
+
 const convertLabels = (labels: string[], step = 30) => {
   const [beginHour, beginMinute] = labels[0].split(':');
   return labels.map((label, index, arr) => {
@@ -170,8 +179,8 @@ const Graph: React.FC<GraphProps> = ({
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
-              // @ts-ignore
-              return hexToRgbA(palette.paper.black, 0.2);
+
+              return hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2);
             }
           },
         },

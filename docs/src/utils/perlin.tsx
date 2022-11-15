@@ -47,7 +47,7 @@ class Perlin {
   }
 
   get(x: number, y: number) {
-    if (this.memory.hasOwnProperty(`${x}, ${y}`)) {
+    if (this.memory[`${x}, ${y}`]) {
       console.log(this.memory);
       return this.memory[`${x}, ${y}`];
     }
