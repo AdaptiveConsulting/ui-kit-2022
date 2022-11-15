@@ -11,4 +11,4 @@ const Template: ComponentStory<typeof Charts> = () => <Charts />;
 
 export const chartsStory = Template.bind({});
 
-chartsStory.storyName = "Charts";
+chartsStory.storyName = 'Charts';
