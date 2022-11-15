@@ -1,4 +1,4 @@
-import { Palette, useTheme } from '@mui/material';
+import { Palette, useTheme, alpha } from '@mui/material';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -14,7 +14,7 @@ import zoomPlugin from 'chartjs-plugin-zoom';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
 
-import { hexToRgbA } from '../../utils';
+// import { alpha } from '../../utils';
 
 ChartJS.register(
   CategoryScale,
@@ -99,8 +99,8 @@ const generateBackgroundColorBoxes = (
           xMax: index * step + step,
           backgroundColor:
             palette.mode === 'light'
-              ? hexToRgbA(palette.grey[100], 0.6)
-              : hexToRgbA(palette.grey[900], 0.6),
+              ? alpha(palette.grey[100], 0.6)
+              : alpha(palette.grey[900], 0.6),
         },
       };
     }
@@ -172,8 +172,8 @@ const Graph: React.FC<GraphProps> = ({
               return 'rgba(0, 0, 0, 0)';
             } else {
               return palette.mode === 'light'
-                ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
-                : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2);
+                ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
+                : alpha((palette as Palette & PaperOption).paper.white, 0.2);
             }
           },
         },
@@ -191,8 +191,8 @@ const Graph: React.FC<GraphProps> = ({
               return 'rgba(0, 0, 0, 0)';
             } else {
               return palette.mode === 'light'
-                ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
-                : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2);
+                ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
+                : alpha((palette as Palette & PaperOption).paper.white, 0.2);
             }
           },
         },
@@ -209,8 +209,8 @@ const Graph: React.FC<GraphProps> = ({
         labels: {
           fontColor:
             palette.mode === 'light'
-              ? hexToRgbA(palette.common.black, 0.55)
-              : hexToRgbA(palette.common.white, 0.55),
+              ? alpha(palette.common.black, 0.55)
+              : alpha(palette.common.white, 0.55),
         },
       },
       title: {
