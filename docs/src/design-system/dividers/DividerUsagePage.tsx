@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 
 import { TopBar } from '../building-blocks/common';
+import ChartDividerExample from '../building-blocks/divider/ChartDividerExample';
 import DashedLineExample from '../building-blocks/divider/DashedLineExample';
 import DividerCompositionExample from '../building-blocks/divider/DividerCompositionExample';
 import TableDividerExample from '../building-blocks/divider/TableDividerExample';
@@ -63,10 +64,9 @@ const DividerUsagePage = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={2}>
-                Graph
+              <Grid item xs={10}>
+                <ChartDividerExample />
               </Grid>
-              <Grid item xs={8}></Grid>
             </Grid>
           </Box>
           <Box mt={5}>
@@ -141,7 +141,7 @@ const DividerUsagePage = () => {
                     Consider using vertical or horizontal dividers to separate blocks of
                     similarly formatted content.
                   </Typography>
-                  <Grid container columnSpacing={2}>
+                  <Grid container columnSpacing={3}>
                     <Grid item xs={6}>
                       <Typography variant="h2" color={palette.success.main} mb={3}>
                         Do:
