@@ -14,18 +14,8 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
   const paddingLeft = `${theme.spacing(2)} !important`;
   const gridItemStyle = {
     paddingLeft: paddingLeft,
-    // Using paddingTop instead of higher rowSpacing to prevent white space between rows
-    // paddingTop: `${theme.spacing(4)} !important`,
     ':last-child': {
       backgroundColor: 'transparent',
-    },
-    [theme.breakpoints.up('md')]: {
-      // backgroundColor:
-      //   variantType !== 'PRIMARY'
-      //     ? theme.palette.mode === 'light'
-      //       ? theme.palette.grey[50]
-      //       : theme.palette.background.paper
-      //     : null,
     },
     backgroundColor:
       variantType !== 'PRIMARY'
@@ -36,7 +26,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
   };
   const gridItemStyle_Last = {
     ...gridItemStyle,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('md') && theme.breakpoints.up('sm')]: {
       //Using specific padding to have consistent spacing between columns.
       //The grid's negative margin makes consistent spacing difficult.
       paddingLeft: '33px !important',
@@ -59,6 +49,12 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
       },
       ' > div:nth-of-type(5)': {
         paddingBottom: `${theme.spacing(2)} !important`,
+      },
+    },
+
+    [theme.breakpoints.up('sm')]: {
+      ' > * ': {
+        paddingRight: `${theme.spacing(2)} !important`,
       },
     },
   };
@@ -84,9 +80,13 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
             },
           },
           [theme.breakpoints.down('sm')]: {
+            margin: '0 auto',
             gridTemplateAreas: ` 
             "default default"
             "left right"`,
+            '> div': {
+              marginLeft: 0,
+            },
           },
         }}
       >

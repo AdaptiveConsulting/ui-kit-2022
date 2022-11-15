@@ -11,6 +11,9 @@ const StatesPage = () => {
     paddingLeft: '8px !important',
     paddingBottom: `${theme.spacing(4)} !important`,
   };
+  const gridStyles = {
+    [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' },
+  };
 
   return (
     <>
@@ -20,7 +23,7 @@ const StatesPage = () => {
       <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
         <Box
           sx={{
-            width: '900px',
+            maxWidth: '900px',
             paddingLeft: '1.25rem',
             paddingTop: '1.875rem',
             paddingBottom: '3.5rem',
@@ -33,7 +36,7 @@ const StatesPage = () => {
               columnSpacing={'40px'}
               rowSpacing={{ xs: 6, sm: 2 }}
               sx={{
-                [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' },
+                ...gridStyles,
               }}
             >
               {useMediaQuery(theme.breakpoints.up('md')) ? (
@@ -55,7 +58,7 @@ const StatesPage = () => {
               columnSpacing={'40px'}
               rowSpacing={{ xs: 6, sm: 2 }}
               sx={{
-                [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' },
+                ...gridStyles,
               }}
             >
               {useMediaQuery(theme.breakpoints.up('md')) ? (
@@ -82,7 +85,7 @@ const StatesPage = () => {
               columnSpacing={'40px'}
               rowSpacing={{ xs: 6, sm: 2 }}
               sx={{
-                [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' },
+                ...gridStyles,
               }}
             >
               {useMediaQuery(theme.breakpoints.up('md')) ? (
@@ -108,7 +111,7 @@ const StatesPage = () => {
               columnSpacing={'40px'}
               rowSpacing={{ xs: 6, sm: 2 }}
               sx={{
-                [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' },
+                ...gridStyles,
               }}
             >
               {useMediaQuery(theme.breakpoints.up('md')) ? (
@@ -134,7 +137,7 @@ const StatesPage = () => {
               columnSpacing={'40px'}
               rowSpacing={{ xs: 6, sm: 2 }}
               sx={{
-                [theme.breakpoints.down('md')]: { maxWidth: '600px', margin: '0 auto' },
+                ...gridStyles,
               }}
             >
               {useMediaQuery(theme.breakpoints.up('md')) ? (
