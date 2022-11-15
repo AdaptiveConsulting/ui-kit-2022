@@ -159,12 +159,6 @@ const Graph: React.FC<GraphProps> = ({
     responsive: true,
     scales: {
       y: {
-        // border: {
-        //   color:
-        //     palette.mode === 'light'
-        //       ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
-        //       : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2),
-        // },
         ticks: {
           maxTicksLimit: data[0].length + 1,
           stepSize: yLabelStep,
@@ -185,12 +179,6 @@ const Graph: React.FC<GraphProps> = ({
         },
       },
       x: {
-        // border: {
-        //   color:
-        //     palette.mode === 'light'
-        //       ? hexToRgbA((palette as Palette & PaperOption).paper.black, 0.2)
-        //       : hexToRgbA((palette as Palette & PaperOption).paper.white, 0.2),
-        // },
         ticks: {
           maxTicksLimit: labels.length + 1,
           autoSkip: true,
