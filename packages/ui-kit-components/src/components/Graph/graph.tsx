@@ -93,7 +93,7 @@ const generateBackgroundColorBoxes = (
         ...boxes,
         [`box${index}`]: {
           borderWidth: 0,
-          drawTime: 'beforeDatasetsDraw',
+          drawTime: 'beforeDraw',
           type: 'box',
           xMin: index * step,
           xMax: index * step + step,
