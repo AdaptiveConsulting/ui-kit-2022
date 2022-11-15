@@ -4436,15 +4436,15 @@ __metadata:
   linkType: hard
 
 "@types/babel__core@npm:^7.1.14":
-  version: 7.1.19
-  resolution: "@types/babel__core@npm:7.1.19"
+  version: 7.1.20
+  resolution: "@types/babel__core@npm:7.1.20"
   dependencies:
     "@babel/parser": ^7.1.0
     "@babel/types": ^7.0.0
     "@types/babel__generator": "*"
     "@types/babel__template": "*"
     "@types/babel__traverse": "*"
-  checksum: 8c9fa87a1c2224cbec251683a58bebb0d74c497118034166aaa0491a4e2627998a6621fc71f8a60ffd27d9c0c52097defedf7637adc6618d0331c15adb302338
+  checksum: a09c4f0456552547a5b8a5a009a3daec4d362f622168f8e08bda0ded2da0a65ab0b1642e23c433b3616721f5701dc34a996c5bde5baeaea53eda98f438043f2c
   languageName: node
   linkType: hard
 
@@ -5032,7 +5032,11 @@ __metadata:
     "@mui/icons-material": ^5.10.6
     "@mui/material": ^5.10.6
     "@ui-kit-2022/theme": 0.0.1
+    chart.js: ^3.9.1
+    chartjs-plugin-annotation: ^2.0.1
+    chartjs-plugin-zoom: ^1.2.1
     react: ^18.2.0
+    react-chartjs-2: ^4.3.1
     react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
@@ -5056,6 +5060,10 @@ __metadata:
     "@ui-kit-2022/svgr-template": ^1.0.0
     "@ui-kit-2022/theme": 0.0.1
     babel-loader: ^8.2.5
+    chart.js: ^3.9.1
+    chartjs-plugin-annotation: ^2.0.1
+    chartjs-plugin-zoom: ^1.2.1
+    react-chartjs-2: ^4.3.1
     storybook-addon-pseudo-states: ^1.15.1
     storybook-dark-mode: ^1.1.2
   languageName: unknown
@@ -5074,6 +5082,9 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.38.0
     "@typescript-eslint/parser": ^5.38.0
     "@vitejs/plugin-react": ^2.1.0
+    chart.js: ^3.9.1
+    chartjs-plugin-annotation: ^2.0.1
+    chartjs-plugin-zoom: ^1.2.1
     chromatic: ^6.10.2
     concurrently: ^7.5.0
     eslint: ^8.24.0
@@ -5090,6 +5101,7 @@ __metadata:
     parse-node-version: ^2.0.0
     prettier: ^2.7.1
     react: ^18.2.0
+    react-chartjs-2: ^4.3.1
     react-dom: ^18.2.0
     ts-jest: ^29.0.3
     typescript: ^4.6.4
@@ -5882,15 +5894,15 @@ __metadata:
   linkType: hard
 
 "array-includes@npm:^3.0.3, array-includes@npm:^3.1.4, array-includes@npm:^3.1.5":
-  version: 3.1.5
-  resolution: "array-includes@npm:3.1.5"
+  version: 3.1.6
+  resolution: "array-includes@npm:3.1.6"
   dependencies:
     call-bind: ^1.0.2
     define-properties: ^1.1.4
-    es-abstract: ^1.19.5
-    get-intrinsic: ^1.1.1
+    es-abstract: ^1.20.4
+    get-intrinsic: ^1.1.3
     is-string: ^1.0.7
-  checksum: f6f24d834179604656b7bec3e047251d5cc87e9e87fab7c175c61af48e80e75acd296017abcde21fb52292ab6a2a449ab2ee37213ee48c8709f004d75983f9c5
+  checksum: f22f8cd8ba8a6448d91eebdc69f04e4e55085d09232b5216ee2d476dab3ef59984e8d1889e662c6a0ed939dcb1b57fd05b2c0209c3370942fc41b752c82a2ca5
   languageName: node
   linkType: hard
 
@@ -6961,6 +6973,33 @@ __metadata:
   version: 0.7.0
   resolution: "chardet@npm:0.7.0"
   checksum: 6fd5da1f5d18ff5712c1e0aed41da200d7c51c28f11b36ee3c7b483f3696dabc08927fc6b227735eb8f0e1215c9a8abd8154637f3eff8cada5959df7f58b024d
+  languageName: node
+  linkType: hard
+
+"chart.js@npm:^3.9.1":
+  version: 3.9.1
+  resolution: "chart.js@npm:3.9.1"
+  checksum: 9ab0c0ac01215af0b3f020f2e313030fd6e347b48ed17d5484ee9c4e8ead45e78ae71bea16c397621c386b409ce0b14bf17f9f6c2492cd15b56c0f433efdfff6
+  languageName: node
+  linkType: hard
+
+"chartjs-plugin-annotation@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "chartjs-plugin-annotation@npm:2.0.1"
+  peerDependencies:
+    chart.js: ^3.7.0
+  checksum: 8b9b1d75cfda21a938074c2eaeb837cdf553cf63a016ba4284addf62ebc090986f790f5a4b317cb16716b56bcc86717d762c6a7668031134249e6def0055e554
+  languageName: node
+  linkType: hard
+
+"chartjs-plugin-zoom@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "chartjs-plugin-zoom@npm:1.2.1"
+  dependencies:
+    hammerjs: ^2.0.8
+  peerDependencies:
+    chart.js: ^3.2.0
+  checksum: ea053ff1037dc632ee9cf401246b28f9eb8391a313756e7764b6effcbdbe83a12c480dbacf83f96618486141ed48f3637b1d0d8660167020d331c65738806028
   languageName: node
   linkType: hard
 
@@ -8433,7 +8472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-abstract@npm:^1.19.0, es-abstract@npm:^1.19.5, es-abstract@npm:^1.20.4":
+"es-abstract@npm:^1.19.0, es-abstract@npm:^1.20.4":
   version: 1.20.4
   resolution: "es-abstract@npm:1.20.4"
   dependencies:
@@ -10263,6 +10302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hammerjs@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "hammerjs@npm:2.0.8"
+  checksum: b092da7d1565a165d7edb53ef0ce212837a8b11f897aa3cf81a7818b66686b0ab3f4747fbce8fc8a41d1376594639ce3a054b0fd4889ca8b5b136a29ca500e27
+  languageName: node
+  linkType: hard
+
 "handlebars@npm:^4.7.7":
   version: 4.7.7
   resolution: "handlebars@npm:4.7.7"
@@ -10709,11 +10755,11 @@ __metadata:
   linkType: hard
 
 "husky@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "husky@npm:8.0.1"
+  version: 8.0.2
+  resolution: "husky@npm:8.0.2"
   bin:
     husky: lib/bin.js
-  checksum: 943a73a13d0201318fd30e83d299bb81d866bd245b69e6277804c3b462638dc1921694cb94c2b8c920a4a187060f7d6058d3365152865406352e934c5fff70dc
+  checksum: e101656fcb56163d610488f186448c78b132626aa427094489d886ce9374955a90274912b0f3a34af3326eaa74977883b032e5f701d7aaf4554daa5a7931be43
   languageName: node
   linkType: hard
 
@@ -12482,13 +12528,13 @@ __metadata:
   linkType: hard
 
 "loader-utils@npm:^1.2.3":
-  version: 1.4.0
-  resolution: "loader-utils@npm:1.4.0"
+  version: 1.4.1
+  resolution: "loader-utils@npm:1.4.1"
   dependencies:
     big.js: ^5.2.2
     emojis-list: ^3.0.0
     json5: ^1.0.1
-  checksum: d150b15e7a42ac47d935c8b484b79e44ff6ab4c75df7cc4cb9093350cf014ec0b17bdb60c5d6f91a37b8b218bd63b973e263c65944f58ca2573e402b9a27e717
+  checksum: ea0b648cba0194e04a90aab6270619f0e35be009e33a443d9e642e93056cd49e6ca4c9678bd1c777a2392551bc5f4d0f24a87f5040608da1274aa84c6eebb502
   languageName: node
   linkType: hard
 
@@ -14800,6 +14846,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-chartjs-2@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "react-chartjs-2@npm:4.3.1"
+  peerDependencies:
+    chart.js: ^3.5.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 574d12cc43b9b4a0f1e04cc692982e16ef7083c03da2a8a9fc2180fe9bcadc793008f81d8f4eec5465925eff84c95d7c523cb74376858b363ae75a83bb3c2a5d
+  languageName: node
+  linkType: hard
+
 "react-docgen-typescript@npm:^2.1.1":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -16449,13 +16505,13 @@ __metadata:
   linkType: hard
 
 "string.prototype.trimstart@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "string.prototype.trimstart@npm:1.0.5"
+  version: 1.0.6
+  resolution: "string.prototype.trimstart@npm:1.0.6"
   dependencies:
     call-bind: ^1.0.2
     define-properties: ^1.1.4
-    es-abstract: ^1.19.5
-  checksum: a4857c5399ad709d159a77371eeaa8f9cc284469a0b5e1bfe405de16f1fd4166a8ea6f4180e55032f348d1b679b1599fd4301fbc7a8b72bdb3e795e43f7b1048
+    es-abstract: ^1.20.4
+  checksum: 89080feef416621e6ef1279588994305477a7a91648d9436490d56010a1f7adc39167cddac7ce0b9884b8cdbef086987c4dcb2960209f2af8bac0d23ceff4f41
   languageName: node
   linkType: hard
 
