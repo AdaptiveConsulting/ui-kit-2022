@@ -26,10 +26,13 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
   };
   const gridItemStyle_Last = {
     ...gridItemStyle,
-    [theme.breakpoints.down('md') && theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.down('md')]: {
       //Using specific padding to have consistent spacing between columns.
       //The grid's negative margin makes consistent spacing difficult.
       paddingLeft: '33px !important',
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: '8px !important',
     },
   };
 
