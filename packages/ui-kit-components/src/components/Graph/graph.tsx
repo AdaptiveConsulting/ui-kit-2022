@@ -1,20 +1,19 @@
-import * as React from 'react';
-
+import { Palette, useTheme } from '@mui/material';
 import {
-  Chart as ChartJS,
   CategoryScale,
+  Chart as ChartJS,
+  Legend,
   LinearScale,
-  PointElement,
   LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
-
-import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import { Palette, useTheme } from '@mui/material';
+import * as React from 'react';
+import { Line } from 'react-chartjs-2';
+
 import { hexToRgbA } from '../../utils';
 
 ChartJS.register(
@@ -29,7 +28,7 @@ ChartJS.register(
   annotationPlugin,
 );
 
-const convertLabels = (labels: string[], step: number = 30) => {
+const convertLabels = (labels: string[], step = 30) => {
   const [beginHour, beginMinute] = labels[0].split(':');
   return labels.map((label, index, arr) => {
     const [hour, minute] = label.split(':');
@@ -74,7 +73,7 @@ const getData = (labels: string[], data: PartialNumberType[][], palette: Palette
 
 const generateBackgroundColorBoxes = (
   labelsConverted: string[],
-  step: number = 60,
+  step = 60,
   palette: Palette,
 ) => {
   let boxes = {};
@@ -164,7 +163,7 @@ const Graph: React.FC<GraphProps> = ({
           maxTicksLimit: labels.length + 1,
           autoSkip: true,
           maxRotation: 0,
-          minRotation: 0
+          minRotation: 0,
         },
         grid: {
           color: (ctx: GridColorCtx) => {

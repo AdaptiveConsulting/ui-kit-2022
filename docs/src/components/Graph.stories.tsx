@@ -1,8 +1,6 @@
-import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Graph } from '@ui-kit-2022/components';
 import * as React from 'react';
-import { useTheme } from '@emotion/react';
 export default {
   title: 'Components/Graph',
   component: Graph,
@@ -16,10 +14,18 @@ const Template: ComponentStory<typeof Graph> = (props) => {
 const perlin = new Perlin();
 let y = 0.008;
 
-const labels = (Array(24 * 60).fill(0).map((_, i) => { return ('0' + ~~(i / 60) + ': 0' + Math.round(60  * (i / 60 % 1))).replace(/\d(\d\d)/g, '$1') })).filter(time => {
-  const [hour, minute] = time.split(":");
-  return ['09', '10', '11', '12', '13', '14', '15', '16'].includes(hour);
-});
+const labels = Array(24 * 60)
+  .fill(0)
+  .map((_, i) => {
+    return ('0' + ~~(i / 60) + ': 0' + Math.round(60 * ((i / 60) % 1))).replace(
+      /\d(\d\d)/g,
+      '$1',
+    );
+  })
+  .filter((time) => {
+    const [hour, minute] = time.split(':');
+    return ['09', '10', '11', '12', '13', '14', '15', '16'].includes(hour);
+  });
 
 export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
@@ -27,7 +33,12 @@ GraphStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
-  data: [labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 200})],
+  data: [
+    labels.map((_) => {
+      y += 0.008;
+      return perlin.get(1, y) * 300 + 200;
+    }),
+  ],
   previousData: Math.random() * 150,
 };
 
@@ -38,21 +49,30 @@ GraphCloseEarlyStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
-  data: [labels.map((_, index) => {y+= 0.008; return index < 300 ? perlin.get(1, y) * 300 + 200: undefined})],
+  data: [
+    labels.map((_, index) => {
+      y += 0.008;
+      return index < 300 ? perlin.get(1, y) * 300 + 200 : undefined;
+    }),
+  ],
   previousData: Math.random() * 150,
-}
+};
 
 export const GraphTwoPartsStory = Template.bind({});
 
-const dataWholeLine = labels.map((_) => {y+= 0.008; return perlin.get(1, y) * 300 + 200});
+const dataWholeLine = labels.map((_) => {
+  y += 0.008;
+  return perlin.get(1, y) * 300 + 200;
+});
 
 GraphTwoPartsStory.storyName = 'Graph Two Parts';
 GraphTwoPartsStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
-  data: [dataWholeLine.map((element, index) => index < 300 ? element : undefined),
-    dataWholeLine.map((element, index) => index >= 300 ? element : undefined)
+  data: [
+    dataWholeLine.map((element, index) => (index < 300 ? element : undefined)),
+    dataWholeLine.map((element, index) => (index >= 300 ? element : undefined)),
   ],
   previousData: Math.random() * 150,
-}
+};

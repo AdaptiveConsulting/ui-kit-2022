@@ -1,3 +1,3 @@
-import hexToRgbA from "./hex-to-rgba";
+import hexToRgbA from './hex-to-rgba';
 
-export {hexToRgbA}
+export { hexToRgbA };
