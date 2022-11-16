@@ -1,5 +1,9 @@
 # Adaptive UI-Kit 2022
 
+[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://adaptiveconsulting.github.io/ui-kit-2022/)
+[![npm version](https://img.shields.io/npm/v/@ui-kit-2022/components.svg?label=@ui-kit-2022/components)](https://www.npmjs.com/package/@ui-kit-2022/components)
+[![npm version](https://img.shields.io/npm/v/@ui-kit-2022/theme.svg?label=@ui-kit-2022/theme)](https://www.npmjs.com/package/@ui-kit-2022/theme)
+
 ## Setup
 
 1. Install [Node.js and NPM](https://nodejs.org/en/download/)

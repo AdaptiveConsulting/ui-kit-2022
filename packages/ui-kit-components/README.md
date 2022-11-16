@@ -1,5 +1,8 @@
 # UI Kit Components
 
+[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://adaptiveconsulting.github.io/ui-kit-2022/)
+[![npm version](https://img.shields.io/npm/v/@ui-kit-2022/components.svg?label=@ui-kit-2022/components)](https://www.npmjs.com/package/@ui-kit-2022/components)
+
 This package contains React components for the UI Kit Design System. To learn more visit the project's:
 
 - [Storybook](https://adaptiveconsulting.github.io/ui-kit-2022/)
