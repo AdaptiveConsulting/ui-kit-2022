@@ -1,11 +1,11 @@
+import { Grid, Toolbar, Typography, useTheme } from '@mui/material';
+import { LogoBrand } from '@ui-kit-2022/components';
 import * as React from 'react';
-import { Toolbar, useTheme, Typography, Grid } from '@mui/material';
-import { Icon, LogoBrand, Pill, Graph } from '@ui-kit-2022/components';
 
-import Purpose from './purpose';
 import Anatomy from './anatomy';
-import Stack from './stack';
 import MobileResponsiveness from './mobile-responsiveness';
+import Purpose from './purpose';
+import Stack from './stack';
 
 const Charts: React.FC = () => {
   const { palette } = useTheme();
@@ -28,7 +28,7 @@ const Charts: React.FC = () => {
       </Grid>
       <Purpose />
       <Anatomy />
-      <Stack/>
+      <Stack />
       <MobileResponsiveness />
     </Grid>
   );

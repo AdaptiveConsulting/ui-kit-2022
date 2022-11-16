@@ -1,6 +1,7 @@
-import * as React from 'react';
 import { Grid, Typography } from '@mui/material';
 import { Graph } from '@ui-kit-2022/components';
+import * as React from 'react';
+
 import Perlin from '../../utils/perlin';
 const Anatomy: React.FC = () => {
   const labels = Array(24 * 60)
@@ -22,7 +23,7 @@ const Anatomy: React.FC = () => {
   const data = [
     labels.map((_) => {
       y += 0.008;
-      return perlin.get(1, y) * 300 + 300
+      return perlin.get(1, y) * 300 + 300;
     }),
   ];
 
@@ -69,7 +70,7 @@ const Anatomy: React.FC = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={10} sx={{p: '0rem 2rem'}}>
+            <Grid item xs={10} sx={{ p: '0rem 2rem' }}>
               <Grid container>
                 <Grid item xs={4}>
                   <Graph

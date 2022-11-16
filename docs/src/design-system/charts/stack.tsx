@@ -1,6 +1,7 @@
-import * as React from 'react';
 import { Grid, Typography } from '@mui/material';
 import { Graph } from '@ui-kit-2022/components';
+import * as React from 'react';
+
 import Perlin from '../../utils/perlin';
 const Stack: React.FC = () => {
   const labels = Array(24 * 60)
@@ -48,7 +49,7 @@ const Stack: React.FC = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={10} sx={{p: '0rem 2rem'}}>
+            <Grid item xs={10} sx={{ p: '0rem 2rem' }}>
               <Grid container>
                 <Grid item xs={6}>
                   <Graph

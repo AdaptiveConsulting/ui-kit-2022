@@ -1,4 +1,4 @@
-import { Palette, useTheme, alpha } from '@mui/material';
+import { alpha, Palette, useTheme } from '@mui/material';
 import {
   CategoryScale,
   Chart as ChartJS,
