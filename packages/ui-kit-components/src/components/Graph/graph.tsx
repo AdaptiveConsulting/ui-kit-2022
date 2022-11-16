@@ -1,4 +1,4 @@
-import { alpha, Palette, useTheme } from '@mui/material';
+import { Palette, useTheme, alpha } from '@mui/material';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -13,8 +13,6 @@ import annotationPlugin from 'chartjs-plugin-annotation';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
-
-// import { alpha } from '../../utils';
 
 ChartJS.register(
   CategoryScale,
