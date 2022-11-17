@@ -1,6 +1,7 @@
-import * as React from 'react';
-import { Grid, Typography , useMediaQuery, useTheme} from '@mui/material';
+import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Graph } from '@ui-kit-2022/components';
+import * as React from 'react';
+
 import Perlin from '../../utils/perlin';
 
 const MobileResponsiveness: React.FC = () => {
