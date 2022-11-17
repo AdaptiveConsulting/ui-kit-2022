@@ -11,7 +11,9 @@ export interface Props {
   includeDivider?: boolean;
   screen?: 'mobile' | 'desktop';
 }
-
+const getRoundedToTwo = (num: number) => {
+  return Number(num).toFixed(2).padEnd(2, '0');
+};
 const color = (palette: Palette, changedPrice: number) => {
   if (changedPrice === 0) {
     return {};
@@ -37,7 +39,7 @@ const IndexTickers: React.FC<Props> = ({
         <Typography variant="subheader3" sx={{ ml: 4, mr: 1 }}>
           {name}
         </Typography>
-        <Typography variant="body2">${latestPrice}</Typography>
+        <Typography variant="body2">${getRoundedToTwo(latestPrice)}</Typography>
         <Box px={1} ml={4}>
           <Box width={'1rem'} height={'1rem'} textAlign="center">
             {changedPrice !== 0 &&
@@ -49,13 +51,18 @@ const IndexTickers: React.FC<Props> = ({
           </Box>
         </Box>
         <Typography variant="body2" sx={color(palette, changedPrice)}>
-          {changedPrice >= 0 ? `+${changedPrice}` : changedPrice}
+          {changedPrice >= 0
+            ? `+${getRoundedToTwo(changedPrice)}`
+            : getRoundedToTwo(changedPrice)}
         </Typography>
         <Box mx={1} sx={color(palette, changedPrice)}>
           |
         </Box>
         <Typography variant="body2" mr={4} sx={color(palette, changedPrice)}>
-          {percentage >= 0 ? `+${percentage}` : percentage}%
+          {percentage >= 0
+            ? `+${getRoundedToTwo(percentage)}`
+            : getRoundedToTwo(percentage)}
+          %
         </Typography>
         {includeDivider && <Divider orientation="vertical" flexItem />}
       </Box>
@@ -74,23 +81,34 @@ const IndexTickers: React.FC<Props> = ({
             <Typography variant="subheader3" sx={{ mr: 1 }}>
               {name}
             </Typography>
-            <Typography variant="body2">${latestPrice}</Typography>
+            <Typography variant="body2">${getRoundedToTwo(latestPrice)}</Typography>
           </Box>
           <Box display={'flex'} alignItems="center">
-            {changedPrice !== 0 &&
-              (changedPrice < 0 ? (
-                <Icons.ArrowDown sx={{ pb: '3px', mx: 1, color: palette.sell.main }} />
-              ) : (
-                <Icons.ArrowUp sx={{ pb: '3px', mx: 1, color: palette.success.main }} />
-              ))}
-            <Typography variant="body2" sx={color(palette, changedPrice)}>
-              {changedPrice >= 0 ? `+${changedPrice}` : changedPrice}
+            <Box width={'1rem'} height={'1rem'} textAlign="center">
+              {changedPrice !== 0 &&
+                (changedPrice < 0 ? (
+                  <Icons.ArrowDown sx={{ pb: '3px', color: palette.sell.main }} />
+                ) : (
+                  <Icons.ArrowUp sx={{ pb: '3px', color: palette.success.main }} />
+                ))}
+            </Box>
+            <Typography
+              variant="body2"
+              sx={color(palette, changedPrice)}
+              ml={changedPrice === 0 ? 3 : 1}
+            >
+              {changedPrice >= 0
+                ? `+${getRoundedToTwo(changedPrice)}`
+                : getRoundedToTwo(changedPrice)}
             </Typography>
             <Box mx={1} sx={color(palette, changedPrice)}>
               |
             </Box>
             <Typography variant="body2" sx={color(palette, changedPrice)}>
-              {percentage >= 0 ? `+${percentage}` : percentage}%
+              {percentage >= 0
+                ? `+${getRoundedToTwo(percentage)}`
+                : getRoundedToTwo(percentage)}
+              %
             </Typography>
           </Box>
         </Box>
