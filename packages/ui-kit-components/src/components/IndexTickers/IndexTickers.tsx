@@ -77,10 +77,8 @@ const IndexTickers: React.FC<Props> = ({
           flexDirection={'column'}
           justifyContent={'space-evenly'}
         >
-          <Box display={'flex'} alignItems="center">
-            <Typography variant="subheader3" sx={{ mr: 1 }}>
-              {name}
-            </Typography>
+          <Box display={'flex'} alignItems="center" justifyContent={'space-between'}>
+            <Typography variant="subheader3">{name}</Typography>
             <Typography variant="body2">${getRoundedToTwo(latestPrice)}</Typography>
           </Box>
           <Box display={'flex'} alignItems="center">
