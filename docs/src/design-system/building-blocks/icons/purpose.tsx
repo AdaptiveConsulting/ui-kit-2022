@@ -5,7 +5,7 @@ import { SubTitle } from '../common';
 import { PURPOSE } from './icons.constants';
 const Purpose: React.FC = () => {
   return (
-    <Grid container>
+    <Grid item container xs={12} sm={9} md={12}>
       <SubTitle subTitle={PURPOSE.title} />
       <Grid item xs={12}>
         <Typography variant="body2">{PURPOSE.paragraph1}</Typography>
