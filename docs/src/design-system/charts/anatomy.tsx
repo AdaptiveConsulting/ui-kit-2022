@@ -7,7 +7,7 @@ const Anatomy: React.FC = () => {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const {data, labels, previousData} = generateData();
+  const { data, labels, previousData } = generateData();
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
 
   return (

@@ -26,7 +26,7 @@ const generateData = () => {
 
   const previousData = Math.random() * 100 + 250;
 
-  return {data, labels, previousData};
-}
+  return { data, labels, previousData };
+};
 
 export default generateData;
