@@ -1,10 +1,12 @@
-import { Grid, Typography } from '@mui/material';
-import { Graph } from '@ui-kit-2022/components';
 import * as React from 'react';
-
+import { Grid, Typography , useMediaQuery, useTheme} from '@mui/material';
+import { Graph } from '@ui-kit-2022/components';
 import Perlin from '../../utils/perlin';
 
 const MobileResponsiveness: React.FC = () => {
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.up('lg'));
+
   const labels = Array(24 * 60)
     .fill(0)
     .map((_, i) => {
@@ -27,10 +29,10 @@ const MobileResponsiveness: React.FC = () => {
       return perlin.get(1, y) * 300 + 300;
     }),
   ];
-  const previousData = Math.ceil((Math.max(...data[0]) + Math.min(...data[0])) / 2);
+
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
   const yLabelStepM = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 4);
-  const yLabelStepLarge = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 6);
+  const yLabelStepL = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 6);
 
   return (
     <Grid item xs={12}>
@@ -39,8 +41,8 @@ const MobileResponsiveness: React.FC = () => {
           <Typography variant="h4">Mobile Responsiveness</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Grid container>
-            <Grid item xs={2}>
+          <Grid container spacing={4}>
+            <Grid item md={12} lg={2}>
               <Grid container spacing={4}>
                 <Grid item xs={12}>
                   <Typography variant="body2">
@@ -93,43 +95,43 @@ const MobileResponsiveness: React.FC = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={10} sx={{ p: '0 2rem' }}>
+            <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem' }}>
               <Grid container spacing={6}>
                 <Grid item xs={12}>
                   <Grid container>
-                    <Grid item xs={4}>
+                    <Grid item xs={8} sm={6} lg={4}>
                       <Graph
                         labels={labels}
                         data={data}
                         yLabelStep={yLabelStep}
                         xLabelStep={90}
-                        previousData={previousData}
+                        previousData={370}
                       />
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
                   <Grid container>
-                    <Grid item xs={8}>
+                    <Grid item xs={10} sm={8} lg={6}>
                       <Graph
                         labels={labels}
                         data={data}
                         yLabelStep={yLabelStepM}
-                        xLabelStep={45}
-                        previousData={previousData}
+                        xLabelStep={60}
+                        previousData={370}
                       />
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
                   <Grid container>
-                    <Grid item xs={10}>
+                    <Grid item xs={12} sm={10} lg={8}>
                       <Graph
                         labels={labels}
                         data={data}
-                        yLabelStep={yLabelStepLarge}
+                        yLabelStep={yLabelStepL}
                         xLabelStep={30}
-                        previousData={previousData}
+                        previousData={370}
                       />
                     </Grid>
                   </Grid>

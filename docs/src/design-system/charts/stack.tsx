@@ -5,7 +5,7 @@ import * as React from 'react';
 import Perlin from '../../utils/perlin';
 const Stack: React.FC = () => {
   const theme = useTheme();
-  const match = useMediaQuery(theme.breakpoints.up('lg'))
+  const match = useMediaQuery(theme.breakpoints.up('lg'));
 
   const labels = Array(24 * 60)
     .fill(0)
@@ -39,7 +39,7 @@ const Stack: React.FC = () => {
           <Typography variant="h4">Stack</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Grid container  spacing={4}>
+          <Grid container spacing={4}>
             <Grid item xs={12} lg={2}>
               <Grid container spacing={4}>
                 <Grid item xs={12}>
@@ -53,9 +53,9 @@ const Stack: React.FC = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem'}}>
+            <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem' }}>
               <Grid container>
-                <Grid item xs={12} sm={10} lg={8}>
+                <Grid item xs={10} sm={8} lg={6}>
                   <Graph
                     yLabelStep={yLabelStep}
                     xLabelStep={60}

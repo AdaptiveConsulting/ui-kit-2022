@@ -5,7 +5,7 @@ import * as React from 'react';
 import Perlin from '../../utils/perlin';
 const Anatomy: React.FC = () => {
   const theme = useTheme();
-  const match = useMediaQuery(theme.breakpoints.up('lg'))
+  const match = useMediaQuery(theme.breakpoints.up('lg'));
 
   const labels = Array(24 * 60)
     .fill(0)
@@ -35,7 +35,7 @@ const Anatomy: React.FC = () => {
 
   return (
     <Grid item xs={12}>
-      <Grid container sx={{ p: '0 1.5rem', width: '100%' }} spacing={4} >
+      <Grid container sx={{ p: '0 1.5rem', width: '100%' }} spacing={4}>
         <Grid item xs={12}>
           <Typography variant="h4">Anatomy</Typography>
         </Grid>
@@ -74,9 +74,9 @@ const Anatomy: React.FC = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem'}}>
+            <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem' }}>
               <Grid container>
-                <Grid item xs={12} sm={8} lg={6}>
+                <Grid item xs={8} sm={6} lg={4}>
                   <Graph
                     yLabelStep={yLabelStep}
                     xLabelStep={90}

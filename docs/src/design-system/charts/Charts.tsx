@@ -3,14 +3,14 @@ import { LogoBrand } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import Anatomy from './anatomy';
-import MobileResponsiveness from './mobile-responsiveness';
 import Purpose from './purpose';
 import Stack from './stack';
+import MobileResponsiveness from './mobile-responsiveness';
 
 const Charts: React.FC = () => {
   const { palette } = useTheme();
   return (
-    <Grid container spacing={5} >
+    <Grid container spacing={6}>
       <Grid item xs={12}>
         <Toolbar
           sx={{
@@ -29,7 +29,7 @@ const Charts: React.FC = () => {
       <Purpose />
       <Anatomy />
       <Stack />
-      {/* <MobileResponsiveness /> */}
+      <MobileResponsiveness />
     </Grid>
   );
 };
