@@ -19,6 +19,8 @@ jobs:
           yarn install --immutable
           yarn build-lib
           yarn workspace @ui-kit-2022/docs run build-gh-pages
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Build Pages Artifact
         uses: actions/upload-pages-artifact@v1
