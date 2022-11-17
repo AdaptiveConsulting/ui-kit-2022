@@ -10,7 +10,7 @@ import Stack from './stack';
 const Charts: React.FC = () => {
   const { palette } = useTheme();
   return (
-    <Grid container spacing={5}>
+    <Grid container spacing={5} >
       <Grid item xs={12}>
         <Toolbar
           sx={{
@@ -29,7 +29,7 @@ const Charts: React.FC = () => {
       <Purpose />
       <Anatomy />
       <Stack />
-      <MobileResponsiveness />
+      {/* <MobileResponsiveness /> */}
     </Grid>
   );
 };
