@@ -1,5 +1,4 @@
 import { Grid, useTheme } from '@mui/material';
-import { BrandIcon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import { TopBar } from '../building-blocks/common';
@@ -8,9 +7,9 @@ const Icons: React.FC = () => {
   const { palette } = useTheme();
 
   return (
-    <Grid container sx={{ width: '1005px' }}>
+    <Grid container sx={{ maxWidth: '1100px' }}>
       <Grid item xs={12}>
-        <TopBar icon={BrandIcon.LogoSmall} title={'Icons'} />
+        <TopBar title={'Icons'} />
       </Grid>
       <Grid
         container
@@ -20,7 +19,7 @@ const Icons: React.FC = () => {
           color: palette.text.primary,
           padding: '1rem',
         }}
-        rowGap={6}
+        rowGap={7}
       >
         <Purpose />
         <Sizing />

@@ -1,4 +1,4 @@
-import { Box, Grid, Palette, Typography, useTheme } from '@mui/material';
+import { Box, Grid, Palette, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Icon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
@@ -30,13 +30,14 @@ const IconsGroup: React.FC<{
     <Grid
       container
       rowGap={2}
-      sx={{ height: '100%', witdh: '100%', fontSize: '11px', fontWeight: '300' }}
+      sx={{ height: '100%', width: '100%', fontSize: '11px', fontWeight: '300' }}
     >
       <Grid item xs={12}>
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
             alignItems: 'start',
             padding: '1rem 0rem',
             bgcolor: background === 'dark' ? palette.paper.black : palette.grey[50],
@@ -134,21 +135,35 @@ const IconsGroup: React.FC<{
 const Color: React.FC = () => {
   const { palette } = useTheme();
   return (
-    <Grid item xs={12}>
-      <Grid container columnGap={3}>
-        <Grid item xs={2}>
-          <SubTitle subTitle={COLOR.subTitle} />
-          <Typography variant="body2">{COLOR.paragraph1}</Typography>
-          <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-            {COLOR.paragraph2}
-          </Typography>
-        </Grid>
-        <Grid item xs={2.5}>
+    <Grid container columns={{ xs: 2, md: 4 }} columnSpacing={5} rowGap={5}>
+      <Grid item xs={2} sm={1.5} md={1}>
+        <SubTitle subTitle={COLOR.subTitle} />
+        <Typography variant="body2">{COLOR.paragraph1}</Typography>
+        <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+          {COLOR.paragraph2}
+        </Typography>
+      </Grid>
+      <Grid
+        item
+        container
+        xs={2}
+        md={1}
+        columns={2}
+        columnSpacing={2}
+        display="flex"
+        sx={{
+          flexDirection: useMediaQuery('(max-width: 400px') ? 'column' : null,
+          ' > div': {
+            maxWidth: useMediaQuery('(max-width: 400px') ? '100%' : null,
+          },
+        }}
+      >
+        <Grid item xs={1}>
           <IconsGroup palette={palette} background="dark">
             {COLOR.IconExampleExplanation1}
           </IconsGroup>
         </Grid>
-        <Grid item xs={2.5}>
+        <Grid item xs={1}>
           <IconsGroup palette={palette} background="light">
             {COLOR.IconExampleExplanation2}
           </IconsGroup>

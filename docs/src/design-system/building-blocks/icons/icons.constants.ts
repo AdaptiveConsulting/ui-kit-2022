@@ -15,7 +15,7 @@ const PURPOSE = {
 const SIZING = {
   paragraph1: 'Use icons in approved sizes with enough space around them.',
   paragraph2:
-    'They are sized to take up the central 75% of a square, transparent frame whose pixel dimensions are one of our approved sizing increments of S, M, L or XL. =',
+    'They are sized to take up the central 75% of a square, transparent frame whose pixel dimensions are one of our approved sizing increments of S, M, L or XL.',
   paragraph3: 'The use of S and XL icons will be rare.',
   sizes: ['S', 'M', 'L', 'XL'],
   errorSizes: ['Too small!', 'Too big!'],

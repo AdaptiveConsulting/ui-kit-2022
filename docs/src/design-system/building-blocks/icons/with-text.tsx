@@ -13,9 +13,10 @@ import * as React from 'react';
 
 import { SubTitle } from '../common';
 import { WITH_TEXT } from './icons.constants';
+
 const Text: React.FC = () => {
   return (
-    <Grid item xs={2}>
+    <Grid item xs={4}>
       <SubTitle subTitle={WITH_TEXT.subTitle} />
       <Grid item xs={12}>
         <Typography variant="body2">{WITH_TEXT.paragraph1}</Typography>
@@ -241,12 +242,17 @@ const DontIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
 
 const WithText: React.FC = () => {
   const { palette } = useTheme();
+
   return (
-    <Grid item xs={12}>
-      <Grid container columnGap={3}>
+    <Grid container columns={{ xs: 1, sm: 2, md: 4 }} columnSpacing={6} rowGap={5}>
+      <Grid item xs={1} sm={1.5} md={1}>
         <Text />
+      </Grid>
+      <Grid item xs={2} display="flex" gap={6}>
         <DoIconWithLabel palette={palette} />
         <DontIconWithLabel palette={palette} />
+      </Grid>
+      <Grid item xs={2} md={1} display="flex" gap={6}>
         <DoIconWithActions palette={palette} />
         <DontIconWithActions palette={palette} />
       </Grid>
