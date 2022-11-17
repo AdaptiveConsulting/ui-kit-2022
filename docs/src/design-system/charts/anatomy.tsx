@@ -2,35 +2,12 @@ import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Graph } from '@ui-kit-2022/components';
 import * as React from 'react';
 
-import Perlin from '../../utils/perlin';
+import generateData from './generate-data';
 const Anatomy: React.FC = () => {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const labels = Array(24 * 60)
-    .fill(0)
-    .map((_, i) => {
-      return ('0' + ~~(i / 60) + ': 0' + Math.round(60 * ((i / 60) % 1))).replace(
-        /\d(\d\d)/g,
-        '$1',
-      );
-    })
-    .filter((time) => {
-      const [hour, minute] = time.split(':');
-      return ['09', '10', '11', '12', '13', '14', '15'].includes(hour);
-    });
-
-  const perlin = new Perlin();
-  let y = 0.004;
-
-  const data = [
-    labels.map((_) => {
-      y += 0.008;
-      return perlin.get(1, y) * 300 + 300;
-    }),
-  ];
-
-  const previousData = Math.random() * 100 + 250;
+  const {data, labels, previousData} = generateData();
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
 
   return (

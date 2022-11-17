@@ -3,34 +3,12 @@ import { Graph } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import Perlin from '../../utils/perlin';
-
+import generateData from './generate-data';
 const MobileResponsiveness: React.FC = () => {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const labels = Array(24 * 60)
-    .fill(0)
-    .map((_, i) => {
-      return ('0' + ~~(i / 60) + ': 0' + Math.round(60 * ((i / 60) % 1))).replace(
-        /\d(\d\d)/g,
-        '$1',
-      );
-    })
-    .filter((time) => {
-      const [hour, minute] = time.split(':');
-      return ['09', '10', '11', '12', '13', '14', '15'].includes(hour);
-    });
-
-  const perlin = new Perlin();
-  let y = 0.004;
-
-  const data = [
-    labels.map((_) => {
-      y += 0.008;
-      return perlin.get(1, y) * 300 + 300;
-    }),
-  ];
-
+  const {data, labels, previousData} = generateData();
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
   const yLabelStepM = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 4);
   const yLabelStepL = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 6);
@@ -106,7 +84,7 @@ const MobileResponsiveness: React.FC = () => {
                         data={data}
                         yLabelStep={yLabelStep}
                         xLabelStep={90}
-                        previousData={370}
+                        previousData={previousData}
                       />
                     </Grid>
                   </Grid>
@@ -119,7 +97,7 @@ const MobileResponsiveness: React.FC = () => {
                         data={data}
                         yLabelStep={yLabelStepM}
                         xLabelStep={60}
-                        previousData={370}
+                        previousData={previousData}
                       />
                     </Grid>
                   </Grid>
@@ -132,7 +110,7 @@ const MobileResponsiveness: React.FC = () => {
                         data={data}
                         yLabelStep={yLabelStepL}
                         xLabelStep={30}
-                        previousData={370}
+                        previousData={previousData}
                       />
                     </Grid>
                   </Grid>
