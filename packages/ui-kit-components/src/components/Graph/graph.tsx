@@ -14,8 +14,6 @@ import zoomPlugin from 'chartjs-plugin-zoom';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
 
-// import { alpha } from '../../utils';
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
