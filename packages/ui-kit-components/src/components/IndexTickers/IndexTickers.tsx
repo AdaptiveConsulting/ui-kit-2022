@@ -1,7 +1,19 @@
-import { Box, Divider, Palette, Typography, useTheme } from '@mui/material';
+import {
+  Box,
+  Divider,
+  Palette,
+  SimplePaletteColorOptions,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import * as React from 'react';
 
 import * as Icons from '../../icons';
+
+interface SellBugProps {
+  sell: SimplePaletteColorOptions;
+  buy: SimplePaletteColorOptions;
+}
 
 export interface Props {
   name: string;
@@ -14,7 +26,7 @@ export interface Props {
 const getRoundedToTwo = (num: number) => {
   return Number(num).toFixed(2).padEnd(2, '0');
 };
-const color = (palette: Palette, changedPrice: number) => {
+const color = (palette: Palette & SellBugProps, changedPrice: number) => {
   if (changedPrice === 0) {
     return {};
   } else if (changedPrice < 0) {
@@ -44,21 +56,32 @@ const IndexTickers: React.FC<Props> = ({
           <Box width={'1rem'} height={'1rem'} textAlign="center">
             {changedPrice !== 0 &&
               (changedPrice < 0 ? (
-                <Icons.ArrowDown sx={{ pb: 1, color: palette.sell.main }} />
+                <Icons.ArrowDown
+                  sx={{ pb: 1, color: (palette as Palette & SellBugProps).sell.main }}
+                />
               ) : (
-                <Icons.ArrowUp sx={{ pb: 1, color: palette.success.main }} />
+                <Icons.ArrowUp
+                  sx={{ pb: 1, color: (palette as Palette & SellBugProps).success.main }}
+                />
               ))}
           </Box>
         </Box>
-        <Typography variant="body2" sx={color(palette, changedPrice)}>
+        <Typography
+          variant="body2"
+          sx={color(palette as Palette & SellBugProps, changedPrice)}
+        >
           {changedPrice >= 0
             ? `+${getRoundedToTwo(changedPrice)}`
             : getRoundedToTwo(changedPrice)}
         </Typography>
-        <Box mx={1} sx={color(palette, changedPrice)}>
+        <Box mx={1} sx={color(palette as Palette & SellBugProps, changedPrice)}>
           |
         </Box>
-        <Typography variant="body2" mr={4} sx={color(palette, changedPrice)}>
+        <Typography
+          variant="body2"
+          mr={4}
+          sx={color(palette as Palette & SellBugProps, changedPrice)}
+        >
           {percentage >= 0
             ? `+${getRoundedToTwo(percentage)}`
             : getRoundedToTwo(percentage)}
@@ -85,24 +108,37 @@ const IndexTickers: React.FC<Props> = ({
             <Box width={'1rem'} height={'1rem'} textAlign="center">
               {changedPrice !== 0 &&
                 (changedPrice < 0 ? (
-                  <Icons.ArrowDown sx={{ pb: '3px', color: palette.sell.main }} />
+                  <Icons.ArrowDown
+                    sx={{
+                      pb: '3px',
+                      color: (palette as Palette & SellBugProps).sell.main,
+                    }}
+                  />
                 ) : (
-                  <Icons.ArrowUp sx={{ pb: '3px', color: palette.success.main }} />
+                  <Icons.ArrowUp
+                    sx={{
+                      pb: '3px',
+                      color: (palette as Palette & SellBugProps).success.main,
+                    }}
+                  />
                 ))}
             </Box>
             <Typography
               variant="body2"
-              sx={color(palette, changedPrice)}
+              sx={color(palette as Palette & SellBugProps, changedPrice)}
               ml={changedPrice === 0 ? 3 : 1}
             >
               {changedPrice >= 0
                 ? `+${getRoundedToTwo(changedPrice)}`
                 : getRoundedToTwo(changedPrice)}
             </Typography>
-            <Box mx={1} sx={color(palette, changedPrice)}>
+            <Box mx={1} sx={color(palette as Palette & SellBugProps, changedPrice)}>
               |
             </Box>
-            <Typography variant="body2" sx={color(palette, changedPrice)}>
+            <Typography
+              variant="body2"
+              sx={color(palette as Palette & SellBugProps, changedPrice)}
+            >
               {percentage >= 0
                 ? `+${getRoundedToTwo(percentage)}`
                 : getRoundedToTwo(percentage)}
