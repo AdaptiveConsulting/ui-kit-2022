@@ -4,7 +4,7 @@ const generateData = () => {
   const labels = Array(24 * 60)
     .fill(0)
     .map((_, i) => {
-      return ('0' + ~~(i / 60) + ': 0' + Math.round(60 * ((i / 60) % 1))).replace(
+      return ('0' + ~~(i / 60) + ':0' + Math.round(60 * ((i / 60) % 1))).replace(
         /\d(\d\d)/g,
         '$1',
       );
