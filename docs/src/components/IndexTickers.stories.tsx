@@ -12,17 +12,17 @@ export default {
     latestPrice: {
       name: 'LatestPrice',
       type: { name: 'number', required: true },
-      defaultValue: '333.98',
+      defaultValue: 0,
     },
     changedPrice: {
       name: 'ChangedPrice',
       type: { name: 'number', required: true },
-      defaultValue: '-1.86',
+      defaultValue: 0,
     },
     percentage: {
-      name: 'Percantage',
+      name: 'Percentage',
       type: { name: 'number', required: true },
-      defaultValue: '-0.64',
+      defaultValue: 0,
     },
     includeDivider: {
       name: 'IncludeDivider',

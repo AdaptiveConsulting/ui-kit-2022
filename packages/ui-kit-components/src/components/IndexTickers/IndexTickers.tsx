@@ -25,9 +25,9 @@ const color = (palette: Palette, changedPrice: number) => {
 };
 const IndexTickers: React.FC<Props> = ({
   name = 'Name',
-  latestPrice = 333.98,
-  changedPrice = -1.86,
-  percentage = -0.64,
+  latestPrice = 0,
+  changedPrice = 0,
+  percentage = 0,
   includeDivider = true,
   screen,
 }) => {

@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { TickerBar } from '@ui-kit-2022/components';
+
+import TickerBar from './TickerBar';
 export default {
   title: 'Components/Index Tickers',
   component: TickerBar,

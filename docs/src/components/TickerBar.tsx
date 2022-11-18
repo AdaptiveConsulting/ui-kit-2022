@@ -1,6 +1,5 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-
-import IndexTickers from './IndexTickers';
+import { IndexTickers } from '@ui-kit-2022/components';
 
 const TickerBar: React.FC = () => {
   const matches = useMediaQuery('(min-width: 830px)');
