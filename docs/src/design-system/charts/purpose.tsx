@@ -10,7 +10,7 @@ const Purpose: React.FC = () => {
       <Grid item xs={12}>
         <Typography variant="body2">
           This line graph draws attention to the searched security and its key data
-          points. It is the key visual “Analytics” representation in “Reactive Analytics
+          points. It is the key visual “Analytics” representation in “Reactive Analytics"
         </Typography>
       </Grid>
     </Grid>

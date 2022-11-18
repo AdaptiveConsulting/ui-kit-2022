@@ -37,7 +37,7 @@ const MobileResponsiveness: React.FC = () => {
           <Grid item xs={12}>
             <Typography variant="body2">
               4 and 1/3 vertical stripes 3 labeled Y-axis markers spaced 32px apart
-              verticalluy
+              vertically
             </Typography>
           </Grid>
           <Grid item xs={12} container>
@@ -62,7 +62,6 @@ const MobileResponsiveness: React.FC = () => {
             </Grid>
           </Grid>
         </Grid>
-        {/* <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem' }}> */}
         <Grid
           item
           lg={10}
@@ -71,7 +70,6 @@ const MobileResponsiveness: React.FC = () => {
           container
           spacing={6}
         >
-          {/* <Grid item xs={12}> */}
           <Grid item xs={12} container>
             <Grid item xs={8} sm={6} lg={4}>
               <Graph
