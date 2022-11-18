@@ -5,29 +5,32 @@ import ColorCard, { Props as ColorCardProps } from './color-card';
 
 type ColorProps = Pick<ColorCardProps, 'token' | 'color' | 'bgColor'>;
 
-interface Props {
+export interface Props {
   colors: Array<ColorProps>;
 }
 
-const addPositionProp = (
-  color: ColorProps,
-  index: number,
-  length: number,
-): ColorCardProps => {
-  if (index === 0 && length > 1) {
-    return { ...color, position: 'left' };
-  } else if (index === length - 1 && length > 1) {
-    return { ...color, position: 'right' };
-  }
-  return { ...color, position: 'middle' };
-};
-
 const ColorCardGroup: React.FC<Props> = ({ colors }) => {
   return (
-    <Grid container wrap={'nowrap'} sx={{ padding: '2px 0px' }}>
+    <Grid
+      container
+      wrap={'nowrap'}
+      sx={{ padding: '2px 0px', overflowX: 'auto' }}
+      direction={{ xs: 'column', sm: 'row' }}
+    >
       {colors.map((value, index, arr) => (
-        <Grid item key={value.token + index}>
-          <ColorCard {...addPositionProp(value, index, arr.length)} />
+        <Grid
+          item
+          key={value.token + index}
+          sx={{
+            '&:first-child > .MuiBox-root': {
+              borderRadius: { xs: '5px 5px 0px 0px', sm: '5px 0px 0px 5px' },
+            },
+            '&:last-child > .MuiBox-root': {
+              borderRadius: { xs: '0px 0px 5px 5px', sm: '0px 5px 5px 0px' },
+            },
+          }}
+        >
+          <ColorCard {...value} />
         </Grid>
       ))}
     </Grid>

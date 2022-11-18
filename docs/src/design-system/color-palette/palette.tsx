@@ -1,5 +1,5 @@
 import { Box, Grid, Palette, Typography, useTheme } from '@mui/material';
-import { BrandIcon, Icon } from '@ui-kit-2022/components';
+import { Icon } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import ColorCardGroup from '../building-blocks/color/color-card-group';
@@ -20,15 +20,10 @@ const SubTitle = ({ subTitle }: { subTitle: string }) => {
   );
 };
 
-const TextContent = ({ children, width }: { children: string; width?: string }) => {
+const TextContent = ({ children }: { children: string }) => {
   return (
     <Grid item xs={12}>
-      <Typography
-        variant="body2"
-        sx={{ width: width ? width : '50%', margin: '6px 0px' }}
-      >
-        {children}
-      </Typography>
+      <Typography variant="body2">{children}</Typography>
     </Grid>
   );
 };
@@ -58,15 +53,16 @@ const ColorPalette: React.FC = () => {
   const { palette } = useTheme();
 
   return (
-    <Grid sx={{ minWidth: '1950px' }}>
+    <Grid container>
       <Grid item xs={12}>
-        <TopBar icon={BrandIcon.LogoSmall} title={'Reactive Design System'} />
+        <TopBar title={'Reactive Design System'} />
       </Grid>
       <Grid
         container
         sx={{
           padding: '1rem',
         }}
+        columnGap={1}
         rowGap={5}
       >
         <SubTitle subTitle={PURPOSE.title} />
@@ -74,12 +70,12 @@ const ColorPalette: React.FC = () => {
         <TextContent>{PURPOSE.content[1]}</TextContent>
         {COLORS.map((color, index) => {
           return (
-            <Grid key={color.content + index} container columnGap={1}>
-              <Grid item xs={2}>
+            <Grid key={color.content + index} container columnGap={2} rowGap={2}>
+              <Grid item xs={12} lg={2}>
                 {color.title && <SubTitle subTitle={color.title} />}
-                {color.content && <TextContent width="100%">{color.content}</TextContent>}
+                {color.content && <TextContent>{color.content}</TextContent>}
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={12} lg={9}>
                 {color.colors.map((value, index) => (
                   <ColorCardGroup key={JSON.stringify(value) + index} colors={value} />
                 ))}
@@ -87,12 +83,12 @@ const ColorPalette: React.FC = () => {
             </Grid>
           );
         })}
-        <Grid container columnGap={2}>
-          <Grid item xs={4}>
+        <Grid container rowGap={3}>
+          <Grid item xs={12} md={6}>
             <Typography variant={'body2'}>{COLOR_CONTRAST_EXPLANATION[0]}</Typography>
             <Typography variant={'body2'}>{COLOR_CONTRAST_EXPLANATION[1]}</Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <ColorIcons palette={palette} />
             <Grid item xs={12} sx={{ width: '250px', mt: '1rem' }}>
               <Typography
