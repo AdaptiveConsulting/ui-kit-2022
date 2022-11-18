@@ -29,11 +29,6 @@ export default {
       control: 'boolean',
       defaultValue: true,
     },
-    screen: {
-      options: ['mobile', 'desktop'],
-      control: { type: 'radio' },
-      defaultValue: 'desktop',
-    },
   },
 } as ComponentMeta<typeof IndexTickers>;
 

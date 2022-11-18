@@ -4,6 +4,7 @@ import {
   Palette,
   SimplePaletteColorOptions,
   Typography,
+  useMediaQuery,
   useTheme,
 } from '@mui/material';
 import * as React from 'react';
@@ -21,7 +22,6 @@ export interface Props {
   changedPrice: number;
   percentage: number;
   includeDivider?: boolean;
-  screen?: 'mobile' | 'desktop';
 }
 const getRoundedToTwo = (num: number) => {
   return Number(num).toFixed(2).padEnd(2, '0');
@@ -41,10 +41,10 @@ const IndexTickers: React.FC<Props> = ({
   changedPrice = 0,
   percentage = 0,
   includeDivider = true,
-  screen,
 }) => {
+  const matches = useMediaQuery('(min-width:830px)');
   const { palette } = useTheme();
-  if (screen === 'desktop') {
+  if (matches) {
     return (
       <Box height={'2rem'} display="flex" alignItems={'center'}>
         {includeDivider && <Divider orientation="vertical" flexItem />}
