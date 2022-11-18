@@ -4,11 +4,13 @@ import { themes } from '@storybook/theming';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import styled from '@emotion/styled';
+import addons from '@storybook/addons';
+import { UPDATE_GLOBALS } from '@storybook/core-events';
 
 import { light, dark } from '@ui-kit-2022/theme';
 import { useDarkMode } from 'storybook-dark-mode';
 //Included React import since sometimes not including it can result in a build failure
-import * as React from 'react';
+import { useEffect } from 'react';
 
 const themeDefaults = {
   brandTitle: 'Adaptive UI Kit 2022',
@@ -44,28 +46,39 @@ export const parameters = {
   },
 };
 
+const channel = addons.getChannel();
+
+const ThemeWrapper = ({ context, children }) => {
+  const isDarkMode = useDarkMode();
+  const pseudoStates = context.parameters.pseudo;
+
+  useEffect(() => {
+    // Force inject pseudo states when the theme mode changes if local pseudo states have been set.
+    if (pseudoStates && context.viewMode !== 'docs') {
+      channel.emit(UPDATE_GLOBALS, {
+        globals: { pseudo: Object.assign({}, pseudoStates) },
+      });
+    }
+  }, [isDarkMode, channel, context.id]);
+
+  return <ThemeProvider theme={isDarkMode ? dark : light}>{children}</ThemeProvider>;
+};
+
+const StoryContainer = styled.div(({ theme }: any) => ({
+  margin: 0,
+  padding: '1rem',
+  width: '100%',
+  height: '100%',
+  backgroundColor: `${theme.palette.mode === 'dark' ? '#323232' : '#F9F9F9'}`,
+}));
+
 export const decorators = [
-  (Story) => {
-    const isDarkMode = useDarkMode();
-    const theme = isDarkMode ? dark : light;
-
-    const StoryContainer = styled.div(() => ({
-      margin: 0,
-      padding: '1rem',
-      width: '100%',
-      height: '100%',
-      backgroundColor: `${isDarkMode ? '#323232' : '#F9F9F9'}`,
-    }));
-
-    return (
-      <>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <StoryContainer>
-            <Story />
-          </StoryContainer>
-        </ThemeProvider>
-      </>
-    );
-  },
+  (Story, context) => (
+    <ThemeWrapper context={context}>
+      <CssBaseline />
+      <StoryContainer>
+        <Story />
+      </StoryContainer>
+    </ThemeWrapper>
+  ),
 ];
