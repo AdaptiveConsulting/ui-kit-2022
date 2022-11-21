@@ -87,7 +87,7 @@ const generateBackgroundColorBoxes = (
   let boxes = {};
   const labelsDisplayed = labelsConverted.filter((label) => label !== '');
   labelsDisplayed.forEach((label, index) => {
-    if (index % 2 === 0) {
+    if (index % 2 === 1) {
       boxes = {
         ...boxes,
         [`box${index}`]: {
