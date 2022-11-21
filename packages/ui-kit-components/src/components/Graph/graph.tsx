@@ -48,10 +48,11 @@ const convertLabels = (labels: string[], step = 30) => {
 
 const getData = (labels: string[], data: PartialNumberType[][], palette: Palette) => {
   const [dataFirstPart, dataSecondPart] = data;
+  const labelsToDisplay = labels.map(label => {const [hour, minute] = label.split(":"); return minute === "00" ? hour : label})
 
   return dataSecondPart
     ? {
-        labels: labels,
+        labels: labelsToDisplay,
         datasets: [
           {
             lineTension: 0.2,
@@ -67,7 +68,7 @@ const getData = (labels: string[], data: PartialNumberType[][], palette: Palette
         ],
       }
     : {
-        labels: labels,
+        labels: labelsToDisplay,
         datasets: [
           {
             lineTension: 0.2,
@@ -184,6 +185,7 @@ const Graph: React.FC<GraphProps> = ({
           minRotation: 0,
         },
         grid: {
+          drawOnChartArea: false,
           color: (ctx: GridColorCtx) => {
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
