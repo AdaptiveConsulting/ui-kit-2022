@@ -1,10 +1,9 @@
-import { Box, useMediaQuery, useTheme } from '@mui/material';
-import { IndexTickers } from '@ui-kit-2022/components';
+import { Box, useTheme } from '@mui/material';
 
-const TickerBar: React.FC = () => {
+import IndexTickerMobile from './IndexTickerMobile';
+
+const TickerBarMobile: React.FC = () => {
   const { palette } = useTheme();
-  const matches = useMediaQuery('(min-width:830px)');
-
   return (
     <Box
       pt={2}
@@ -12,22 +11,22 @@ const TickerBar: React.FC = () => {
       width={'100%'}
       borderColor={palette.divider}
       display={'flex'}
-      justifyContent={matches ? 'flex-start' : 'center'}
+      justifyContent={'center'}
     >
-      <IndexTickers
+      <IndexTickerMobile
         includeDivider={false}
         name={'SPA'}
         latestPrice={333.98}
         changedPrice={-2.97}
         percentage={-0.9}
       />
-      <IndexTickers
+      <IndexTickerMobile
         name={'DIA'}
         latestPrice={290.12}
         changedPrice={1.67}
         percentage={0.64}
       />
-      <IndexTickers
+      <IndexTickerMobile
         includeDivider={false}
         name={'IWM'}
         latestPrice={167.45}
@@ -38,4 +37,4 @@ const TickerBar: React.FC = () => {
   );
 };
 
-export default TickerBar;
+export default TickerBarMobile;
