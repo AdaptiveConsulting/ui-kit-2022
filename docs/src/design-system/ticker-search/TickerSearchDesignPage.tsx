@@ -103,6 +103,7 @@ export default function TickerSearchDesignPage() {
                 fullWidth={true}
                 placeholder={placeholder}
                 groupBy={groupBy}
+                disablePortal={true}
                 open={true}
               />
             </Paper>
