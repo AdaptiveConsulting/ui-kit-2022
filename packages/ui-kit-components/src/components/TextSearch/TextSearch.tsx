@@ -23,7 +23,10 @@ export const renderPredictiveLabel = (
   const { elements } = Array.from(
     label.toLowerCase().matchAll(new RegExp(inputValue.toLowerCase(), 'g')),
   ).reduce(
-    ({ elements, lastIndex }: any, match) => {
+    (
+      { elements, lastIndex }: { elements: React.ReactNodeArray; lastIndex: number },
+      match,
+    ) => {
       const matchIndex = match.index || 0;
       const nextIndex = matchIndex + inputValue.length;
 
@@ -47,14 +50,18 @@ export const renderPredictiveLabel = (
   return <>{elements}</>;
 };
 
-const TextSearch = <T,>({
+interface TextSearchOptionBase {
+  label: string;
+}
+
+const TextSearch = <T extends TextSearchOptionBase>({
   placeholder,
-  getOptionLabel = (opt: any) => opt.label || opt,
+  getOptionLabel = (opt: T) => (opt.label || opt) as string,
   ...props
 }: TextSearchProps<T>) => {
   return (
     <Autocomplete
-      {...(props as any)}
+      {...props}
       clearIcon={<Icons.Close />}
       renderOption={(props, opt: T, state) => (
         <li {...props}>{renderPredictiveLabel(getOptionLabel(opt), state)}</li>

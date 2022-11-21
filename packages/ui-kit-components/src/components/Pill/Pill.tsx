@@ -1,4 +1,4 @@
-import { Chip } from '@mui/material';
+import { Chip, SxProps } from '@mui/material';
 import * as React from 'react';
 
 export type PillVariants = 'filled' | 'outlined';
@@ -21,7 +21,7 @@ export interface PillProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   onClickIcon?: React.MouseEventHandler<HTMLElement>;
   className?: string;
-  sx?: any;
+  sx?: SxProps;
 }
 
 const Pill: React.FC<PillProps> = ({

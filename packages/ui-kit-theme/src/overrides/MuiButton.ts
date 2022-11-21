@@ -1,5 +1,13 @@
 type VariantType = 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    PRIMARY: true;
+    SECONDARY: true;
+    TERTIARY: true;
+  }
+}
+
 const LIGHT_BUTTON = {
   variants: [
     {

@@ -1,4 +1,4 @@
-import { Grid, tableCellClasses, useTheme } from '@mui/material';
+import { Grid, tableCellClasses, TypographyProps, useTheme } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -88,7 +88,9 @@ const TextStylesPage: React.FC = () => {
             {rows.map((row) => (
               <TableRow key={row.category}>
                 <TableCell component="th" scope="row">
-                  <Typography variant={row.category.toLowerCase() as any}>
+                  <Typography
+                    variant={row.category.toLowerCase() as TypographyProps['variant']}
+                  >
                     {row.category}
                   </Typography>
                 </TableCell>

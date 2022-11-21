@@ -106,5 +106,8 @@ TickerSearch.args = {
     { label: 'GBP - Great British Pound', type: 'currency' },
     { label: 'USD - US Dollar', type: 'currency' },
   ],
-  groupBy: (opt: any) => (({ stock: 'Stock', currency: 'FX' } as any)[opt.type]),
+  groupBy: (opt: unknown) =>
+    ({ stock: 'Stock', currency: 'FX' }[
+      (opt as { type: string }).type as string
+    ] as string),
 };

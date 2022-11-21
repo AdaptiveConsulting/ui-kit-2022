@@ -17,7 +17,7 @@ const ColorCardGroup: React.FC<Props> = ({ colors }) => {
       sx={{ padding: '2px 0px', overflowX: 'auto' }}
       direction={{ xs: 'column', sm: 'row' }}
     >
-      {colors.map((value, index, arr) => (
+      {colors.map((value, index) => (
         <Grid
           item
           key={value.token + index}

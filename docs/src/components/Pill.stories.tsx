@@ -79,7 +79,7 @@ export default {
   },
 } as ComponentMeta<typeof PillComponent>;
 
-const Template: ComponentStory<typeof PillComponent> = (args: any) => {
+const Template: ComponentStory<typeof PillComponent> = (args) => {
   return <PillComponent {...args} />;
 };
 

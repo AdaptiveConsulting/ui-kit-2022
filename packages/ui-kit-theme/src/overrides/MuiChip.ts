@@ -1,12 +1,26 @@
-import { alpha } from '@mui/material';
+import {
+  alpha,
+  ChipProps,
+  PaletteColor,
+  PaletteColorOptions,
+  Theme,
+} from '@mui/material';
+
+type OverrideContext = {
+  theme: Theme;
+  ownerState: {
+    variant?: ChipProps['variant'];
+    color: PaletteColorOptions[keyof PaletteColorOptions];
+  };
+};
 
 export default {
   defaultProps: {
-    size: 'small',
+    size: 'small' as ChipProps['size'],
     disableRipple: true,
   },
   styleOverrides: {
-    root: ({ theme, ownerState }: any) => ({
+    root: ({ theme, ownerState }: OverrideContext) => ({
       height: 'auto',
       borderRadius: '8px',
 
@@ -32,7 +46,7 @@ export default {
       })
       */
     }),
-    label: ({ theme }: any) => ({
+    label: ({ theme }: OverrideContext) => ({
       fontSize: theme.typography.button.fontSize,
       fontFamily: theme.typography.button.fontFamily,
       fontWeight: theme.typography.button.fontWeight,
@@ -41,7 +55,7 @@ export default {
       lineHeight: '13px',
       padding: '4px',
     }),
-    filled: ({ theme, ownerState }: any) => ({
+    filled: ({ theme, ownerState }: OverrideContext) => ({
       // Ensures smooth border transition when entering active state.
       border: '1px solid transparent',
       ...(ownerState.color !== 'default' &&
@@ -51,25 +65,27 @@ export default {
                 // Color changes to white on hover in light mode
                 color: alpha(theme.palette.common.white, 0.95),
                 // Background color darkens on hover in light mode
-                backgroundColor: theme.palette[ownerState.color].dark,
+                backgroundColor: (theme.palette[ownerState.color] as PaletteColor).dark,
               },
               '&.MuiButtonBase-root:active': {
                 // Changes back to the primary text color
                 color: `${theme.palette.text.primary} !important`,
                 // Changes background color back to main
-                backgroundColor: theme.palette[ownerState.color].main,
+                backgroundColor: (theme.palette[ownerState.color] as PaletteColor).main,
               },
             }
           : {
               '&.MuiButtonBase-root:hover': {
-                backgroundColor: `${theme.palette[ownerState.color].light}`,
+                backgroundColor: `${
+                  (theme.palette[ownerState.color] as PaletteColor).light
+                }`,
               },
               '&.MuiButtonBase-root:active': {
-                backgroundColor: theme.palette[ownerState.color].main,
+                backgroundColor: (theme.palette[ownerState.color] as PaletteColor).main,
               },
             })),
     }),
-    outlined: ({ theme, ownerState }: any) => ({
+    outlined: ({ theme, ownerState }: OverrideContext) => ({
       ...(ownerState.color !== 'default' &&
         (theme.palette.mode === 'light'
           ? {
@@ -92,17 +108,17 @@ export default {
             })),
     }),
     // Make label color accessible for Error and Secondary colors
-    colorError: ({ theme, ownerState }: any) => ({
+    colorError: ({ theme, ownerState }: OverrideContext) => ({
       ...(ownerState.variant === 'filled' && {
         color: alpha(theme.palette.common.black, 0.95),
       }),
     }),
-    colorSecondary: ({ theme, ownerState }: any) => ({
+    colorSecondary: ({ theme, ownerState }: OverrideContext) => ({
       ...(ownerState.variant === 'filled' && {
         color: alpha(theme.palette.common.black, 0.95),
       }),
     }),
-    colorInfo: ({ theme, ownerState }: any) => ({
+    colorInfo: ({ theme, ownerState }: OverrideContext) => ({
       ...(ownerState.variant === 'filled' && {
         color: alpha(theme.palette.common.black, 0.95),
       }),
@@ -111,13 +127,13 @@ export default {
       width: '16px',
       height: '16px',
     },
-    deleteIcon: ({ theme }: any) => ({
+    deleteIcon: {
       width: '16px',
       height: '16px',
       color: 'inherit !important',
       // This icon can be clicked.
       // Do the hover state colors for this prop need to be overriden to reflect that?
       //'&:hover': theme.palette.text.primary
-    }),
+    },
   },
 };

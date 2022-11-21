@@ -1,5 +1,10 @@
 import { Theme } from '@mui/material';
 
+type OverrideContext = {
+  theme: Theme;
+  ownerState: { value: number };
+};
+
 export default {
   defaultProps: {
     color: 'secondary',
@@ -9,22 +14,22 @@ export default {
       height: 5,
       borderRadius: 10,
     },
-    colorSecondary: ({ theme: { palette } }: { theme: Theme }) => ({
+    colorSecondary: ({ theme: { palette } }: OverrideContext) => ({
       backgroundColor: { light: palette.grey[200], dark: palette.grey[700] }[
         palette.mode
       ],
     }),
-    barColorSecondary: ({ theme: { palette } }: { theme: Theme }) => ({
+    barColorSecondary: ({ theme: { palette } }: OverrideContext) => ({
       backgroundColor: { light: palette.paper.black, dark: palette.paper.white }[
         palette.mode
       ],
     }),
-    determinate: ({ ownerState }: any) =>
+    determinate: ({ ownerState }: OverrideContext) =>
       ownerState.value === 0 && {
         borderTopLeftRadius: '0 !important',
         borderBottomLeftRadius: '0 !important',
       },
-    bar1Determinate: ({ ownerState }: any) =>
+    bar1Determinate: ({ ownerState }: OverrideContext) =>
       ownerState.value === 0
         ? {
             left: 1,
