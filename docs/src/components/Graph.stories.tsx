@@ -23,7 +23,7 @@ const labels = Array(24 * 60)
     );
   })
   .filter((time) => {
-    const [hour, minute] = time.split(':');
+    const [hour] = time.split(':');
     return ['09', '10', '11', '12', '13', '14', '15', '16'].includes(hour);
   });
 
@@ -34,7 +34,7 @@ GraphStory.args = {
   xLabelStep: 60,
   labels,
   data: [
-    labels.map((_) => {
+    labels.map(() => {
       y += 0.008;
       return perlin.get(1, y) * 300 + 200;
     }),
@@ -60,7 +60,7 @@ GraphCloseEarlyStory.args = {
 
 export const GraphTwoPartsStory = Template.bind({});
 
-const dataWholeLine = labels.map((_) => {
+const dataWholeLine = labels.map(() => {
   y += 0.008;
   return perlin.get(1, y) * 300 + 200;
 });

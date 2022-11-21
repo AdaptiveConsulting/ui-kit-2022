@@ -243,7 +243,7 @@ const Graph: React.FC<GraphProps> = ({
   };
 
   const datasets = getData(labelsConverted, data, palette);
-  return <Line options={options as any} data={datasets as any} />;
+  return <Line options={options as any} data={datasets} />;
 };
 
 export default Graph;
