@@ -73,7 +73,7 @@ export default {
   },
 } as ComponentMeta<typeof MuiChip>;
 
-const Template: ComponentStory<typeof MuiChip> = (args: any) => {
+const Template: ComponentStory<typeof MuiChip> = (args) => {
   return <MuiChip {...args} />;
 };
 

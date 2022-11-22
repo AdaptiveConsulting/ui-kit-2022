@@ -1,6 +1,8 @@
+import { Theme } from '@mui/material';
+
 export default {
   styleOverrides: {
-    root: ({ theme }: any) => ({
+    root: ({ theme }: { theme: Theme }) => ({
       'tr:last-child td, tr:last-child th': { border: 0 },
       'td, th': {
         verticalAlign: 'top',

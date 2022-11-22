@@ -14,8 +14,6 @@ import zoomPlugin from 'chartjs-plugin-zoom';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
 
-// import { alpha } from '../../utils';
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -245,7 +243,7 @@ const Graph: React.FC<GraphProps> = ({
   };
 
   const datasets = getData(labelsConverted, data, palette);
-  return <Line options={options as any} data={datasets as any} />;
+  return <Line options={options as any} data={datasets} />;
 };
 
 export default Graph;

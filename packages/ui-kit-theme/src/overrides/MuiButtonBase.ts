@@ -1,6 +1,8 @@
+import { Theme } from '@mui/material';
+
 export default {
   styleOverrides: {
-    root: ({ theme }: any) => ({
+    root: ({ theme }: { theme: Theme }) => ({
       '&:active': {
         outline: 'none !important',
       },
