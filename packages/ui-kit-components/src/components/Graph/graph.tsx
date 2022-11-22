@@ -48,10 +48,14 @@ const convertLabels = (labels: string[], step = 30) => {
 
 const getData = (labels: string[], data: PartialNumberType[][], palette: Palette) => {
   const [dataFirstPart, dataSecondPart] = data;
+  const labelsToDisplay = labels.map((label) => {
+    const [hour, minute] = label.split(':');
+    return minute === '00' ? hour : label;
+  });
 
   return dataSecondPart
     ? {
-        labels: labels,
+        labels: labelsToDisplay,
         datasets: [
           {
             lineTension: 0.2,
@@ -67,7 +71,7 @@ const getData = (labels: string[], data: PartialNumberType[][], palette: Palette
         ],
       }
     : {
-        labels: labels,
+        labels: labelsToDisplay,
         datasets: [
           {
             lineTension: 0.2,
@@ -86,7 +90,7 @@ const generateBackgroundColorBoxes = (
   let boxes = {};
   const labelsDisplayed = labelsConverted.filter((label) => label !== '');
   labelsDisplayed.forEach((label, index) => {
-    if (index % 2 === 0) {
+    if (index % 2 === 1) {
       boxes = {
         ...boxes,
         [`box${index}`]: {
@@ -117,6 +121,7 @@ export interface GraphProps {
 }
 
 interface GridColorCtx {
+  index: number;
   tick: {
     label: string;
   };
@@ -184,13 +189,23 @@ const Graph: React.FC<GraphProps> = ({
           minRotation: 0,
         },
         grid: {
-          color: (ctx: GridColorCtx) => {
+          drawOnChartArea: true,
+          tickColor: (ctx: GridColorCtx) => {
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
               return palette.mode === 'light'
                 ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
                 : alpha((palette as Palette & PaperOption).paper.white, 0.2);
+            }
+          },
+          color: (ctx: GridColorCtx) => {
+            if (ctx.index === 0) {
+              return palette.mode === 'light'
+                ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
+                : alpha((palette as Palette & PaperOption).paper.white, 0.2);
+            } else {
+              return 'rgba(0, 0, 0, 0)';
             }
           },
         },
@@ -233,7 +248,8 @@ const Graph: React.FC<GraphProps> = ({
             display: true,
             yMin: previousData,
             yMax: previousData,
-            borderColor: palette.primary.dark,
+            borderColor:
+              palette.mode === 'light' ? palette.primary.dark : palette.primary.light,
             borderDash: [5, 2],
             borderWidth: 1,
           },
