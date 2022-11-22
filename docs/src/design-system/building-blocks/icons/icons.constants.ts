@@ -189,6 +189,10 @@ const ICON_LIBRARY = {
         label: 'chevron',
         icons: [Icon.ChevronUp, Icon.ChevronDown, Icon.ChevronLeft, Icon.ChevronRight],
       },
+      {
+        label: 'chart (line, candle, bar, more to come)',
+        icons: [Icon.Line, Icon.Candle, Icon.Bar],
+      },
     ],
   },
 };
