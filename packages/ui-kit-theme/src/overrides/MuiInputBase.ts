@@ -1,6 +1,8 @@
+import { Theme } from '@mui/material';
+
 export default {
   styleOverrides: {
-    root: ({ theme, theme: { palette } }: any) => ({
+    root: ({ theme, theme: { palette } }: { theme: Theme }) => ({
       paddingLeft: theme.spacing(3),
       caretColor: palette.primary.main,
       '&:hover:not(.Mui-disabled)': {
@@ -14,7 +16,7 @@ export default {
         } !important`,
       },
     }),
-    input: ({ theme }: any) => ({
+    input: ({ theme }: { theme: Theme }) => ({
       fontFamily: theme.typography.fontFamily,
     }),
   },

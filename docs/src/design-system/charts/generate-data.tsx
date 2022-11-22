@@ -18,7 +18,7 @@ const generateData = () => {
   let y = 0.004;
 
   const data = [
-    labels.map((_) => {
+    labels.map(() => {
       y += 0.008;
       return perlin.get(1, y) * 300 + 300;
     }),

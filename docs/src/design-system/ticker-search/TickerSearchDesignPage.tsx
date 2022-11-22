@@ -4,6 +4,8 @@ import { Logo, TextSearch } from '@ui-kit-2022/components';
 
 import TopBar from '../building-blocks/common/top-bar';
 
+type Option = { label: string; type: string };
+
 const placeholder = 'Enter a stock, symbol, or currency.';
 const options = [
   { label: 'AAPL - Apple Inc.', type: 'stock' },
@@ -13,9 +15,9 @@ const options = [
   { label: 'GBP - Great British Pound', type: 'currency' },
   { label: 'USD - US Dollar', type: 'currency' },
   { label: 'QOM - Shiba Predator', type: 'currency' },
-];
+] as Option[];
 
-const groupBy = (opt: any) => (({ stock: 'Stock', currency: 'FX' } as any)[opt.type]);
+const groupBy = (opt: Option) => ({ stock: 'Stock', currency: 'FX' }[opt.type] as string);
 
 export default function TickerSearchDesignPage() {
   return (
@@ -101,6 +103,7 @@ export default function TickerSearchDesignPage() {
                 fullWidth={true}
                 placeholder={placeholder}
                 groupBy={groupBy}
+                disablePortal={true}
                 open={true}
               />
             </Paper>
