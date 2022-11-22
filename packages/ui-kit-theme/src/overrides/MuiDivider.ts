@@ -17,11 +17,11 @@ export default {
         ownerState,
       }: {
         theme: Theme;
-        ownerState: { children: React.ReactChildren };
+        ownerState?: { children: React.ReactChildren };
       }) => {
         const styleProps = { borderColor: alpha(theme.palette.divider, 0.8) };
         // BorderColor overrides must be applied to (&::before, &::after) instead of the root when "children" prop is defined.
-        return ownerState.children
+        return ownerState && ownerState.children
           ? {
               '&::before, &::after': styleProps,
             }

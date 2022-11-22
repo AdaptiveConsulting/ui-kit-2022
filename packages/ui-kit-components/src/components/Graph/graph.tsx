@@ -6,6 +6,7 @@ import {
   LinearScale,
   LineElement,
   PointElement,
+  ScriptableScaleContext,
   Title,
   Tooltip,
 } from 'chart.js';
@@ -120,13 +121,6 @@ export interface GraphProps {
   previousData?: number;
 }
 
-interface GridColorCtx {
-  index: number;
-  tick: {
-    label: string;
-  };
-}
-
 /**
  *
  * @param yLabelStep represents the step size between the values of labels in y-axis.
@@ -170,7 +164,7 @@ const Graph: React.FC<GraphProps> = ({
           autoSkip: true,
         },
         grid: {
-          color: (ctx: GridColorCtx) => {
+          color: (ctx: ScriptableScaleContext) => {
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
@@ -190,7 +184,7 @@ const Graph: React.FC<GraphProps> = ({
         },
         grid: {
           drawOnChartArea: true,
-          tickColor: (ctx: GridColorCtx) => {
+          tickColor: (ctx: ScriptableScaleContext) => {
             if (ctx.tick.label === '') {
               return 'rgba(0, 0, 0, 0)';
             } else {
@@ -199,7 +193,7 @@ const Graph: React.FC<GraphProps> = ({
                 : alpha((palette as Palette & PaperOption).paper.white, 0.2);
             }
           },
-          color: (ctx: GridColorCtx) => {
+          color: (ctx: ScriptableScaleContext) => {
             if (ctx.index === 0) {
               return palette.mode === 'light'
                 ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
@@ -220,7 +214,7 @@ const Graph: React.FC<GraphProps> = ({
       legend: {
         display: false,
         labels: {
-          fontColor:
+          color:
             palette.mode === 'light'
               ? alpha(palette.common.black, 0.55)
               : alpha(palette.common.white, 0.55),
@@ -259,7 +253,7 @@ const Graph: React.FC<GraphProps> = ({
   };
 
   const datasets = getData(labelsConverted, data, palette);
-  return <Line options={options as any} data={datasets} />;
+  return <Line options={options} data={datasets} />;
 };
 
 export default Graph;

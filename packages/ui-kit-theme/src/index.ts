@@ -15,14 +15,14 @@ export * from './constants';
 export { palette, spacing };
 
 export const light = createTheme({
-  components: LIGHT_COMPONENTS as any,
+  components: LIGHT_COMPONENTS,
   palette: palette.light,
   typography,
   spacing,
 });
 
 export const dark = createTheme({
-  components: DARK_COMPONENTS as any,
+  components: DARK_COMPONENTS,
   palette: palette.dark,
   typography,
   spacing,

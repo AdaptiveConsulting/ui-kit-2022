@@ -1,13 +1,13 @@
-import { Theme } from '@mui/material';
+import { LinearProgressProps, Theme } from '@mui/material';
 
 type OverrideContext = {
   theme: Theme;
-  ownerState: { value: number };
+  ownerState: LinearProgressProps;
 };
 
 export default {
   defaultProps: {
-    color: 'secondary',
+    color: 'secondary' as const,
   },
   styleOverrides: {
     root: {
