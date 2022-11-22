@@ -11,7 +11,10 @@ const generateData = () => {
     })
     .filter((time) => {
       const [hour, minute] = time.split(':');
-      return ['09', '10', '11', '12', '13', '14', '15'].includes(hour) || (hour === '16' && minute === '00');
+      return (
+        ['09', '10', '11', '12', '13', '14', '15'].includes(hour) ||
+        (hour === '16' && minute === '00')
+      );
     });
 
   const perlin = new Perlin();

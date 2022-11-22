@@ -48,7 +48,10 @@ const convertLabels = (labels: string[], step = 30) => {
 
 const getData = (labels: string[], data: PartialNumberType[][], palette: Palette) => {
   const [dataFirstPart, dataSecondPart] = data;
-  const labelsToDisplay = labels.map(label => {const [hour, minute] = label.split(":"); return minute === "00" ? hour : label})
+  const labelsToDisplay = labels.map((label) => {
+    const [hour, minute] = label.split(':');
+    return minute === '00' ? hour : label;
+  });
 
   return dataSecondPart
     ? {

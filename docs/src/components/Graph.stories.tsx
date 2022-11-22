@@ -24,7 +24,10 @@ const labels = Array(24 * 60)
   })
   .filter((time) => {
     const [hour, minute] = time.split(':');
-    return ['9', '10', '11', '12', '13', '14', '15'].includes(hour) || (hour === '16' && minute === '00');
+    return (
+      ['9', '10', '11', '12', '13', '14', '15'].includes(hour) ||
+      (hour === '16' && minute === '00')
+    );
   });
 
 export const GraphStory = Template.bind({});
