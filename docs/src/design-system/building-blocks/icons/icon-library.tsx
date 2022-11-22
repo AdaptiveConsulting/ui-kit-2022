@@ -83,21 +83,21 @@ const RenderColumnFourIcons: React.FC<RenderColumnFourIconsProps> = ({
   icons,
 }) => {
   return (
-    <Grid container columns={10} columnSpacing={{ xs: 0, sm: 5, md: 0 }}>
-      <Grid item container xs={4} sm={6} columnGap={{ xs: 1, sm: 4, md: 1 }}>
+    <Grid container columns={12} columnSpacing={{ xs: 0, sm: 0, md: 0 }}>
+      <Grid item container xs={5} sm={6} lg={3} columnGap={{ xs: 1, sm: 4, md: 1 }}>
         {icons.map((icon, index) => (
           <Grid
             key={index + icon.length}
             item
-            xs={1}
-            sm={1.5}
+            xs={2.2}
+            sm={1.2}
             sx={{ display: 'flex', alignItems: 'center' }}
           >
             <SvgIcon component={icon} sx={{ width: '16px', height: '16px' }} />
           </Grid>
         ))}
       </Grid>
-      <Grid item xs={2} sx={{ display: 'flex', alignItems: 'start' }}>
+      <Grid item xs={6} sm={6} lg={9} sx={{ display: 'flex', alignItems: 'start' }}>
         <Typography variant="body2">{label}</Typography>
       </Grid>
     </Grid>
@@ -116,6 +116,10 @@ const ColumnFour: React.FC = () => {
           icons={ICON_LIBRARY.icons.columnFour[1].icons}
           label={ICON_LIBRARY.icons.columnFour[1].label}
         />
+                <RenderColumnFourIcons
+          icons={ICON_LIBRARY.icons.columnFour[2].icons}
+          label={ICON_LIBRARY.icons.columnFour[2].label}
+        />
       </Grid>
     </Grid>
   );
@@ -123,29 +127,29 @@ const ColumnFour: React.FC = () => {
 
 const IconLibrary: React.FC = () => {
   return (
-    <Grid container columns={{ xs: 2, sm: 4, md: 4 }} columnSpacing={1} rowGap={5}>
-      <Grid item xs={2} sm={3} md={1}>
+    <Grid container xs={12} columnSpacing={0.5} rowGap={5}>
+      <Grid item xs={12}  lg={3}>
         <Text />
       </Grid>
       <Grid
         item
         container
-        columns={{ xs: 4, sm: 5 }}
-        xs={4}
-        sm={3}
-        gap={{ xs: 0, sm: 4, md: 4 }}
+        // columns={{ xs: 12, lg: 6 }}
+        xs={12}
+        lg={9}
+        gap={{ xs: 0, sm: 2, md: 2 }}
         rowGap={{ xs: 4, sm: 0, md: 0 }}
       >
-        <Grid item xs={2} sm={1}>
+        <Grid item xs={5} sm={2} lg={2}>
           <ColumnOne />
         </Grid>
-        <Grid item xs={2} sm={1}>
+        <Grid item xs={5} sm={2} lg={2}>
           <ColumnTwo />
         </Grid>
-        <Grid item xs={2} sm={1}>
+        <Grid item xs={5} sm={2} lg={2}>
           <ColumnThree />
         </Grid>
-        <Grid item xs={2} sm={1}>
+        <Grid item xs={7} sm={3} lg={5}>
           <ColumnFour />
         </Grid>
       </Grid>
