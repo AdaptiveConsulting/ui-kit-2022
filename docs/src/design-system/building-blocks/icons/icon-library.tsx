@@ -116,7 +116,7 @@ const ColumnFour: React.FC = () => {
           icons={ICON_LIBRARY.icons.columnFour[1].icons}
           label={ICON_LIBRARY.icons.columnFour[1].label}
         />
-                <RenderColumnFourIcons
+        <RenderColumnFourIcons
           icons={ICON_LIBRARY.icons.columnFour[2].icons}
           label={ICON_LIBRARY.icons.columnFour[2].label}
         />
@@ -128,13 +128,12 @@ const ColumnFour: React.FC = () => {
 const IconLibrary: React.FC = () => {
   return (
     <Grid container xs={12} columnSpacing={0.5} rowGap={5}>
-      <Grid item xs={12}  lg={3}>
+      <Grid item xs={12} lg={3}>
         <Text />
       </Grid>
       <Grid
         item
         container
-        // columns={{ xs: 12, lg: 6 }}
         xs={12}
         lg={9}
         gap={{ xs: 0, sm: 2, md: 2 }}

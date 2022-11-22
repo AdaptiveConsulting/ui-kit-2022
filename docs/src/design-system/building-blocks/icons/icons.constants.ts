@@ -191,7 +191,7 @@ const ICON_LIBRARY = {
       },
       {
         label: 'chart (line, candle, bar, more to come)',
-        icons: [Icon.Line, Icon.Candle, Icon.Bar ],
+        icons: [Icon.Line, Icon.Candle, Icon.Bar],
       },
     ],
   },
