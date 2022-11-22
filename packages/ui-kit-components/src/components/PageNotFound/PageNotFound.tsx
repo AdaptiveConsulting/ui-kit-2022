@@ -7,8 +7,6 @@ import { ReactComponent as SadFace } from './sad-face.svg';
 
 const styles = {
   paper: {
-    minWidth: '100vw',
-    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -27,10 +25,19 @@ const styles = {
 
 export interface Props {
   onNavigateHome: (e: React.BaseSyntheticEvent) => void;
+  fitContainer: boolean;
 }
 
-const PageNotFound = ({ onNavigateHome }: Props) => (
-  <Paper sx={styles.paper} elevation={0} square={true}>
+const PageNotFound = ({ onNavigateHome, fitContainer }: Props) => (
+  <Paper
+    sx={{
+      minWidth: `100${fitContainer ? '%' : 'vw'}`,
+      minHeight: `100${fitContainer ? '%' : 'vh'}`,
+      ...styles.paper,
+    }}
+    elevation={0}
+    square={true}
+  >
     <Box sx={{ position: 'absolute', top: 30, left: 30 }}>
       <LogoBrand height={74} width={76} />
     </Box>
