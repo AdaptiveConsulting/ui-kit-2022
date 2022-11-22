@@ -11,25 +11,35 @@ export default function SplashScreen() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   //Using string because the hex isn't offered in both themes
-  const background = '#323232';
-  const color = theme.palette.common.white;
+  // const background = '#323232';
+  //const color = theme.palette.common.white;
 
   const Container = styled.div(() => ({
     position: 'absolute',
     top: 0,
     left: 0,
-    backgroundColor: background,
-    color: color,
-    width: '100%',
-    height: '100%',
+    //backgroundColor: background,
+    //color: color,
+    width: '100vw',
+    height: '100vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
     gap: '30px',
   }));
-
   return (
+    // <Box
+    //   sx={{
+    //     width: '100vw',
+    //     height: '100vh',
+    //     display: 'flex',
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     flexDirection: 'column',
+    //     gap: '30px',
+    //   }}
+    // >
     <Container>
       <LogoBrand
         width={isSmallScreen ? 104 : undefined}
@@ -41,7 +51,7 @@ export default function SplashScreen() {
       />
       <Typography
         sx={{
-          color: theme.palette.grey[300],
+          //color: theme.palette.grey[300],
           fontWeight: '400',
           fontSize: { sm: '25px', xs: '20px' },
           fontFamily: `Merriweather, serif`,
@@ -50,5 +60,6 @@ export default function SplashScreen() {
         Loading...
       </Typography>
     </Container>
+    // </Box>
   );
 }

@@ -5,5 +5,9 @@ interface Props {
 }
 
 export default function SplashScreenStory(props: Props) {
-  return <div>Hello World {props.showSplash ? <SplashScreen /> : null}</div>;
+  return (
+    // <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+    <>{props.showSplash ? <SplashScreen /> : null}</>
+    // </Box>
+  );
 }
