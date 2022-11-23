@@ -6,12 +6,11 @@ import {
   Theme,
 } from '@mui/material';
 
+type PaletteColorOption = keyof PaletteColorOptions;
+
 type OverrideContext = {
   theme: Theme;
-  ownerState: {
-    variant?: ChipProps['variant'];
-    color: PaletteColorOptions[keyof PaletteColorOptions];
-  };
+  ownerState: ChipProps;
 };
 
 export default {
@@ -32,7 +31,7 @@ export default {
         // Border color transitions to the opposite color variation from the theme on active and hover
         ...(ownerState.color !== 'default' && {
           borderColor:
-            theme.palette[ownerState.color][
+            theme.palette[ownerState.color as PaletteColorOption][
               theme.palette.mode === 'light' ? 'dark' : 'light'
             ],
         }),
@@ -50,7 +49,7 @@ export default {
       fontSize: theme.typography.button.fontSize,
       fontFamily: theme.typography.button.fontFamily,
       fontWeight: theme.typography.button.fontWeight,
-      textTransform: 'uppercase',
+      textTransform: 'uppercase' as const,
 
       lineHeight: '13px',
       padding: '4px',
@@ -65,23 +64,30 @@ export default {
                 // Color changes to white on hover in light mode
                 color: alpha(theme.palette.common.white, 0.95),
                 // Background color darkens on hover in light mode
-                backgroundColor: (theme.palette[ownerState.color] as PaletteColor).dark,
+                backgroundColor: (
+                  theme.palette[ownerState.color as PaletteColorOption] as PaletteColor
+                ).dark,
               },
               '&.MuiButtonBase-root:active': {
                 // Changes back to the primary text color
                 color: `${theme.palette.text.primary} !important`,
                 // Changes background color back to main
-                backgroundColor: (theme.palette[ownerState.color] as PaletteColor).main,
+                backgroundColor: (
+                  theme.palette[ownerState.color as PaletteColorOption] as PaletteColor
+                ).main,
               },
             }
           : {
               '&.MuiButtonBase-root:hover': {
                 backgroundColor: `${
-                  (theme.palette[ownerState.color] as PaletteColor).light
+                  (theme.palette[ownerState.color as PaletteColorOption] as PaletteColor)
+                    .light
                 }`,
               },
               '&.MuiButtonBase-root:active': {
-                backgroundColor: (theme.palette[ownerState.color] as PaletteColor).main,
+                backgroundColor: (
+                  theme.palette[ownerState.color as PaletteColorOption] as PaletteColor
+                ).main,
               },
             })),
     }),
@@ -99,11 +105,13 @@ export default {
               }),
               // In dark mode, the text color lightens on hover
               '&.MuiButtonBase-root:hover': {
-                color: theme.palette[ownerState.color]['light'],
+                color: theme.palette[ownerState.color as PaletteColorOption]['light'],
               },
               // In dark mode, when in an active state, the text color dims back to normal
               '&.MuiButtonBase-root:active': {
-                color: `${theme.palette[ownerState.color]['main']} !important`,
+                color: `${
+                  theme.palette[ownerState.color as PaletteColorOption]['main']
+                } !important`,
               },
             })),
     }),
