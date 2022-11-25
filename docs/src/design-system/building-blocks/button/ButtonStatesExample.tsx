@@ -114,7 +114,7 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
               <Typography variant="subheader3">Active/Pressed</Typography>
             </Grid>
             <Grid item md={1} sx={{ paddingLeft: paddingLeft }}>
-              <Typography variant="subheader3">Focused(ADA)</Typography>
+              <Typography variant="subheader3">focused(ADA)</Typography>
             </Grid>
             {variantType === 'PRIMARY' && (
               <Grid item md={1} sx={{ paddingLeft: paddingLeft }}>
