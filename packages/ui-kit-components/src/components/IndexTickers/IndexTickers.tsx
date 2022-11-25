@@ -42,9 +42,11 @@ const IndexTickers: React.FC<Props> = ({
   percentage = 0,
   includeDivider = true,
 }) => {
-  const matches = useMediaQuery('(min-width:830px)');
-  const { palette } = useTheme();
-  if (matches) {
+  const theme = useTheme();
+  const IsBiggerThanSM = useMediaQuery(theme.breakpoints.up('sm'));
+  const IsSmallerThanXS = useMediaQuery('(max-width: 375px)');
+  const Matches = useMediaQuery('(max-width: 420px)');
+  if (IsBiggerThanSM) {
     return (
       <Box height={'2rem'} display="flex" alignItems={'center'}>
         {includeDivider && <Divider orientation="vertical" flexItem />}
@@ -57,30 +59,36 @@ const IndexTickers: React.FC<Props> = ({
             {changedPrice !== 0 &&
               (changedPrice < 0 ? (
                 <Icons.ArrowDown
-                  sx={{ pb: 1, color: (palette as Palette & SellBugProps).sell.main }}
+                  sx={{
+                    pb: 1,
+                    color: (theme.palette as Palette & SellBugProps).sell.main,
+                  }}
                 />
               ) : (
                 <Icons.ArrowUp
-                  sx={{ pb: 1, color: (palette as Palette & SellBugProps).success.main }}
+                  sx={{
+                    pb: 1,
+                    color: (theme.palette as Palette & SellBugProps).success.main,
+                  }}
                 />
               ))}
           </Box>
         </Box>
         <Typography
           variant="body2"
-          sx={color(palette as Palette & SellBugProps, changedPrice)}
+          sx={color(theme.palette as Palette & SellBugProps, changedPrice)}
         >
           {changedPrice >= 0
             ? `+${getRoundedToTwo(changedPrice)}`
             : getRoundedToTwo(changedPrice)}
         </Typography>
-        <Box mx={1} sx={color(palette as Palette & SellBugProps, changedPrice)}>
+        <Box mx={1} sx={color(theme.palette as Palette & SellBugProps, changedPrice)}>
           |
         </Box>
         <Typography
           variant="body2"
           mr={4}
-          sx={color(palette as Palette & SellBugProps, changedPrice)}
+          sx={color(theme.palette as Palette & SellBugProps, changedPrice)}
         >
           {percentage >= 0
             ? `+${getRoundedToTwo(percentage)}`
@@ -92,17 +100,21 @@ const IndexTickers: React.FC<Props> = ({
     );
   } else {
     return (
-      <Box height={'4rem'} display="flex">
+      <Box height={IsSmallerThanXS ? '3rem' : '4rem'} display="flex">
         {includeDivider && <Divider orientation="vertical" flexItem />}
         <Box
-          mx={4}
+          mx={Matches ? 2 : 4}
           display="flex"
           flexDirection={'column'}
           justifyContent={'space-evenly'}
         >
           <Box display={'flex'} alignItems="center" justifyContent={'space-between'}>
-            <Typography variant="subheader3">{name}</Typography>
-            <Typography variant="body2">${getRoundedToTwo(latestPrice)}</Typography>
+            <Typography variant="subheader3" fontSize={IsSmallerThanXS ? '8px' : '12px'}>
+              {name}
+            </Typography>
+            <Typography variant="body2" fontSize={IsSmallerThanXS ? '8px' : '12px'}>
+              ${getRoundedToTwo(latestPrice)}
+            </Typography>
           </Box>
           <Box display={'flex'} alignItems="center">
             <Box width={'1rem'} height={'1rem'} textAlign="center">
@@ -111,33 +123,35 @@ const IndexTickers: React.FC<Props> = ({
                   <Icons.ArrowDown
                     sx={{
                       pb: '3px',
-                      color: (palette as Palette & SellBugProps).sell.main,
+                      color: (theme.palette as Palette & SellBugProps).sell.main,
                     }}
                   />
                 ) : (
                   <Icons.ArrowUp
                     sx={{
                       pb: '3px',
-                      color: (palette as Palette & SellBugProps).success.main,
+                      color: (theme.palette as Palette & SellBugProps).success.main,
                     }}
                   />
                 ))}
             </Box>
             <Typography
               variant="body2"
-              sx={color(palette as Palette & SellBugProps, changedPrice)}
+              fontSize={IsSmallerThanXS ? '8px' : '12px'}
+              sx={color(theme.palette as Palette & SellBugProps, changedPrice)}
               ml={changedPrice === 0 ? 3 : 1}
             >
               {changedPrice >= 0
                 ? `+${getRoundedToTwo(changedPrice)}`
                 : getRoundedToTwo(changedPrice)}
             </Typography>
-            <Box mx={1} sx={color(palette as Palette & SellBugProps, changedPrice)}>
+            <Box mx={1} sx={color(theme.palette as Palette & SellBugProps, changedPrice)}>
               |
             </Box>
             <Typography
               variant="body2"
-              sx={color(palette as Palette & SellBugProps, changedPrice)}
+              fontSize={IsSmallerThanXS ? '8px' : '12px'}
+              sx={color(theme.palette as Palette & SellBugProps, changedPrice)}
             >
               {percentage >= 0
                 ? `+${getRoundedToTwo(percentage)}`
