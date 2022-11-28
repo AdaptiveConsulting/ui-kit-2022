@@ -21,19 +21,20 @@ const AppBar = () => {
     height: '100%',
     [theme.breakpoints.down('md')]: {
       width: '100%',
-      height: 'auto',
+      height: 'min-content',
+      padding: `${theme.spacing(5)} 0`,
     },
   };
 
   return (
     <Box sx={{ ...appBarStyling }}>
-      {useMediaQuery(theme.breakpoints.down('md')) ? (
-        <LogoFull />
-      ) : (
+      {useMediaQuery(theme.breakpoints.up('md')) ? (
         <Box sx={{ ...logoContainerStyling }}>
           <Logo variant="large" />
           <LogoText width={63} height={23} />
         </Box>
+      ) : (
+        <LogoFull height={53} width={153} />
       )}
     </Box>
   );
