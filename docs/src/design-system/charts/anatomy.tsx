@@ -11,11 +11,11 @@ const Anatomy: React.FC = () => {
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
 
   return (
-    <Grid item xs={12} container sx={{ p: '0 1.5rem', width: '100%' }} spacing={4}>
-      <Grid item xs={12}>
-        <Typography variant="h4">Anatomy</Typography>
-      </Grid>
-      <Grid item xs={12} container spacing={4}>
+    <>
+      <Typography variant="h4" my={4}>
+        Anatomy
+      </Typography>
+      <Grid container spacing={4}>
         <Grid item md={12} lg={2} container spacing={4}>
           <Grid item>
             <Typography variant="body2">
@@ -59,7 +59,7 @@ const Anatomy: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

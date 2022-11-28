@@ -14,11 +14,11 @@ const MobileResponsiveness: React.FC = () => {
   const yLabelStepL = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 6);
 
   return (
-    <Grid item xs={12} container sx={{ p: '0 1.5rem' }} spacing={4}>
-      <Grid item xs={12}>
-        <Typography variant="h4">Mobile Responsiveness</Typography>
-      </Grid>
-      <Grid item xs={12} container spacing={4}>
+    <>
+      <Typography variant="h4" my={4}>
+        Mobile Responsiveness
+      </Typography>
+      <Grid container spacing={4}>
         <Grid item md={12} lg={2} container spacing={4}>
           <Grid item xs={12}>
             <Typography variant="body2">
@@ -110,7 +110,7 @@ const MobileResponsiveness: React.FC = () => {
           )}
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 
