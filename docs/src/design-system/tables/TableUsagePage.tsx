@@ -1,4 +1,12 @@
-import { Box, Container, Grid, ThemeProvider, Toolbar, useTheme } from '@mui/material';
+import {
+  Box,
+  Container,
+  Grid,
+  ThemeProvider,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { LogoBrand, Typography } from '@ui-kit-2022/components';
 import { dark, light } from '@ui-kit-2022/theme';
 
@@ -7,6 +15,7 @@ import TableExample from '../building-blocks/table/TableExample';
 
 const TableUsagePage = () => {
   const theme = useTheme();
+  const matchSM = useMediaQuery(theme.breakpoints.up('sm'));
   return (
     <>
       <Toolbar
@@ -37,7 +46,7 @@ const TableUsagePage = () => {
           </Box>
           <Box mt={7}>
             <Grid container columnSpacing={5} alignItems="center">
-              <Grid item xs={4}>
+              <Grid item xs={12} sm={4}>
                 <Box>
                   <Typography variant="h4" mb={3}>
                     Cells
@@ -54,22 +63,26 @@ const TableUsagePage = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12} sm={8}>
                 <Grid container columnSpacing={2}>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <ThemeProvider theme={dark}>
-                      <Box p={2} sx={{ backgroundColor: dark.palette.background.paper }}>
+                      <Box
+                        p={2}
+                        sx={{ backgroundColor: dark.palette.background.paper }}
+                        mt={matchSM ? {} : 3}
+                      >
                         <TableExample />
                       </Box>
                     </ThemeProvider>
                   </Grid>
 
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <ThemeProvider theme={light}>
                       <Box
                         p={2}
                         sx={{ backgroundColor: light.palette.background.paper }}
-                        mr={7}
+                        mr={matchSM ? 7 : {}}
                       >
                         <TableExample />
                       </Box>
@@ -81,7 +94,7 @@ const TableUsagePage = () => {
           </Box>
           <Box mt={7}>
             <Grid container columnSpacing={5} alignItems="center">
-              <Grid item xs={4}>
+              <Grid item xs={12} sm={4}>
                 <Box>
                   <Typography variant="h4" mb={3}>
                     Type
@@ -97,9 +110,13 @@ const TableUsagePage = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item sm={4} xs={12}>
                 <ThemeProvider theme={dark}>
-                  <Box sx={{ backgroundColor: dark.palette.background.paper }} p={3}>
+                  <Box
+                    sx={{ backgroundColor: dark.palette.background.paper }}
+                    p={3}
+                    mt={matchSM ? {} : 3}
+                  >
                     <LongLabelExample
                       longLabel="Label (Subheader Small, Primary opacity)"
                       value="Value (Regular, Secondary Opacity)"
@@ -107,7 +124,51 @@ const TableUsagePage = () => {
                   </Box>
                 </ThemeProvider>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item sm={4} xs={12}>
+                <ThemeProvider theme={light}>
+                  <Box sx={{ backgroundColor: light.palette.background.paper }} p={3}>
+                    <LongLabelExample
+                      longLabel="This is a long label name"
+                      value="Value name"
+                    />
+                  </Box>
+                </ThemeProvider>
+              </Grid>
+            </Grid>
+          </Box>
+          <Box mt={7}>
+            <Grid container columnSpacing={5} alignItems="center">
+              <Grid item sm={4} xs={12}>
+                <Box>
+                  <Typography variant="h4" mb={3}>
+                    Bottom Index Tickers
+                  </Typography>
+                  <Typography variant="body2" mb={3}>
+                    The label has a subtle increase in opacity and font weight over the
+                    value.
+                  </Typography>
+                  <Typography variant="body2">
+                    Top-align the label and value for situations when either of them needs
+                    a line break. Ensure a minimum of 16 pixels’ horizontal space between
+                    the left-aligned label and the right-aligned value.
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <ThemeProvider theme={dark}>
+                  <Box
+                    sx={{ backgroundColor: dark.palette.background.paper }}
+                    p={3}
+                    mt={matchSM ? {} : 3}
+                  >
+                    <LongLabelExample
+                      longLabel="Label (Subheader Small, Primary opacity)"
+                      value="Value (Regular, Secondary Opacity)"
+                    />
+                  </Box>
+                </ThemeProvider>
+              </Grid>
+              <Grid item sm={4} xs={12}>
                 <ThemeProvider theme={light}>
                   <Box sx={{ backgroundColor: light.palette.background.paper }} p={3}>
                     <LongLabelExample
