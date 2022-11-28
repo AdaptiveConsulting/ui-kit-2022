@@ -82,28 +82,32 @@ const MobileResponsiveness: React.FC = () => {
               />
             </Grid>
           </Grid>
-{matchSm &&          <Grid item xs={12} container>
-            <Grid item xs={10} sm={8} lg={6}>
-              <Graph
-                labels={labels}
-                data={data}
-                yLabelStep={yLabelStepM}
-                xLabelStep={60}
-                previousData={previousData}
-              />
+          {matchSm && (
+            <Grid item xs={12} container>
+              <Grid item xs={10} sm={8} lg={6}>
+                <Graph
+                  labels={labels}
+                  data={data}
+                  yLabelStep={yLabelStepM}
+                  xLabelStep={60}
+                  previousData={previousData}
+                />
+              </Grid>
             </Grid>
-          </Grid>}
-          {matchLg && <Grid item xs={12} container>
-            <Grid item xs={12} sm={10} lg={8}>
-              <Graph
-                labels={labels}
-                data={data}
-                yLabelStep={yLabelStepL}
-                xLabelStep={30}
-                previousData={previousData}
-              />
+          )}
+          {matchLg && (
+            <Grid item xs={12} container>
+              <Grid item xs={12} sm={10} lg={8}>
+                <Graph
+                  labels={labels}
+                  data={data}
+                  yLabelStep={yLabelStepL}
+                  xLabelStep={30}
+                  previousData={previousData}
+                />
+              </Grid>
             </Grid>
-          </Grid>}
+          )}
         </Grid>
       </Grid>
     </Grid>
