@@ -8,7 +8,7 @@ import {
   LogoSmall,
 } from '../branding';
 
-interface Props {
+export interface Props {
   variant?: string;
 }
 
