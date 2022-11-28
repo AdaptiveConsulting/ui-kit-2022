@@ -100,7 +100,7 @@ const FooterIndexTicker: React.FC = () => {
                           color={customizedTheme.palette.text.primary}
                           display="flex"
                           alignItems={'flex-end'}
-                          minWidth={'388px'}
+                          minWidth={'385px'}
                           height={'812px'}
                           mr={4}
                           pb={2}
@@ -109,7 +109,7 @@ const FooterIndexTicker: React.FC = () => {
                         </Box>
                       </ThemeProvider>
                       <Box
-                        minWidth={'563px'}
+                        minWidth={'500px'}
                         height={'812px'}
                         border={`1px solid ${theme.palette.divider}`}
                         display="flex"
