@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import SplashScreenStory from './SplashScreenStory';
@@ -15,9 +14,7 @@ export default {
 } as ComponentMeta<typeof SplashScreenStory>;
 
 const Template: ComponentStory<typeof SplashScreenStory> = (args) => (
-  <Box sx={{ minHeight: '100vh' }}>
-    <SplashScreenStory {...args} />
-  </Box>
+  <SplashScreenStory {...args} />
 );
 
 export const Screen = Template.bind({});

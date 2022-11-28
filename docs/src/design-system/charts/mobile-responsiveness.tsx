@@ -5,7 +5,8 @@ import * as React from 'react';
 import generateData from './generate-data';
 const MobileResponsiveness: React.FC = () => {
   const theme = useTheme();
-  const match = useMediaQuery(theme.breakpoints.up('lg'));
+  const matchLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   const { data, labels, previousData } = generateData();
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
@@ -66,7 +67,7 @@ const MobileResponsiveness: React.FC = () => {
           item
           lg={10}
           xs={12}
-          sx={{ p: match ? '0rem 2rem' : '0rem' }}
+          sx={{ p: matchLg ? '0rem 2rem' : '0rem' }}
           container
           spacing={6}
         >
@@ -81,28 +82,32 @@ const MobileResponsiveness: React.FC = () => {
               />
             </Grid>
           </Grid>
-          <Grid item xs={12} container>
-            <Grid item xs={10} sm={8} lg={6}>
-              <Graph
-                labels={labels}
-                data={data}
-                yLabelStep={yLabelStepM}
-                xLabelStep={60}
-                previousData={previousData}
-              />
+          {matchSm && (
+            <Grid item xs={12} container>
+              <Grid item xs={10} sm={8} lg={6}>
+                <Graph
+                  labels={labels}
+                  data={data}
+                  yLabelStep={yLabelStepM}
+                  xLabelStep={60}
+                  previousData={previousData}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12} container>
-            <Grid item xs={12} sm={10} lg={8}>
-              <Graph
-                labels={labels}
-                data={data}
-                yLabelStep={yLabelStepL}
-                xLabelStep={30}
-                previousData={previousData}
-              />
+          )}
+          {matchLg && (
+            <Grid item xs={12} container>
+              <Grid item xs={12} sm={10} lg={8}>
+                <Graph
+                  labels={labels}
+                  data={data}
+                  yLabelStep={yLabelStepL}
+                  xLabelStep={30}
+                  previousData={previousData}
+                />
+              </Grid>
             </Grid>
-          </Grid>
+          )}
         </Grid>
       </Grid>
     </Grid>

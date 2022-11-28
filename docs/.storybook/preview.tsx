@@ -66,9 +66,8 @@ const ThemeWrapper = ({ context, children }) => {
 
 const StoryContainer = styled.div(({ theme }: any) => ({
   margin: 0,
-  padding: '1rem',
-  width: '100%',
-  height: '100%',
+  minWidth: '100vw',
+  minHeight: '100vh',
   backgroundColor: `${theme.palette.mode === 'dark' ? '#323232' : '#F9F9F9'}`,
 }));
 
