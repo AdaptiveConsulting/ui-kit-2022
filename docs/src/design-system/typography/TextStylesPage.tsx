@@ -68,21 +68,19 @@ const TextStylesPage: React.FC = () => {
           }}
         >
           <TableHead>
-            <TableRow>
-              {tableColumns.map((column) => {
-                return (
-                  <TableCell
-                    key={column}
-                    align="left"
-                    sx={{
-                      ...tableCellStyles,
-                    }}
-                  >
-                    <Typography variant="body1">{column}</Typography>
-                  </TableCell>
-                );
-              })}
-            </TableRow>
+            {tableColumns.map((column) => {
+              return (
+                <TableCell
+                  key={column}
+                  align="left"
+                  sx={{
+                    ...tableCellStyles,
+                  }}
+                >
+                  <Typography variant="body1">{column}</Typography>
+                </TableCell>
+              );
+            })}
           </TableHead>
           <TableBody>
             {rows.map((row) => (
