@@ -1,4 +1,11 @@
-import { Box, Container, Grid, ThemeProvider, useTheme } from '@mui/material';
+import {
+  Box,
+  Container,
+  Grid,
+  ThemeProvider,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 import { dark, light } from '@ui-kit-2022/theme';
 
@@ -9,6 +16,7 @@ import TickerBarMobile from '../building-blocks/table/TickerBarMobile';
 const FooterIndexTicker: React.FC = () => {
   const theme = useTheme();
   const customizedTheme = theme === light ? dark : light;
+  const matchMd = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <>
       <TopBar title={'Special Table: Footer index ticker'} />
@@ -25,7 +33,7 @@ const FooterIndexTicker: React.FC = () => {
           </Box>
           <Box mt={7}>
             <Grid container columnSpacing={5} alignItems="center">
-              <Grid item xs={2}>
+              <Grid item md={2} xs={12}>
                 <Box>
                   <Typography variant="h4" mb={3}>
                     Cells
@@ -45,8 +53,8 @@ const FooterIndexTicker: React.FC = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={10}>
-                <Box px={5}>
+              <Grid item md={10} xs={12}>
+                <Box px={matchMd ? 5 : 1} mt={matchMd ? {} : 4}>
                   <TickerBar />
                 </Box>
               </Grid>
@@ -54,7 +62,7 @@ const FooterIndexTicker: React.FC = () => {
           </Box>
           <Box mt={7}>
             <Grid container columnSpacing={5} alignItems="flex-start">
-              <Grid item xs={2}>
+              <Grid item md={2} xs={12}>
                 <Box>
                   <Typography variant="h4" mb={3}>
                     Alignment
@@ -70,44 +78,48 @@ const FooterIndexTicker: React.FC = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={10}>
+              <Grid item md={10} xs={12}>
                 <Box>
                   <ThemeProvider theme={customizedTheme}>
                     <Box
                       bgcolor={customizedTheme.palette.background.paper}
                       color={customizedTheme.palette.text.primary}
-                      p={2}
+                      py={2}
+                      px={matchMd ? 5 : 1}
                       mb={2}
+                      mt={matchMd ? {} : 4}
                     >
                       <TickerBar />
                     </Box>
                   </ThemeProvider>
-                  <Box display={'flex'}>
-                    <ThemeProvider theme={customizedTheme}>
+                  {matchMd && (
+                    <Box display={'flex'}>
+                      <ThemeProvider theme={customizedTheme}>
+                        <Box
+                          bgcolor={customizedTheme.palette.background.paper}
+                          color={customizedTheme.palette.text.primary}
+                          display="flex"
+                          alignItems={'flex-end'}
+                          minWidth={'385px'}
+                          height={'812px'}
+                          mr={4}
+                          pb={2}
+                        >
+                          <TickerBarMobile />
+                        </Box>
+                      </ThemeProvider>
                       <Box
-                        bgcolor={customizedTheme.palette.background.paper}
-                        color={customizedTheme.palette.text.primary}
+                        minWidth={'500px'}
+                        height={'812px'}
+                        border={`1px solid ${theme.palette.divider}`}
                         display="flex"
                         alignItems={'flex-end'}
-                        minWidth={'388px'}
-                        height={'812px'}
-                        mr={4}
                         pb={2}
                       >
                         <TickerBarMobile />
                       </Box>
-                    </ThemeProvider>
-                    <Box
-                      minWidth={'563px'}
-                      height={'812px'}
-                      border={`1px solid ${theme.palette.divider}`}
-                      display="flex"
-                      alignItems={'flex-end'}
-                      pb={2}
-                    >
-                      <TickerBarMobile />
                     </Box>
-                  </Box>
+                  )}
                 </Box>
               </Grid>
             </Grid>
