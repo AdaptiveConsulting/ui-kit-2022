@@ -34,7 +34,9 @@ const AppBar = () => {
           <LogoText width={63} height={23} />
         </Box>
       ) : (
-        <Logo variant="maximized" />
+        <Box sx={{ zIndex: 1 }}>
+          <Logo variant="maximized" />
+        </Box>
       )}
     </Box>
   );
