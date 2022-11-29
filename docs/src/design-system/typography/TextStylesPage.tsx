@@ -52,7 +52,7 @@ const TextStylesPage: React.FC = () => {
   return (
     <>
       <TopBar title={'Style'} />
-        <Container maxWidth={false} disableGutters={true} sx={{ p: 5 }}>
+      <Container maxWidth={false} disableGutters={true} sx={{ p: 5 }}>
         <TableContainer>
           <Table
             sx={{

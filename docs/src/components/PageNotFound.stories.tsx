@@ -14,5 +14,9 @@ const Template: ComponentStory<typeof PageNotFound> = (args) => (
 export const PageNotFoundStory = Template.bind({});
 PageNotFoundStory.args = {
   onNavigateHome: action('Navigate Home'),
+  inputProps: {
+    placeholder: 'Enter a stock, symbol, or currency',
+    options: [],
+  },
 };
 PageNotFoundStory.storyName = 'PageNotFound';

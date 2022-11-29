@@ -1,88 +1,111 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Theme, Typography } from '@mui/material';
 
 import { LogoLarge, LogoText } from '../Branding/branding';
 import { Button } from '../Button';
+import {
+  default as TextSearch,
+  TextSearchOptionBase,
+  TextSearchProps,
+} from '../TextSearch/TextSearch';
 import { ReactComponent as SadFace } from './sad-face.svg';
 
 const styles = {
-  paper: {
+  svgColor: ({ palette }: Theme) => ({
+    color: palette.mode === 'light' ? 'paper.black' : 'paper.white',
+  }),
+  paper: ({ breakpoints }: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
-    p: 6,
-    ['@media (max-height:600px)']: {
+    p: 5,
+    [breakpoints.down('sm')]: {
       p: 4,
     },
-  },
+  }),
   container: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
   },
-  sadFace: {
-    width: 250,
-    height: 250,
+  sadFace: ({ breakpoints }: Theme) => ({
+    height: 128,
+    width: 'auto',
     alignSelf: 'center',
-    ['@media (max-height:600px)']: {
-      width: 150,
-      height: 150,
+    [breakpoints.down('sm')]: {
+      height: 96,
     },
-  },
-  typography: {
-    margin: '10px',
+  }),
+  header: {
     textTransform: 'none',
   },
   logo: {
-    height: 74,
     width: 76,
-    ['@media (max-height:600px)']: {
-      height: 53,
-      width: 56,
-    },
+    height: 'auto',
   },
   logoText: {
     width: 116,
-    height: 34,
+    height: 'auto',
+  },
+  textSearch: {
+    maxWidth: 400,
+    mx: 'auto',
+    width: '100%',
+    p: 2,
+  },
+  button: {
+    '& > .MuiButton-root': { p: 3 },
+    textAlign: 'center',
   },
 };
 
-export interface Props {
+export interface Props<T extends TextSearchOptionBase> {
   onNavigateHome: (e: React.BaseSyntheticEvent) => void;
   fitContainer: boolean;
+  inputProps: TextSearchProps<T>;
 }
 
-const PageNotFound = ({ onNavigateHome, fitContainer }: Props) => (
+const PageNotFound = <T extends TextSearchOptionBase>({
+  onNavigateHome,
+  fitContainer,
+  inputProps,
+}: Props<T>) => (
   <Paper
-    sx={{
-      minWidth: `100${fitContainer ? '%' : 'vw'}`,
-      minHeight: `100${fitContainer ? '%' : 'vh'}`,
-      ...styles.paper,
-    }}
+    sx={[
+      {
+        minWidth: `100${fitContainer ? '%' : 'vw'}`,
+        minHeight: `100${fitContainer ? '%' : 'vh'}`,
+      },
+      styles.paper,
+    ]}
     elevation={0}
     square={true}
   >
-    <Box sx={{ flex: '1 1 0', ...styles.container }}>
-      <Box>
-        <LogoLarge sx={styles.logo} />
-      </Box>
-      <SadFace sx={styles.sadFace} />
-      <Typography variant="h3" align="center" sx={styles.typography}>
-        Page not found!
-      </Typography>
+    <Box mb={3}>
+      <LogoLarge sx={[styles.logo, styles.svgColor]} />
     </Box>
-    <Box sx={{ flex: '1 0 0', ...styles.container }}>
-      <Box sx={{ textAlign: 'center', mb: 3 }}>
-        <Typography variant="h1" align="center" sx={styles.typography}>
-          We’re sorry, the page you have requested does not exist.
+    <Box sx={styles.container} flex="1 1 0" justifyContent="flex-end" gap={6}>
+      <SadFace sx={[styles.sadFace, styles.svgColor]} />
+      <Box sx={styles.container} gap={2}>
+        <Typography variant="h4" sx={styles.header} align="center">
+          We couldn&apos;t find this page.
         </Typography>
-        <Box sx={{ mt: 6, '& > .MuiButton-root': { p: 3 } }}>
-          <Button variant="SECONDARY" click={onNavigateHome}>
-            Go Back Home
-          </Button>
-        </Box>
+        <Typography variant="body2" align="center">
+          Let’s help you find what you’re looking for.
+        </Typography>
       </Box>
-      <Box sx={{ alignSelf: 'flex-end' }}>
-        <LogoText sx={styles.logoText} />
-        <Typography variant="body2">© 2022 Reactive Analytics</Typography>
+      <Box sx={styles.textSearch}>
+        <TextSearch {...inputProps} fullWidth={true} />
+      </Box>
+      <Box sx={styles.button}>
+        <Button variant="SECONDARY" click={onNavigateHome}>
+          Take Me Back
+        </Button>
+      </Box>
+    </Box>
+    <Box sx={styles.container} flex="1 0 0" justifyContent="flex-end">
+      <Box alignSelf="flex-end">
+        <LogoText sx={[styles.logoText, styles.svgColor]} />
+        <Typography variant="body2" sx={styles.logoText}>
+          © 2022 Reactive Analytics
+        </Typography>
       </Box>
     </Box>
   </Paper>
