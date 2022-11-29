@@ -42,14 +42,14 @@ const PillsBadgesUsage = () => {
               Primary Pills
             </Typography>
             <Grid container rowSpacing={3} columnSpacing={3}>
-              <Grid xs={4}>
+              <Grid xs={12} md={4}>
                 <Typography variant="body2">
                   The text within pills has consistent top and bottom padding of 4px. Use{' '}
                   <b>hollow pills</b> for flexibility on different backgrounds, or to show
                   an on/off state.
                 </Typography>
               </Grid>
-              <Grid xs={8}>
+              <Grid xs={12} md={8}>
                 <Box sx={{ mb: 2 }}>
                   <Pill label="Normal" sx={{ mr: 2 }} />
                   <Pill
@@ -94,13 +94,13 @@ const PillsBadgesUsage = () => {
                   <Pill label="Disabled" variant="outlined" disabled={true} />
                 </Box>
               </Grid>
-              <Grid xs={4}>
+              <Grid xs={12} md={4}>
                 <Typography variant="body2">
                   An icon at the right of the pill can add interactivity, like the ability
                   to delete it, or a set of dropdown menu options.
                 </Typography>
               </Grid>
-              <Grid xs={8}>
+              <Grid xs={12} md={8}>
                 <Pill
                   label="Closeable"
                   onClickIcon={action('delete')}
@@ -113,14 +113,14 @@ const PillsBadgesUsage = () => {
                   rightIcon={<Icon.ChevronDown />}
                 />
               </Grid>
-              <Grid xs={4}>
+              <Grid xs={12} md={4}>
                 <Typography variant="body2">
                   Ticker symbols are up to 5 characters, so <b>ticker pills</b> should
                   have the same width when in a group. A safe fixed width for every ticker
                   pill is 64 pixels.
                 </Typography>
               </Grid>
-              <Grid xs={8}>
+              <Grid xs={12} md={8}>
                 <Pill label="ABDE" variant="outlined" ticker={true} sx={{ mr: 2 }} />
                 <Pill label="BCOR" variant="outlined" ticker={true} sx={{ mr: 2 }} />
                 <Pill label="GOOGL" variant="outlined" ticker={true} sx={{ mr: 2 }} />
@@ -134,14 +134,14 @@ const PillsBadgesUsage = () => {
               Status Pills
             </Typography>
             <Grid container rowSpacing={3} columnSpacing={3}>
-              <Grid xs={4}>
+              <Grid xs={12} md={4}>
                 <Typography variant="body2">
                   <b>Status pills</b> can show information about list items. Size these to
                   hug the text content horizontally. They will usually not be interactive.
                 </Typography>
               </Grid>
-              <Grid xs={8}>
-                <Box mb={1}>
+              <Grid xs={12} md={8} spacing={4}>
+                <Box mb={2}>
                   <Pill label="Success" color="success" sx={{ mr: 2 }} />
                   <Pill label="Warning" color="warning" sx={{ mr: 2 }} />
                   <Pill label="Buy" color="error" sx={{ mr: 2 }} />
