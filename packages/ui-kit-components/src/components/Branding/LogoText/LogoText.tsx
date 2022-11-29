@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material';
 
 import { darkLogoColor, lightLogoColor, LogoText as Logo_Text } from '../branding';
 
-interface Props {
+export interface Props {
   height?: number;
   width?: number;
 }

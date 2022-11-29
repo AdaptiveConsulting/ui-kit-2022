@@ -6,7 +6,6 @@ import MuiDivider from './MuiDivider';
 import MuiInputBase from './MuiInputBase';
 import MuiLinearProgress from './MuiLinearProgress';
 import MuiTable from './MuiTable';
-import MuiTableBody from './MuiTableBody';
 
 // Component overrides
 export const LIGHT_COMPONENTS = {
@@ -15,7 +14,6 @@ export const LIGHT_COMPONENTS = {
   MuiChip,
   MuiButton: LIGHT_BUTTON,
   MuiTable,
-  MuiTableBody,
   MuiInputBase,
   MuiAutocomplete,
   MuiLinearProgress,
@@ -27,7 +25,6 @@ export const DARK_COMPONENTS = {
   MuiChip,
   MuiButton: DARK_BUTTON,
   MuiTable,
-  MuiTableBody,
   MuiInputBase,
   MuiAutocomplete,
   MuiLinearProgress,
