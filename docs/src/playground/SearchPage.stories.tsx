@@ -11,4 +11,4 @@ const Template = () => <SearchPage />;
 
 export const SearchPagePlayground: ComponentStory<typeof SearchPage> = Template.bind({});
 
-SearchPagePlayground.storyName = "Search Page"
+SearchPagePlayground.storyName = 'Search Page';
