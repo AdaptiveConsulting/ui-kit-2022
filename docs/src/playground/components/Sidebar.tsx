@@ -8,13 +8,14 @@ export default function Sidebar() {
   const isTiny = useMediaQuery('(max-width: 375px)');
 
   const containerStyling = {
-    height: '100%',
+    maxHeight: '100vh',
+    overflowY: 'scroll',
+    overflowX: 'hidden',
     padding: `${theme.spacing(5)} ${theme.spacing(6)}`,
     backgroundColor:
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[100],
-    overflowY: 'scroll',
     [theme.breakpoints.down('md')]: {
-      height: 'auto',
+      maxHeight: 'none',
     },
   };
 
@@ -147,7 +148,9 @@ export default function Sidebar() {
             flexWrap="wrap"
             justifyContent="center"
             gap="4px"
-            sx={{ [theme.breakpoints.down('md')]: { justifyContent: 'start' } }}
+            sx={{
+              [theme.breakpoints.down('md')]: { justifyContent: isTiny ? null : 'start' },
+            }}
           >
             {mockPeers.map((peer) => {
               return (
