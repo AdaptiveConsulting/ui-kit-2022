@@ -43,10 +43,10 @@ const IndexTickers: React.FC<Props> = ({
   includeDivider = true,
 }) => {
   const theme = useTheme();
-  const IsBiggerThanSM = useMediaQuery(theme.breakpoints.up('sm'));
-  const IsSmallerThanXS = useMediaQuery('(max-width: 375px)');
-  const Matches = useMediaQuery('(max-width: 420px)');
-  if (IsBiggerThanSM) {
+  const IsBiggerScreen = useMediaQuery('(min-width: 700px)');
+  const IsSmallestScreen = useMediaQuery('(max-width: 410px)');
+  const Matches = useMediaQuery('(max-width: 440px)');
+  if (IsBiggerScreen) {
     return (
       <Box height={'2rem'} display="flex" alignItems={'center'}>
         {includeDivider && <Divider orientation="vertical" flexItem />}
@@ -100,7 +100,7 @@ const IndexTickers: React.FC<Props> = ({
     );
   } else {
     return (
-      <Box height={IsSmallerThanXS ? '3rem' : '4rem'} display="flex">
+      <Box height={IsSmallestScreen ? '3rem' : '4rem'} display="flex">
         {includeDivider && <Divider orientation="vertical" flexItem />}
         <Box
           mx={Matches ? 2 : 4}
@@ -109,10 +109,10 @@ const IndexTickers: React.FC<Props> = ({
           justifyContent={'space-evenly'}
         >
           <Box display={'flex'} alignItems="center" justifyContent={'space-between'}>
-            <Typography variant="subheader3" fontSize={IsSmallerThanXS ? '8px' : '12px'}>
+            <Typography variant="subheader3" fontSize={IsSmallestScreen ? '8px' : '12px'}>
               {name}
             </Typography>
-            <Typography variant="body2" fontSize={IsSmallerThanXS ? '8px' : '12px'}>
+            <Typography variant="body2" fontSize={IsSmallestScreen ? '8px' : '12px'}>
               ${getRoundedToTwo(latestPrice)}
             </Typography>
           </Box>
@@ -137,7 +137,7 @@ const IndexTickers: React.FC<Props> = ({
             </Box>
             <Typography
               variant="body2"
-              fontSize={IsSmallerThanXS ? '8px' : '12px'}
+              fontSize={IsSmallestScreen ? '8px' : '12px'}
               sx={color(theme.palette as Palette & SellBugProps, changedPrice)}
               ml={changedPrice === 0 ? 3 : 1}
             >
@@ -150,7 +150,7 @@ const IndexTickers: React.FC<Props> = ({
             </Box>
             <Typography
               variant="body2"
-              fontSize={IsSmallerThanXS ? '8px' : '12px'}
+              fontSize={IsSmallestScreen ? '8px' : '12px'}
               sx={color(theme.palette as Palette & SellBugProps, changedPrice)}
             >
               {percentage >= 0
