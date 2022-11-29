@@ -17,6 +17,7 @@ const SearchPage = () => {
   const {palette} = useTheme();
   const [input, setInput] = React.useState<string>("");
 
+  console.log("input", input);
   return (
     <Grid container sx={{ minHeight: '100vh' }} rowGap={4}>
       <Grid
@@ -41,6 +42,7 @@ const SearchPage = () => {
             console.log("event", event.target)
             setInput(value?.label || "")
           }}
+          onBlur={()=> setInput("")}
           fullWidth={true}
           placeholder={placeholder}
           groupBy={groupBy}
