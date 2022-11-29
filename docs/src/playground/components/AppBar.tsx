@@ -1,6 +1,6 @@
 import { Box, useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Logo, LogoFull, LogoText } from '@ui-kit-2022/components';
+import { Logo, LogoText } from '@ui-kit-2022/components';
 
 const AppBar = () => {
   const theme = useTheme();
@@ -34,7 +34,7 @@ const AppBar = () => {
           <LogoText width={63} height={23} />
         </Box>
       ) : (
-        <LogoFull height={53} width={153} />
+        <Logo variant="maximized" />
       )}
     </Box>
   );

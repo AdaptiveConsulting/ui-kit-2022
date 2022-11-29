@@ -3,7 +3,6 @@ import '@ui-kit-2022/theme';
 export * as BrandIcon from './components/Branding/branding';
 export { Logo } from './components/Branding/Logo';
 export { LogoBrand } from './components/Branding/LogoBrand';
-export { LogoFull } from './components/Branding/LogoFull';
 export { LogoText } from './components/Branding/LogoText';
 export { Button } from './components/Button';
 export { Graph } from './components/Graph';
