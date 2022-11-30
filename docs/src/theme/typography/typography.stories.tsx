@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 const VARIANTS = {
@@ -31,6 +31,13 @@ export default {
       control: { type: 'select' },
     },
   },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 4 }}>
+        <Story />
+      </Box>
+    ),
+  ],
 } as ComponentMeta<typeof Typography>;
 
 const Template: ComponentStory<typeof Typography> = ({ ...args }) => (

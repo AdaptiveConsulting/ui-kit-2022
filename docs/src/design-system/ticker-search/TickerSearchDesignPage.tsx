@@ -11,7 +11,7 @@ const options = [
   { label: 'AAPL - Apple Inc.', type: 'stock' },
   { label: 'AMZN - Amazon Inc.', type: 'stock' },
   { label: 'HOV - Hovercraft Partners', type: 'stock' },
-  { label: 'PRED - Predictive Technology Group Inc.' },
+  { label: 'PRED - Predictive Technology Group Inc.', type: 'stock' },
   { label: 'GBP - Great British Pound', type: 'currency' },
   { label: 'USD - US Dollar', type: 'currency' },
   { label: 'QOM - Shiba Predator', type: 'currency' },

@@ -1,4 +1,4 @@
-import { Grid, tableCellClasses, TypographyProps, useTheme } from '@mui/material';
+import { Container, tableCellClasses, TypographyProps, useTheme } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -50,94 +50,94 @@ const tableColumns: string[] = [
 const TextStylesPage: React.FC = () => {
   const { palette } = useTheme();
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <TopBar title={'Style'} />
-      </Grid>
-      <TableContainer>
-        <Table
-          sx={{
-            [`& .${tableCellClasses.root}`]: {
-              p: '0',
-              verticalAlign: 'middle',
-            },
-            width: '45.75rem',
-            margin: '2.5rem auto 22rem',
-            borderBottom: 1,
-            borderColor: palette.divider,
-          }}
-        >
-          <TableHead>
-            {tableColumns.map((column) => {
-              return (
-                <TableCell
-                  key={column}
-                  align="left"
-                  sx={{
-                    ...tableCellStyles,
-                  }}
-                >
-                  <Typography variant="body1">{column}</Typography>
-                </TableCell>
-              );
-            })}
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.category}>
-                <TableCell component="th" scope="row">
-                  <Typography
-                    variant={row.category.toLowerCase() as TypographyProps['variant']}
+    <>
+      <TopBar title={'Style'} />
+      <Container maxWidth={false} disableGutters={true} sx={{ p: 5 }}>
+        <TableContainer>
+          <Table
+            sx={{
+              [`& .${tableCellClasses.root}`]: {
+                p: '0',
+                verticalAlign: 'middle',
+              },
+              width: '45.75rem',
+              margin: '2.5rem auto 22rem',
+              borderBottom: 1,
+              borderColor: palette.divider,
+            }}
+          >
+            <TableHead>
+              {tableColumns.map((column) => {
+                return (
+                  <TableCell
+                    key={column}
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
                   >
-                    {row.category}
-                  </Typography>
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    ...tableCellStyles,
-                  }}
-                >
-                  <Typography variant="body2">{row.styleName}</Typography>
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    ...tableCellStyles,
-                  }}
-                >
-                  <Typography variant="body2">{row.fontStyles}</Typography>
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    ...tableCellStyles,
-                  }}
-                >
-                  <Typography variant="body2">{row.alignment}</Typography>
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    ...tableCellStyles,
-                  }}
-                >
-                  <Typography variant="body2">{row.size}</Typography>
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    ...tableCellStyles,
-                  }}
-                >
-                  <Typography variant="body2">{row.capitalization}</Typography>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Grid>
+                    <Typography variant="body1">{column}</Typography>
+                  </TableCell>
+                );
+              })}
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.category}>
+                  <TableCell component="th" scope="row">
+                    <Typography
+                      variant={row.category.toLowerCase() as TypographyProps['variant']}
+                    >
+                      {row.category}
+                    </Typography>
+                  </TableCell>
+                  <TableCell
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
+                  >
+                    <Typography variant="body2">{row.styleName}</Typography>
+                  </TableCell>
+                  <TableCell
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
+                  >
+                    <Typography variant="body2">{row.fontStyles}</Typography>
+                  </TableCell>
+                  <TableCell
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
+                  >
+                    <Typography variant="body2">{row.alignment}</Typography>
+                  </TableCell>
+                  <TableCell
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
+                  >
+                    <Typography variant="body2">{row.size}</Typography>
+                  </TableCell>
+                  <TableCell
+                    align="left"
+                    sx={{
+                      ...tableCellStyles,
+                    }}
+                  >
+                    <Typography variant="body2">{row.capitalization}</Typography>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Container>
+    </>
   );
 };
 
