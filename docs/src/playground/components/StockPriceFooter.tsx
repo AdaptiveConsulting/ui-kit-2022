@@ -1,7 +1,8 @@
-import { Box, Divider, useMediaQuery } from '@mui/material';
+import { Box, Divider, useMediaQuery, useTheme } from '@mui/material';
 import { IndexTickers } from '@ui-kit-2022/components';
 const StockPriceFooter = () => {
-  const matches = useMediaQuery('(min-width:830px)');
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const isSmallScreen = useMediaQuery('(max-width: 440px)');
   return (
     <>
@@ -9,7 +10,7 @@ const StockPriceFooter = () => {
         <Divider orientation="horizontal" sx={{ width: '100%' }} />
       </Box>
       <Box
-        pt={2}
+        py={2}
         width={'100%'}
         display={'flex'}
         justifyContent={matches ? 'flex-start' : 'center'}
