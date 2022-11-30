@@ -8,8 +8,8 @@ export default {
     variant: {
       name: 'Variant',
       control: { type: 'radio' },
-      options: ['outlined', 'filled', 'standard'],
-      defaultValue: 'outlined',
+      options: ['standard', 'filled', 'outlined'],
+      defaultValue: 'standard',
     },
     label: {
       name: 'Label',
