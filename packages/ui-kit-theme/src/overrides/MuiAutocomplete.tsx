@@ -12,6 +12,7 @@ export default {
         borderRadius: theme.spacing(3),
         marginTop: '10px',
         boxShadow: `0px 4px 20px rgba(${(shadowColor + ',').repeat(3)} 0.15)`,
+        backgroundImage: 'none',
       };
     },
     listbox: ({ theme }: { theme: Theme }) => ({
@@ -20,6 +21,8 @@ export default {
       'li:last-child': {
         marginBottom: theme.spacing(2),
       },
+      // Keeps IOS scroll bar from being hidden by the groupLabel
+      '-webkit-transform': 'translate3d(0,0,0)',
     }),
     groupLabel: ({ theme }: { theme: Theme }) => ({
       ...theme.typography.body2,
