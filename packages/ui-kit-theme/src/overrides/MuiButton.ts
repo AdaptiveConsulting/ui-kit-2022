@@ -35,7 +35,7 @@ const LIGHT_BUTTON = {
           right: '-5px',
           bottom: '-5px',
           left: '-5px',
-          border: '3px solid #FF8D00',
+          border: '2px solid #FF8D00',
           borderRadius: '101px',
         },
         '&:disabled': {
@@ -71,11 +71,11 @@ const LIGHT_BUTTON = {
         '&:focus-visible::before': {
           content: `""`,
           position: 'absolute' as 'absolute',
-          top: '-6px',
-          right: '-6px',
-          bottom: '-6px',
-          left: '-6px',
-          border: '3px solid #FF8D00',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FF8D00',
           borderRadius: '101px',
         },
         '&:focus-visible:hover': {
@@ -116,11 +116,11 @@ const LIGHT_BUTTON = {
         '&:focus-visible::before': {
           content: `""`,
           position: 'absolute' as 'absolute',
-          top: '-6px',
-          right: '-6px',
-          bottom: '-6px',
-          left: '-6px',
-          border: '3px solid #FF8D00',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FF8D00',
           borderRadius: '101px',
         },
         '&:focus-visible:hover': {
@@ -166,7 +166,7 @@ const DARK_BUTTON = {
           right: '-5px',
           bottom: '-5px',
           left: '-5px',
-          border: '3px solid #FF8D00',
+          border: '2px solid #FF8D00',
           borderRadius: '101px',
         },
         '&:focus-visible:hover': {
@@ -200,8 +200,6 @@ const DARK_BUTTON = {
         },
         '&:focus-visible': {
           border: '1px solid #DBDDFF',
-          // outlineOffset: '2px',
-          // outline: '3px solid #FFBE45',
           color: '#DBDDFF',
         },
         '&:focus-visible::before': {
@@ -211,7 +209,7 @@ const DARK_BUTTON = {
           right: '-6px',
           bottom: '-6px',
           left: '-6px',
-          border: '3px solid #FFBE45',
+          border: '2px solid #FFBE45',
           borderRadius: '101px',
         },
         '&:hover:focus': {
@@ -250,8 +248,6 @@ const DARK_BUTTON = {
         },
         '&:focus-visible': {
           border: '1px solid #DBDDFF',
-          // outlineOffset: '2px',
-          // outline: '3px solid #FFBE45',
           color: '#DBDDFF',
         },
         '&:focus-visible::before': {
@@ -261,7 +257,7 @@ const DARK_BUTTON = {
           right: '-6px',
           bottom: '-6px',
           left: '-6px',
-          border: '3px solid #FFBE45',
+          border: '2px solid #FFBE45',
           borderRadius: '101px',
         },
         '&:disabled': {

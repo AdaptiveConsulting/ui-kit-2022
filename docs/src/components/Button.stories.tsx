@@ -2,6 +2,8 @@ import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button } from '@ui-kit-2022/components';
 import * as React from 'react';
+import {Box} from "@mui/material"
+
 
 export default {
   title: 'Components/Button',
@@ -29,7 +31,7 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}></Button>;
+const Template: ComponentStory<typeof Button> = (args) => <Box sx={{padding: '1rem'}}><Button {...args}></Button></Box>;
 
 export const ButtonStory = Template.bind({});
 ButtonStory.storyName = 'Button';
