@@ -1,5 +1,5 @@
-import { Grid, Container, Box, useTheme, useMediaQuery } from '@mui/material';
-import { Logo, TextSearch, LogoText, LogoBrand } from '@ui-kit-2022/components';
+import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Logo, LogoBrand, LogoText, TextSearch } from '@ui-kit-2022/components';
 import * as React from 'react';
 type Option = { label: string; type: string };
 const placeholder = 'Enter a stock, symbol, or currency.';
@@ -41,14 +41,23 @@ const SearchPage = () => {
               alignItems: 'center',
             }}
           >
-            <LogoBrand width={60} height={60}/>
-            <LogoText width={65} height={65}/>
+            <LogoBrand width={60} height={60} />
+            <LogoText width={65} height={65} />
           </Box>
-          <Box sx={{ minHeight: '100vh', flex: '1 1 950px', display: 'flex', alignItems: 'center', justifyContent: 'center', pl: '0.5rem' }}>
+          <Box
+            sx={{
+              minHeight: '100vh',
+              flex: '1 1 950px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              pl: '0.5rem',
+            }}
+          >
             <TextSearch
               options={options}
               inputValue={input}
-              onInput={(event: any) => {
+              onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                 setInput(event.target.value);
               }}
               onChange={(event, value: Option | null) => {
