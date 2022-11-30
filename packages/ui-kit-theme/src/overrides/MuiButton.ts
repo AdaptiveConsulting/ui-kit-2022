@@ -13,6 +13,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'PRIMARY' as VariantType },
       style: {
+        position: 'relavtive' as 'relative',
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
@@ -27,9 +28,15 @@ const LIGHT_BUTTON = {
         '&:focus': {
           outline: 'none',
         },
-        '&:focus-visible': {
-          border: '2px solid inherit',
-          outline: '3px solid #FF8D00',
+        '&:focus-visible::before': {
+          content: `""`,
+          position: 'absolute' as 'absolute',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '3px solid #FF8D00',
+          borderRadius: '101px',
         },
         '&:disabled': {
           backgroundColor: '#E4E4E4',
@@ -40,6 +47,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'SECONDARY' as VariantType },
       style: {
+        position: 'relavtive' as 'relative',
         border: `1px solid #5F618D`,
         borderRadius: '100px',
         padding: '0px 4px',
@@ -58,9 +66,17 @@ const LIGHT_BUTTON = {
         },
         '&:focus-visible': {
           border: '1px solid #5F618D',
-          outlineOffset: '2px',
-          outline: '3px solid #FF8D00',
           color: '#5F618D',
+        },
+        '&:focus-visible::before': {
+          content: `""`,
+          position: 'absolute' as 'absolute',
+          top: '-6px',
+          right: '-6px',
+          bottom: '-6px',
+          left: '-6px',
+          border: '3px solid #FF8D00',
+          borderRadius: '101px',
         },
         '&:focus-visible:hover': {
           backgroundColor: '#5F618D',
@@ -76,6 +92,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
+        position: 'relavtive' as 'relative',
         padding: '0px 4px',
         color: '#5F618D',
         borderRadius: '100px',
@@ -94,9 +111,17 @@ const LIGHT_BUTTON = {
         },
         '&:focus-visible': {
           border: '1px solid #5F618D',
-          outlineOffset: '2px',
-          outline: '3px solid #FF8D00',
           textDecoration: 'none',
+        },
+        '&:focus-visible::before': {
+          content: `""`,
+          position: 'absolute' as 'absolute',
+          top: '-6px',
+          right: '-6px',
+          bottom: '-6px',
+          left: '-6px',
+          border: '3px solid #FF8D00',
+          borderRadius: '101px',
         },
         '&:focus-visible:hover': {
           textDecoration: 'underline',
@@ -116,6 +141,7 @@ const DARK_BUTTON = {
     {
       props: { variant: 'PRIMARY' as VariantType },
       style: {
+        position: 'relavtive' as 'relative',
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
@@ -132,7 +158,16 @@ const DARK_BUTTON = {
         },
         '&:focus-visible': {
           border: '2px solid inherit',
-          outline: '3px solid #FF8D00',
+        },
+        '&:focus-visible::before': {
+          content: `""`,
+          position: 'absolute' as 'absolute',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '3px solid #FF8D00',
+          borderRadius: '101px',
         },
         '&:focus-visible:hover': {
           backgroundColor: '#A9ABD1',
@@ -146,6 +181,7 @@ const DARK_BUTTON = {
     {
       props: { variant: 'SECONDARY' as VariantType },
       style: {
+        position: 'relavtive' as 'relative',
         border: `1px solid #DBDDFF`,
         borderRadius: '100px',
         padding: '0px 4px',
@@ -164,9 +200,19 @@ const DARK_BUTTON = {
         },
         '&:focus-visible': {
           border: '1px solid #DBDDFF',
-          outlineOffset: '2px',
-          outline: '3px solid #FFBE45',
+          // outlineOffset: '2px',
+          // outline: '3px solid #FFBE45',
           color: '#DBDDFF',
+        },
+        '&:focus-visible::before': {
+          content: `""`,
+          position: 'absolute' as 'absolute',
+          top: '-6px',
+          right: '-6px',
+          bottom: '-6px',
+          left: '-6px',
+          border: '3px solid #FFBE45',
+          borderRadius: '101px',
         },
         '&:hover:focus': {
           backgroundColor: 'inherit',
@@ -185,6 +231,7 @@ const DARK_BUTTON = {
     {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
+        position: 'relavtive' as 'relative',
         color: '#DBDDFF',
         padding: '0px 4px',
         borderRadius: '100px',
@@ -203,9 +250,19 @@ const DARK_BUTTON = {
         },
         '&:focus-visible': {
           border: '1px solid #DBDDFF',
-          outlineOffset: '2px',
-          outline: '3px solid #FFBE45',
+          // outlineOffset: '2px',
+          // outline: '3px solid #FFBE45',
           color: '#DBDDFF',
+        },
+        '&:focus-visible::before': {
+          content: `""`,
+          position: 'absolute' as 'absolute',
+          top: '-6px',
+          right: '-6px',
+          bottom: '-6px',
+          left: '-6px',
+          border: '3px solid #FFBE45',
+          borderRadius: '101px',
         },
         '&:disabled': {
           border: 'none',
