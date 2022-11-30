@@ -1,7 +1,6 @@
 import { Box, Divider, useMediaQuery } from '@mui/material';
 import { IndexTickers } from '@ui-kit-2022/components';
-
-const TickerBar: React.FC = () => {
+const StockPriceFooter = () => {
   const matches = useMediaQuery('(min-width:830px)');
   const isSmallScreen = useMediaQuery('(max-width: 440px)');
   return (
@@ -40,4 +39,4 @@ const TickerBar: React.FC = () => {
   );
 };
 
-export default TickerBar;
+export default StockPriceFooter;
