@@ -1,6 +1,6 @@
 import { Box, Paper, Theme, Typography } from '@mui/material';
 
-import { LogoLarge, LogoText } from '../Branding/branding';
+import { LogoText } from '../Branding/branding';
 import { Button } from '../Button';
 import {
   default as TextSearch,
@@ -16,6 +16,7 @@ const styles = {
   paper: ({ breakpoints }: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'space-between',
     p: 5,
     [breakpoints.down('sm')]: {
       p: 4,
@@ -78,10 +79,12 @@ const PageNotFound = <T extends TextSearchOptionBase>({
     elevation={0}
     square={true}
   >
-    <Box mb={3}>
-      <LogoLarge sx={[styles.logo, styles.svgColor]} />
-    </Box>
-    <Box sx={styles.container} flex="1 1 0" justifyContent="flex-end" gap={6}>
+    <Box
+      sx={[styles.container, { maxHeight: '646px' }]}
+      flex="1 1 0"
+      justifyContent="center"
+      gap={6}
+    >
       <SadFace sx={[styles.sadFace, styles.svgColor]} />
       <Box sx={styles.container} gap={2}>
         <Typography variant="h4" sx={styles.header} align="center">
@@ -100,7 +103,7 @@ const PageNotFound = <T extends TextSearchOptionBase>({
         </Button>
       </Box>
     </Box>
-    <Box sx={styles.container} flex="1 0 0" justifyContent="flex-end">
+    <Box sx={styles.container} justifyContent="flex-end">
       <Box alignSelf="flex-end">
         <LogoText sx={[styles.logoText, styles.svgColor]} />
         <Typography variant="body2" sx={styles.logoText}>
