@@ -30,7 +30,7 @@ const LIGHT_BUTTON = {
         },
         '&:focus-visible::before': {
           content: `""`,
-          position: 'absolute' as 'absolute',
+          position: 'absolute' as const,
           top: '-5px',
           right: '-5px',
           bottom: '-5px',
@@ -70,7 +70,7 @@ const LIGHT_BUTTON = {
         },
         '&:focus-visible::before': {
           content: `""`,
-          position: 'absolute' as 'absolute',
+          position: 'absolute' as const,
           top: '-5px',
           right: '-5px',
           bottom: '-5px',
@@ -115,7 +115,7 @@ const LIGHT_BUTTON = {
         },
         '&:focus-visible::before': {
           content: `""`,
-          position: 'absolute' as 'absolute',
+          position: 'absolute' as const,
           top: '-5px',
           right: '-5px',
           bottom: '-5px',
@@ -161,7 +161,7 @@ const DARK_BUTTON = {
         },
         '&:focus-visible::before': {
           content: `""`,
-          position: 'absolute' as 'absolute',
+          position: 'absolute' as const,
           top: '-5px',
           right: '-5px',
           bottom: '-5px',
@@ -204,7 +204,7 @@ const DARK_BUTTON = {
         },
         '&:focus-visible::before': {
           content: `""`,
-          position: 'absolute' as 'absolute',
+          position: 'absolute' as const,
           top: '-6px',
           right: '-6px',
           bottom: '-6px',
@@ -252,7 +252,7 @@ const DARK_BUTTON = {
         },
         '&:focus-visible::before': {
           content: `""`,
-          position: 'absolute' as 'absolute',
+          position: 'absolute' as const,
           top: '-6px',
           right: '-6px',
           bottom: '-6px',
