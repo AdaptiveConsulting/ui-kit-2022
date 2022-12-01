@@ -1,4 +1,4 @@
-import { Divider as MuiDivider } from '@mui/material';
+import { Box, Divider as MuiDivider } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
@@ -41,6 +41,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 4 }}>
+        <Story />
+      </Box>
+    ),
+  ],
 } as ComponentMeta<typeof MuiDivider>;
 
 const Template: ComponentStory<typeof MuiDivider> = (args) => {

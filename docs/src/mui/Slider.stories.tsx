@@ -1,4 +1,4 @@
-import { Slider as MuiSlider } from '@mui/material';
+import { Box, Slider as MuiSlider } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
@@ -65,6 +65,13 @@ export default {
       action: true,
     },
   },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 4 }}>
+        <Story />
+      </Box>
+    ),
+  ],
 } as ComponentMeta<typeof MuiSlider>;
 
 const Template: ComponentStory<typeof MuiSlider> = ({ ...args }) => {

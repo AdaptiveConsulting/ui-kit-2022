@@ -11,11 +11,11 @@ const Stack: React.FC = () => {
   const { data, labels, previousData } = generateData();
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
   return (
-    <Grid item xs={12} container sx={{ p: '0 1.5rem' }} spacing={4}>
-      <Grid item xs={12}>
-        <Typography variant="h4">Stack</Typography>
-      </Grid>
-      <Grid item xs={12} container spacing={4}>
+    <>
+      <Typography variant="h4" my={4}>
+        Stack
+      </Typography>
+      <Grid container spacing={4}>
         <Grid item xs={12} lg={2} container spacing={4}>
           <Grid item xs={12}>
             <Typography variant="body2">From front to back:</Typography>
@@ -39,7 +39,7 @@ const Stack: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

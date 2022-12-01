@@ -24,10 +24,8 @@ export default function BasicTable() {
     <TableContainer>
       <Table aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell align="right">Price</TableCell>
-          </TableRow>
+          <TableCell></TableCell>
+          <TableCell align="right">Price</TableCell>
         </TableHead>
         <TableBody>
           {rows.map((row) => (

@@ -1,8 +1,8 @@
-import { Box, Divider, useMediaQuery } from '@mui/material';
+import { Box, Divider, useMediaQuery, useTheme } from '@mui/material';
 import { IndexTickers } from '@ui-kit-2022/components';
-
-const TickerBar: React.FC = () => {
-  const matches = useMediaQuery('(min-width:830px)');
+const StockPriceFooter = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const isSmallScreen = useMediaQuery('(max-width: 440px)');
   return (
     <>
@@ -10,7 +10,7 @@ const TickerBar: React.FC = () => {
         <Divider orientation="horizontal" sx={{ width: '100%' }} />
       </Box>
       <Box
-        pt={2}
+        py={2}
         width={'100%'}
         display={'flex'}
         justifyContent={matches ? 'flex-start' : 'center'}
@@ -40,4 +40,4 @@ const TickerBar: React.FC = () => {
   );
 };
 
-export default TickerBar;
+export default StockPriceFooter;

@@ -50,7 +50,7 @@ export const renderPredictiveLabel = (
   return <>{elements}</>;
 };
 
-interface TextSearchOptionBase {
+export interface TextSearchOptionBase {
   label: string;
 }
 

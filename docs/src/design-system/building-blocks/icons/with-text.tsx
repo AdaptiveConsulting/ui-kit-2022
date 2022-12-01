@@ -144,7 +144,6 @@ const DoIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
         <Grid item xs={12}>
           <Grid
             container
-            columnGap={3}
             alignItems="center"
             sx={{
               width: '100px',
@@ -155,7 +154,7 @@ const DoIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
           >
             {WITH_TEXT.column3.icons.map((value) => (
               <React.Fragment key={value.label}>
-                <Grid item xs={3}>
+                <Grid item xs={6}>
                   {value.icon && (
                     <SvgIcon
                       component={value.icon}
@@ -198,7 +197,6 @@ const DontIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
         <Grid item xs={12}>
           <Grid
             container
-            columnGap={3}
             alignItems="center"
             sx={{
               width: '100px',
@@ -209,7 +207,7 @@ const DontIconWithActions: React.FC<{ palette: Palette }> = ({ palette }) => {
           >
             {WITH_TEXT.column4.icons.map((value) => (
               <React.Fragment key={value.label}>
-                <Grid item xs={3}>
+                <Grid item xs={6}>
                   {value.icon && (
                     <SvgIcon
                       component={value.icon}

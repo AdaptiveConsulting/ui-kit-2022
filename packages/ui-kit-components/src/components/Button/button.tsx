@@ -9,7 +9,7 @@ export interface Props {
   variant?: VariantType;
   disabled?: boolean;
   icon?: 'left' | 'right';
-  click?: () => void;
+  click?: (e: React.BaseSyntheticEvent) => void;
 }
 
 const ButtonDefault: React.FC<Props> = ({

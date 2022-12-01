@@ -6,8 +6,10 @@ import MuiChip from './MuiChip';
 import MuiDivider from './MuiDivider';
 import MuiInputBase from './MuiInputBase';
 import MuiLinearProgress from './MuiLinearProgress';
+import MuiMenu from './MuiMenu';
+import MuiMenuItem from './MuiMenuItem';
+import MuiSelect from './MuiSelect';
 import MuiTable from './MuiTable';
-import MuiTableBody from './MuiTableBody';
 
 // Component overrides
 export const LIGHT_COMPONENTS = {
@@ -16,10 +18,13 @@ export const LIGHT_COMPONENTS = {
   MuiChip,
   MuiButton: LIGHT_BUTTON,
   MuiButtonGroup,
-  MuiTableBody,
+  MuiTable,
   MuiInputBase,
   MuiAutocomplete,
   MuiLinearProgress,
+  MuiSelect,
+  MuiMenu,
+  MuiMenuItem,
 };
 
 export const DARK_COMPONENTS = {
@@ -29,8 +34,10 @@ export const DARK_COMPONENTS = {
   MuiButton: DARK_BUTTON,
   MuiButtonGroup,
   MuiTable,
-  MuiTableBody,
   MuiInputBase,
   MuiAutocomplete,
   MuiLinearProgress,
+  MuiSelect,
+  MuiMenu,
+  MuiMenuItem,
 };

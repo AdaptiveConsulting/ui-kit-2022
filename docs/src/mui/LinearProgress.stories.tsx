@@ -1,4 +1,4 @@
-import { LinearProgress as MuiLinearProgress } from '@mui/material';
+import { Box, LinearProgress as MuiLinearProgress } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
@@ -36,6 +36,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 4 }}>
+        <Story />
+      </Box>
+    ),
+  ],
 } as ComponentMeta<typeof MuiLinearProgress>;
 
 const Template: ComponentStory<typeof MuiLinearProgress> = (args) => (
