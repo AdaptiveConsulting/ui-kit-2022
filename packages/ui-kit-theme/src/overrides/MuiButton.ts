@@ -13,7 +13,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'PRIMARY' as VariantType },
       style: {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
@@ -47,7 +47,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'SECONDARY' as VariantType },
       style: {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         border: `1px solid #5F618D`,
         borderRadius: '100px',
         padding: '0px 4px',
@@ -92,7 +92,7 @@ const LIGHT_BUTTON = {
     {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         padding: '0px 4px',
         color: '#5F618D',
         borderRadius: '100px',
@@ -141,7 +141,7 @@ const DARK_BUTTON = {
     {
       props: { variant: 'PRIMARY' as VariantType },
       style: {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
@@ -181,7 +181,7 @@ const DARK_BUTTON = {
     {
       props: { variant: 'SECONDARY' as VariantType },
       style: {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         border: `1px solid #DBDDFF`,
         borderRadius: '100px',
         padding: '0px 4px',
@@ -229,7 +229,7 @@ const DARK_BUTTON = {
     {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
-        position: 'relative' as 'relative',
+        position: 'relative' as const,
         color: '#DBDDFF',
         padding: '0px 4px',
         borderRadius: '100px',
