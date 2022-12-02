@@ -21,7 +21,7 @@ const AppBar = () => {
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[100],
     width: '129px',
     minHeight: '100vh',
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
       minHeight: 'min-content',
       padding: `${theme.spacing(4)} 0`,
@@ -30,7 +30,7 @@ const AppBar = () => {
 
   return (
     <Box sx={{ ...appBarStyling }}>
-      {useMediaQuery(theme.breakpoints.up('lg')) ? (
+      {useMediaQuery(theme.breakpoints.up('md')) ? (
         <Box sx={{ ...logoContainerStyling }}>
           <Logo variant="large" />
           <LogoText width={63} height={23} />

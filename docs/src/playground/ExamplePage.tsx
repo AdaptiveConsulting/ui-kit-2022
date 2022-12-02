@@ -30,7 +30,7 @@ const styles = {
   container: ({ breakpoints }: Theme) => ({
     display: 'flex',
     minHeight: '100vh',
-    [breakpoints.down('lg')]: {
+    [breakpoints.down('md')]: {
       flexDirection: 'column',
     },
   }),
@@ -49,8 +49,8 @@ const styles = {
       flexDirection: 'column',
     },
   }),
-  textInput: (theme: Theme) => ({
-    '& .MuiInputBase-input': theme.typography.h3,
+  textInput: ({ typography }: Theme) => ({
+    '& .MuiInputBase-input': typography.h3,
   }),
 };
 

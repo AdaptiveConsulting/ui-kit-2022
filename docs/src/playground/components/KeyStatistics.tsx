@@ -1,4 +1,12 @@
-import { Box, Table, TableCell, TableRow, Theme, Typography } from '@mui/material';
+import {
+  Box,
+  Table,
+  TableCell,
+  TableRow,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 
 export interface Stats {
   open: string;
@@ -30,10 +38,19 @@ const labels = new Map([
   ['totalAverageVolume', 'Total Avg. Volume'],
 ]);
 
-interface StatRowProps {
-  name: keyof Stats;
-  value: string;
-}
+const partition = <T,>(arr: T[], n: number) => {
+  if (n <= 0) {
+    return [];
+  }
+  return arr.reduce((acc, value) => {
+    const last = acc[acc.length - 1];
+    if (last && last.length < n) {
+      return [...acc.slice(0, -1), [...last, value]];
+    } else {
+      return [...acc, [value]];
+    }
+  }, [] as Array<Array<T>>);
+};
 
 const renderStatRow = (stats: Stats, name: keyof Stats) => (
   <TableRow key={name}>
@@ -45,37 +62,36 @@ const renderStatRow = (stats: Stats, name: keyof Stats) => (
 );
 
 const styles = {
-  content: ({ breakpoints }: Theme) => ({
+  content: {
     display: 'flex',
     gap: 5,
     mb: 5,
-    [breakpoints.down('md')]: {
-      flexDirection: 'column',
-    },
-  }),
+  },
 };
 
-const KeyStatistics = (props: Stats) => (
-  <>
-    <Typography variant="h4" my={5}>
-      Key Statistics
-    </Typography>
-    <Box display="flex" gap={5} mb={5} sx={styles.content}>
-      <Table>
-        {(['open', 'high', 'low', 'close'] as const).map(renderStatRow.bind(this, props))}
-      </Table>
-      <Table>
-        {(['dayRange', 'yearRange', 'marketCap', 'p2eRatio'] as const).map(
-          renderStatRow.bind(this, props),
-        )}
-      </Table>
-      <Table>
-        {(['dividendYield', 'eps', 'volume', 'totalAverageVolume'] as const).map(
-          renderStatRow.bind(this, props),
-        )}
-      </Table>
-    </Box>
-  </>
-);
+const KeyStatistics = (props: Stats) => {
+  const { breakpoints } = useTheme();
+  let nRows = 4;
+  if (useMediaQuery(breakpoints.down('lg'))) {
+    nRows = 6;
+  }
+  if (useMediaQuery(breakpoints.down('sm'))) {
+    nRows = 12;
+  }
+  return (
+    <>
+      <Typography variant="h4" my={5}>
+        Key Statistics
+      </Typography>
+      <Box display="flex" gap={5} mb={5} sx={styles.content}>
+        {partition(Array.from(labels.keys()), nRows).map((keys, index) => (
+          <Table key={index}>
+            {(keys as Array<keyof Stats>).map(renderStatRow.bind(this, props))}
+          </Table>
+        ))}
+      </Box>
+    </>
+  );
+};
 
 export default KeyStatistics;
