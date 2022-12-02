@@ -1,6 +1,7 @@
 import MuiAutocomplete from './MuiAutocomplete';
 import { DARK_BUTTON, LIGHT_BUTTON } from './MuiButton';
 import MuiButtonBase from './MuiButtonBase';
+import MuiButtonGroup from './MuiButtonGroup';
 import MuiChip from './MuiChip';
 import MuiDivider from './MuiDivider';
 import MuiInputBase from './MuiInputBase';
@@ -16,6 +17,7 @@ export const LIGHT_COMPONENTS = {
   MuiDivider,
   MuiChip,
   MuiButton: LIGHT_BUTTON,
+  MuiButtonGroup,
   MuiTable,
   MuiInputBase,
   MuiAutocomplete,
@@ -30,6 +32,7 @@ export const DARK_COMPONENTS = {
   MuiDivider,
   MuiChip,
   MuiButton: DARK_BUTTON,
+  MuiButtonGroup,
   MuiTable,
   MuiInputBase,
   MuiAutocomplete,
