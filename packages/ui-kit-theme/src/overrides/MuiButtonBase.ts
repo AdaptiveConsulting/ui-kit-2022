@@ -6,13 +6,19 @@ export default {
       '&:active': {
         outline: 'none !important',
       },
-      '&:focus': {
-        outline: `2px solid ${
+      '&:focus::before': {
+        content: `""`,
+        position: 'absolute' as const,
+        top: '-5px',
+        right: '-5px',
+        bottom: '-5px',
+        left: '-5px',
+        border: `2px solid ${
           theme.palette.mode === 'light'
             ? theme.palette.warning.main
             : theme.palette.warning.light
         }`,
-        outlineOffset: '2px',
+        borderRadius: '10px',
       },
     }),
   },
