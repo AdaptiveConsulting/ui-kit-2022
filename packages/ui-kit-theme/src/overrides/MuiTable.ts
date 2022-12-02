@@ -2,6 +2,9 @@ import { Theme } from '@mui/material';
 export default {
   styleOverrides: {
     root: ({ theme }: { theme: Theme }) => ({
+      '&.MuiTable-root': {
+        borderCollapse: 'separate',
+      },
       ' * td, * th': {
         padding: '8px',
         verticalAlign: 'top',
