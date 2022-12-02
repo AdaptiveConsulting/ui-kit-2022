@@ -43,4 +43,19 @@ StocksPage.args = {
     ],
     previousData: Math.random() * 150,
   },
+  tickerSearchProps: {
+    placeholder: 'Enter a stock, symbol, or currency.',
+    value: 'AAPL - Apple Inc.',
+    options: [
+      { label: 'AAPL - Apple Inc.', type: 'stock' },
+      { label: 'AMZN - Amazon Inc.', type: 'stock' },
+      { label: 'HOV - Hovercraft Partners', type: 'stock' },
+      { label: 'GBP - Great British Pound', type: 'currency' },
+      { label: 'USD - US Dollar', type: 'currency' },
+    ],
+    groupBy: (opt: unknown) =>
+      ({ stock: 'Stock', currency: 'FX' }[
+        (opt as { type: string }).type as string
+      ] as string),
+  },
 };

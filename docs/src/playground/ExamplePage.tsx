@@ -1,5 +1,5 @@
-import { Box, Button, ButtonGroup, Divider, Theme, Typography } from '@mui/material';
-import { Graph, Icon } from '@ui-kit-2022/components';
+import { Box, Button, ButtonGroup, Theme } from '@mui/material';
+import { Graph, Icon, TextSearch } from '@ui-kit-2022/components';
 
 import AppBar from './components/AppBar';
 import KeyStatistics from './components/KeyStatistics';
@@ -49,11 +49,15 @@ const styles = {
       flexDirection: 'column',
     },
   }),
+  textInput: (theme: Theme) => ({
+    '& .MuiInputBase-input': theme.typography.h3,
+  }),
 };
 
 type PartialNumberType = number | undefined;
 
 export interface ExamplePageProps {
+  // Need a way to import Types from the UI Kit to avoid having to make duplicate type defs
   graphProps: {
     yLabelStep?: number;
     xLabelStep?: number;
@@ -61,9 +65,10 @@ export interface ExamplePageProps {
     data: PartialNumberType[][];
     previousData?: number;
   };
+  tickerSearchProps: any;
 }
 
-export default function ExamplePage({ graphProps }: ExamplePageProps) {
+export default function ExamplePage({ graphProps, tickerSearchProps }: ExamplePageProps) {
   return (
     <Box sx={styles.container}>
       <Box>
@@ -71,11 +76,8 @@ export default function ExamplePage({ graphProps }: ExamplePageProps) {
       </Box>
       <Box sx={styles.content}>
         <Box flex="2" display="flex" flexDirection="column" px={4} sx={{ minWidth: 0 }}>
-          <Box mt={6}>
-            <Typography variant="h3" sx={{ p: 2 }}>
-              AAPL - Apple Inc.
-            </Typography>
-            <Divider orientation="horizontal" />
+          <Box mt={6} p={2} sx={styles.textInput}>
+            <TextSearch {...tickerSearchProps} />
           </Box>
           <Box>
             <Box py={4} display="flex" justifyContent="flex-end" gap={5}>
