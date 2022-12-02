@@ -17,7 +17,7 @@ const LIGHT_BUTTON = {
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
-        padding: '0px 4px',
+        padding: '0 4px',
         '&:hover': {
           backgroundColor: '#A9ABD1',
         },
@@ -26,7 +26,23 @@ const LIGHT_BUTTON = {
           backgroundColor: '#DBDDFF',
         },
         '&:focus': {
-          outline: 'none',
+          outline: 'none !important',
+        },
+        '&:focus::before': {
+          content: `""`,
+          position: 'absolute' as const,
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FF8D00',
+          borderRadius: '101px',
+        },
+        '&:focus:not(:focus-visible)': { position: 'relative', border: 'none' },
+        '&:focus:not(:focus-visible)::before': {
+          position: 'relative',
+          border: 'none',
+          content: 'none',
         },
         '&:focus-visible::before': {
           content: `""`,
@@ -50,7 +66,7 @@ const LIGHT_BUTTON = {
         position: 'relative' as const,
         border: `1px solid #5F618D`,
         borderRadius: '100px',
-        padding: '0px 4px',
+        padding: '0 4px',
         color: '#5F618D',
         '&:hover': {
           backgroundColor: '#5F618D',
@@ -63,6 +79,22 @@ const LIGHT_BUTTON = {
         },
         '&:focus': {
           outline: 'none',
+        },
+        '&:focus::before': {
+          content: `""`,
+          position: 'absolute' as const,
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FF8D00',
+          borderRadius: '101px',
+        },
+        '&:focus:not(:focus-visible)': { position: 'relative', border: 'none' },
+        '&:focus:not(:focus-visible)::before': {
+          position: 'relative',
+          border: 'none',
+          content: 'none',
         },
         '&:focus-visible': {
           border: '1px solid #5F618D',
@@ -93,7 +125,7 @@ const LIGHT_BUTTON = {
       props: { variant: 'TERTIARY' as VariantType },
       style: {
         position: 'relative' as const,
-        padding: '0px 4px',
+        padding: '0 4px',
         color: '#5F618D',
         borderRadius: '100px',
         backgroundColor: 'inherit',
@@ -108,6 +140,23 @@ const LIGHT_BUTTON = {
         },
         '&:focus': {
           outline: 'none',
+          border: '1px solid #5F618D',
+        },
+        '&:focus::before': {
+          content: `""`,
+          position: 'absolute' as const,
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FF8D00',
+          borderRadius: '101px',
+        },
+        '&:focus:not(:focus-visible)': { position: 'relative', border: 'none' },
+        '&:focus:not(:focus-visible)::before': {
+          position: 'relative',
+          border: 'none',
+          content: 'none',
         },
         '&:focus-visible': {
           border: '1px solid #5F618D',
@@ -145,7 +194,7 @@ const DARK_BUTTON = {
         borderRadius: '100px',
         color: '#000000',
         backgroundColor: '#DBDDFF',
-        padding: '0px 4px',
+        padding: '0 4px',
         '&:hover': {
           backgroundColor: '#A9ABD1',
         },
@@ -154,10 +203,24 @@ const DARK_BUTTON = {
           backgroundColor: '#DBDDFF',
         },
         '&:focus': {
-          outline: 'none',
+          outline: 'none !important',
+          border: '1px solid #DBDDFF',
         },
-        '&:focus-visible': {
-          border: '2px solid inherit',
+        '&:focus::before': {
+          content: `""`,
+          position: 'absolute',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FFBE45',
+          borderRadius: '101px',
+        },
+        '&:focus:not(:focus-visible)': { position: 'relative', border: 'none' },
+        '&:focus:not(:focus-visible)::before': {
+          position: 'relative',
+          border: 'none',
+          content: 'none',
         },
         '&:focus-visible::before': {
           content: `""`,
@@ -166,7 +229,7 @@ const DARK_BUTTON = {
           right: '-5px',
           bottom: '-5px',
           left: '-5px',
-          border: '2px solid #FF8D00',
+          border: '2px solid #FFBE45',
           borderRadius: '101px',
         },
         '&:focus-visible:hover': {
@@ -184,7 +247,7 @@ const DARK_BUTTON = {
         position: 'relative' as const,
         border: `1px solid #DBDDFF`,
         borderRadius: '100px',
-        padding: '0px 4px',
+        padding: '0 4px',
         color: '#DBDDFF',
         '&:hover': {
           backgroundColor: '#DBDDFF',
@@ -195,8 +258,24 @@ const DARK_BUTTON = {
           color: '#DBDDFF',
         },
         '&:focus': {
-          outline: 'none',
+          outline: 'none !important',
           color: '#DBDDFF',
+        },
+        '&:focus::before': {
+          content: `""`,
+          position: 'absolute',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '2px solid #FFBE45',
+          borderRadius: '101px',
+        },
+        '&:focus:not(:focus-visible)': { position: 'relative', border: 'none' },
+        '&:focus:not(:focus-visible)::before': {
+          position: 'relative',
+          border: 'none',
+          content: 'none',
         },
         '&:focus-visible': {
           border: '1px solid #DBDDFF',
@@ -231,7 +310,7 @@ const DARK_BUTTON = {
       style: {
         position: 'relative' as const,
         color: '#DBDDFF',
-        padding: '0px 4px',
+        padding: '0 4px',
         borderRadius: '100px',
         '&:hover': {
           backgroundColor: 'inherit',
@@ -244,7 +323,24 @@ const DARK_BUTTON = {
           color: '#DBDDFF',
         },
         '&:focus': {
-          outline: 'none',
+          outline: 'none !important',
+          border: '1px solid #DBDDFF',
+        },
+        '&:focus::before': {
+          content: `""`,
+          position: 'absolute',
+          top: '-5px',
+          right: '-5px',
+          bottom: '-5px',
+          left: '-5px',
+          border: '1px solid #FFBE45',
+          borderRadius: '101px',
+        },
+        '&:focus:not(:focus-visible)': { position: 'relative', border: 'none' },
+        '&:focus:not(:focus-visible)::before': {
+          position: 'relative',
+          border: 'none',
+          content: 'none',
         },
         '&:focus-visible': {
           border: '1px solid #DBDDFF',
