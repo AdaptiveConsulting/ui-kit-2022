@@ -7,12 +7,6 @@ export default {
         outline: 'none !important',
       },
       '&:focus::before': {
-        // outline: `2px solid ${
-        //   theme.palette.mode === 'light'
-        //     ? theme.palette.warning.main
-        //     : theme.palette.warning.light
-        // }`,
-        // outlineOffset: '2px',
         content: `""`,
         position: 'absolute' as const,
         top: '-5px',
