@@ -1,4 +1,4 @@
-import Button from './button';
+import Button, { Props as ButtonProps, VariantType as ButtonVariant } from './button';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
@@ -12,3 +12,4 @@ declare module '@mui/material/Button' {
 }
 
 export { Button };
+export type { ButtonProps, ButtonVariant };
