@@ -51,7 +51,8 @@ const ButtonStatesExample: React.FC<Props> = ({ variantType, overrideTheme }) =>
         margin: '0 auto',
       },
       ' > div:nth-of-type(5)': {
-        paddingBottom: `${theme.spacing(2)} !important`,
+        paddingBottom:
+          variantType !== 'PRIMARY' ? `${theme.spacing(2)} !important` : null,
       },
     },
 
