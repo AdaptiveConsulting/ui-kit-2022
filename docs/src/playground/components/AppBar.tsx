@@ -15,14 +15,16 @@ const AppBar = () => {
   const appBarStyling = {
     display: 'flex',
     justifyContent: 'center',
+    position: 'sticky',
+    top: 0,
     background:
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[100],
     width: '129px',
-    height: '100%',
+    minHeight: '100vh',
     [theme.breakpoints.down('md')]: {
       width: '100%',
-      height: 'min-content',
-      padding: `${theme.spacing(5)} 0`,
+      minHeight: 'min-content',
+      padding: `${theme.spacing(4)} 0`,
     },
   };
 

@@ -6,7 +6,7 @@ const StockPriceFooter = () => {
   const isSmallScreen = useMediaQuery('(max-width: 440px)');
   return (
     <>
-      <Box px={isSmallScreen ? 2 : 4}>
+      <Box>
         <Divider orientation="horizontal" sx={{ width: '100%' }} />
       </Box>
       <Box
