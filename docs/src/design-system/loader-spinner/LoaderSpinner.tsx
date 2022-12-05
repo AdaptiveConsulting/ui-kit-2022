@@ -1,10 +1,10 @@
 import {
-  Grid,
   Box,
+  Grid,
   LinearProgress as MuiLinearProgress,
   Typography,
-  useTheme,
   useMediaQuery,
+  useTheme,
 } from '@mui/material';
 
 import { TopBar } from '../building-blocks/common';
