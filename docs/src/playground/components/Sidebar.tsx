@@ -8,9 +8,7 @@ export default function Sidebar() {
   const isTiny = useMediaQuery('(max-width: 375px)');
 
   const containerStyling = {
-    maxHeight: '100vh',
-    overflowY: 'scroll',
-    overflowX: 'hidden',
+    minHeight: '100%',
     padding: `${theme.spacing(5)} ${theme.spacing(6)}`,
     backgroundColor:
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[100],
