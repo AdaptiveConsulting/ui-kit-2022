@@ -1,5 +1,12 @@
 import { Box, Button, ButtonGroup, Theme } from '@mui/material';
-import { Graph, Icon, TextSearch } from '@ui-kit-2022/components';
+import {
+  Graph,
+  GraphProps,
+  Icon,
+  TextSearch,
+  TextSearchOptionBase,
+  TextSearchProps,
+} from '@ui-kit-2022/components';
 
 import AppBar from './components/AppBar';
 import KeyStatistics from './components/KeyStatistics';
@@ -54,21 +61,16 @@ const styles = {
   }),
 };
 
-type PartialNumberType = number | undefined;
-
-export interface ExamplePageProps {
+export interface ExamplePageProps<T extends TextSearchOptionBase> {
   // Need a way to import Types from the UI Kit to avoid having to make duplicate type defs
-  graphProps: {
-    yLabelStep?: number;
-    xLabelStep?: number;
-    labels: string[];
-    data: PartialNumberType[][];
-    previousData?: number;
-  };
-  tickerSearchProps: any;
+  graphProps: GraphProps;
+  tickerSearchProps: TextSearchProps<T>;
 }
 
-export default function ExamplePage({ graphProps, tickerSearchProps }: ExamplePageProps) {
+export default function ExamplePage<T extends TextSearchOptionBase>({
+  graphProps,
+  tickerSearchProps,
+}: ExamplePageProps<T>) {
   return (
     <Box sx={styles.container}>
       <Box>

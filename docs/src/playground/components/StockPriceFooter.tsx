@@ -3,7 +3,6 @@ import { IndexTickers } from '@ui-kit-2022/components';
 const StockPriceFooter = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
-  const isSmallScreen = useMediaQuery('(max-width: 440px)');
   return (
     <>
       <Box>

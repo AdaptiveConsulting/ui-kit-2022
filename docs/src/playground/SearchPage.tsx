@@ -92,7 +92,7 @@ const SearchPage = () => {
             <TextSearch
               options={options}
               inputValue={input}
-              onInput={(event: any) => {
+              onInput={(event: React.BaseSyntheticEvent) => {
                 setInput(event.target.value);
               }}
               onChange={(event, value: Option | null) => {

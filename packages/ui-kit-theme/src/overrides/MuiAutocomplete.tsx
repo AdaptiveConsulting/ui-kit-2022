@@ -15,12 +15,12 @@ export default {
         backgroundImage: 'none',
       };
     },
-    listbox: ({ theme }: { theme: Theme }) => ({
+    listbox: {
       margin: '0 10px',
       padding: 0,
       // Keeps IOS scroll bar from being hidden by the groupLabel
       '-webkit-transform': 'translate3d(0,0,0)',
-    }),
+    },
     groupLabel: ({ theme }: { theme: Theme }) => ({
       ...theme.typography.body2,
       backgroundColor: theme.palette.mode === 'light' ? 'white' : 'black',

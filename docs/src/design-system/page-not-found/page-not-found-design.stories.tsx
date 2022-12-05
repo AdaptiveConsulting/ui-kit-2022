@@ -30,7 +30,11 @@ const PageNotFoundDesignDoc = () => {
           {{ dark: 'Dark mode', light: 'Light mode' }[theme.palette.mode]}
         </Typography>
         <Box sx={{ height: '100vh', border: `1px solid ${borderColor}` }}>
-          <PageNotFound onNavigateHome={() => null} fitContainer={true} />
+          <PageNotFound
+            onNavigateHome={() => null}
+            fitContainer={true}
+            inputProps={{ options: [] }}
+          />
         </Box>
       </Container>
     </>

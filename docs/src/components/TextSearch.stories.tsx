@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { TextSearch } from '@ui-kit-2022/components';
+import { TextSearch, TextSearchOptionBase } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 export default {
@@ -96,6 +96,10 @@ BasicTextSearch.args = {
   ],
 };
 
+interface Option extends TextSearchOptionBase {
+  type: 'stock' | 'currency';
+}
+
 export const TickerSearch = Template.bind({});
 TickerSearch.args = {
   placeholder: 'Enter a stock, symbol, or currency.',
@@ -105,7 +109,7 @@ TickerSearch.args = {
     { label: 'HOV - Hovercraft Partners', type: 'stock' },
     { label: 'GBP - Great British Pound', type: 'currency' },
     { label: 'USD - US Dollar', type: 'currency' },
-  ],
+  ] as Option[],
   groupBy: (opt: unknown) =>
     ({ stock: 'Stock', currency: 'FX' }[
       (opt as { type: string }).type as string
