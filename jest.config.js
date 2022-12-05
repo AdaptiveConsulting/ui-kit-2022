@@ -1,5 +1,13 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
+  //preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  moduleNameMapper: {
+    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
