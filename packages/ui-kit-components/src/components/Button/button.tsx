@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight } from '../../icons';
 export type VariantType = 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 export interface Props {
   children?: JSX.Element | string;
-  variant?: VariantType;
+  variant?: any;
   disabled?: boolean;
   icon?: 'left' | 'right';
   click?: (e: React.BaseSyntheticEvent) => void;
