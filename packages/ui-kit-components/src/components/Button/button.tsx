@@ -22,6 +22,7 @@ const ButtonDefault: React.FC<Props> = ({
   if (icon === 'left') {
     return (
       <Button
+        data-testid={'left-icon'}
         disableRipple
         variant={variant}
         disabled={disabled}
@@ -41,6 +42,7 @@ const ButtonDefault: React.FC<Props> = ({
   } else if (icon === 'right') {
     return (
       <Button
+        data-testid={'right-icon'}
         disableRipple
         variant={variant}
         disabled={disabled}
@@ -60,7 +62,13 @@ const ButtonDefault: React.FC<Props> = ({
   }
 
   return (
-    <Button disableRipple variant={variant} disabled={disabled} onClick={click}>
+    <Button
+      disableRipple
+      variant={variant}
+      disabled={disabled}
+      onClick={click}
+      data-testid={'normal'}
+    >
       {children}
     </Button>
   );

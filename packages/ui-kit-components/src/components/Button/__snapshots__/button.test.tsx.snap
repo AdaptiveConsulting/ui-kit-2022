@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component tests test focus the button 1`] = `
+<button
+  class="MuiButtonBase-root MuiButton-root MuiButton-PRIMARY MuiButton-PRIMARYPrimary MuiButton-sizeMedium MuiButton-PRIMARYSizeMedium MuiButton-root MuiButton-PRIMARY MuiButton-PRIMARYPrimary MuiButton-sizeMedium MuiButton-PRIMARYSizeMedium css-1w1rijm-MuiButtonBase-root-MuiButton-root"
+  data-testid="normal"
+  tabindex="0"
+  type="button"
+>
+  Focus Test
+</button>
+`;
