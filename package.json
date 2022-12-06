@@ -26,7 +26,7 @@
     "prepare": "husky install",
     "clean": "rm -r ./dist; yarn workspaces foreach run clean",
     "release": "yarn build-lib && yarn changeset publish",
-    "version": "yarn changeset version && yarn",
+    "version": "yarn changeset version && yarn --mode=update-lockfile",
     "test:unit": "yarn jest"
   },
   "devDependencies": {
