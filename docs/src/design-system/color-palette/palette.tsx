@@ -53,10 +53,8 @@ const ColorPalette: React.FC = () => {
   const { palette } = useTheme();
 
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <TopBar title={'Reactive Design System'} />
-      </Grid>
+    <>
+      <TopBar title={'Reactive Design System'} />
       <Grid
         container
         sx={{
@@ -105,7 +103,7 @@ const ColorPalette: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

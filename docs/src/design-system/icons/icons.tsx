@@ -7,10 +7,8 @@ const Icons: React.FC = () => {
   const { palette } = useTheme();
 
   return (
-    <Grid container sx={{ maxWidth: '1100px' }}>
-      <Grid item xs={12}>
-        <TopBar title={'Icons'} />
-      </Grid>
+    <>
+      <TopBar title={'Icons'} />
       <Grid
         container
         sx={{
@@ -27,7 +25,7 @@ const Icons: React.FC = () => {
         <WithText />
         <IconLibrary />
       </Grid>
-    </Grid>
+    </>
   );
 };
 

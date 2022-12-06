@@ -32,7 +32,7 @@ const IconsGroup: React.FC<{
       rowGap={2}
       sx={{ height: '100%', width: '100%', fontSize: '11px', fontWeight: '300' }}
     >
-      <Grid item xs={12}>
+      <Grid item xxs={12}>
         <Box
           sx={{
             display: 'flex',
@@ -123,7 +123,7 @@ const IconsGroup: React.FC<{
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xxs={12}>
         <Typography variant="body2" sx={LABEL_STYLE}>
           {children}
         </Typography>
@@ -136,7 +136,7 @@ const Color: React.FC = () => {
   const { palette } = useTheme();
   return (
     <Grid container columns={{ xs: 2, md: 4 }} columnSpacing={5} rowGap={5}>
-      <Grid item xs={2} sm={1.5} md={1}>
+      <Grid item xxs={2} sm={1.5} md={1}>
         <SubTitle subTitle={COLOR.subTitle} />
         <Typography variant="body2">{COLOR.paragraph1}</Typography>
         <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
@@ -146,7 +146,7 @@ const Color: React.FC = () => {
       <Grid
         item
         container
-        xs={2}
+        xxs={2}
         md={1}
         columns={2}
         columnSpacing={2}
@@ -158,12 +158,12 @@ const Color: React.FC = () => {
           },
         }}
       >
-        <Grid item xs={1}>
+        <Grid item xxs={1}>
           <IconsGroup palette={palette} background="dark">
             {COLOR.IconExampleExplanation1}
           </IconsGroup>
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xxs={1}>
           <IconsGroup palette={palette} background="light">
             {COLOR.IconExampleExplanation2}
           </IconsGroup>
