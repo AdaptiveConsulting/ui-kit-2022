@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { ArrowLeft, ArrowRight } from '../../icons';
 
-export type VariantType = "PRIMARY" | "SECONDARY" | "TERTIARY" | undefined;
+export type VariantType = 'PRIMARY' | 'SECONDARY' | 'TERTIARY' | undefined;
 export interface Props {
   children?: JSX.Element | string;
   variant?: VariantType;
