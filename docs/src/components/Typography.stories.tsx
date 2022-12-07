@@ -1,5 +1,6 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Typography } from '@ui-kit-2022/components';
 
 const VARIANTS = {
   'Header Large': 'h1',
@@ -16,7 +17,7 @@ const VARIANTS = {
 };
 
 export default {
-  title: 'Theme/Typography Variants',
+  title: 'Components/Typography',
   component: Typography,
   argTypes: {
     children: {
@@ -29,6 +30,11 @@ export default {
       options: Object.keys(VARIANTS),
       mapping: VARIANTS,
       control: { type: 'select' },
+    },
+    loading: {
+      name: 'Loading',
+      control: 'boolean',
+      defaultValue: false,
     },
   },
   decorators: [
@@ -44,9 +50,9 @@ const Template: ComponentStory<typeof Typography> = ({ ...args }) => (
   <Typography {...args} />
 );
 
-export const Variants = Template.bind({});
-Variants.args = {
+export const TypographyStory = Template.bind({});
+TypographyStory.args = {
   variant: Object.keys(VARIANTS)[0],
 };
 
-Variants.storyName = 'Typography Variants';
+TypographyStory.storyName = 'Typography';
