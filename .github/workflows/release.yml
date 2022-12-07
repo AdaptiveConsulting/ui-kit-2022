@@ -14,14 +14,19 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Setup Node.js 18.x
+      - name: Setup Node.js 16.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 16.x
+          cache: 'yarn'
 
-      - name: Install Dependencies
-        run: yarn
+      - name: Install & Build Dependencies
+        run: |
+          yarn
+          yarn build-lib
 
       - name: Create .npmrc
         run: |
@@ -38,6 +43,13 @@ jobs:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Chromatic
+        if: steps.changesets.outputs.pullRequestNumber != ${{null}}
+        working-directory: ./docs
+        run: npx chromatic --ci --exit-zero-on-changes --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Create Release Branch
         if: steps.changesets.outputs.published == 'true'
