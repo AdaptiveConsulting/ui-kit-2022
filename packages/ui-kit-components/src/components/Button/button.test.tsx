@@ -47,20 +47,20 @@ describe('Button component tests', () => {
 
     const element = screen.getByTestId('normal');
 
-    const style = window.getComputedStyle(element);
+    const styleDefault = window.getComputedStyle(element);
     act(() => {
       element.focus();
     });
-    const style1 = window.getComputedStyle(element);
+    const styleFocus = window.getComputedStyle(element);
 
     expect(element).toBeInTheDocument();
     act(() => {
       element.blur();
     });
-    const style2 = window.getComputedStyle(element);
+    const styleBlur = window.getComputedStyle(element);
 
     expect(element).toMatchSnapshot();
-    expect(JSON.stringify(style)).not.toEqual(JSON.stringify(style1));
-    expect(JSON.stringify(style)).toEqual(JSON.stringify(style2));
+    expect(JSON.stringify(styleDefault)).not.toEqual(JSON.stringify(styleFocus));
+    expect(JSON.stringify(styleDefault)).toEqual(JSON.stringify(styleBlur));
   });
 });
