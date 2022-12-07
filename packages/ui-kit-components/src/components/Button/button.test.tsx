@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 
 import Button from './button';
 
@@ -43,20 +43,24 @@ describe('Button component tests', () => {
   });
 
   it('test focus the button', () => {
-    render(<Button>Focus Test</Button>)
+    render(<Button>Focus Test</Button>);
 
     const element = screen.getByTestId('normal');
-    
+
     const style = window.getComputedStyle(element);
-    act(() => {element.focus()});
+    act(() => {
+      element.focus();
+    });
     const style1 = window.getComputedStyle(element);
 
     expect(element).toBeInTheDocument();
-    act(() => {element.blur()});
+    act(() => {
+      element.blur();
+    });
     const style2 = window.getComputedStyle(element);
 
-    expect(element).toMatchSnapshot()
-    expect(JSON.stringify(style)).not.toEqual(JSON.stringify(style1))
-    expect(JSON.stringify(style)).toEqual(JSON.stringify(style2))
-  })
+    expect(element).toMatchSnapshot();
+    expect(JSON.stringify(style)).not.toEqual(JSON.stringify(style1));
+    expect(JSON.stringify(style)).toEqual(JSON.stringify(style2));
+  });
 });
