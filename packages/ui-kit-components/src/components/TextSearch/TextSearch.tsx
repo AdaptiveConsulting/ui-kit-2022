@@ -2,6 +2,7 @@ import {
   Autocomplete,
   AutocompleteProps,
   AutocompleteRenderOptionState,
+  CircularProgress,
   TextField,
 } from '@mui/material';
 
@@ -67,7 +68,20 @@ const TextSearch = <T extends TextSearchOptionBase>({
         <li {...props}>{renderPredictiveLabel(getOptionLabel(opt), state)}</li>
       )}
       renderInput={(params) => (
-        <TextField {...params} variant="standard" placeholder={placeholder} />
+        <TextField
+          {...params}
+          variant="standard"
+          placeholder={placeholder}
+          InputProps={{
+            ...params.InputProps,
+            endAdornment: (
+              <>
+                {props.loading ? <CircularProgress color="primary" size={20} /> : null}
+                {params.InputProps.endAdornment}
+              </>
+            ),
+          }}
+        />
       )}
     />
   );
