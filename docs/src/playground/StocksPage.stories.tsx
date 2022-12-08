@@ -25,6 +25,12 @@ const labels = Array(24 * 60)
 export default {
   title: 'Playground',
   component: ExamplePage,
+  argTypes: {
+    loading: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+  },
 } as ComponentMeta<typeof ExamplePage>;
 
 const Template: ComponentStory<typeof ExamplePage> = (args) => <ExamplePage {...args} />;

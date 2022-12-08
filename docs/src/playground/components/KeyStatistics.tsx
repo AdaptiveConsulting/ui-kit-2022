@@ -1,12 +1,5 @@
-import {
-  Box,
-  Table,
-  TableCell,
-  TableRow,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Box, Table, TableCell, TableRow, useMediaQuery, useTheme } from '@mui/material';
+import { Typography } from '@ui-kit-2022/components';
 
 export interface Stats {
   open: string;
@@ -21,6 +14,11 @@ export interface Stats {
   eps: string;
   volume: string;
   totalAverageVolume: string;
+}
+
+interface Props {
+  keyStats: Stats;
+  loading?: boolean;
 }
 
 const labels = new Map([
@@ -52,12 +50,16 @@ const partition = <T,>(arr: T[], n: number) => {
   }, [] as Array<Array<T>>);
 };
 
-const renderStatRow = (stats: Stats, name: keyof Stats) => (
+const renderStatRow = ({ keyStats, loading }: Props, name: keyof Stats) => (
   <TableRow key={name}>
     <TableCell component="th" scope="row">
       {labels.get(name)}
     </TableCell>
-    <TableCell align="right">{stats[name]}</TableCell>
+    <TableCell align="right">
+      <Typography variant="body2" loading={loading}>
+        {keyStats[name]}
+      </Typography>
+    </TableCell>
   </TableRow>
 );
 
@@ -69,7 +71,7 @@ const styles = {
   },
 };
 
-const KeyStatistics = (props: Stats) => {
+const KeyStatistics = (props: Props) => {
   const { breakpoints } = useTheme();
   let nRows = 4;
   if (useMediaQuery(breakpoints.down('lg'))) {
@@ -85,7 +87,7 @@ const KeyStatistics = (props: Stats) => {
       </Typography>
       <Box display="flex" gap={5} mb={5} sx={styles.content}>
         {partition(Array.from(labels.keys()), nRows).map((keys, index) => (
-          <Table key={index}>
+          <Table key={index} sx={{ tableLayout: 'fixed' }}>
             {(keys as Array<keyof Stats>).map(renderStatRow.bind(this, props))}
           </Table>
         ))}
