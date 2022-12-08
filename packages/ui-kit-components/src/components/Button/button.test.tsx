@@ -65,37 +65,36 @@ describe('Button component tests', () => {
     });
   });
 
-  describe('Given focusing a button', () => {
+  describe('Given a simple button', () => {
     beforeEach(() => {
       render(<Button>Focus Button</Button>);
     });
 
-    describe('When the button has been focused', () => {
-      it('Then should the button have different styles between focused and initial state', () => {
+    describe('When focus the button', () => {
+      beforeEach(() => {
         const element = screen.getByTestId('normal');
-        const styleDefault = window.getComputedStyle(element);
-
         act(() => {
           element.focus();
         });
-
-        const styleFocus = window.getComputedStyle(element);
-        expect(JSON.stringify(styleDefault)).not.toEqual(JSON.stringify(styleFocus));
       });
-    });
 
-    describe('When the button has been focused and then blurred', () => {
-      it('Then should the button have the same style as the initial state after focusing and blurring', () => {
+      it('Then should have the Mui-focusVisible classname', () => {
         const element = screen.getByTestId('normal');
-        const styleDefault = window.getComputedStyle(element);
+        expect(element).toHaveClass('Mui-focusVisible');
+      });
 
-        act(() => {
-          element.focus();
-          element.blur();
+      describe('When the button lose focus', () => {
+        beforeEach(() => {
+          const element = screen.getByTestId('normal');
+          act(() => {
+            element.blur();
+          });
         });
 
-        const styleBlur = window.getComputedStyle(element);
-        expect(JSON.stringify(styleDefault)).toEqual(JSON.stringify(styleBlur));
+        it('Then should not have the Mui-focusVisible classname', () => {
+          const element = screen.getByTestId('normal');
+          expect(element).not.toHaveClass('Mui-focusVisible');
+        });
       });
     });
   });
