@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogoBrand component tests Given a default LogoBrand Should be the same as the snapshots 1`] = `
+<div
+  data-testid="logo-brand"
+>
+  <p>
+    150
+  </p>
+  <p>
+    148
+  </p>
+</div>
+`;
