@@ -6,3 +6,5 @@ dist-ssr
 node_modules/*
 scripts
 storybook-static
+**/*.test.tsx
+**/*.test.ts
