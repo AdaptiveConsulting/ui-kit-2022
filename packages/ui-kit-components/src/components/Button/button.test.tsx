@@ -83,7 +83,7 @@ describe('Button component tests', () => {
         expect(element).toHaveClass('Mui-focusVisible');
       });
 
-      describe('When the button lose focus', () => {
+      describe('When the button loses focus', () => {
         beforeEach(() => {
           const element = screen.getByTestId('normal');
           act(() => {
