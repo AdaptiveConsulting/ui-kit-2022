@@ -59,7 +59,7 @@ describe('Button component tests', () => {
         render(<Button icon="right">Right Button</Button>);
       });
 
-      it('Then should get a button with left icon', () => {
+      it('Then should get a button with right icon', () => {
         expect(screen.getByTestId('right-icon')).toBeInTheDocument();
       });
     });
