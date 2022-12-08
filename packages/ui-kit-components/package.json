@@ -16,7 +16,7 @@
   "typings": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "npm run check-types && vite build --watch",
-    "test:unit": "yarn jest",
+    "test:unit": "yarn jest -u",
     "build": "vite build && npm run build-types",
     "check-types": "tsc --noEmit",
     "build-types": "tsc --emitDeclarationOnly",
