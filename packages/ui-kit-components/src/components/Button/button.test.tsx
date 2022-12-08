@@ -31,6 +31,34 @@ describe('Button component tests', () => {
         expect(fn).toBeCalled();
       });
     });
+
+    describe('When focus the button', () => {
+      beforeEach(() => {
+        const element = screen.getByTestId('normal');
+        act(() => {
+          element.focus();
+        });
+      });
+
+      it('Then should have the Mui-focusVisible classname', () => {
+        const element = screen.getByTestId('normal');
+        expect(element).toHaveClass('Mui-focusVisible');
+      });
+
+      describe('When the button loses focus', () => {
+        beforeEach(() => {
+          const element = screen.getByTestId('normal');
+          act(() => {
+            element.blur();
+          });
+        });
+
+        it('Then should not have the Mui-focusVisible classname', () => {
+          const element = screen.getByTestId('normal');
+          expect(element).not.toHaveClass('Mui-focusVisible');
+        });
+      });
+    });
   });
 
   describe('Given render a button with/without icon', () => {
@@ -61,40 +89,6 @@ describe('Button component tests', () => {
 
       it('Then should get a button with right icon', () => {
         expect(screen.getByTestId('right-icon')).toBeInTheDocument();
-      });
-    });
-  });
-
-  describe('Given a simple button', () => {
-    beforeEach(() => {
-      render(<Button>Focus Button</Button>);
-    });
-
-    describe('When focus the button', () => {
-      beforeEach(() => {
-        const element = screen.getByTestId('normal');
-        act(() => {
-          element.focus();
-        });
-      });
-
-      it('Then should have the Mui-focusVisible classname', () => {
-        const element = screen.getByTestId('normal');
-        expect(element).toHaveClass('Mui-focusVisible');
-      });
-
-      describe('When the button loses focus', () => {
-        beforeEach(() => {
-          const element = screen.getByTestId('normal');
-          act(() => {
-            element.blur();
-          });
-        });
-
-        it('Then should not have the Mui-focusVisible classname', () => {
-          const element = screen.getByTestId('normal');
-          expect(element).not.toHaveClass('Mui-focusVisible');
-        });
       });
     });
   });
