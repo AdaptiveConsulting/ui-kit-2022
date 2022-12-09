@@ -22,7 +22,7 @@ describe('LogoText component tests', () => {
       render(<LogoText />);
     });
 
-    it('Should be the same as the snapshots', () => {
+    it('Then should be the same as the snapshots', () => {
       expect(screen.getByTestId('logo-text')).toMatchSnapshot();
     });
 
