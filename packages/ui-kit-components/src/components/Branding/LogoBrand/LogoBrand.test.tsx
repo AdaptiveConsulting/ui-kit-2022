@@ -30,13 +30,13 @@ describe('LogoBrand component tests', () => {
       expect(screen.getByTestId('logo-brand')).toBeInTheDocument();
     });
 
-    it('Then with should return the right width value', () => {
+    it('Then width should return the right value', () => {
       const element = screen.getByTestId('logo-brand');
 
       expect(element).toHaveTextContent('148');
     });
 
-    it('Then with should return the right height value', () => {
+    it('Then height should return the right value', () => {
       const element = screen.getByTestId('logo-brand');
 
       expect(element).toHaveTextContent('150');
@@ -49,13 +49,13 @@ describe('LogoBrand component tests', () => {
         render(<LogoBrand width={50} height={100} />);
       });
 
-      it('Then with should return the right width value', () => {
+      it('Then width should return the right value', () => {
         const element = screen.getByTestId('logo-brand');
 
         expect(element).toHaveTextContent('50');
       });
 
-      it('Then with should return the right height value', () => {
+      it('Then height should return the right value', () => {
         const element = screen.getByTestId('logo-brand');
 
         expect(element).toHaveTextContent('100');
