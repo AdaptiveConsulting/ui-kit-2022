@@ -34,9 +34,7 @@ describe('IndexTickers Component', () => {
         expect(screen.queryByTestId('percentage')).toHaveTextContent('+0.34%');
       });
     });
-  });
 
-  describe('Given render the index tickers component', () => {
     describe('When the changedPrice is bigger than 0', () => {
       beforeEach(() => {
         render(
