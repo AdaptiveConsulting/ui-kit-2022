@@ -18,19 +18,19 @@ describe('IndexTickers Component', () => {
         );
       });
 
-      it('Then tickers-name part should have the value "SPA"', () => {
+      it('Then tickers-name part should display "SPA"', () => {
         expect(screen.queryByTestId('tickers-name')).toHaveTextContent('SPA');
       });
 
-      it('Then latestPrice part should have the value "$234.89"', () => {
+      it('Then latestPrice part should display "$234.89"', () => {
         expect(screen.queryByTestId('latestPrice')).toHaveTextContent('$234.89');
       });
 
-      it('Then changedPrice part should have the value "+1.35"', () => {
+      it('Then changedPrice part should display "+1.35"', () => {
         expect(screen.queryByTestId('changedPrice')).toHaveTextContent('+1.35');
       });
 
-      it('Then percentage part should have the value "+0.34%"', () => {
+      it('Then percentage part should display "+0.34%"', () => {
         expect(screen.queryByTestId('percentage')).toHaveTextContent('+0.34%');
       });
     });
