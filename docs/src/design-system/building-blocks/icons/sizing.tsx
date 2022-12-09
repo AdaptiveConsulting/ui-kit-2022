@@ -84,7 +84,7 @@ const IconSubtitleComponent: React.FC<{ palette: Palette; children: SubtitleType
 }) => {
   const { size, color } = componentSizeAndColor(palette, children);
   return (
-    <Grid item xs={size}>
+    <Grid item xxs={size}>
       <Box
         sx={{
           ...ICON_STYLE,
@@ -112,7 +112,7 @@ const Sizing = () => {
 
   return (
     <Grid container columns={{ xs: 1, sm: 4 }} columnSpacing={6} rowGap={2}>
-      <Grid item xs={1} sm={2} md={1}>
+      <Grid item xxs={1} sm={2} md={1}>
         <SubTitle subTitle="Sizing" />
         <Typography variant="body2">{SIZING.paragraph1}</Typography>
         <Typography variant="body2">{SIZING.paragraph2}</Typography>
@@ -120,8 +120,8 @@ const Sizing = () => {
           {SIZING.paragraph3}
         </Typography>
       </Grid>
-      <Grid item container columns={3} xs={3} sm={1.25} columnGap={{ xs: 4, sm: 5 }}>
-        <Grid item xs={1} sx={ICONS_GROUP_LAYOUT_STYLE}>
+      <Grid item container columns={3} xxs={3} sm={1.25} columnGap={{ xxs: 4, sm: 5 }}>
+        <Grid item xxs={1} sx={ICONS_GROUP_LAYOUT_STYLE}>
           <Grid container sx={CONTAINER_SIZE}>
             {SIZING.sizes.map((value) => (
               <IconSubtitleComponent key={value} palette={palette}>
@@ -130,7 +130,7 @@ const Sizing = () => {
             ))}
           </Grid>
         </Grid>
-        <Grid item xs={1} sx={ICONS_GROUP_LAYOUT_STYLE}>
+        <Grid item xxs={1} sx={ICONS_GROUP_LAYOUT_STYLE}>
           <Grid container sx={CONTAINER_SIZE}>
             {SIZING.errorSizes.map((value) => (
               <IconSubtitleComponent key={value} palette={palette}>

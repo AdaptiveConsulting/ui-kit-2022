@@ -14,8 +14,11 @@ const ColorCardGroup: React.FC<Props> = ({ colors }) => {
     <Grid
       container
       wrap={'nowrap'}
-      sx={{ padding: '2px 0px', overflowX: 'auto' }}
-      direction={{ xs: 'column', sm: 'row' }}
+      sx={{
+        padding: '2px 0px',
+        overflowX: 'auto',
+      }}
+      direction={{ xxs: 'column', sm: 'row' }}
     >
       {colors.map((value, index) => (
         <Grid

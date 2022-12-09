@@ -33,57 +33,71 @@ const TYPE_CARD_REGULAR_MERRIWEATHER_PROPS = {
 
 const TypesPage: React.FC = () => {
   const { palette } = useTheme();
+  const theme = useTheme();
+
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <TopBar title={'TYPES'} />
-      </Grid>
+    <>
+      <TopBar title={'TYPES'} />
       <Grid
         container
-        sx={{ marginLeft: '1rem', marginTop: '2rem', marginBottom: '5rem' }}
+        sx={{
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          paddingTop: '2rem',
+          paddingBottom: '5rem',
+          [theme.breakpoints.down('sm')]: { flexDirection: 'column' },
+        }}
         rowGap={1}
       >
-        <Grid item md={5} xs={12}>
+        <Grid item xxs={12} md={5} sx={{ textWrap: 'wrap' }}>
           <TextSample fontName={ROBOTO} />
         </Grid>
-        <Grid item md={2} sm={4} xs={12}>
+        <Grid item xxs={12} sm={4} md={2}>
           <TypeCard {...TYPE_CARD_REGULAR_PROPS} />
         </Grid>
-        <Grid item md={2} sm={4} xs={12}>
+        <Grid item xxs={12} sm={4} md={2}>
           <TypeCard {...TYPE_CARD_MEDIUM_PROPS} />
         </Grid>
-        <Grid item md={2} sm={4} xs={12}>
+        <Grid item xxs={12} sm={4} md={2}>
           <TypeCard {...TYPE_CARD_LIGHT_ITALIC_PROPS} />
         </Grid>
-        <Grid item md={12} xs={12}>
+        <Grid item xxs={12} md={12}>
           <Typography>Examples</Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xxs={12}>
           <FontExamples fontName={ROBOTO} />
         </Grid>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xxs={12}>
         <Divider color={palette.common.white} variant="middle" />
       </Grid>
       <Grid
         container
-        sx={{ marginLeft: '1rem', marginTop: '2rem', marginBottom: '3rem' }}
+        sx={{
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          paddingTop: '2rem',
+          paddingBottom: '3rem',
+        }}
         rowGap={1}
+        columnGap={4}
       >
-        <Grid item md={5} xs={12}>
+        <Grid item xxs={12} md={5}>
           <TextSample fontName={MERRIWEATHER} />
         </Grid>
-        <Grid item md={2} sm={4} xs={12}>
+        <Grid item xxs={12} sm={4} md={2}>
           <TypeCard {...TYPE_CARD_REGULAR_MERRIWEATHER_PROPS} />
         </Grid>
-        <Grid item xs={12}>
-          <Typography>Examples</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <FontExamples fontName={MERRIWEATHER} />
+        <Grid container item direction="column">
+          <Grid item xxs={12}>
+            <Typography>Examples</Typography>
+          </Grid>
+          <Grid item xxs={12}>
+            <FontExamples fontName={MERRIWEATHER} />
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 
