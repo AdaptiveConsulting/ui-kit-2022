@@ -10,14 +10,12 @@ declare module '@mui/material/styles' {
 }
 
 export default {
-  breakpoints: {
-    values: {
-      xxs: 0,
-      xs: 375,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1440,
-    },
+  values: {
+    xxs: 0,
+    xs: 375,
+    sm: 600,
+    md: 900,
+    lg: 1200,
+    xl: 1440,
   },
 };

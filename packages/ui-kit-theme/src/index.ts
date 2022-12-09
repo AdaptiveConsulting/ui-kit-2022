@@ -17,7 +17,7 @@ export { palette, spacing };
 
 export const light = createTheme({
   components: LIGHT_COMPONENTS,
-  ...breakpoints,
+  breakpoints,
   palette: palette.light,
   typography,
   spacing,
@@ -25,7 +25,7 @@ export const light = createTheme({
 
 export const dark = createTheme({
   components: DARK_COMPONENTS,
-  ...breakpoints,
+  breakpoints,
   palette: palette.dark,
   typography,
   spacing,
