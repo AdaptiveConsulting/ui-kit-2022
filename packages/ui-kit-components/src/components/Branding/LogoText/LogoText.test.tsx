@@ -30,13 +30,13 @@ describe('LogoText component tests', () => {
       expect(screen.getByTestId('logo-text')).toBeInTheDocument();
     });
 
-    it('Then should get the same width as default in the document text', () => {
+    it('Then with should return the right width value', () => {
       const element = screen.getByTestId('logo-text');
 
       expect(element).toHaveTextContent('272');
     });
 
-    it('Then should get the same height as default in the document text', () => {
+    it('Then with should return the right height value', () => {
       const element = screen.getByTestId('logo-text');
 
       expect(element).toHaveTextContent('90');
@@ -49,13 +49,13 @@ describe('LogoText component tests', () => {
         render(<LogoText width={50} height={100} />);
       });
 
-      it('Then should get the same width as prop passed in the document text', () => {
+      it('Then with should return the right width value', () => {
         const element = screen.getByTestId('logo-text');
 
         expect(element).toHaveTextContent('50');
       });
 
-      it('Then should get the same height as prop passed in the document text', () => {
+      it('Then with should return the right height value', () => {
         const element = screen.getByTestId('logo-text');
 
         expect(element).toHaveTextContent('100');
