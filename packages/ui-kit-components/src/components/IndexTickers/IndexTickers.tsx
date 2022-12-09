@@ -99,10 +99,18 @@ const IndexTickers: React.FC<Props> = ({
           justifyContent={'space-evenly'}
         >
           <Box display={'flex'} alignItems="center" justifyContent={'space-between'}>
-            <Typography variant="subheader3" fontSize={IsSmallestScreen ? '8px' : '12px'}>
+            <Typography
+              variant="subheader3"
+              fontSize={IsSmallestScreen ? '8px' : '12px'}
+              data-testid={'tickers-name'}
+            >
               {name}
             </Typography>
-            <Typography variant="body2" fontSize={IsSmallestScreen ? '8px' : '12px'}>
+            <Typography
+              variant="body2"
+              fontSize={IsSmallestScreen ? '8px' : '12px'}
+              data-testid={'latestPrice'}
+            >
               ${getRoundedToTwo(latestPrice)}
             </Typography>
           </Box>
@@ -138,13 +146,18 @@ const IndexTickers: React.FC<Props> = ({
               variant="body2"
               fontSize={IsSmallestScreen ? '8px' : '12px'}
               ml={changedPrice === 0 ? 3 : 1}
+              data-testid={'changedPrice'}
             >
               {changedPrice >= 0
                 ? `+${getRoundedToTwo(changedPrice)}`
                 : getRoundedToTwo(changedPrice)}
             </Typography>
             <Box mx={1}>|</Box>
-            <Typography variant="body2" fontSize={IsSmallestScreen ? '8px' : '12px'}>
+            <Typography
+              variant="body2"
+              fontSize={IsSmallestScreen ? '8px' : '12px'}
+              data-testid={'percentage'}
+            >
               {percentage >= 0
                 ? `+${getRoundedToTwo(percentage)}`
                 : getRoundedToTwo(percentage)}
