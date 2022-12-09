@@ -39,12 +39,12 @@ describe('LogoText component tests', () => {
   });
 
   describe('Given a LogoText with customized size', () => {
-    describe('When pass the witdh 50 and height 100', () => {
+    describe('When pass the width 50 and height 100', () => {
       beforeEach(() => {
         render(<LogoText width={50} height={100} />);
       });
 
-      it('Then should get the witdh and height displayed', () => {
+      it('Then should get the width and height displayed', () => {
         const element = screen.getByTestId('logo-text');
 
         expect(element).toHaveTextContent('50');
