@@ -4,9 +4,9 @@ import { render, screen } from '@testing-library/react';
 
 import IndexTickers from './IndexTickers';
 
-describe('Render the index tickers component', () => {
+describe('Given render the index tickers component', () => {
   describe('When making name of SPA, latestPrice of 234.89, changedPrice of 1.35, and percentage of 0.34 ', () => {
-    test('Then expect the name:SPA, latestPrice:$234.89, changedPrice:+1.35, percentage:+0.34% on the screen', () => {
+    beforeEach(() => {
       render(
         <IndexTickers
           name="SPA"
@@ -15,67 +15,77 @@ describe('Render the index tickers component', () => {
           percentage={0.34}
         />,
       );
+    });
+
+    it('Then expect "SPA" in the document', () => {
       expect(screen.getByText('SPA')).toBeInTheDocument();
+    });
+    it('Then expect "$234.89" in the document', () => {
       expect(screen.getByText('$234.89')).toBeInTheDocument();
+    });
+    it('Then expect "+1.35" in the document', () => {
       expect(screen.getByText('+1.35')).toBeInTheDocument();
+    });
+    it('Then expect "+0.34%" in the document', () => {
       expect(screen.getByText('+0.34%')).toBeInTheDocument();
     });
   });
 });
 
-describe('When given different changedPrice, the icon before changedPrice will be changed based on the value of changedPrice', () => {
-  test('ChangedPrice > 0, then the icon is ArrowUp', () => {
-    render(
-      <IndexTickers
-        name="SPA"
-        latestPrice={234.89}
-        changedPrice={1.35}
-        percentage={0.34}
-      />,
-    );
-    expect(screen.getByTestId('arrowUp')).toBeInTheDocument();
+describe('Given render the index tickers component', () => {
+  describe('When the changedPrice is bigger than 0', () => {
+    beforeEach(() => {
+      render(
+        <IndexTickers
+          name="SPA"
+          latestPrice={234.89}
+          changedPrice={1.35}
+          percentage={0.34}
+        />,
+      );
+    });
+    it('Then the icon "ArrowUp" should be in the document', () => {
+      expect(screen.getByTestId('arrowUp')).toBeInTheDocument();
+    });
+    it('Then changedPrice and percentage parts should change color to rgb(46, 125, 50)', () => {
+      expect(screen.getByTestId('color-change-part')).toHaveStyle(
+        `color:rgb(46, 125, 50)`,
+      );
+    });
   });
-  test('ChangedPrice < 0, then the icon is ArrowDown', () => {
-    render(
-      <IndexTickers
-        name="SPA"
-        latestPrice={234.89}
-        changedPrice={-1.35}
-        percentage={-0.34}
-      />,
-    );
-    expect(screen.getByTestId('arrowDown')).toBeInTheDocument();
-  });
-  test('ChangedPrice = 0, then the icon does not exist', () => {
-    render(
-      <IndexTickers name="SPA" latestPrice={234.89} changedPrice={0} percentage={0} />,
-    );
-    expect(screen.queryByTestId('arrowDown')).toBeNull();
-    expect(screen.queryByTestId('arrowUp')).toBeNull();
-  });
-});
 
-describe('When given different changedPrice, the color of changedPrice and percentage will be changed based on the value of changedPrice', () => {
-  test('ChangedPrice > 0, then changedPrice and percentage parts change color to #01C38D', () => {
-    render(
-      <IndexTickers
-        name="SPA"
-        latestPrice={234.89}
-        changedPrice={1.35}
-        percentage={0.34}
-      />,
-    );
-    expect(screen.getByTestId('color-change-part')).toHaveStyle(`color:rgb(46, 125, 50)`);
+  describe('When the changedPrice is less than 0', () => {
+    beforeEach(() => {
+      render(
+        <IndexTickers
+          name="SPA"
+          latestPrice={234.89}
+          changedPrice={-1.35}
+          percentage={-0.34}
+        />,
+      );
+    });
+    it('Then the icon "ArrowDown" should be in the document', () => {
+      expect(screen.getByTestId('arrowDown')).toBeInTheDocument();
+    });
+    it('Then changedPrice and percentage parts should change color to rgb(211, 47, 47)', () => {
+      expect(screen.getByTestId('color-change-part')).toHaveStyle(
+        `color:rgb(211, 47, 47)`,
+      );
+    });
   });
-  test('ChangedPrice < 0, then changedPrice and percentage parts change color to #FF274B', () => {
-    render(
-      <IndexTickers
-        name="SPA"
-        latestPrice={234.89}
-        changedPrice={-1.35}
-        percentage={-0.34}
-      />,
-    );
-    expect(screen.getByTestId('color-change-part')).toHaveStyle(`color:rgb(211, 47, 47)`);
+
+  describe('When the changedPrice is equal to 0', () => {
+    beforeEach(() => {
+      render(
+        <IndexTickers name="SPA" latestPrice={234.89} changedPrice={0} percentage={0} />,
+      );
+    });
+    it('Then the icon "ArrowDown" should not be in the document', () => {
+      expect(screen.queryByTestId('arrowDown')).toBeNull();
+    });
+    it('Then the icon "ArrowUp" should not be in the document', () => {
+      expect(screen.queryByTestId('arrowUp')).toBeNull();
+    });
   });
 });
