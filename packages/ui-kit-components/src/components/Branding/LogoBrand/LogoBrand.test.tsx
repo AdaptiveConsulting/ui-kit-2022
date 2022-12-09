@@ -6,7 +6,7 @@ import LogoBrand from './LogoBrand';
 
 jest.mock('../branding', () => ({
   __esModule: true,
-  LogoLarge: ({ sx: { height = 150, width = 148 } }) => {
+  LogoLarge: ({ sx: { height, width } }: { sx: { height: number; width: number } }) => {
     return (
       <div data-testid={'logo-brand'}>
         <p>{height}</p>
@@ -39,12 +39,12 @@ describe('LogoBrand component tests', () => {
   });
 
   describe('Given a LogoBrand with customized size', () => {
-    describe('When pass the witdh 50 and height 100', () => {
+    describe('When pass the width 50 and height 100', () => {
       beforeEach(() => {
         render(<LogoBrand width={50} height={100} />);
       });
 
-      it('Then should get the witdh and height displayed', () => {
+      it('Then should get the width and height displayed', () => {
         const element = screen.getByTestId('logo-brand');
 
         expect(element).toHaveTextContent('50');
