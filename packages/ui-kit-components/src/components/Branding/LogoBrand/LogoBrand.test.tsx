@@ -22,7 +22,7 @@ describe('LogoBrand component tests', () => {
       render(<LogoBrand />);
     });
 
-    it('Then should be the same as the snapshots', () => {
+    it('Then should be the same as the snapshot', () => {
       expect(screen.getByTestId('logo-brand')).toMatchSnapshot();
     });
 
@@ -30,13 +30,13 @@ describe('LogoBrand component tests', () => {
       expect(screen.getByTestId('logo-brand')).toBeInTheDocument();
     });
 
-    it('Then should get the width 148 in the document text', () => {
+    it('Then should get the same width as default in the document text', () => {
       const element = screen.getByTestId('logo-brand');
 
       expect(element).toHaveTextContent('148');
     });
 
-    it('Then should get the height 150 in the document text', () => {
+    it('Then should get the same height as default in the document text', () => {
       const element = screen.getByTestId('logo-brand');
 
       expect(element).toHaveTextContent('150');
@@ -44,18 +44,18 @@ describe('LogoBrand component tests', () => {
   });
 
   describe('Given a LogoBrand with customized size', () => {
-    describe('When pass the width 50 and height 100', () => {
+    describe('When pass the custom props width or height', () => {
       beforeEach(() => {
         render(<LogoBrand width={50} height={100} />);
       });
 
-      it('Then should get the width 50 in the document text', () => {
+      it('Then should get the same width as prop passed in the document text', () => {
         const element = screen.getByTestId('logo-brand');
 
         expect(element).toHaveTextContent('50');
       });
 
-      it('Then should get the height 100 in the document text', () => {
+      it('Then should get the same height as prop passed in the document text', () => {
         const element = screen.getByTestId('logo-brand');
 
         expect(element).toHaveTextContent('100');

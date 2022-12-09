@@ -24,7 +24,7 @@ describe('Logo component test', () => {
     });
 
     describe('When render the default Logo', () => {
-      it('Then should it render correctly', () => {
+      it('Then it should render correctly', () => {
         expect(screen.getByText('Small Logo')).toBeInTheDocument();
       });
     });
@@ -36,7 +36,7 @@ describe('Logo component test', () => {
     });
 
     describe('When render the large logo', () => {
-      it('Then should it give the large logo', () => {
+      it('Then it should give the large logo', () => {
         expect(screen.getByText('Large Logo')).toBeInTheDocument();
       });
     });
@@ -48,7 +48,7 @@ describe('Logo component test', () => {
     });
 
     describe('When render the maximized logo', () => {
-      it('Then should it give the maximized logo', () => {
+      it('Then it should give the maximized logo', () => {
         expect(screen.getByText('Maximized Logo')).toBeInTheDocument();
       });
     });
