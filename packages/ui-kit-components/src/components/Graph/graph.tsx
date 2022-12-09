@@ -1,4 +1,11 @@
-import { alpha, Palette, useTheme } from '@mui/material';
+import {
+  alpha,
+  Box,
+  LinearProgress,
+  LinearProgressProps,
+  Palette,
+  useTheme,
+} from '@mui/material';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -119,6 +126,8 @@ export interface GraphProps {
   labels: string[];
   data: PartialNumberType[][];
   previousData?: number;
+  loading?: boolean;
+  LinearProgressProps?: LinearProgressProps;
 }
 
 /**
@@ -136,6 +145,8 @@ const Graph: React.FC<GraphProps> = ({
   labels,
   data,
   previousData,
+  loading,
+  LinearProgressProps = {},
 }) => {
   const { palette } = useTheme();
   const max = Math.ceil(
@@ -234,26 +245,38 @@ const Graph: React.FC<GraphProps> = ({
           mode: 'x' as 'x' | 'y' | 'xy',
         },
       },
-      annotation: {
-        annotations: {
-          ...backgroundColorBoxes,
-          line1: {
-            type: 'line' as 'box',
-            display: true,
-            yMin: previousData,
-            yMax: previousData,
-            borderColor:
-              palette.mode === 'light' ? palette.primary.dark : palette.primary.light,
-            borderDash: [5, 2],
-            borderWidth: 1,
+      annotation: loading
+        ? undefined
+        : {
+            annotations: {
+              ...backgroundColorBoxes,
+              line1: {
+                type: 'line' as 'box',
+                display: true,
+                yMin: previousData,
+                yMax: previousData,
+                borderColor:
+                  palette.mode === 'light' ? palette.primary.dark : palette.primary.light,
+                borderDash: [5, 2],
+                borderWidth: 1,
+              },
+            },
           },
-        },
-      },
     },
   };
 
-  const datasets = getData(labelsConverted, data, palette);
-  return <Line options={options} data={datasets} />;
+  const datasets = getData(labelsConverted, loading ? [[]] : data, palette);
+  return (
+    <Box sx={{ position: 'relative' }}>
+      {loading && (
+        <LinearProgress
+          {...LinearProgressProps}
+          sx={{ width: '50%', position: 'absolute', top: '50%', left: '25%' }}
+        />
+      )}
+      <Line options={options} data={datasets} />
+    </Box>
+  );
 };
 
 export default Graph;

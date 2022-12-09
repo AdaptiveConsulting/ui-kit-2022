@@ -4,6 +4,12 @@ import * as React from 'react';
 export default {
   title: 'Components/Graph',
   component: Graph,
+  argTypes: {
+    loading: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+  },
 } as ComponentMeta<typeof Graph>;
 
 import Perlin from '../utils/perlin';

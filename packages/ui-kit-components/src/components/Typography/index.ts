@@ -1,6 +1,8 @@
-import Typography from '@mui/material/Typography';
+import Typography, { TypographyProps } from './Typography';
 
 export { Typography };
+export type { TypographyProps };
+
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {

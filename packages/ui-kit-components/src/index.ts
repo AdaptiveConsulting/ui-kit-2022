@@ -20,5 +20,6 @@ export { Pill } from './components/Pill';
 export { SplashScreen } from './components/SplashScreen';
 export type { TextSearchOptionBase, TextSearchProps } from './components/TextSearch';
 export { TextSearch } from './components/TextSearch';
+export type { TypographyProps } from './components/Typography';
 export { Typography } from './components/Typography';
 export * as Icon from './icons';
