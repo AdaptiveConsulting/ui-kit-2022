@@ -30,11 +30,16 @@ describe('LogoBrand component tests', () => {
       expect(screen.getByTestId('logo-brand')).toBeInTheDocument();
     });
 
-    it('Then should the LogoBrand component have default size', () => {
+    it('Then should get the width 148 in the document text', () => {
+      const element = screen.getByTestId('logo-brand');
+
+      expect(element).toHaveTextContent('148');
+    });
+
+    it('Then should get the height 150 in the document text', () => {
       const element = screen.getByTestId('logo-brand');
 
       expect(element).toHaveTextContent('150');
-      expect(element).toHaveTextContent('148');
     });
   });
 
@@ -44,10 +49,15 @@ describe('LogoBrand component tests', () => {
         render(<LogoBrand width={50} height={100} />);
       });
 
-      it('Then should get the width and height displayed', () => {
+      it('Then should get the width 50 in the document text', () => {
         const element = screen.getByTestId('logo-brand');
 
         expect(element).toHaveTextContent('50');
+      });
+
+      it('Then should get the height 100 in the document text', () => {
+        const element = screen.getByTestId('logo-brand');
+
         expect(element).toHaveTextContent('100');
       });
     });

@@ -30,11 +30,16 @@ describe('LogoText component tests', () => {
       expect(screen.getByTestId('logo-text')).toBeInTheDocument();
     });
 
-    it('Then should the LogoText component have default size', () => {
+    it('Then should get the width 272 in the document text', () => {
+      const element = screen.getByTestId('logo-text');
+
+      expect(element).toHaveTextContent('272');
+    });
+
+    it('Then should get the height 90 in the document text', () => {
       const element = screen.getByTestId('logo-text');
 
       expect(element).toHaveTextContent('90');
-      expect(element).toHaveTextContent('272');
     });
   });
 
@@ -44,10 +49,15 @@ describe('LogoText component tests', () => {
         render(<LogoText width={50} height={100} />);
       });
 
-      it('Then should get the width and height displayed', () => {
+      it('Then should get the width 50 in the document text', () => {
         const element = screen.getByTestId('logo-text');
 
         expect(element).toHaveTextContent('50');
+      });
+
+      it('Then should get the height 100 in the document text', () => {
+        const element = screen.getByTestId('logo-text');
+
         expect(element).toHaveTextContent('100');
       });
     });
