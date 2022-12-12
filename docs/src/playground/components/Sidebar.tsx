@@ -1,8 +1,12 @@
-import { Box, Divider, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { Pill } from '@ui-kit-2022/components';
+import { Box, Divider, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Pill, Typography } from '@ui-kit-2022/components';
 import React from 'react';
 
-export default function Sidebar() {
+interface Props {
+  loading?: boolean;
+}
+
+export default function Sidebar({ loading }: Props) {
   const theme = useTheme();
 
   const isTiny = useMediaQuery('(max-width: 375px)');
@@ -57,7 +61,11 @@ export default function Sidebar() {
           <Typography variant="h4" sx={{ marginBottom: theme.spacing(3) }}>
             Company Summary
           </Typography>
-          <Typography variant="subheader3" sx={{ marginBottom: theme.spacing(2) }}>
+          <Typography
+            variant="subheader3"
+            loading={loading}
+            sx={{ marginBottom: theme.spacing(2) }}
+          >
             Apple, Inc. (AAPL)
           </Typography>
           {/* Didn't use a real hyperlink here to prevent eslint error for inaccessible link */}
@@ -76,9 +84,19 @@ export default function Sidebar() {
               },
             }}
           >
-            <Typography variant="subheader3">www.apple.com</Typography>
+            <Typography
+              variant="subheader3"
+              loading={loading}
+              sx={loading ? { width: '40%' } : {}}
+            >
+              www.apple.com
+            </Typography>
           </Typography>
-          <Typography variant="body2" sx={{ marginTop: theme.spacing(4) }}>
+          <Typography
+            variant="body2"
+            loading={loading}
+            sx={[{ marginTop: theme.spacing(4) }, loading ? { height: 200 } : {}]}
+          >
             Apple Inc. is an American multinational technology company headquartered in
             Cupertino, California, that designs, develops, and sells consumer electronics,
             computer software, and online services. The company&apos;s hardware products
@@ -106,24 +124,42 @@ export default function Sidebar() {
           </Typography>
           <Box display="flex" flexDirection="column" rowGap={theme.spacing(4)}>
             <Box display="flex" flexDirection="column">
-              <Typography variant="subheader2" sx={{ marginBottom: theme.spacing(3) }}>
+              <Typography
+                variant="subheader2"
+                loading={loading}
+                sx={{ marginBottom: theme.spacing(3) }}
+              >
                 Samsung&apos;s answer to AirDrop finally arrived with the Galaxy S20
               </Typography>
-              <Typography variant="caption">31 minutes ago - Mac Rumors</Typography>
+              <Typography variant="caption" loading={loading}>
+                31 minutes ago - Mac Rumors
+              </Typography>
               <Divider orientation="horizontal" sx={newsDivider} />
             </Box>
             <Box display="flex" flexDirection="column">
-              <Typography variant="subheader2" sx={{ marginBottom: theme.spacing(3) }}>
+              <Typography
+                variant="subheader2"
+                loading={loading}
+                sx={{ marginBottom: theme.spacing(3) }}
+              >
                 Samsung&apos;s answer to AirDrop finally arrived with the Galaxy S20
               </Typography>
-              <Typography variant="caption">31 minutes ago - Mac Rumors</Typography>
+              <Typography variant="caption" loading={loading}>
+                31 minutes ago - Mac Rumors
+              </Typography>
               <Divider orientation="horizontal" sx={newsDivider} />
             </Box>
             <Box display="flex" flexDirection="column">
-              <Typography variant="subheader2" sx={{ marginBottom: theme.spacing(3) }}>
+              <Typography
+                variant="subheader2"
+                loading={loading}
+                sx={{ marginBottom: theme.spacing(3) }}
+              >
                 Samsung&apos;s answer to AirDrop finally arrived with the Galaxy S20
               </Typography>
-              <Typography variant="caption">31 minutes ago - Mac Rumors</Typography>
+              <Typography variant="caption" loading={loading}>
+                31 minutes ago - Mac Rumors
+              </Typography>
               {useMediaQuery(theme.breakpoints.up('md')) || isTiny ? (
                 <Divider orientation="horizontal" sx={newsDivider} />
               ) : null}
@@ -153,7 +189,7 @@ export default function Sidebar() {
             {mockPeers.map((peer) => {
               return (
                 <>
-                  <Pill label={peer} variant="outlined" key={peer} />
+                  <Pill label={peer} variant="outlined" ticker={true} key={peer} />
                 </>
               );
             })}

@@ -65,11 +65,13 @@ export interface ExamplePageProps<T extends TextSearchOptionBase> {
   // Need a way to import Types from the UI Kit to avoid having to make duplicate type defs
   graphProps: GraphProps;
   tickerSearchProps: TextSearchProps<T>;
+  loading?: boolean;
 }
 
 export default function ExamplePage<T extends TextSearchOptionBase>({
   graphProps,
   tickerSearchProps,
+  loading,
 }: ExamplePageProps<T>) {
   return (
     <Box sx={styles.container}>
@@ -95,17 +97,17 @@ export default function ExamplePage<T extends TextSearchOptionBase>({
                 </Button>
               </ButtonGroup>
             </Box>
-            <Graph {...graphProps} />
+            <Graph {...graphProps} loading={loading} />
           </Box>
           <Box flex="1 0 auto" my={2}>
-            <KeyStatistics {...keyStats} />
+            <KeyStatistics keyStats={keyStats} loading={loading} />
           </Box>
           <Box sx={styles.footer}>
             <StockPriceFooter />
           </Box>
         </Box>
         <Box sx={styles.sidebar}>
-          <Sidebar />
+          <Sidebar loading={loading} />
         </Box>
       </Box>
     </Box>
