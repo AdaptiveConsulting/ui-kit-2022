@@ -38,43 +38,45 @@ const labels = Array(24 * 60)
 
 export const GraphStory = Template.bind({});
 GraphStory.storyName = 'Graph';
+const defaultGraphData = labels.map(() => {
+  y += 0.008;
+  return perlin.get(1, y) * 300 + 200;
+});
+const defaultCurrentData = defaultGraphData[defaultGraphData.length - 1];
 GraphStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
-  data: [
-    labels.map(() => {
-      y += 0.008;
-      return perlin.get(1, y) * 300 + 200;
-    }),
-  ],
+  data: [defaultGraphData],
   previousData: Math.random() * 150,
+  currentData: defaultCurrentData,
 };
 
 export const GraphCloseEarlyStory = Template.bind({});
-
+const closeEarlyData = labels.map((_, index) => {
+  y += 0.008;
+  return index < 300 ? perlin.get(1, y) * 300 + 200 : undefined;
+});
+const closeEarlyCurrentData = closeEarlyData[299];
 GraphCloseEarlyStory.storyName = 'Graph Close Early';
 GraphCloseEarlyStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
   data: [
-    labels.map((_, index) => {
-      y += 0.008;
-      return index < 300 ? perlin.get(1, y) * 300 + 200 : undefined;
-    }),
+    closeEarlyData
   ],
   previousData: Math.random() * 150,
+  currentData: closeEarlyCurrentData,
 };
 
 export const GraphTwoPartsStory = Template.bind({});
-
+GraphTwoPartsStory.storyName = 'Graph Two Parts';
 const dataWholeLine = labels.map(() => {
   y += 0.008;
   return perlin.get(1, y) * 300 + 200;
 });
-
-GraphTwoPartsStory.storyName = 'Graph Two Parts';
+const twoPartsCurrentData = dataWholeLine[299];
 GraphTwoPartsStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
@@ -84,4 +86,5 @@ GraphTwoPartsStory.args = {
     dataWholeLine.map((element, index) => (index >= 300 ? element : undefined)),
   ],
   previousData: Math.random() * 150,
+  currentData: twoPartsCurrentData,
 };

@@ -35,6 +35,7 @@ export interface GraphProps {
   labels: string[];
   data: PartialNumberType[][];
   previousData?: number;
+  currentData?: number;
   loading?: boolean;
   LinearProgressProps?: LinearProgressProps;
 }
@@ -54,6 +55,7 @@ const Graph: React.FC<GraphProps> = ({
   labels,
   data,
   previousData,
+  currentData,
   loading,
   LinearProgressProps = {},
 }) => {
@@ -167,6 +169,16 @@ const Graph: React.FC<GraphProps> = ({
                 borderColor:
                   palette.mode === 'light' ? palette.primary.dark : palette.primary.light,
                 borderDash: [5, 2],
+                borderWidth: 1,
+              },
+              line2: {
+                type: 'line' as 'box',
+                display: true,
+                yMin: currentData,
+                yMax: currentData,
+                borderColor:
+                  palette.success.main,
+                borderDash: [3, 1.5],
                 borderWidth: 1,
               },
             },
