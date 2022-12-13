@@ -7,5 +7,6 @@
     "tsBuildInfoFile": ".ui-kit-theme.tsbuildinfo"
   },
   "include": ["src", "src/**/*.json"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
