@@ -50,6 +50,7 @@ GraphStory.args = {
   data: [defaultGraphData],
   previousData: Math.random() * 150,
   currentData: defaultCurrentData,
+  isUp: defaultCurrentData >= defaultGraphData[defaultGraphData.length - 2],
 };
 
 export const GraphCloseEarlyStory = Template.bind({});
@@ -66,6 +67,7 @@ GraphCloseEarlyStory.args = {
   data: [closeEarlyData],
   previousData: Math.random() * 150,
   currentData: closeEarlyCurrentData,
+  isUp: (closeEarlyCurrentData || 0) >= (closeEarlyData[298] || 0),
 };
 
 export const GraphTwoPartsStory = Template.bind({});
@@ -85,4 +87,5 @@ GraphTwoPartsStory.args = {
   ],
   previousData: Math.random() * 150,
   currentData: twoPartsCurrentData,
+  isUp: twoPartsCurrentData >= dataWholeLine[298],
 };

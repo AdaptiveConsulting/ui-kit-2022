@@ -29,7 +29,13 @@ const generateData = () => {
 
   const previousData = Math.random() * 100 + 250;
 
-  return { data, labels, previousData };
+  return {
+    data,
+    labels,
+    previousData,
+    currentData: data[0][data.length - 1],
+    isUp: data[data.length - 1] >= data[data.length - 2],
+  };
 };
 
 export default generateData;

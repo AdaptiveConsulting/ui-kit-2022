@@ -8,7 +8,7 @@ const MobileResponsiveness: React.FC = () => {
   const matchLg = useMediaQuery(theme.breakpoints.up('lg'));
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
 
-  const { data, labels, previousData } = generateData();
+  const { data, labels, previousData, currentData, isUp } = generateData();
   const yLabelStep = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 2);
   const yLabelStepM = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 4);
   const yLabelStepL = Math.ceil((Math.max(...data[0]) - Math.min(...data[0])) / 6);
@@ -79,6 +79,8 @@ const MobileResponsiveness: React.FC = () => {
                 yLabelStep={yLabelStep}
                 xLabelStep={90}
                 previousData={previousData}
+                currentData={currentData}
+                isUp={isUp}
               />
             </Grid>
           </Grid>
@@ -91,6 +93,8 @@ const MobileResponsiveness: React.FC = () => {
                   yLabelStep={yLabelStepM}
                   xLabelStep={60}
                   previousData={previousData}
+                  currentData={currentData}
+                  isUp={isUp}
                 />
               </Grid>
             </Grid>
@@ -104,6 +108,8 @@ const MobileResponsiveness: React.FC = () => {
                   yLabelStep={yLabelStepL}
                   xLabelStep={30}
                   previousData={previousData}
+                  currentData={currentData}
+                  isUp={isUp}
                 />
               </Grid>
             </Grid>
