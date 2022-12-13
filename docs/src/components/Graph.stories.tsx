@@ -63,9 +63,7 @@ GraphCloseEarlyStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
   labels,
-  data: [
-    closeEarlyData
-  ],
+  data: [closeEarlyData],
   previousData: Math.random() * 150,
   currentData: closeEarlyCurrentData,
 };

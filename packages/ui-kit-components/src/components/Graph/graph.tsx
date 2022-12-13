@@ -176,8 +176,7 @@ const Graph: React.FC<GraphProps> = ({
                 display: true,
                 yMin: currentData,
                 yMax: currentData,
-                borderColor:
-                  palette.success.main,
+                borderColor: palette.success.main,
                 borderDash: [3, 1.5],
                 borderWidth: 1,
               },
