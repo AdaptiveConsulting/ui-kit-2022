@@ -41,6 +41,7 @@ const Pill: React.FC<PillProps> = ({
       ...(ticker && { width: '64px' }),
       ...sx,
     }}
+    data-testid={'pill'}
   />
 );
 
