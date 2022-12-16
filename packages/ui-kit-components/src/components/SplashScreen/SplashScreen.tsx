@@ -35,6 +35,7 @@ export default function SplashScreen() {
           fontSize: { sm: '25px', xs: '20px' },
           fontFamily: `Merriweather, serif`,
         }}
+        data-testid={'loading-text'}
       >
         Loading...
       </Typography>
