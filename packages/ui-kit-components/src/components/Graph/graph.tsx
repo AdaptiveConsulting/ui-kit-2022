@@ -6,33 +6,19 @@ import {
   Palette,
   useTheme,
 } from '@mui/material';
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  Legend,
-  LinearScale,
-  LineElement,
-  PointElement,
-  ScriptableScaleContext,
-  Title,
-  Tooltip,
-} from 'chart.js';
-import annotationPlugin from 'chartjs-plugin-annotation';
-import zoomPlugin from 'chartjs-plugin-zoom';
+import { ScriptableScaleContext } from 'chart.js';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  zoomPlugin,
-  annotationPlugin,
-);
+import {
+  convertLabels,
+  generateBackgroundColorBoxes,
+  getData,
+  PartialNumberType,
+  registerPlugins,
+} from './graph-utils';
+
+registerPlugins();
 
 interface PaperColorOption {
   black: string;
@@ -42,83 +28,6 @@ interface PaperColorOption {
 interface PaperOption {
   paper: PaperColorOption;
 }
-
-const convertLabels = (labels: string[], step = 30) => {
-  const [beginHour, beginMinute] = labels[0].split(':');
-  return labels.map((label, index, arr) => {
-    const [hour, minute] = label.split(':');
-    const interval =
-      (parseInt(hour) - parseInt(beginHour)) * 60 +
-      (parseInt(minute) - parseInt(beginMinute));
-    return interval % step === 0 || index === arr.length - 1 ? label : '';
-  });
-};
-
-const getData = (labels: string[], data: PartialNumberType[][], palette: Palette) => {
-  const [dataFirstPart, dataSecondPart] = data;
-  const labelsToDisplay = labels.map((label) => {
-    const [hour, minute] = label.split(':');
-    return minute === '00' ? hour : label;
-  });
-
-  return dataSecondPart
-    ? {
-        labels: labelsToDisplay,
-        datasets: [
-          {
-            lineTension: 0.2,
-            data: dataFirstPart,
-            borderColor: palette.primary.main,
-          },
-          {
-            lineTension: 0.2,
-            data: dataSecondPart,
-            borderDash: [10, 5],
-            borderColor: palette.primary.main,
-          },
-        ],
-      }
-    : {
-        labels: labelsToDisplay,
-        datasets: [
-          {
-            lineTension: 0.2,
-            data: dataFirstPart,
-            borderColor: palette.primary.main,
-          },
-        ],
-      };
-};
-
-const generateBackgroundColorBoxes = (
-  labelsConverted: string[],
-  step = 60,
-  palette: Palette,
-) => {
-  let boxes = {};
-  const labelsDisplayed = labelsConverted.filter((label) => label !== '');
-  labelsDisplayed.forEach((label, index) => {
-    if (index % 2 === 1) {
-      boxes = {
-        ...boxes,
-        [`box${index}`]: {
-          borderWidth: 0,
-          drawTime: 'beforeDraw',
-          type: 'box',
-          xMin: index * step,
-          xMax: index * step + step,
-          backgroundColor:
-            palette.mode === 'light'
-              ? alpha(palette.grey[100], 0.6)
-              : alpha(palette.grey[900], 0.6),
-        },
-      };
-    }
-  });
-  return boxes;
-};
-
-type PartialNumberType = number | undefined;
 
 export interface GraphProps {
   yLabelStep?: number;
@@ -270,6 +179,7 @@ const Graph: React.FC<GraphProps> = ({
     <Box sx={{ position: 'relative' }}>
       {loading && (
         <LinearProgress
+          data-testid="loading"
           {...LinearProgressProps}
           sx={{ width: '50%', position: 'absolute', top: '50%', left: '25%' }}
         />
