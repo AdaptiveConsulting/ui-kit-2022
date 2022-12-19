@@ -4,6 +4,7 @@ import {
   LinearProgress,
   LinearProgressProps,
   Palette,
+  SimplePaletteColorOptions,
   useTheme,
 } from '@mui/material';
 import { ScriptableScaleContext } from 'chart.js';
@@ -14,6 +15,7 @@ import {
   convertLabels,
   generateBackgroundColorBoxes,
   getData,
+  getXAdjustAnnotationLineLabel,
   PartialNumberType,
   registerPlugins,
 } from './graph-utils';
@@ -29,12 +31,19 @@ interface PaperOption {
   paper: PaperColorOption;
 }
 
+interface SellBugProps {
+  sell: SimplePaletteColorOptions;
+  buy: SimplePaletteColorOptions;
+}
+
 export interface GraphProps {
   yLabelStep?: number;
   xLabelStep?: number;
   labels: string[];
   data: PartialNumberType[][];
   previousData?: number;
+  currentData?: number;
+  isUp: boolean;
   loading?: boolean;
   LinearProgressProps?: LinearProgressProps;
 }
@@ -54,6 +63,8 @@ const Graph: React.FC<GraphProps> = ({
   labels,
   data,
   previousData,
+  currentData,
+  isUp,
   loading,
   LinearProgressProps = {},
 }) => {
@@ -74,6 +85,11 @@ const Graph: React.FC<GraphProps> = ({
 
   const options = {
     responsive: true,
+    layout: {
+      padding: {
+        left: 20,
+      },
+    },
     scales: {
       y: {
         ticks: {
@@ -168,6 +184,53 @@ const Graph: React.FC<GraphProps> = ({
                   palette.mode === 'light' ? palette.primary.dark : palette.primary.light,
                 borderDash: [5, 2],
                 borderWidth: 1,
+                label: {
+                  enabled: true,
+                  backgroundColor: palette.grey[700],
+                  borderWidth: 0,
+                  borderRadius: {
+                    topLeft: 5,
+                    bottomLeft: 5,
+                    topRight: 0,
+                    bottomRight: 0,
+                  },
+                  drawTime: 'afterDatasetsDraw',
+                  position: 'start',
+                  xAdjust: getXAdjustAnnotationLineLabel(previousData || 0),
+                  color: palette.common.white,
+                  content: () => [previousData?.toFixed(2)],
+                  textAlign: 'left',
+                },
+              },
+              line2: {
+                type: 'line' as 'box',
+                display: true,
+                yMin: currentData,
+                yMax: currentData,
+                borderColor: isUp
+                  ? palette.success.main
+                  : (palette as Palette & SellBugProps).sell.main,
+                borderDash: [3, 1.5],
+                borderWidth: 1,
+                label: {
+                  enabled: true,
+                  backgroundColor: isUp
+                    ? palette.success.main
+                    : (palette as Palette & SellBugProps).sell.main,
+                  borderWidth: 0,
+                  borderRadius: {
+                    topLeft: 5,
+                    bottomLeft: 5,
+                    topRight: 0,
+                    bottomRight: 0,
+                  },
+                  drawTime: 'afterDatasetsDraw',
+                  position: 'start',
+                  xAdjust: getXAdjustAnnotationLineLabel(currentData || 0),
+                  color: palette.common.black,
+                  content: () => ['CP', currentData?.toFixed(2)],
+                  textAlign: 'left',
+                },
               },
             },
           },
@@ -184,7 +247,7 @@ const Graph: React.FC<GraphProps> = ({
           sx={{ width: '50%', position: 'absolute', top: '50%', left: '25%' }}
         />
       )}
-      <Line options={options} data={datasets} />
+      <Line options={options as any} data={datasets} />
     </Box>
   );
 };

@@ -5206,7 +5206,7 @@ __metadata:
     "@mui/material": ^5.10.6
     "@ui-kit-2022/theme": 0.0.1
     chart.js: ^3.9.1
-    chartjs-plugin-annotation: ^2.0.1
+    chartjs-plugin-annotation: ^1.4.0
     chartjs-plugin-zoom: ^1.2.1
     react: ^18.2.0
     react-chartjs-2: ^4.3.1
@@ -5260,7 +5260,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.38.0
     "@vitejs/plugin-react": ^2.1.0
     chart.js: ^3.9.1
-    chartjs-plugin-annotation: ^2.0.1
+    chartjs-plugin-annotation: ^1.4.0
     chartjs-plugin-zoom: ^1.2.1
     chromatic: ^6.10.2
     concurrently: ^7.5.0
@@ -7203,6 +7203,15 @@ __metadata:
   version: 3.9.1
   resolution: "chart.js@npm:3.9.1"
   checksum: 9ab0c0ac01215af0b3f020f2e313030fd6e347b48ed17d5484ee9c4e8ead45e78ae71bea16c397621c386b409ce0b14bf17f9f6c2492cd15b56c0f433efdfff6
+  languageName: node
+  linkType: hard
+
+"chartjs-plugin-annotation@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "chartjs-plugin-annotation@npm:1.4.0"
+  peerDependencies:
+    chart.js: ^3.1.0
+  checksum: dae72b53e4f9b3b4a1394734cb3f4bd167d55dc710dd5caf2bd70f86c81d4bd274781d57693aefe3b4002bd3e356db263afcec98dfe07b7afdb222fce95f4f0b
   languageName: node
   linkType: hard
 

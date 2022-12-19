@@ -25,6 +25,7 @@ describe('Graph component tests', () => {
     beforeAll(() =>
       render(
         <Graph
+          isUp={true}
           loading={true}
           data={[[2, 3]]}
           labels={['1', '2']}
@@ -43,6 +44,7 @@ describe('Graph component tests', () => {
     beforeAll(() => {
       render(
         <Graph
+          isUp={true}
           data={[[2, 3]]}
           labels={['9:00', '10:00']}
           yLabelStep={50}

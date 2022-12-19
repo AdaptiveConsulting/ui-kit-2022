@@ -106,3 +106,15 @@ export const generateBackgroundColorBoxes = (
   });
   return boxes;
 };
+
+export const getXAdjustAnnotationLineLabel = (value: number) => {
+  if (value >= 1000) {
+    return -72;
+  } else if (value < 1000 && value >= 100) {
+    return -55;
+  } else if (value < 100 && value >= 10) {
+    return -48;
+  } else {
+    return -41;
+  }
+};
