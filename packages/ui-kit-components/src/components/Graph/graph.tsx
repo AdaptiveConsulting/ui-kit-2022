@@ -15,9 +15,9 @@ import {
   convertLabels,
   generateBackgroundColorBoxes,
   getData,
+  getXAdjustAnnotationLineLabel,
   PartialNumberType,
   registerPlugins,
-  getXAdjustAnnotationLineLabel
 } from './graph-utils';
 
 registerPlugins();
