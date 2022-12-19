@@ -81,9 +81,13 @@ describe('PageNotFound coponent tests', () => {
       );
     });
 
-    it('Then should trigger the click button function', () => {
-      fireEvent.click(screen.getByText('Test Button'));
-      expect(clickFn.mock.calls.length).toBe(1);
+    describe('When click the test button', () => {
+      beforeEach(() => {
+        fireEvent.click(screen.getByText('Test Button'));
+      });
+      it('Then should trigger the click button function', () => {
+        expect(clickFn.mock.calls.length).toBe(1);
+      });
     });
   });
 });
