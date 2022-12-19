@@ -69,6 +69,7 @@ const PageNotFound = <T extends TextSearchOptionBase>({
   inputProps,
 }: Props<T>) => (
   <Paper
+    data-testid={'not-found-page'}
     sx={[
       {
         minWidth: `100${fitContainer ? '%' : 'vw'}`,
