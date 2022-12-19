@@ -36,17 +36,20 @@ export default {
 const Template: ComponentStory<typeof ExamplePage> = (args) => <ExamplePage {...args} />;
 
 export const StocksPage = Template.bind({});
+const defaultGraphData = labels.map(() => {
+  y += 0.008;
+  return perlin.get(1, y) * 300 + 200;
+});
+const defaultCurrentData = defaultGraphData[defaultGraphData.length - 1];
+
 StocksPage.args = {
-  graphProps: {
+  lineProps: {
     yLabelStep: 50,
     xLabelStep: 60,
     labels,
-    data: [
-      labels.map(() => {
-        y += 0.008;
-        return perlin.get(1, y) * 300 + 200;
-      }),
-    ],
+    data: [defaultGraphData],
+    currentData: defaultCurrentData,
+    isUp: defaultCurrentData >= defaultGraphData[defaultGraphData.length - 2],
     previousData: Math.random() * 150,
   },
   tickerSearchProps: {

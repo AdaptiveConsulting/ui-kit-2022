@@ -1,5 +1,5 @@
 import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { Graph } from '@ui-kit-2022/components';
+import { LineChart } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import generateData from './generate-data';
@@ -73,7 +73,7 @@ const MobileResponsiveness: React.FC = () => {
         >
           <Grid item xs={12} container>
             <Grid item xs={8} sm={6} lg={4}>
-              <Graph
+              <LineChart
                 labels={labels}
                 data={data}
                 yLabelStep={yLabelStep}
@@ -87,7 +87,7 @@ const MobileResponsiveness: React.FC = () => {
           {matchSm && (
             <Grid item xs={12} container>
               <Grid item xs={10} sm={8} lg={6}>
-                <Graph
+                <LineChart
                   labels={labels}
                   data={data}
                   yLabelStep={yLabelStepM}
@@ -102,7 +102,7 @@ const MobileResponsiveness: React.FC = () => {
           {matchLg && (
             <Grid item xs={12} container>
               <Grid item xs={12} sm={10} lg={8}>
-                <Graph
+                <LineChart
                   labels={labels}
                   data={data}
                   yLabelStep={yLabelStepL}

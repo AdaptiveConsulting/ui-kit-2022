@@ -18,7 +18,7 @@ import {
   getXAdjustAnnotationLineLabel,
   PartialNumberType,
   registerPlugins,
-} from './graph-utils';
+} from './line-utils';
 
 registerPlugins();
 
@@ -36,7 +36,7 @@ interface SellBugProps {
   buy: SimplePaletteColorOptions;
 }
 
-export interface GraphProps {
+export interface LineChartProps {
   yLabelStep?: number;
   xLabelStep?: number;
   labels: string[];
@@ -57,7 +57,7 @@ export interface GraphProps {
  * @param previousData a value displayed by the horizantol line on the chart
  * @returns
  */
-const Graph: React.FC<GraphProps> = ({
+const LineChart: React.FC<LineChartProps> = ({
   yLabelStep,
   xLabelStep,
   labels,
@@ -252,4 +252,4 @@ const Graph: React.FC<GraphProps> = ({
   );
 };
 
-export default Graph;
+export default LineChart;

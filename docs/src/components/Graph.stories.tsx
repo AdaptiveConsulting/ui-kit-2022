@@ -1,20 +1,20 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Graph } from '@ui-kit-2022/components';
+import { LineChart } from '@ui-kit-2022/components';
 import * as React from 'react';
 export default {
-  title: 'Components/Graph',
-  component: Graph,
+  title: 'Components/Graph/LineChart',
+  component: LineChart,
   argTypes: {
     loading: {
       control: 'boolean',
       defaultValue: false,
     },
   },
-} as ComponentMeta<typeof Graph>;
+} as ComponentMeta<typeof LineChart>;
 
 import Perlin from '../utils/perlin';
-const Template: ComponentStory<typeof Graph> = (props) => {
-  return <Graph {...props} />;
+const Template: ComponentStory<typeof LineChart> = (props) => {
+  return <LineChart {...props} />;
 };
 
 const perlin = new Perlin();
@@ -37,7 +37,7 @@ const labels = Array(24 * 60)
   });
 
 export const GraphStory = Template.bind({});
-GraphStory.storyName = 'Graph';
+GraphStory.storyName = 'Normal Line Chart';
 const defaultGraphData = labels.map(() => {
   y += 0.008;
   return perlin.get(1, y) * 300 + 200;
@@ -59,7 +59,7 @@ const closeEarlyData = labels.map((_, index) => {
   return index < 300 ? perlin.get(1, y) * 300 + 200 : undefined;
 });
 const closeEarlyCurrentData = closeEarlyData[299];
-GraphCloseEarlyStory.storyName = 'Graph Close Early';
+GraphCloseEarlyStory.storyName = 'Line Chart Close Early';
 GraphCloseEarlyStory.args = {
   yLabelStep: 50,
   xLabelStep: 60,
@@ -71,7 +71,7 @@ GraphCloseEarlyStory.args = {
 };
 
 export const GraphTwoPartsStory = Template.bind({});
-GraphTwoPartsStory.storyName = 'Graph Two Parts';
+GraphTwoPartsStory.storyName = 'Line Chart Two Parts';
 const dataWholeLine = labels.map(() => {
   y += 0.008;
   return perlin.get(1, y) * 300 + 200;

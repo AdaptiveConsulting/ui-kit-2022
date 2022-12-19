@@ -5258,6 +5258,7 @@ __metadata:
     "@types/react-dom": ^18.0.6
     "@typescript-eslint/eslint-plugin": ^5.38.0
     "@typescript-eslint/parser": ^5.38.0
+    "@ui-kit-2022/components": 0.0.1
     "@vitejs/plugin-react": ^2.1.0
     chart.js: ^3.9.1
     chartjs-plugin-annotation: ^1.4.0

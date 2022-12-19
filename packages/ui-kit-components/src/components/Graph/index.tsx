@@ -1,4 +1,4 @@
-import Graph, { GraphProps } from './graph';
+import LineChart, { LineChartProps } from './line';
 
-export { Graph };
-export type { GraphProps };
+export { LineChart };
+export type { LineChartProps };
