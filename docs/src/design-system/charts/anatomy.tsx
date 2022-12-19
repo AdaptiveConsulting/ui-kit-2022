@@ -1,5 +1,5 @@
 import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { Graph } from '@ui-kit-2022/components';
+import { LineChart } from '@ui-kit-2022/components';
 import * as React from 'react';
 
 import generateData from './generate-data';
@@ -49,7 +49,7 @@ const Anatomy: React.FC = () => {
         </Grid>
         <Grid item lg={10} xs={12} sx={{ p: match ? '0rem 2rem' : '0rem' }} container>
           <Grid item xs={8} sm={6} lg={4}>
-            <Graph
+            <LineChart
               yLabelStep={yLabelStep}
               xLabelStep={90}
               labels={labels}

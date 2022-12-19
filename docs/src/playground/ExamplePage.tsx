@@ -1,8 +1,8 @@
 import { Box, Button, ButtonGroup, Theme } from '@mui/material';
 import {
-  Graph,
-  GraphProps,
   Icon,
+  LineChart,
+  LineChartProps,
   TextSearch,
   TextSearchOptionBase,
   TextSearchProps,
@@ -63,13 +63,13 @@ const styles = {
 
 export interface ExamplePageProps<T extends TextSearchOptionBase> {
   // Need a way to import Types from the UI Kit to avoid having to make duplicate type defs
-  graphProps: GraphProps;
+  lineProps: LineChartProps;
   tickerSearchProps: TextSearchProps<T>;
   loading?: boolean;
 }
 
 export default function ExamplePage<T extends TextSearchOptionBase>({
-  graphProps,
+  lineProps,
   tickerSearchProps,
   loading,
 }: ExamplePageProps<T>) {
@@ -97,7 +97,7 @@ export default function ExamplePage<T extends TextSearchOptionBase>({
                 </Button>
               </ButtonGroup>
             </Box>
-            <Graph {...graphProps} loading={loading} />
+            <LineChart {...lineProps} loading={loading} />
           </Box>
           <Box flex="1 0 auto" my={2}>
             <KeyStatistics keyStats={keyStats} loading={loading} />

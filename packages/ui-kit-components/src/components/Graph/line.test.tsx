@@ -3,16 +3,16 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import Graph from './graph';
+import LineChart from './line';
 
-import { convertLabels, getData, generateBackgroundColorBoxes } from './graph-utils';
+import { convertLabels, getData, generateBackgroundColorBoxes } from './line-utils';
 
 jest.mock('react-chartjs-2', () => ({
   Line: () => null,
 }));
 
-jest.mock('./graph-utils', () => {
-  const originalModule = jest.requireActual('./graph-utils');
+jest.mock('./line-utils', () => {
+  const originalModule = jest.requireActual('./line-utils');
   return {
     __esModule: true,
     ...originalModule,
@@ -24,7 +24,7 @@ describe('Graph component tests', () => {
   describe('When loading prop is set', () => {
     beforeAll(() =>
       render(
-        <Graph
+        <LineChart
           isUp={true}
           loading={true}
           data={[[2, 3]]}
@@ -43,7 +43,7 @@ describe('Graph component tests', () => {
   describe('When loading prop is not set', () => {
     beforeAll(() => {
       render(
-        <Graph
+        <LineChart
           isUp={true}
           data={[[2, 3]]}
           labels={['9:00', '10:00']}
