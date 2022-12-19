@@ -4,6 +4,7 @@ import {
   LinearProgress,
   LinearProgressProps,
   Palette,
+  SimplePaletteColorOptions,
   useTheme,
 } from '@mui/material';
 import { ScriptableScaleContext } from 'chart.js';
@@ -200,12 +201,16 @@ const Graph: React.FC<GraphProps> = ({
                 display: true,
                 yMin: currentData,
                 yMax: currentData,
-                borderColor: isUp ? palette.success.main : palette.sell.main,
+                borderColor: isUp
+                  ? palette.success.main
+                  : (palette as Palette & SellBugProps).sell.main,
                 borderDash: [3, 1.5],
                 borderWidth: 1,
                 label: {
                   enabled: true,
-                  backgroundColor: isUp ? palette.success.main : palette.sell.main,
+                  backgroundColor: isUp
+                    ? palette.success.main
+                    : (palette as Palette & SellBugProps).sell.main,
                   borderWidth: 0,
                   borderRadius: {
                     topLeft: 5,
