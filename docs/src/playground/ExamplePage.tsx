@@ -1,8 +1,8 @@
 import { Box, Button, ButtonGroup, Theme } from '@mui/material';
 import {
+  Icon,
   LineChart,
   LineChartProps,
-  Icon,
   TextSearch,
   TextSearchOptionBase,
   TextSearchProps,
