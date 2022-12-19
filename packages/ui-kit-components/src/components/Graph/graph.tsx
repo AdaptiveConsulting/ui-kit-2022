@@ -17,6 +17,7 @@ import {
   getData,
   PartialNumberType,
   registerPlugins,
+  getXAdjustAnnotationLineLabel
 } from './graph-utils';
 
 registerPlugins();
@@ -28,6 +29,11 @@ interface PaperColorOption {
 
 interface PaperOption {
   paper: PaperColorOption;
+}
+
+interface SellBugProps {
+  sell: SimplePaletteColorOptions;
+  buy: SimplePaletteColorOptions;
 }
 
 export interface GraphProps {
