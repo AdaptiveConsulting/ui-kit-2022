@@ -53,23 +53,7 @@ describe('PageNotFound coponent tests', () => {
     });
   });
 
-  describe('Given render a component with inputProps', () => {
-    beforeEach(() => {
-      render(
-        <PageNotFound
-          onNavigateHome={() => null}
-          fitContainer={true}
-          inputProps={{ options: [], placeholder: 'Place Holder' }}
-        />,
-      );
-    });
-
-    it('Then should display the right placeholder value', () => {
-      expect(screen.getByText('Place Holder')).toMatchSnapshot();
-    });
-  });
-
-  describe('Given render a component mocked button click function', () => {
+  describe('Given render a component with custom props', () => {
     const clickFn = jest.fn();
     beforeEach(() => {
       render(
@@ -81,12 +65,16 @@ describe('PageNotFound coponent tests', () => {
       );
     });
 
+    it('Then should display the right placeholder value', () => {
+      expect(screen.getByText('Place Holder')).toMatchSnapshot();
+    });
+
     describe('When click the test button', () => {
       beforeEach(() => {
         fireEvent.click(screen.getByText('Test Button'));
       });
       it('Then should trigger the click button function', () => {
-        expect(clickFn.mock.calls.length).toBe(1);
+        expect(clickFn).toBeCalled()
       });
     });
   });

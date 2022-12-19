@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageNotFound coponent tests Given render a component with inputProps Then should display the right placeholder value 1`] = `
+exports[`PageNotFound coponent tests Given render a component with custom props Then should display the right placeholder value 1`] = `
 <p>
   Place Holder
 </p>
