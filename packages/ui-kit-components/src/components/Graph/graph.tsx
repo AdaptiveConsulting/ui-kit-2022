@@ -81,7 +81,7 @@ const Graph: React.FC<GraphProps> = ({
     layout: {
       padding: {
         left: 20,
-      }
+      },
     },
     scales: {
       y: {
@@ -188,13 +188,11 @@ const Graph: React.FC<GraphProps> = ({
                     bottomRight: 0,
                   },
                   drawTime: 'afterDatasetsDraw',
-                  position: "start",
+                  position: 'start',
                   xAdjust: getXAdjustAnnotationLineLabel(previousData || 0),
                   color: palette.common.white,
-                  content:() => [
-                    previousData?.toFixed(2),
-                  ],
-                  textAlign: 'left'
+                  content: () => [previousData?.toFixed(2)],
+                  textAlign: 'left',
                 },
               },
               line2: {
@@ -216,14 +214,11 @@ const Graph: React.FC<GraphProps> = ({
                     bottomRight: 0,
                   },
                   drawTime: 'afterDatasetsDraw',
-                  position: "start",
+                  position: 'start',
                   xAdjust: getXAdjustAnnotationLineLabel(currentData || 0),
                   color: palette.common.black,
-                  content:() => [
-                    "CP",
-                    currentData?.toFixed(2),
-                  ],
-                  textAlign: 'left'
+                  content: () => ['CP', currentData?.toFixed(2)],
+                  textAlign: 'left',
                 },
               },
             },
