@@ -1,10 +1,7 @@
 import React from 'react';
-import { Palette, useTheme, alpha } from '@mui/material';
+import { Palette, useTheme, alpha , SimplePaletteColorOptions} from '@mui/material';
 import { Bar } from 'react-chartjs-2';
-import {
-  convertLabels,
-  registerPlugins,
-} from './line-utils';
+import { convertLabels, registerPlugins, getXAdjustAnnotationLineLabel } from './line-utils';
 import { ScriptableScaleContext } from 'chart.js';
 registerPlugins();
 interface PaperColorOption {
@@ -16,12 +13,20 @@ interface PaperOption {
   paper: PaperColorOption;
 }
 
+interface SellBugProps {
+  sell: SimplePaletteColorOptions;
+  buy: SimplePaletteColorOptions;
+}
+
 export const getOptions = (
   dataset: number[],
   labels: string[],
   palette: Palette,
   yAxisStep: number,
   xAxisStep: number,
+  previousPrice: number,
+  currentPrice: number,
+  isUp: boolean
 ) => {
   const max = Math.ceil(
     Math.max(...(dataset.filter((num) => num !== undefined) as number[])),
@@ -31,31 +36,36 @@ export const getOptions = (
   );
 
   let boxes = {};
-  console.log("labels", labels);
-  const convertedLabels = convertLabels(labels, xAxisStep);
-  console.log("convertLabels", convertedLabels);
+
   convertLabels(labels, xAxisStep)
-  .filter((label, index) => label !== '' || index % 2 !== 0)
-  .map(label => {console.log("label", label); return label})
+    .filter((label) => label !== '')
     .forEach((label, index) => {
-      boxes = {
-        ...boxes,
-        [`box${index}`]: {
-          borderWidth: 0,
-          drawTime: 'beforeDraw',
-          type: 'box',
-          xMin: index - 0.5,
-          xMax: index + 0.5,
-          backgroundColor:
-            palette.mode === 'light'
-              ? alpha(palette.grey[100], 0.6)
-              : alpha(palette.grey[900], 0.6),
-        },
-      };
+      if (index % 2 !== 0) {
+        boxes = {
+          ...boxes,
+          [`box${index}`]: {
+            borderWidth: 0,
+            drawTime: 'beforeDraw',
+            type: 'box',
+            xMin: index - 0.5,
+            xMax: index + 0.5,
+            backgroundColor:
+              palette.mode === 'light'
+                ? alpha(palette.grey[100], 0.6)
+                : alpha(palette.grey[900], 0.6),
+          },
+        };
+      }
+
     });
 
   return {
     responsive: true,
+    layout: {
+      padding: {
+        left: 20,
+      },
+    },
     scales: {
       y: {
         ticks: {
@@ -114,6 +124,63 @@ export const getOptions = (
       annotation: {
         annotations: {
           ...boxes,
+          line1: {
+            type: 'line' as 'box',
+            display: true,
+            yMin: previousPrice,
+            yMax: previousPrice,
+            borderColor:
+              palette.mode === 'light' ? palette.primary.dark : palette.primary.light,
+            borderDash: [5, 2],
+            borderWidth: 1,
+            label: {
+              enabled: true,
+              backgroundColor: palette.grey[700],
+              borderWidth: 0,
+              borderRadius: {
+                topLeft: 5,
+                bottomLeft: 5,
+                topRight: 0,
+                bottomRight: 0,
+              },
+              drawTime: 'afterDatasetsDraw',
+              position: 'start',
+              xAdjust: getXAdjustAnnotationLineLabel(previousPrice || 0),
+              color: palette.common.white,
+              content: () => [previousPrice?.toFixed(2)],
+              textAlign: 'left',
+            },
+          },
+          line2: {
+            type: 'line' as 'box',
+            display: true,
+            yMin: currentPrice,
+            yMax: currentPrice,
+            borderColor: isUp
+              ? palette.success.main
+              : (palette as Palette & SellBugProps).sell.main,
+            borderDash: [3, 1.5],
+            borderWidth: 1,
+            label: {
+              enabled: true,
+              backgroundColor: isUp
+                ? palette.success.main
+                : (palette as Palette & SellBugProps).sell.main,
+              borderWidth: 0,
+              borderRadius: {
+                topLeft: 5,
+                bottomLeft: 5,
+                topRight: 0,
+                bottomRight: 0,
+              },
+              drawTime: 'afterDatasetsDraw',
+              position: 'start',
+              xAdjust: getXAdjustAnnotationLineLabel(currentPrice || 0),
+              color: palette.common.black,
+              content: () => ['CP', currentPrice?.toFixed(2)],
+              textAlign: 'left',
+            },
+          },
         },
       },
     },
@@ -158,6 +225,9 @@ export interface BarChartProps {
   yAxisStep: number;
   dataset: number[];
   labels: string[];
+  previousPrice: number;
+  currentPrice: number;
+  isUp: boolean;
 }
 
 const BarChart: React.FC<BarChartProps> = ({
@@ -165,11 +235,14 @@ const BarChart: React.FC<BarChartProps> = ({
   labels,
   xAxisStep = 60,
   yAxisStep = 50,
+  previousPrice = 0,
+  currentPrice = 0,
+  isUp
 }) => {
   const { palette } = useTheme();
   return (
     <Bar
-      options={getOptions(dataset, labels, palette, yAxisStep, xAxisStep) as any}
+      options={getOptions(dataset, labels, palette, yAxisStep, xAxisStep, previousPrice, currentPrice, isUp) as any}
       data={getData(dataset, labels, palette, xAxisStep)}
     />
   );

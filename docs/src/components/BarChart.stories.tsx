@@ -38,10 +38,14 @@ const defaultGraphData = labels.map(() => {
   y += 0.008;
   return perlin.get(1, y) * 300 + 200;
 });
+const defaultCurrentData = defaultGraphData[defaultGraphData.length - 1];
 
 BarStory.args = {
   xAxisStep: 60,
   yAxisStep: 100,
   labels: labels,
   dataset: defaultGraphData,
+  previousPrice: Math.random() * 150,
+  currentPrice: defaultCurrentData,
+  isUp: defaultCurrentData >= defaultGraphData[defaultGraphData.length - 2],
 }
