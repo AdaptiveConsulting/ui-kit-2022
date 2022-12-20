@@ -5,6 +5,7 @@ import {
   Legend,
   LinearScale,
   LineElement,
+  BarElement,
   PointElement,
   Title,
   Tooltip,
@@ -20,6 +21,8 @@ export function registerPlugins() {
     LinearScale,
     PointElement,
     LineElement,
+    BarElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
@@ -104,6 +107,7 @@ export const generateBackgroundColorBoxes = (
       };
     }
   });
+
   return boxes;
 };
 
