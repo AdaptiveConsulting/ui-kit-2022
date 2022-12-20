@@ -4450,7 +4450,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^8.3.0, @testing-library/dom@npm:^8.5.0":
+"@testing-library/dom@npm:^8.19.0, @testing-library/dom@npm:^8.3.0, @testing-library/dom@npm:^8.5.0":
   version: 8.19.0
   resolution: "@testing-library/dom@npm:8.19.0"
   dependencies:
@@ -5187,6 +5187,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ui-kit-2022/components@workspace:packages/ui-kit-components"
   dependencies:
+    "@testing-library/dom": ^8.19.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.4.3

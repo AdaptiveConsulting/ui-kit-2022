@@ -36,9 +36,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.1",
     "@ui-kit-2022/svgr-template": "^1.0.0",
     "@ui-kit-2022/theme": "0.0.1",
