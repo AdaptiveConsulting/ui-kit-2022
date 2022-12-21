@@ -22,7 +22,6 @@ export function registerPlugins() {
     PointElement,
     LineElement,
     BarElement,
-    BarElement,
     Title,
     Tooltip,
     Legend,
