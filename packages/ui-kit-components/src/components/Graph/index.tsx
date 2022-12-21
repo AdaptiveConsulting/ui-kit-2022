@@ -1,4 +1,4 @@
+import BarChart from './bar';
 import LineChart, { LineChartProps } from './line';
-
-export { LineChart };
+export { BarChart, LineChart };
 export type { LineChartProps };

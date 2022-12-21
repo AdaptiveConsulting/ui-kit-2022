@@ -1,5 +1,6 @@
 import { alpha, Palette } from '@mui/material';
 import {
+  BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
@@ -20,6 +21,7 @@ export function registerPlugins() {
     LinearScale,
     PointElement,
     LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
@@ -104,6 +106,7 @@ export const generateBackgroundColorBoxes = (
       };
     }
   });
+
   return boxes;
 };
 
