@@ -74,7 +74,7 @@ describe('PageNotFound coponent tests', () => {
         fireEvent.click(screen.getByText('Test Button'));
       });
       it('Then should trigger the click button function', () => {
-        expect(clickFn).toBeCalled()
+        expect(clickFn).toBeCalled();
       });
     });
   });
