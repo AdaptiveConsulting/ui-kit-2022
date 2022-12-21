@@ -1,7 +1,7 @@
-import { Box, Container, Grid } from '@mui/material';
-import { useTheme } from '@mui/material';
+import { Box, Container, Grid, useTheme } from '@mui/material';
 import { Typography } from '@ui-kit-2022/components';
 
+import TickerBar from '../../components/TickerBar';
 import { TopBar } from '../building-blocks/common';
 import ChartDividerExample from '../building-blocks/divider/ChartDividerExample';
 import DashedLineExample from '../building-blocks/divider/DashedLineExample';
@@ -120,13 +120,8 @@ const DividerUsagePage = () => {
                 <Typography variant="h2" color={palette.success.main} mb={1}>
                   Do:
                 </Typography>
-                <Box>
-                  {/* This part will be updated by the corresponding componenet later!!! */}
-                  <img
-                    src="IndexDividerExample.png"
-                    width={'100%'}
-                    alt="Index Divider Example"
-                  />
+                <Box my={4}>
+                  <TickerBar />
                 </Box>
                 <Typography
                   variant="caption"
