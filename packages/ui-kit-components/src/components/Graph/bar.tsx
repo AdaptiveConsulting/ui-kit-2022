@@ -1,8 +1,13 @@
-import React from 'react';
-import { Palette, useTheme, alpha , SimplePaletteColorOptions} from '@mui/material';
-import { Bar } from 'react-chartjs-2';
-import { convertLabels, registerPlugins, getXAdjustAnnotationLineLabel } from './line-utils';
+import { alpha, Palette, SimplePaletteColorOptions, useTheme } from '@mui/material';
 import { ScriptableScaleContext } from 'chart.js';
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+
+import {
+  convertLabels,
+  getXAdjustAnnotationLineLabel,
+  registerPlugins,
+} from './line-utils';
 registerPlugins();
 interface PaperColorOption {
   black: string;
@@ -26,7 +31,7 @@ export const getOptions = (
   xAxisStep: number,
   previousPrice: number,
   currentPrice: number,
-  isUp: boolean
+  isUp: boolean,
 ) => {
   const max = Math.ceil(
     Math.max(...(dataset.filter((num) => num !== undefined) as number[])),
@@ -56,7 +61,6 @@ export const getOptions = (
           },
         };
       }
-
     });
 
   return {
@@ -237,12 +241,23 @@ const BarChart: React.FC<BarChartProps> = ({
   yAxisStep = 50,
   previousPrice = 0,
   currentPrice = 0,
-  isUp
+  isUp,
 }) => {
   const { palette } = useTheme();
   return (
     <Bar
-      options={getOptions(dataset, labels, palette, yAxisStep, xAxisStep, previousPrice, currentPrice, isUp) as any}
+      options={
+        getOptions(
+          dataset,
+          labels,
+          palette,
+          yAxisStep,
+          xAxisStep,
+          previousPrice,
+          currentPrice,
+          isUp,
+        ) as any
+      }
       data={getData(dataset, labels, palette, xAxisStep)}
     />
   );

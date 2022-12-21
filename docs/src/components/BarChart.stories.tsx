@@ -1,7 +1,7 @@
+import { Box } from '@mui/material';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { BarChart } from '@ui-kit-2022/components';
 import * as React from 'react';
-import { Box } from '@mui/material';
 export default {
   title: 'Components/Graph/BarChart',
   component: BarChart,
@@ -9,7 +9,11 @@ export default {
 
 import Perlin from '../utils/perlin';
 const Template: ComponentStory<typeof BarChart> = (props) => {
-  return <Box sx={{width: "100%"}}><BarChart {...props} /></Box>;
+  return (
+    <Box sx={{ width: '100%' }}>
+      <BarChart {...props} />
+    </Box>
+  );
 };
 
 export const BarStory = Template.bind({});
@@ -48,4 +52,4 @@ BarStory.args = {
   previousPrice: Math.random() * 150,
   currentPrice: defaultCurrentData,
   isUp: defaultCurrentData >= defaultGraphData[defaultGraphData.length - 2],
-}
+};

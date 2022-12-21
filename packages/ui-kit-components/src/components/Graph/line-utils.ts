@@ -1,11 +1,11 @@
 import { alpha, Palette } from '@mui/material';
 import {
+  BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
   LinearScale,
   LineElement,
-  BarElement,
   PointElement,
   Title,
   Tooltip,
