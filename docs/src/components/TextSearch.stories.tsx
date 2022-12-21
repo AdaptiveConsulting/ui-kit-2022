@@ -1,5 +1,7 @@
 import { action } from '@storybook/addon-actions';
+import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 import { TextSearch, TextSearchOptionBase } from '@ui-kit-2022/components';
 import * as React from 'react';
 
@@ -94,6 +96,22 @@ BasicTextSearch.args = {
     { label: 'Another Option' },
     { label: 'A fourth option' },
   ],
+  disablePortal: true,
+};
+
+BasicTextSearch.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const input = canvas.getByRole('combobox');
+  await userEvent.click(input);
+  await userEvent.click(
+    canvas.getByRole('presentation').querySelectorAll('[role="option"]')[0],
+  );
+  expect(input.value).toBe('Option 1');
+  await userEvent.click(input);
+  await userEvent.click(
+    canvasElement.querySelector('.MuiAutocomplete-clearIndicator') as HTMLElement,
+  );
+  await userEvent.click(input);
 };
 
 interface Option extends TextSearchOptionBase {
