@@ -83,6 +83,7 @@ const TextSearch = <T extends TextSearchOptionBase>({
           }}
         />
       )}
+      data-testid={'TextSearch-autocomplete'}
     />
   );
 };
