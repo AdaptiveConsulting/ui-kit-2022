@@ -112,7 +112,7 @@ BasicTextSearch.play = async ({ canvasElement }) => {
     canvasElement.querySelector('.MuiAutocomplete-clearIndicator') as HTMLElement,
   );
   await userEvent.click(input);
-
+};
 interface Option extends TextSearchOptionBase {
   type: 'stock' | 'currency';
 }
