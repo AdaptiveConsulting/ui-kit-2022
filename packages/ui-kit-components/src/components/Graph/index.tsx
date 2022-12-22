@@ -1,5 +1,5 @@
 import BarChart from './bar';
-import LineChart, { LineChartProps } from './line';
 import CandleChart from './candle';
-export { BarChart, LineChart, CandleChart };
+import LineChart, { LineChartProps } from './line';
+export { BarChart, CandleChart, LineChart };
 export type { LineChartProps };

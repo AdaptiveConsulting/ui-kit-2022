@@ -1,14 +1,14 @@
-import React from 'react';
-import { useTheme, Palette, SimplePaletteColorOptions } from '@mui/material';
+import { Palette, SimplePaletteColorOptions, useTheme } from '@mui/material';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
+import React from 'react';
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -17,11 +17,57 @@ interface SellBugProps {
   buy: SimplePaletteColorOptions;
 }
 
+const candlestick = {
+  id: 'candlestick',
+  beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
+    const {
+      ctx,
+      data,
+      chartArea: { top, bottom, left, right, width, height },
+      scales: { x, y },
+    } = chart;
+
+    ctx.save();
+    ctx.lineWidth = 2;
+    ctx.strokeSyle = 'rgba(0, 0, 0, 1)';
+
+    data.datasets[0].data.forEach((dataPoint: any, index: number) => {
+      ctx.beginPath();
+      ctx.moveTo(
+        chart.getDatasetMeta(0).data[index].x,
+        chart.getDatasetMeta(0).data[index].y,
+      );
+      ctx.lineTo(
+        chart.getDatasetMeta(0).data[index].x,
+        y.getPixelForValue(data.datasets[0].data[index].high),
+      );
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(
+        chart.getDatasetMeta(0).data[index].x,
+        chart.getDatasetMeta(0).data[index].y,
+      );
+      ctx.lineTo(
+        chart.getDatasetMeta(0).data[index].x,
+        y.getPixelForValue(data.datasets[0].data[index].low),
+      );
+      ctx.stroke();
+    });
+  },
+};
+
 export const options = {
   responsive: true,
   parsing: {
     xAxisKey: 'id',
     yAxisKey: 'pair',
+  },
+  scales: {
+    y: {
+      beginAtZero: true,
+      grace: 50,
+    },
   },
   plugins: {
     legend: {
@@ -48,22 +94,22 @@ export const getdata = (palette: Palette) => {
             open: 100,
             close: 150,
             high: 160,
-            low: 120,
+            low: 80,
             pair: [100, 150],
           },
           {
             id: 2,
             open: 150,
             close: 180,
-            high: 160,
-            low: 120,
+            high: 210,
+            low: 145,
             pair: [150, 180],
           },
           {
             id: 3,
             open: 180,
             close: 250,
-            high: 160,
+            high: 260,
             low: 120,
             pair: [180, 250],
           },
@@ -71,7 +117,7 @@ export const getdata = (palette: Palette) => {
             id: 4,
             open: 250,
             close: 177,
-            high: 160,
+            high: 260,
             low: 120,
             pair: [250, 177],
           },
@@ -79,7 +125,7 @@ export const getdata = (palette: Palette) => {
             id: 5,
             open: 177,
             close: 133,
-            high: 160,
+            high: 180,
             low: 120,
             pair: [177, 133],
           },
@@ -88,32 +134,31 @@ export const getdata = (palette: Palette) => {
             open: 133,
             close: 80,
             high: 160,
-            low: 120,
+            low: 70,
             pair: [133, 80],
           },
           {
             id: 7,
             open: 80,
             close: 280,
-            high: 160,
-            low: 120,
+            high: 77,
+            low: 290,
             pair: [80, 180],
           },
         ],
-        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
         backgroundColor: (ctx: any) => {
-          console.log(ctx)
-
-          return ctx.raw.close > ctx.raw.open ? palette.success.main : (palette as Palette & SellBugProps).sell.main;
-        }
+          return ctx.raw.close > ctx.raw.open
+            ? palette.success.main
+            : (palette as Palette & SellBugProps).sell.main;
+        },
       },
     ],
-  }
-} ;
+  };
+};
 
 const CandleChart: React.FC = () => {
   const { palette } = useTheme();
-  return <Bar options={options} data={getdata(palette) as any} />;
+  return <Bar options={options} data={getdata(palette) as any} plugins={[candlestick]} />;
 };
 
 export default CandleChart;
