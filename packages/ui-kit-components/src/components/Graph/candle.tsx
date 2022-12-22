@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme, Palette } from '@mui/material';
+import { useTheme, Palette, SimplePaletteColorOptions } from '@mui/material';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +12,11 @@ import {
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
+interface SellBugProps {
+  sell: SimplePaletteColorOptions;
+  buy: SimplePaletteColorOptions;
+}
+
 export const options = {
   responsive: true,
   parsing: {
@@ -20,10 +25,10 @@ export const options = {
   },
   plugins: {
     legend: {
-      position: 'top' as const,
+      display: false,
     },
     title: {
-      display: true,
+      display: false,
       text: 'Chart.js Bar Chart',
     },
   },
@@ -31,7 +36,7 @@ export const options = {
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const getdata = () => {
+export const getdata = (palette: Palette) => {
   return {
     labels,
     datasets: [
@@ -95,7 +100,12 @@ export const getdata = () => {
             pair: [80, 180],
           },
         ],
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: (ctx: any) => {
+          console.log(ctx)
+
+          return ctx.raw.close > ctx.raw.open ? palette.success.main : (palette as Palette & SellBugProps).sell.main;
+        }
       },
     ],
   }
@@ -103,7 +113,7 @@ export const getdata = () => {
 
 const CandleChart: React.FC = () => {
   const { palette } = useTheme();
-  return <Bar options={options} data={data} />;
+  return <Bar options={options} data={getdata(palette) as any} />;
 };
 
 export default CandleChart;
