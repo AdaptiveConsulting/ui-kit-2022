@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { renderHook, RenderResult } from '@testing-library/react-hooks';
+import { renderHook, RenderResult } from '@testing-library/react';
 import { createTheme, ThemeProvider, Palette } from '@mui/material';
 import UseIsDarkMode from './useIsDarkMode';
 
 describe('Test UseIsDarkMode', () => {
   describe('Given the UseIsDarkMode hook', () => {
     describe('When the theme is dark', () => {
-      let res: RenderResult<boolean>;
+      let res: { current: boolean };
       beforeEach(() => {
         const theme = createTheme({
           palette: {
@@ -26,7 +26,7 @@ describe('Test UseIsDarkMode', () => {
     });
 
     describe('When the theme is light', () => {
-      let res: RenderResult<boolean>;
+      let res: { current: boolean };
       beforeEach(() => {
         const theme = createTheme({
           palette: {
