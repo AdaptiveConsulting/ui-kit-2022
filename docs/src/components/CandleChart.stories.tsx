@@ -52,4 +52,4 @@ CandleStory.args = {
   previousPrice: Math.random() * 150,
   currentPrice: defaultCurrentData,
   isUp: defaultCurrentData >= defaultGraphData[defaultGraphData.length - 2],
-}
+};
