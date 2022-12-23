@@ -24,6 +24,7 @@ storybook-static
 dist-ssr
 *.local
 package-lock.json
+coverage
 
 # Editor directories and files
 .vscode/*

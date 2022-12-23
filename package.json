@@ -27,7 +27,8 @@
     "clean": "rm -r ./dist; yarn workspaces foreach run clean",
     "release": "yarn build-lib && yarn changeset publish",
     "version": "yarn changeset version && yarn --mode=update-lockfile",
-    "test:unit": "yarn workspace @ui-kit-2022/components run test:unit && yarn workspace @ui-kit-2022/theme run test:unit"
+    "test:unit": "yarn workspace @ui-kit-2022/components run test:unit && yarn workspace @ui-kit-2022/theme run test:unit",
+    "test:coverage": "yarn workspace @ui-kit-2022/components run test:unit --coverage && yarn workspace @ui-kit-2022/theme run test:unit --coverage"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.0",
