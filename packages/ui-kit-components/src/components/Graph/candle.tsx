@@ -156,7 +156,25 @@ export const getdata = (palette: Palette) => {
   };
 };
 
-const CandleChart: React.FC = () => {
+export interface CandleChartProps {
+  xAxisStep: number;
+  yAxisStep: number;
+  dataset: number[];
+  labels: string[];
+  previousPrice: number;
+  currentPrice: number;
+  isUp: boolean;
+}
+
+const CandleChart: React.FC<CandleChartProps> = ({
+  dataset,
+  labels,
+  xAxisStep = 60,
+  yAxisStep = 50,
+  previousPrice = 0,
+  currentPrice = 0,
+  isUp,
+}) => {
   const { palette } = useTheme();
   return <Bar options={options} data={getdata(palette) as any} plugins={[candlestick]} />;
 };
