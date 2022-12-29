@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import { convertLabels } from './line-utils';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface SellBugProps {
@@ -82,70 +83,127 @@ export const options = {
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const getdata = (palette: Palette) => {
+export const getdata = (
+  data: number[],
+  labels: string[],
+  palette: Palette,
+  xAxisStep: number,
+) => {
+  const dataConverted = data.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / xAxisStep);
+
+    if (!resultArray[chunkIndex]) {
+      const arr: number[] = [];
+      resultArray[chunkIndex] = arr as never; // start a new chunk
+    }
+
+    (resultArray[chunkIndex] as number[]).push(item);
+
+    return resultArray;
+  }, []);
+
+  const dataStrutured = dataConverted.map((data, index) => {
+    const open = data[0];
+    const close = data[(data as number[]).length - 1];
+    return {
+      id: index,
+      open,
+      close,
+      high: Math.max(...(data as number[])),
+      low: Math.min(...(data as number[])),
+      pair: [open, close],
+    };
+  });
+
+  console.log("dataStructured", dataStrutured)
+
   return {
-    labels,
+    labels: convertLabels(labels, xAxisStep).filter((label) => label !== ''),
     datasets: [
       {
         label: 'Dataset 1',
-        data: [
-          {
-            id: 1,
-            open: 100,
-            close: 150,
-            high: 160,
-            low: 80,
-            pair: [100, 150],
-          },
-          {
-            id: 2,
-            open: 150,
-            close: 180,
-            high: 210,
-            low: 145,
-            pair: [150, 180],
-          },
-          {
-            id: 3,
-            open: 180,
-            close: 250,
-            high: 260,
-            low: 120,
-            pair: [180, 250],
-          },
-          {
-            id: 4,
-            open: 250,
-            close: 177,
-            high: 260,
-            low: 120,
-            pair: [250, 177],
-          },
-          {
-            id: 5,
-            open: 177,
-            close: 133,
-            high: 180,
-            low: 120,
-            pair: [177, 133],
-          },
-          {
-            id: 6,
-            open: 133,
-            close: 80,
-            high: 160,
-            low: 70,
-            pair: [133, 80],
-          },
-          {
-            id: 7,
-            open: 80,
-            close: 280,
-            high: 77,
-            low: 290,
-            pair: [80, 180],
-          },
-        ],
+        data: data.reduce((resultArray, item, index) => {
+          const chunkIndex = Math.floor(index / xAxisStep);
+      
+          if (!resultArray[chunkIndex]) {
+            const arr: number[] = [];
+            resultArray[chunkIndex] = arr as never; // start a new chunk
+          }
+      
+          (resultArray[chunkIndex] as number[]).push(item);
+      
+          return resultArray;
+        }, [])
+        .map((data, index) => {
+          const open = data[0];
+          const close = data[(data as number[]).length - 1];
+          return {
+            id: index + 1,
+            open,
+            close,
+            high: Math.max(...(data as number[])),
+            low: Math.min(...(data as number[])),
+            pair: [open, close],
+          };
+        }),
+        // data: [
+        //   {
+        //     id: 1,
+        //     open: 100,
+        //     close: 150,
+        //     high: 160,
+        //     low: 80,
+        //     pair: [100, 150],
+        //   },
+        //   {
+        //     id: 2,
+        //     open: 150,
+        //     close: 180,
+        //     high: 210,
+        //     low: 145,
+        //     pair: [150, 180],
+        //   },
+        //   {
+        //     id: 3,
+        //     open: 180,
+        //     close: 250,
+        //     high: 260,
+        //     low: 120,
+        //     pair: [180, 250],
+        //   },
+        //   {
+        //     id: 4,
+        //     open: 250,
+        //     close: 177,
+        //     high: 260,
+        //     low: 120,
+        //     pair: [250, 177],
+        //   },
+        //   {
+        //     id: 5,
+        //     open: 177,
+        //     close: 133,
+        //     high: 180,
+        //     low: 120,
+        //     pair: [177, 133],
+        //   },
+        //   {
+        //     id: 6,
+        //     open: 133,
+        //     close: 80,
+        //     high: 160,
+        //     low: 70,
+        //     pair: [133, 80],
+        //   },
+        //   {
+        //     id: 7,
+        //     open: 80,
+        //     close: 280,
+        //     high: 77,
+        //     low: 290,
+        //     pair: [80, 180],
+        //   },
+        // ],
         backgroundColor: (ctx: any) => {
           return ctx.raw.close > ctx.raw.open
             ? palette.success.main
@@ -176,7 +234,13 @@ const CandleChart: React.FC<CandleChartProps> = ({
   isUp,
 }) => {
   const { palette } = useTheme();
-  return <Bar options={options} data={getdata(palette) as any} plugins={[candlestick]} />;
+  return (
+    <Bar
+      options={options}
+      data={getdata(dataset, labels, palette, xAxisStep) as any}
+      plugins={[candlestick]}
+    />
+  );
 };
 
 export default CandleChart;
