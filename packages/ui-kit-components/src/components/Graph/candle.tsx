@@ -1,4 +1,4 @@
-import { Palette, SimplePaletteColorOptions, useTheme } from '@mui/material';
+import { Palette, SimplePaletteColorOptions, useTheme, alpha } from '@mui/material';
 import {
   BarElement,
   CategoryScale,
@@ -7,6 +7,7 @@ import {
   LinearScale,
   Title,
   Tooltip,
+  ScriptableScaleContext,
 } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
@@ -58,38 +59,124 @@ const candlestick = {
   },
 };
 
-export const options = {
-  responsive: true,
-  parsing: {
-    xAxisKey: 'id',
-    yAxisKey: 'pair',
-  },
-  scales: {
-    y: {
-      beginAtZero: true,
-      grace: 50,
-    },
-  },
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: false,
-      text: 'Chart.js Bar Chart',
-    },
-    tooltip: {
-      callbacks: {
-          label: function(context: any) {
-              const {open, close, high, low} = context.raw;
+interface PaperColorOption {
+  black: string;
+  white: string;
+}
 
-              const label = "open: " + open.toFixed(2) + '\n' + "close: " + close.toFixed(2) + "\n" + "high: " + high.toFixed(2) + "\n" + "low: " + low.toFixed(2) + "\n";
+interface PaperOption {
+  paper: PaperColorOption;
+}
 
-              return label;
-          }
-      }
-  }
-  },
+export const getOptions = (
+  dataset: number[],
+  labels: string[],
+  palette: Palette,
+  yAxisStep: number,
+  xAxisStep: number,
+  previousPrice: number,
+  currentPrice: number,
+  isUp: boolean,
+) => {
+  const max = Math.ceil(
+    Math.max(...(dataset.filter((num) => num !== undefined) as number[])),
+  );
+  const min = Math.floor(
+    Math.min(...(dataset.filter((num) => num !== undefined) as number[])),
+  );
+
+  return {
+    responsive: true,
+    parsing: {
+      xAxisKey: 'id',
+      yAxisKey: 'pair',
+    },
+    scales: {
+      y: {
+        // beginAtZero: true,
+        // grace: 50,
+        ticks: {
+          maxTicksLimit: dataset.length + 1,
+          stepSize: yAxisStep,
+          max: max,
+          min: min,
+          autoSkip: true,
+        },
+        grid: {
+          color: (ctx: ScriptableScaleContext) => {
+            if (ctx.tick.label === '') {
+              return 'rgba(0, 0, 0, 0)';
+            } else {
+              return palette.mode === 'light'
+                ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
+                : alpha((palette as Palette & PaperOption).paper.white, 0.2);
+            }
+          },
+        },
+      },
+      x: {
+        ticks: {
+          maxTicksLimit: labels.length + 1,
+          autoSkip: true,
+          maxRotation: 0,
+          minRotation: 0,
+        },
+        grid: {
+          drawOnChartArea: true,
+          tickColor: (ctx: ScriptableScaleContext) => {
+            if (ctx.tick?.label === '') {
+              return 'rgba(0, 0, 0, 0)';
+            } else {
+              return palette.mode === 'light'
+                ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
+                : alpha((palette as Palette & PaperOption).paper.white, 0.2);
+            }
+          },
+          color: (ctx: ScriptableScaleContext) => {
+            if (ctx.index === 0) {
+              return palette.mode === 'light'
+                ? alpha((palette as Palette & PaperOption).paper.black, 0.2)
+                : alpha((palette as Palette & PaperOption).paper.white, 0.2);
+            } else {
+              return 'rgba(0, 0, 0, 0)';
+            }
+          },
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+        text: 'Chart.js Bar Chart',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context: any) {
+            const { open, close, high, low } = context.raw;
+
+            const label =
+              'open: ' +
+              open.toFixed(2) +
+              '\n' +
+              'close: ' +
+              close.toFixed(2) +
+              '\n' +
+              'high: ' +
+              high.toFixed(2) +
+              '\n' +
+              'low: ' +
+              low.toFixed(2) +
+              '\n';
+
+            return label;
+          },
+        },
+      },
+    },
+  };
 };
 
 export const getdata = (
@@ -129,30 +216,31 @@ export const getdata = (
     datasets: [
       {
         label: 'Dataset 1',
-        data: data.reduce((resultArray, item, index) => {
-          const chunkIndex = Math.floor(index / xAxisStep);
-      
-          if (!resultArray[chunkIndex]) {
-            const arr: number[] = [];
-            resultArray[chunkIndex] = arr as never; // start a new chunk
-          }
-      
-          (resultArray[chunkIndex] as number[]).push(item);
-      
-          return resultArray;
-        }, [])
-        .map((data, index) => {
-          const open = data[0];
-          const close = data[(data as number[]).length - 1];
-          return {
-            id: index,
-            open,
-            close,
-            high: Math.max(...(data as number[])),
-            low: Math.min(...(data as number[])),
-            pair: [open, close],
-          };
-        }),
+        data: data
+          .reduce((resultArray, item, index) => {
+            const chunkIndex = Math.floor(index / xAxisStep);
+
+            if (!resultArray[chunkIndex]) {
+              const arr: number[] = [];
+              resultArray[chunkIndex] = arr as never; // start a new chunk
+            }
+
+            (resultArray[chunkIndex] as number[]).push(item);
+
+            return resultArray;
+          }, [])
+          .map((data, index) => {
+            const open = data[0];
+            const close = data[(data as number[]).length - 1];
+            return {
+              id: index,
+              open,
+              close,
+              high: Math.max(...(data as number[])),
+              low: Math.min(...(data as number[])),
+              pair: [open, close],
+            };
+          }),
         backgroundColor: (ctx: any) => {
           return ctx.raw.close > ctx.raw.open
             ? palette.success.main
@@ -185,7 +273,18 @@ const CandleChart: React.FC<CandleChartProps> = ({
   const { palette } = useTheme();
   return (
     <Bar
-      options={options}
+      options={
+        getOptions(
+          dataset,
+          labels,
+          palette,
+          yAxisStep,
+          xAxisStep,
+          previousPrice,
+          currentPrice,
+          isUp,
+        ) as any
+      }
       data={getdata(dataset, labels, palette, xAxisStep) as any}
       plugins={[candlestick]}
     />
