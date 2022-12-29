@@ -138,7 +138,7 @@ export const getdata = (
           const open = data[0];
           const close = data[(data as number[]).length - 1];
           return {
-            id: index + 1,
+            id: index,
             open,
             close,
             high: Math.max(...(data as number[])),
@@ -146,64 +146,6 @@ export const getdata = (
             pair: [open, close],
           };
         }),
-        // data: [
-        //   {
-        //     id: 1,
-        //     open: 100,
-        //     close: 150,
-        //     high: 160,
-        //     low: 80,
-        //     pair: [100, 150],
-        //   },
-        //   {
-        //     id: 2,
-        //     open: 150,
-        //     close: 180,
-        //     high: 210,
-        //     low: 145,
-        //     pair: [150, 180],
-        //   },
-        //   {
-        //     id: 3,
-        //     open: 180,
-        //     close: 250,
-        //     high: 260,
-        //     low: 120,
-        //     pair: [180, 250],
-        //   },
-        //   {
-        //     id: 4,
-        //     open: 250,
-        //     close: 177,
-        //     high: 260,
-        //     low: 120,
-        //     pair: [250, 177],
-        //   },
-        //   {
-        //     id: 5,
-        //     open: 177,
-        //     close: 133,
-        //     high: 180,
-        //     low: 120,
-        //     pair: [177, 133],
-        //   },
-        //   {
-        //     id: 6,
-        //     open: 133,
-        //     close: 80,
-        //     high: 160,
-        //     low: 70,
-        //     pair: [133, 80],
-        //   },
-        //   {
-        //     id: 7,
-        //     open: 80,
-        //     close: 280,
-        //     high: 77,
-        //     low: 290,
-        //     pair: [80, 180],
-        //   },
-        // ],
         backgroundColor: (ctx: any) => {
           return ctx.raw.close > ctx.raw.open
             ? palette.success.main

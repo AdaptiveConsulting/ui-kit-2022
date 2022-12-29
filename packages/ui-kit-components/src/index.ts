@@ -10,7 +10,7 @@ export { LogoText } from './components/Branding/LogoText';
 export type { ButtonProps, ButtonVariant } from './components/Button';
 export { Button } from './components/Button';
 export type { LineChartProps } from './components/Graph';
-export { BarChart, CandleChart, LineChart } from './components/Graph';
+export { BarChart, CandleChart, LineChart, Graph } from './components/Graph';
 export type { IndexTickersProps } from './components/IndexTickers';
 export { IndexTickers } from './components/IndexTickers';
 export type { PageNotFoundProps } from './components/PageNotFound';
