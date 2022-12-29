@@ -78,10 +78,19 @@ export const options = {
       display: false,
       text: 'Chart.js Bar Chart',
     },
+    tooltip: {
+      callbacks: {
+          label: function(context: any) {
+              const {open, close, high, low} = context.raw;
+
+              const label = "open: " + open.toFixed(2) + '\n' + "close: " + close.toFixed(2) + "\n" + "high: " + high.toFixed(2) + "\n" + "low: " + low.toFixed(2) + "\n";
+
+              return label;
+          }
+      }
+  }
   },
 };
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 export const getdata = (
   data: number[],
@@ -114,8 +123,6 @@ export const getdata = (
       pair: [open, close],
     };
   });
-
-  console.log("dataStructured", dataStrutured)
 
   return {
     labels: convertLabels(labels, xAxisStep).filter((label) => label !== ''),
