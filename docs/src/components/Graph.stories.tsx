@@ -10,8 +10,8 @@ export default {
       options: ['line', 'bar', 'candle'],
       defaultValue: 'line',
       control: { type: 'radio' },
-    }
-  }
+    },
+  },
 } as ComponentMeta<typeof Graph>;
 
 import Perlin from '../utils/perlin';
@@ -52,7 +52,7 @@ const data = labels.map(() => {
 const lineCurrentData = data[data.length - 1];
 
 ChartStory.args = {
-  chartName: "line",
+  chartName: 'line',
   xAxisStep: 60,
   yAxisStep: 100,
   labels: labels,

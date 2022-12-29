@@ -1,6 +1,7 @@
 import * as React from 'react';
-import CandleChart from './candle';
+
 import BarChart from './bar';
+import CandleChart from './candle';
 import LineChart from './line';
 
 type ChartName = 'line' | 'bar' | 'candle';

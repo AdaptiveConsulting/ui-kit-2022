@@ -1,16 +1,17 @@
-import { Palette, SimplePaletteColorOptions, useTheme, alpha } from '@mui/material';
+import { alpha, Palette, SimplePaletteColorOptions, useTheme } from '@mui/material';
 import {
   BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
   LinearScale,
+  ScriptableScaleContext,
   Title,
   Tooltip,
-  ScriptableScaleContext,
 } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+
 import { convertLabels } from './line-utils';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
