@@ -93,8 +93,6 @@ export const getOptions = (
     },
     scales: {
       y: {
-        // beginAtZero: true,
-        // grace: 50,
         ticks: {
           maxTicksLimit: dataset.length + 1,
           stepSize: yAxisStep,
