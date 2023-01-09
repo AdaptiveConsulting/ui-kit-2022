@@ -1,5 +1,7 @@
-import { Box, Button, ButtonGroup, Theme } from '@mui/material';
+import { Box, Button, ButtonGroup, Menu, MenuItem, Theme } from '@mui/material';
 import {
+  BarChart,
+  BarChartProps,
   Icon,
   LineChart,
   LineChartProps,
@@ -7,6 +9,7 @@ import {
   TextSearchOptionBase,
   TextSearchProps,
 } from '@ui-kit-2022/components';
+import { useRef, useState } from 'react';
 
 import AppBar from './components/AppBar';
 import KeyStatistics from './components/KeyStatistics';
@@ -63,16 +66,48 @@ const styles = {
 
 export interface ExamplePageProps<T extends TextSearchOptionBase> {
   // Need a way to import Types from the UI Kit to avoid having to make duplicate type defs
-  lineProps: LineChartProps;
+  graphProps: LineChartProps;
   tickerSearchProps: TextSearchProps<T>;
   loading?: boolean;
 }
 
+type GraphType = 'Line' | 'Bar';
+const graphTypes: Array<GraphType> = ['Line', 'Bar'];
+
+const graphTypeToIcon = (graphType: GraphType) => {
+  return { Line: Icon.Line, Bar: Icon.Bar }[graphType];
+};
+
+// TODO: The Props for the graphs should be unified into a single proptype.
+const linePropsToBarProps = (lineProps: LineChartProps): BarChartProps => ({
+  xAxisStep: lineProps.xLabelStep as number,
+  yAxisStep: lineProps.yLabelStep as number,
+  isUp: lineProps.isUp,
+  dataset: lineProps.data[0] as number[],
+  labels: lineProps.labels,
+  previousPrice: lineProps.previousData as number,
+  currentPrice: lineProps.currentData as number,
+});
+
 export default function ExamplePage<T extends TextSearchOptionBase>({
-  lineProps,
+  graphProps,
   tickerSearchProps,
   loading,
 }: ExamplePageProps<T>) {
+  const [graphType, setGraphType] = useState('Line' as GraphType);
+  const graphToggle = useRef(null);
+  const [graphToggleOpen, setGraphToggleOpen] = useState(false);
+  const clickGraphToggle = () => setGraphToggleOpen(true);
+  const closeGraphToggle = (event: React.MouseEvent<HTMLElement>) => {
+    const graphType = event.currentTarget.getAttribute('data-graph-type') as GraphType;
+    if (graphType) {
+      setGraphType(graphType);
+    }
+    setGraphToggleOpen(false);
+  };
+
+  const GraphIcon = graphTypeToIcon(graphType);
+
   return (
     <Box sx={styles.container}>
       <Box>
@@ -90,14 +125,38 @@ export default function ExamplePage<T extends TextSearchOptionBase>({
                   <Button key={label}>{label}</Button>
                 ))}
               </ButtonGroup>
-              <ButtonGroup variant="primary">
-                <Button>
-                  <Icon.Line />
-                  <Icon.ChevronDown />
-                </Button>
-              </ButtonGroup>
+              <Box sx={{ width: 50 }}>
+                <ButtonGroup variant="primary" ref={graphToggle}>
+                  <Button onClick={clickGraphToggle}>
+                    <GraphIcon />
+                    <Icon.ChevronDown />
+                  </Button>
+                </ButtonGroup>
+                <Menu
+                  open={graphToggleOpen}
+                  anchorEl={graphToggle.current}
+                  onClose={closeGraphToggle}
+                >
+                  {graphTypes.map((gtype) => {
+                    const GraphIcon = graphTypeToIcon(gtype);
+                    return (
+                      <MenuItem
+                        key={gtype}
+                        data-graph-type={gtype}
+                        onClick={closeGraphToggle}
+                      >
+                        <GraphIcon />
+                      </MenuItem>
+                    );
+                  })}
+                </Menu>
+              </Box>
             </Box>
-            <LineChart {...lineProps} loading={loading} />
+            {graphType === 'Line' ? (
+              <LineChart {...graphProps} loading={loading} />
+            ) : (
+              <BarChart {...linePropsToBarProps(graphProps)} />
+            )}
           </Box>
           <Box flex="1 0 auto" my={2}>
             <KeyStatistics keyStats={keyStats} loading={loading} />

@@ -43,7 +43,7 @@ const defaultGraphData = labels.map(() => {
 const defaultCurrentData = defaultGraphData[defaultGraphData.length - 1];
 
 StocksPage.args = {
-  lineProps: {
+  graphProps: {
     yLabelStep: 50,
     xLabelStep: 60,
     labels,
