@@ -5,8 +5,6 @@ export default {
     paper: ({ theme }: { theme: Theme }) => {
       const shadowColor = theme.palette.mode === 'light' ? '0' : '255';
       return {
-        minWidth: '100% !important',
-        left: '0 !important',
         backgroundColor: `${
           theme.palette.mode === 'light' ? 'white' : 'black'
         } !important`,
